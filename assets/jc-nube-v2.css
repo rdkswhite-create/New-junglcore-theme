@@ -162,15 +162,15 @@
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  filter: saturate(.9) contrast(1.04);
+  filter: grayscale(1) contrast(1.12) brightness(.84);
 }
 .jc-v2__film-shade {
   background: linear-gradient(180deg,
-    rgba(0,0,0,.28) 0%,
-    rgba(0,0,0,.02) 27%,
-    rgba(0,0,0,.13) 47%,
-    rgba(0,0,0,.50) 74%,
-    rgba(0,0,0,.86) 100%);
+    rgba(0,0,0,.31) 0%,
+    rgba(0,0,0,.03) 27%,
+    rgba(0,0,0,.17) 47%,
+    rgba(0,0,0,.61) 74%,
+    rgba(0,0,0,.92) 100%);
 }
 .jc-v2__film-logo {
   display: block;
@@ -217,8 +217,8 @@
   .jc-v2__film-bottom { bottom: 26px; }
   .jc-v2__film-shade {
     background: linear-gradient(180deg,
-      rgba(0,0,0,.27) 0%, transparent 25%,
-      rgba(0,0,0,.14) 46%, rgba(0,0,0,.5) 73%, rgba(0,0,0,.9) 100%);
+      rgba(0,0,0,.32) 0%, rgba(0,0,0,.03) 25%,
+      rgba(0,0,0,.19) 46%, rgba(0,0,0,.58) 73%, rgba(0,0,0,.92) 100%);
   }
   .jc-v2__film-top { font-size: 10px; }
   .jc-v2__film-bottomline { margin-top: 19px; }
