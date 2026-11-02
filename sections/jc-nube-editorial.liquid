@@ -22,7 +22,7 @@
 %}
 <div class="jc-home" id="jc-top">
   <header class="jc-nav" aria-label="JUNGLCORE">
-    <a class="jc-nav__brand" href="{{ routes.root_url }}" aria-label="Junglcore, inicio">JUNGLCORE</a>
+    <a class="jc-nav__brand" href="{{ routes.root_url }}" aria-label="Junglcore, inicio"><img class="jc-brand-image" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-black-wordmark.png?v=1793644514" alt="junglcore" width="918" height="231"></a>
     <nav class="jc-nav__links" aria-label="Navegación">
       <a href="#jc-nube-product">NUBE</a>
       <a href="#jc-how">CÓMO FUNCIONA</a>
@@ -41,9 +41,9 @@
       {% endif %}
     </div>
     <div class="jc-hero__shade" aria-hidden="true"></div>
-    <div class="jc-hero__topline"><span>COLOMBIA / 001</span><span>NUBE — BEBIDA VEGETAL</span></div>
+    <div class="jc-hero__topline"><span>UNA NUEVA FORMA DE TOMAR VEGETAL</span><span>NUBE / COLOMBIA</span></div>
     <div class="jc-hero__bottom">
-      <h1 id="jc-hero-title" class="jc-hero__wordmark">JUNGLCORE</h1>
+      <h1 id="jc-hero-title" class="jc-hero__wordmark"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-black-wordmark.png?v=1793644514" alt="junglcore" width="918" height="231" fetchpriority="high"></h1>
       <div class="jc-hero__subline">
         <span>NO VIENE EN CAJA.</span>
         <a href="#jc-nube-product" aria-label="Conocer NUBE">DESCUBRE NUBE <span aria-hidden="true">↗</span></a>
@@ -95,7 +95,7 @@
         {% if jc_pack != blank %}
           {{ jc_pack | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '480, 750, 1200, 1600', alt: 'JUNGLCORE NUBE, empaque del producto' }}
         {% else %}
-          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-pouch-original.jpg?v=1793638193" alt="JUNGLCORE NUBE, empaque blanco original" loading="lazy" width="1254" height="1254">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-hero-pouch-2026.png?v=1793644521" alt="Bolsa JUNGLCORE NUBE, diseño blanco con logo negro y nombre NUBE" loading="lazy" width="660" height="724">
         {% endif %}
       </div>
       <div class="jc-product__info">
@@ -130,9 +130,49 @@
     <a class="jc-outro__link" href="#jc-nube-product">CONOCE NUBE <span aria-hidden="true">↗</span></a>
   </section>
 
+  <section class="jc-more jc-width" id="jc-more" aria-labelledby="jc-more-title">
+    <div class="jc-more__heading">
+      <p class="jc-kicker">05 / EL UNIVERSO JUNGLCORE</p>
+      <h2 id="jc-more-title">HAY MÁS.</h2>
+      <p>Una semilla, distintas formas de llevarla a tu mesa.</p>
+    </div>
+    <div class="jc-more__grid">
+      <article class="jc-more__product">
+        <div class="jc-more__visual">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-white-pouch-2026.png?v=1793644530" alt="JUNGLCORE ONE, harina de sacha inchi en bolsa blanca" width="660" height="724" loading="lazy">
+        </div>
+        <div class="jc-more__description">
+          <div>
+            <p class="jc-kicker">JUNGLCORE / 002</p>
+            <h3>ONE</h3>
+            <p>Harina de sacha inchi. Proteína y fibra de una misma semilla.</p>
+          </div>
+          {% if section.settings.one_product != blank %}
+            <a class="jc-more__link" href="{{ section.settings.one_product.url }}">VER ONE <span aria-hidden="true">↗</span></a>
+          {% endif %}
+        </div>
+      </article>
+      <article class="jc-more__product">
+        <div class="jc-more__visual">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-oil-white-bottle-2026.png?v=1793644538" alt="JUNGLCORE OIL, botella blanca de aceite de sacha inchi" width="660" height="724" loading="lazy">
+        </div>
+        <div class="jc-more__description">
+          <div>
+            <p class="jc-kicker">JUNGLCORE / 003</p>
+            <h3>OIL</h3>
+            <p>Aceite de sacha inchi. Prensado en frío.</p>
+          </div>
+          {% if section.settings.oil_product != blank %}
+            <a class="jc-more__link" href="{{ section.settings.oil_product.url }}">VER OIL <span aria-hidden="true">↗</span></a>
+          {% endif %}
+        </div>
+      </article>
+    </div>
+  </section>
+
   <footer class="jc-footer jc-width">
-    <span class="jc-footer__logo">JUNGLCORE</span>
-    <span>HECHO DE AQUÍ.</span>
+    <span class="jc-footer__logo"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-black-wordmark.png?v=1793644514" alt="junglcore" width="918" height="231" loading="lazy"></span>
+    <span>HECHO DE AQUÍ. PARA LO QUE VIENE.</span>
     <a href="{{ routes.root_url }}">VOLVER ARRIBA ↑</a>
   </footer>
 </div>
@@ -261,6 +301,37 @@
     .jc-footer__logo { width: 100%; font-size: 30px; margin-bottom: 15px; }
   }
   @media (prefers-reduced-motion: reduce) { .jc-button { transition: none; } }
+
+  /* Editorial identity: exact approved lowercase artwork, spacious product naming */
+  .jc-brand-image { width: clamp(128px, 13vw, 174px); height: auto; display: block; }
+  .jc-hero__wordmark { width: min(84vw, 1090px); max-width: 100%; margin: 0 auto; font-size: inherit; line-height: 1; }
+  .jc-hero__wordmark img { display: block; width: 100%; height: auto; filter: invert(1); }
+  .jc-footer__logo img { display: block; width: 180px; max-width: 100%; height: auto; }
+  .jc-home .jc-intro h2, .jc-home .jc-outro h2 { letter-spacing: 0; word-spacing: normal; overflow-wrap: break-word; }
+  .jc-home .jc-intro h2 em { font-weight: 420; }
+  .jc-home .jc-product__visual img { width: 100%; max-width: 565px; height: auto; }
+  .jc-more { padding-block: clamp(85px, 11vw, 155px) clamp(85px, 10vw, 145px); }
+  .jc-more__heading { border-top: 1px solid var(--jc-ink); padding-top: 22px; }
+  .jc-more__heading h2 { font-size: clamp(46px, 7vw, 100px); line-height: 1.1; margin: 28px 0 14px; font-weight: 720; letter-spacing: 0; }
+  .jc-more__heading > p:last-child { color: #595959; font-size: clamp(15px, 1.5vw, 20px); font-weight: 350; line-height: 1.6; }
+  .jc-more__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; margin-top: 44px; }
+  .jc-more__product { min-width: 0; }
+  .jc-more__visual { background: #f7f7f6; overflow: hidden; }
+  .jc-more__visual img { display: block; width: 100%; height: auto; aspect-ratio: 660 / 724; object-fit: contain; }
+  .jc-more__description { display: flex; justify-content: space-between; gap: 20px; padding-top: 26px; border-top: 1px solid var(--jc-ink); }
+  .jc-more__description h3 { font-size: clamp(30px, 3.2vw, 50px); font-weight: 600; letter-spacing: .10em; line-height: 1.2; margin: 18px 0 12px; }
+  .jc-more__description p:not(.jc-kicker) { color: #595959; font-size: 15px; max-width: 300px; line-height: 1.6; }
+  .jc-more__link { align-self: flex-end; white-space: nowrap; font-size: 11px; letter-spacing: .14em; border-bottom: 1px solid var(--jc-ink); padding-bottom: 5px; }
+  @media(max-width:749px) {
+    .jc-nav__brand { min-width: 0; }
+    .jc-brand-image { width: 126px; }
+    .jc-hero__wordmark { width: 91vw; }
+    .jc-more__heading h2 { font-size: 52px; }
+    .jc-more__grid { display: block; }
+    .jc-more__product + .jc-more__product { margin-top: 66px; }
+    .jc-more__description { padding-top: 18px; }
+    .jc-more__description h3 { margin: 14px 0 8px; }
+  }
 {% endstyle %}
 
 {% schema %}
@@ -279,6 +350,8 @@
     {"type":"select","id":"order_mode","label":"Cómo pedir","options":[{"value":"whatsapp","label":"WhatsApp — entrega Bogotá"},{"value":"product","label":"Página de producto Shopify"}],"default":"whatsapp"},
     {"type":"text","id":"whatsapp_number","label":"WhatsApp con código de país, sin +","default":"573011571039"},
     {"type":"text","id":"whatsapp_message","label":"Mensaje predefinido WhatsApp","default":"Hola, quiero pedir JUNGLCORE NUBE en Bogotá."},
+    {"type":"product","id":"one_product","label":"Producto ONE (opcional; vincula cuando esté listo)"},
+    {"type":"product","id":"oil_product","label":"Producto OIL (opcional; vincula cuando esté listo)"},
     {"type":"header","content":"Valores de etiqueta — confirmar antes de publicar"},
     {"type":"text","id":"protein_value","label":"Proteína por tab","default":"6,3 g"},
     {"type":"text","id":"fibre_value","label":"Fibra por tab","default":"1,4 g"}
