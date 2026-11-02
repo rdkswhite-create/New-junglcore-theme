@@ -101,13 +101,13 @@
     <section class="jc-v2__comparison jc-v2__frame" id="jc-v2-comparison" aria-labelledby="jc-v2-comparison-heading">
       <div class="jc-v2__chapter jc-v2__chapter--rule"><span>03</span><span>COMPARACIÓN NUTRICIONAL</span></div>
       <h2 id="jc-v2-comparison-heading">¿QUÉ HAY EN TU BEBIDA VEGETAL?</h2>
-      <p class="jc-v2__comparison-lead">Dos bebidas vegetales. Una comparación transparente.</p>
+      <p class="jc-v2__comparison-lead">Datos por preparación indicada; no son dos bebidas de volumen final equivalente.</p>
       <div class="jc-v2__comparison-scroll" role="region" aria-label="Comparación entre NUBE y bebida de almendra" tabindex="0">
         <table class="jc-v2__comparison-table">
           <thead>
             <tr>
-              <th scope="col">POR PREPARACIÓN</th>
-              <th scope="col"><strong>NUBE</strong><span>1 tab + 200 ml de agua</span></th>
+              <th scope="col">DATOS POR PREPARACIÓN</th>
+              <th scope="col"><strong>NUBE</strong><span>1 tab preparado con 200 ml de agua</span></th>
               <th scope="col"><strong>ALMENDRA SIN AZÚCAR</strong><span>Nature's Heart · 200 ml</span></th>
             </tr>
           </thead>
@@ -120,8 +120,8 @@
         </table>
       </div>
       <div class="jc-v2__comparison-notes">
-        <p>† Datos provisionales por tab de NUBE; pendientes de análisis del producto final. Una tab con 200 ml de agua puede dar un volumen final superior a 200 ml. Las preparaciones no equivalen necesariamente a dos vasos de igual volumen.</p>
-        <p>*Estimación de omega-3 ALA: 0,7 g de grasa por tab × 48,2 % de ALA, composición de referencia del aceite de sacha inchi. No es un análisis de NUBE terminado. «No declarado» significa que Nature's Heart no indica omega-3 en su etiqueta, no que contenga cero.</p>
+        <p>† Valores provisionales de NUBE por 1 tab, sin confirmación de laboratorio del producto terminado. Una preparación con 200 ml de agua puede superar 200 ml de volumen final: esta tabla no compara iguales volúmenes y no debe interpretarse como superioridad por 200 ml.</p>
+        <p>*Estimación de omega-3 ALA: 0,7 g de grasa por tab × aproximadamente 48 % de ALA según referencias sobre aceite de sacha inchi. No es un análisis de NUBE terminado. «No declarado» significa que la etiqueta de Nature's Heart no informa omega-3; no significa cero.</p>
         <p>Nature's Heart: información nutricional del producto colombiano Almendra Sin Azúcar, por 200 ml. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-beb-alm-sazr-12x946ml-co" target="_blank" rel="noopener noreferrer">Consultar etiqueta y fuente ↗</a></p>
       </div>
     </section>
@@ -180,10 +180,52 @@
     </div>
   </section>
 
-  <footer class="jc-v2__footer jc-v2__frame">
-    <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" alt="junglcore" width="1377" height="369" loading="lazy">
-    <span>COLOMBIA / DE AQUÍ</span>
-    <a href="#jc-v2-nube">VOLVER A NUBE ↑</a>
+  <section class="jc-v2__faq jc-v2__frame" id="jc-v2-faq" aria-labelledby="jc-v2-faq-title">
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>{% if section.settings.show_nutrition_comparison %}06{% else %}05{% endif %}</span><span>PREGUNTAS FRECUENTES</span></div>
+    <h2 id="jc-v2-faq-title">LO ESENCIAL.</h2>
+    <details><summary>¿Cómo se prepara NUBE?<span aria-hidden="true">+</span></summary><p>Saca un tab del congelador, añade 150 ml de agua para una bebida espesa o 200 ml para una bebida más ligera y licúa durante 30 segundos.</p></details>
+    <details><summary>¿Cómo se conserva?<span aria-hidden="true">+</span></summary><p>NUBE es un producto congelado. Consérvalo en el congelador y sigue las instrucciones de conservación de su envase.</p></details>
+    <details><summary>¿Dónde entregan?<span aria-hidden="true">+</span></summary><p>Las entregas iniciales de NUBE se coordinan directamente en Bogotá para mantener la cadena de frío. Contáctanos antes de hacer tu pedido.</p></details>
+  </section>
+
+  <footer class="jc-v2__footer" aria-label="Información de JUNGLCORE">
+    <div class="jc-v2__footer-inner jc-v2__frame">
+      <div class="jc-v2__footer-brand">
+        <a href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" alt="junglcore" width="1377" height="369" loading="lazy"></a>
+        <p>De una semilla colombiana. Para nuevas formas de comer y beber.</p>
+        <p class="jc-v2__footer-location">COLOMBIA · HECHO DE AQUÍ</p>
+      </div>
+      <nav class="jc-v2__footer-nav" aria-label="JUNGLCORE">
+        <h3>JUNGLCORE</h3>
+        <a href="#jc-v2-nube">NUBE</a>
+        <a href="#jc-v2-collection">ONE Y OIL</a>
+        <a href="#jc-v2-manifesto-heading">Nuestra historia</a>
+      </nav>
+      <nav class="jc-v2__footer-nav" aria-label="Ayuda y contacto">
+        <h3>AYUDA</h3>
+        <a href="#jc-v2-ritual">Cómo preparar NUBE</a>
+        <a href="#jc-v2-faq">Preguntas frecuentes</a>
+        {% if section.settings.contact_email != blank %}<a href="mailto:{{ section.settings.contact_email | escape }}">Contacto</a>{% endif %}
+        <a href="#jc-v2-faq">Envíos y entregas</a>
+      </nav>
+      <nav class="jc-v2__footer-nav" aria-label="Legal">
+        <h3>LEGAL</h3>
+        {% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Términos y condiciones</a>{% endif %}
+        {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Política de privacidad</a>{% endif %}
+        {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Cambios y devoluciones</a>{% endif %}
+        {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Política de envíos</a>{% endif %}
+      </nav>
+    </div>
+    <div class="jc-v2__footer-bottom jc-v2__frame">
+      <div class="jc-v2__footer-company">
+        {% if section.settings.legal_name != blank %}<span>{{ section.settings.legal_name | escape }}</span>{% endif %}
+        {% if section.settings.legal_nit != blank %}<span>NIT: {{ section.settings.legal_nit | escape }}</span>{% endif %}
+        {% if section.settings.legal_address != blank %}<span>{{ section.settings.legal_address | escape }}</span>{% endif %}
+        {% if section.settings.contact_phone != blank %}<span>Tel: {{ section.settings.contact_phone | escape }}</span>{% endif %}
+        {% if section.settings.contact_email != blank %}<a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a>{% endif %}
+      </div>
+      <a class="jc-v2__backtop" href="#jc-v2-nube">VOLVER ARRIBA ↑</a>
+    </div>
   </footer>
 </div>
 
@@ -205,7 +247,13 @@
     {"type":"text","id":"protein_value","label":"Proteína por tab (confirmar)","default":"6,3 g"},
     {"type":"text","id":"fibre_value","label":"Fibra por tab (confirmar)","default":"1,4 g"},
     {"type":"header","content":"Comparación nutricional"},
-    {"type":"checkbox","id":"show_nutrition_comparison","label":"Mostrar comparación pública (solo tras verificación)","default":false},
+    {"type":"checkbox","id":"show_nutrition_comparison","label":"Mostrar tabla referencial (NUBE pendiente de laboratorio)","default":true},
+    {"type":"header","content":"Datos de contacto y empresa"},
+    {"type":"text","id":"contact_email","label":"Email de contacto","default":"hola@junglcore.com"},
+    {"type":"text","id":"contact_phone","label":"Teléfono comercial"},
+    {"type":"text","id":"legal_name","label":"Razón social"},
+    {"type":"text","id":"legal_nit","label":"NIT"},
+    {"type":"text","id":"legal_address","label":"Dirección de notificación"},
     {"type":"header","content":"La colección"},
     {"type":"image_picker","id":"one_image","label":"Foto de ONE"},
     {"type":"image_picker","id":"oil_image","label":"Foto de OIL"},
