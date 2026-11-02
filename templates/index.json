@@ -1,18 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "jc_nube_editorial": {
-      "type": "jc-nube-editorial",
+    "jc_nube_v2": {
+      "type": "jc-nube-v2",
       "settings": {
-        "hero_poster": "",
         "order_mode": "whatsapp",
         "whatsapp_number": "573011571039",
         "whatsapp_message": "Hola, quiero pedir JUNGLCORE NUBE en Bogotá.",
@@ -22,6 +12,6 @@
     }
   },
   "order": [
-    "jc_nube_editorial"
+    "jc_nube_v2"
   ]
 }
