@@ -1,0 +1,183 @@
+{% comment %}
+  JUNGLCORE / NUBE — second editorial homepage.
+  Designed around the board-approved hierarchy:
+  1. preparation film, 2. the hero product, 3. ritual,
+  4. brand idea, 5. secondary ONE and OIL.
+  Product images are approved mockup photographs; they can be replaced
+  with original final images via the Shopify Theme Editor.
+{% endcomment %}
+{{ 'jc-nube-v2.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign selected_nube = section.settings.nube_product
+  assign selected_one = section.settings.one_product
+  assign selected_oil = section.settings.oil_product
+  assign message = section.settings.whatsapp_message | url_encode
+  assign contact = 'https://wa.me/' | append: section.settings.whatsapp_number | append: '?text=' | append: message
+  assign order_url = contact
+  assign order_label = 'PEDIR NUBE'
+  if section.settings.order_mode == 'product' and selected_nube != blank
+    assign order_url = selected_nube.url
+    assign order_label = 'VER NUBE'
+  endif
+%}
+
+<div class="jc-v2">
+  <header class="jc-v2__header" aria-label="Junglcore">
+    <a class="jc-v2__header-logo" href="{{ routes.root_url }}" aria-label="junglcore inicio">
+      <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-wordmark-crisp-4096.png?v=1793645370" alt="junglcore" width="4096" height="1031" loading="eager">
+    </a>
+    <nav class="jc-v2__header-links" aria-label="Navegación">
+      <a href="#jc-v2-nube">NUBE</a>
+      <a href="#jc-v2-ritual">CÓMO FUNCIONA</a>
+      <a href="#jc-v2-collection">PRODUCTOS</a>
+    </nav>
+    <a class="jc-v2__header-order" href="#jc-v2-nube">EXPLORAR <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <section class="jc-v2__film" aria-label="Preparación de NUBE">
+    <div class="jc-v2__film-media">
+      {% if section.settings.hero_video != blank %}
+        {{ section.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'jc-v2__film-picture' }}
+      {% elsif section.settings.hero_image != blank %}
+        {{ section.settings.hero_image | image_url: width: 2200 | image_tag: class: 'jc-v2__film-picture', loading: 'eager', fetchpriority: 'high', alt: 'Preparación de NUBE en licuadora' }}
+      {% else %}
+        <img class="jc-v2__film-picture" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-hero-loop.gif?v=1793638851" alt="Preparación de JUNGLCORE NUBE en una licuadora" width="430" height="765" loading="eager" fetchpriority="high">
+      {% endif %}
+    </div>
+    <div class="jc-v2__film-shade" aria-hidden="true"></div>
+    <div class="jc-v2__film-top"><span>NUBE / COLOMBIA</span><span>UNA NUEVA FORMA DE PREPARAR TU BEBIDA VEGETAL</span></div>
+    <div class="jc-v2__film-bottom">
+      <img class="jc-v2__film-logo" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-wordmark-crisp-4096.png?v=1793645370" alt="junglcore" width="4096" height="1031" fetchpriority="high">
+      <div class="jc-v2__film-bottomline">
+        <span>NUBE. UNA BEBIDA VEGETAL DIFERENTE.</span>
+        <a href="#jc-v2-nube">DESCUBRIR <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="jc-v2__nube" id="jc-v2-nube" aria-labelledby="jc-v2-nube-heading">
+    <div class="jc-v2__frame">
+      <div class="jc-v2__chapter"><span>01</span><span>EL PRODUCTO</span></div>
+      <div class="jc-v2__nube-photo">
+        {% if section.settings.nube_image != blank %}
+          {{ section.settings.nube_image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '360, 640, 960, 1280, 1600', alt: 'Bolsa JUNGLCORE NUBE' }}
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-hero-pouch-2026.png?v=1793644521" alt="JUNGLCORE NUBE, bolsa blanca con la marca junglcore en minúsculas" width="660" height="724" loading="eager">
+        {% endif %}
+      </div>
+      <div class="jc-v2__nube-identity">
+        <p class="jc-v2__eyebrow">BASE CONGELADA DE SACHA INCHI</p>
+        <h1 id="jc-v2-nube-heading">NUBE</h1>
+        <p class="jc-v2__nube-lead">Tu bebida vegetal empieza en el congelador.</p>
+        <p class="jc-v2__nube-copy">Un cubo de sacha inchi. Añade agua, licúa y prepara tu bebida cuando quieras. Tres ingredientes: pasta de sacha inchi, agua y goma gelana.</p>
+        <div class="jc-v2__nube-facts">
+          <div><strong>{{ section.settings.protein_value | escape }}</strong><span>PROTEÍNA POR TAB*</span></div>
+          <div><strong>{{ section.settings.fibre_value | escape }}</strong><span>FIBRA POR TAB*</span></div>
+          <div><strong>3</strong><span>INGREDIENTES</span></div>
+        </div>
+        <div class="jc-v2__nube-actions">
+          <a class="jc-v2__button" href="{{ order_url | strip | escape }}">{{ order_label }} <span aria-hidden="true">↗</span></a>
+          <a class="jc-v2__textlink" href="#jc-v2-ritual">CÓMO FUNCIONA <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="jc-v2__fineprint">*Valores de la propuesta de etiqueta; confirmar con el análisis del producto final antes de publicar. Mantener congelado. Entregas iniciales en Bogotá.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="jc-v2__ritual jc-v2__frame" id="jc-v2-ritual" aria-labelledby="jc-v2-ritual-heading">
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>02</span><span>EL RITUAL</span></div>
+    <h2 id="jc-v2-ritual-heading">UN CUBO.<br>AGUA.<br>LICUADORA.</h2>
+    <div class="jc-v2__ritual-grid">
+      <div><span>01</span><h3>SACA</h3><p>Un cubo del congelador.</p></div>
+      <div><span>02</span><h3>AÑADE</h3><p>Agua a la licuadora.</p></div>
+      <div><span>03</span><h3>LICÚA</h3><p>Una bebida recién preparada.</p></div>
+    </div>
+  </section>
+
+  <section class="jc-v2__manifesto" aria-labelledby="jc-v2-manifesto-heading">
+    <div class="jc-v2__frame">
+      <div class="jc-v2__chapter"><span>03</span><span>NUESTRA IDEA</span></div>
+      <h2 id="jc-v2-manifesto-heading">SER VEGETAL<br>NO ES<br>SUFICIENTE.</h2>
+      <div class="jc-v2__manifesto-bottom">
+        <p>La comida tiene que alimentar. Por eso empezamos por una semilla, no por una lista interminable de ingredientes.</p>
+        <p>La sacha inchi se cultiva en Colombia. NUBE es una forma distinta de llevarla a tu mesa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="jc-v2__collection jc-v2__frame" id="jc-v2-collection" aria-labelledby="jc-v2-collection-heading">
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>04</span><span>LA COLECCIÓN</span></div>
+    <h2 id="jc-v2-collection-heading">MÁS DE<br>JUNGLCORE.</h2>
+    <p class="jc-v2__collection-lead">Una semilla. Distintas posibilidades.</p>
+    <div class="jc-v2__collection-grid">
+      <article class="jc-v2__collection-card">
+        <div class="jc-v2__collection-photo">
+          {% if section.settings.one_image != blank %}
+            {{ section.settings.one_image | image_url: width: 1300 | image_tag: loading: 'lazy', widths: '350, 650, 1000, 1300', alt: 'JUNGLCORE ONE' }}
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-white-pouch-2026.png?v=1793644530" alt="JUNGLCORE ONE, harina de sacha inchi en bolsa blanca" width="660" height="724" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="jc-v2__collection-body">
+          <div><h3>ONE</h3><p>Harina de sacha inchi. Proteína y fibra de una misma semilla.</p></div>
+          {% if selected_one != blank %}
+            <a href="{{ selected_one.url }}">VER ONE ↗</a>
+          {% else %}
+            <span>PRÓXIMAMENTE</span>
+          {% endif %}
+        </div>
+      </article>
+      <article class="jc-v2__collection-card">
+        <div class="jc-v2__collection-photo">
+          {% if section.settings.oil_image != blank %}
+            {{ section.settings.oil_image | image_url: width: 1300 | image_tag: loading: 'lazy', widths: '350, 650, 1000, 1300', alt: 'JUNGLCORE OIL' }}
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-oil-white-bottle-2026.png?v=1793644538" alt="JUNGLCORE OIL, aceite de sacha inchi en botella blanca" width="660" height="724" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="jc-v2__collection-body">
+          <div><h3>OIL</h3><p>Aceite de sacha inchi, prensado en frío.</p></div>
+          {% if selected_oil != blank %}
+            <a href="{{ selected_oil.url }}">VER OIL ↗</a>
+          {% else %}
+            <span>PRÓXIMAMENTE</span>
+          {% endif %}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="jc-v2__footer jc-v2__frame">
+    <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-wordmark-crisp-4096.png?v=1793645370" alt="junglcore" width="4096" height="1031" loading="lazy">
+    <span>COLOMBIA / DE AQUÍ</span>
+    <a href="#jc-v2-nube">VOLVER A NUBE ↑</a>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "Junglcore NUBE V2",
+  "tag": "section",
+  "class": "jc-v2-section",
+  "settings": [
+    {"type":"header","content":"Apertura y vídeo"},
+    {"type":"video","id":"hero_video","label":"Vídeo de preparación (MP4 desde Shopify)"},
+    {"type":"image_picker","id":"hero_image","label":"Imagen de portada (opcional)"},
+    {"type":"header","content":"NUBE"},
+    {"type":"image_picker","id":"nube_image","label":"Fotografía final del pouch NUBE"},
+    {"type":"product","id":"nube_product","label":"Producto NUBE"},
+    {"type":"select","id":"order_mode","label":"Botón principal","options":[{"value":"whatsapp","label":"Pedir por WhatsApp"},{"value":"product","label":"Ir al producto Shopify"}],"default":"whatsapp"},
+    {"type":"text","id":"whatsapp_number","label":"WhatsApp (sin +)","default":"573011571039"},
+    {"type":"text","id":"whatsapp_message","label":"Mensaje WhatsApp","default":"Hola, quiero pedir JUNGLCORE NUBE en Bogotá."},
+    {"type":"text","id":"protein_value","label":"Proteína por tab (confirmar)","default":"6,3 g"},
+    {"type":"text","id":"fibre_value","label":"Fibra por tab (confirmar)","default":"1,4 g"},
+    {"type":"header","content":"La colección"},
+    {"type":"image_picker","id":"one_image","label":"Foto de ONE"},
+    {"type":"image_picker","id":"oil_image","label":"Foto de OIL"},
+    {"type":"product","id":"one_product","label":"Producto ONE (cuando esté listo)"},
+    {"type":"product","id":"oil_product","label":"Producto OIL (cuando esté listo)"}
+  ],
+  "presets":[{"name":"Junglcore NUBE V2"}]
+}
+{% endschema %}
