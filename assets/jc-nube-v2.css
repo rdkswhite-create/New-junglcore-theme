@@ -121,3 +121,105 @@
   .jc-v2__footer img { width:160px; flex-basis:100%; margin-bottom:12px; }
 }
 @media (prefers-reduced-motion:reduce) { .jc-v2__button { transition:none; } }
+
+
+/* v2.1 — precise approved vector logo and responsive NUBE film.
+   Keep the logo as an SVG image, not simulated with website typography.
+   The 16:9 original fills desktop; the previous 9:16 portrait fills mobile. */
+.jc-v2__header-logo {
+  width: clamp(164px, 16vw, 214px);
+  min-width: 0;
+}
+.jc-v2__header-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+}
+.jc-v2__film {
+  height: min(78svh, 830px);
+  min-height: 500px;
+  background: #111;
+}
+.jc-v2__film-media {
+  display: block;
+  background: #111;
+}
+.jc-v2__film-responsive {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.jc-v2__film-picture,
+.jc-v2__film-responsive .jc-v2__film-picture {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(.9) contrast(1.04);
+}
+.jc-v2__film-shade {
+  background: linear-gradient(180deg,
+    rgba(0,0,0,.28) 0%,
+    rgba(0,0,0,.02) 27%,
+    rgba(0,0,0,.13) 47%,
+    rgba(0,0,0,.50) 74%,
+    rgba(0,0,0,.86) 100%);
+}
+.jc-v2__film-logo {
+  display: block;
+  width: min(79%, 950px);
+  height: auto;
+  max-height: 28svh;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 16px rgba(0,0,0,.36));
+  image-rendering: auto;
+  margin-inline: auto;
+}
+.jc-v2__film-bottom {
+  bottom: clamp(20px, 3vw, 38px);
+}
+.jc-v2__film-bottomline {
+  margin-top: 16px;
+  color: #fff;
+}
+.jc-v2__footer img {
+  image-rendering: auto;
+}
+@media (min-width: 750px) {
+  .jc-v2__film-picture,
+  .jc-v2__film-responsive .jc-v2__film-picture {
+    object-position: center 46%;
+  }
+}
+@media (max-width: 749px) {
+  .jc-v2__header-logo { width: 151px; min-width: 0; }
+  .jc-v2__film {
+    height: 78svh;
+    min-height: 510px;
+    max-height: 850px;
+  }
+  .jc-v2__film-picture,
+  .jc-v2__film-responsive .jc-v2__film-picture {
+    object-fit: cover;
+    object-position: center 46%;
+  }
+  .jc-v2__film-logo {
+    width: 94%;
+    max-height: none;
+  }
+  .jc-v2__film-bottom { bottom: 26px; }
+  .jc-v2__film-shade {
+    background: linear-gradient(180deg,
+      rgba(0,0,0,.27) 0%, transparent 25%,
+      rgba(0,0,0,.14) 46%, rgba(0,0,0,.5) 73%, rgba(0,0,0,.9) 100%);
+  }
+  .jc-v2__film-top { font-size: 10px; }
+  .jc-v2__film-bottomline { margin-top: 19px; }
+}
