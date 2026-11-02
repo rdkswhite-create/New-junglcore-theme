@@ -1,10 +1,9 @@
 {% comment %}
-  JUNGLCORE / NUBE — second editorial homepage.
-  Designed around the board-approved hierarchy:
-  1. preparation film, 2. the hero product, 3. ritual,
-  4. brand idea, 5. secondary ONE and OIL.
-  Product images are approved mockup photographs; they can be replaced
-  with original final images via the Shopify Theme Editor.
+  JUNGLCORE NUBE editorial home.
+  Sharp square-dot logo SVG assets; 16:9 preparation loop on desktop and
+  portrait original on mobile. Shopify trial cannot accept native MP4 uploads,
+  so animated WebP loops are used until native video media is enabled.
+  A Shopify-hosted video selected in the theme editor still takes precedence.
 {% endcomment %}
 {{ 'jc-nube-v2.css' | asset_url | stylesheet_tag }}
 
@@ -25,7 +24,7 @@
 <div class="jc-v2">
   <header class="jc-v2__header" aria-label="Junglcore">
     <a class="jc-v2__header-logo" href="{{ routes.root_url }}" aria-label="junglcore inicio">
-      <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-wordmark-vector.svg?v=1793645580" alt="junglcore" width="918" height="231" loading="eager">
+      <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-official-square-dot-black.svg?v=1793647858" alt="junglcore" width="1162" height="284" loading="eager">
     </a>
     <nav class="jc-v2__header-links" aria-label="Navegación">
       <a href="#jc-v2-nube">NUBE</a>
@@ -42,13 +41,16 @@
       {% elsif section.settings.hero_image != blank %}
         {{ section.settings.hero_image | image_url: width: 2200 | image_tag: class: 'jc-v2__film-picture', loading: 'eager', fetchpriority: 'high', alt: 'Preparación de NUBE en licuadora' }}
       {% else %}
-        <img class="jc-v2__film-picture" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-hero-loop.gif?v=1793638851" alt="Preparación de JUNGLCORE NUBE en una licuadora" width="430" height="765" loading="eager" fetchpriority="high">
+        <picture class="jc-v2__film-responsive">
+          <source media="(max-width: 749px)" srcset="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-portrait-loop.webp?v=1793647878" type="image/webp">
+          <img class="jc-v2__film-picture" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-landscape-loop.webp?v=1793647871" alt="Preparación de NUBE: sacha inchi, agua, licuadora y bebida terminada" width="910" height="512" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
       {% endif %}
     </div>
     <div class="jc-v2__film-shade" aria-hidden="true"></div>
     <div class="jc-v2__film-top"><span>NUBE / COLOMBIA</span><span>UNA NUEVA FORMA DE PREPARAR TU BEBIDA VEGETAL</span></div>
     <div class="jc-v2__film-bottom">
-      <img class="jc-v2__film-logo" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-wordmark-vector.svg?v=1793645580" alt="junglcore" width="918" height="231" fetchpriority="high">
+      <img class="jc-v2__film-logo" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-official-square-dot-white.svg?v=1793647862" alt="junglcore" width="1162" height="284" fetchpriority="high">
       <div class="jc-v2__film-bottomline">
         <span>NUBE. UNA BEBIDA VEGETAL DIFERENTE.</span>
         <a href="#jc-v2-nube">DESCUBRIR <span aria-hidden="true">↓</span></a>
@@ -149,7 +151,7 @@
   </section>
 
   <footer class="jc-v2__footer jc-v2__frame">
-    <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-wordmark-vector.svg?v=1793645580" alt="junglcore" width="918" height="231" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-official-square-dot-black.svg?v=1793647858" alt="junglcore" width="1162" height="284" loading="lazy">
     <span>COLOMBIA / DE AQUÍ</span>
     <a href="#jc-v2-nube">VOLVER A NUBE ↑</a>
   </footer>
