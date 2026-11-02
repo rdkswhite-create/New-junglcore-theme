@@ -97,9 +97,39 @@
     </div>
   </section>
 
+  {% if section.settings.show_nutrition_comparison %}
+    <section class="jc-v2__comparison jc-v2__frame" id="jc-v2-comparison" aria-labelledby="jc-v2-comparison-heading">
+      <div class="jc-v2__chapter jc-v2__chapter--rule"><span>03</span><span>COMPARACIÓN NUTRICIONAL</span></div>
+      <h2 id="jc-v2-comparison-heading">¿QUÉ HAY EN TU BEBIDA VEGETAL?</h2>
+      <p class="jc-v2__comparison-lead">Dos bebidas vegetales. Una comparación transparente.</p>
+      <div class="jc-v2__comparison-scroll" role="region" aria-label="Comparación entre NUBE y bebida de almendra" tabindex="0">
+        <table class="jc-v2__comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">POR PREPARACIÓN</th>
+              <th scope="col"><strong>NUBE</strong><span>1 tab + 200 ml de agua</span></th>
+              <th scope="col"><strong>ALMENDRA SIN AZÚCAR</strong><span>Nature's Heart · 200 ml</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Proteína</th><td>6,3 g†</td><td>0,8 g</td></tr>
+            <tr><th scope="row">Fibra</th><td>1,4 g†</td><td>1,0 g</td></tr>
+            <tr><th scope="row">Grasa total</th><td>0,7 g†</td><td>2,5 g</td></tr>
+            <tr class="jc-v2__comparison-omega"><th scope="row">Omega-3 (ALA)</th><td>≈ 0,34 g*</td><td class="jc-v2__comparison-muted">No declarado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="jc-v2__comparison-notes">
+        <p>† Datos provisionales por tab de NUBE; pendientes de análisis del producto final. Una tab con 200 ml de agua puede dar un volumen final superior a 200 ml. Las preparaciones no equivalen necesariamente a dos vasos de igual volumen.</p>
+        <p>*Estimación de omega-3 ALA: 0,7 g de grasa por tab × 48,2 % de ALA, composición de referencia del aceite de sacha inchi. No es un análisis de NUBE terminado. «No declarado» significa que Nature's Heart no indica omega-3 en su etiqueta, no que contenga cero.</p>
+        <p>Nature's Heart: información nutricional del producto colombiano Almendra Sin Azúcar, por 200 ml. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-beb-alm-sazr-12x946ml-co" target="_blank" rel="noopener noreferrer">Consultar etiqueta y fuente ↗</a></p>
+      </div>
+    </section>
+  {% endif %}
+
   <section class="jc-v2__manifesto" aria-labelledby="jc-v2-manifesto-heading">
     <div class="jc-v2__frame">
-      <div class="jc-v2__chapter"><span>03</span><span>NUESTRA IDEA</span></div>
+      <div class="jc-v2__chapter"><span>{% if section.settings.show_nutrition_comparison %}04{% else %}03{% endif %}</span><span>NUESTRA IDEA</span></div>
       <h2 id="jc-v2-manifesto-heading">SER VEGETAL<br>NO ES<br>SUFICIENTE.</h2>
       <div class="jc-v2__manifesto-bottom">
         <p>La comida tiene que alimentar. Por eso empezamos por una semilla, no por una lista interminable de ingredientes.</p>
@@ -109,7 +139,7 @@
   </section>
 
   <section class="jc-v2__collection jc-v2__frame" id="jc-v2-collection" aria-labelledby="jc-v2-collection-heading">
-    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>04</span><span>LA COLECCIÓN</span></div>
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>{% if section.settings.show_nutrition_comparison %}05{% else %}04{% endif %}</span><span>LA COLECCIÓN</span></div>
     <h2 id="jc-v2-collection-heading">MÁS DE<br>JUNGLCORE.</h2>
     <p class="jc-v2__collection-lead">Una semilla. Distintas posibilidades.</p>
     <div class="jc-v2__collection-grid">
@@ -174,6 +204,8 @@
     {"type":"text","id":"whatsapp_message","label":"Mensaje WhatsApp","default":"Hola, quiero pedir JUNGLCORE NUBE en Bogotá."},
     {"type":"text","id":"protein_value","label":"Proteína por tab (confirmar)","default":"6,3 g"},
     {"type":"text","id":"fibre_value","label":"Fibra por tab (confirmar)","default":"1,4 g"},
+    {"type":"header","content":"Comparación nutricional"},
+    {"type":"checkbox","id":"show_nutrition_comparison","label":"Mostrar comparación pública (solo tras verificación)","default":false},
     {"type":"header","content":"La colección"},
     {"type":"image_picker","id":"one_image","label":"Foto de ONE"},
     {"type":"image_picker","id":"oil_image","label":"Foto de OIL"},
