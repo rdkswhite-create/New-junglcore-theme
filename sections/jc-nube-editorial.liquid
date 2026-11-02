@@ -1,0 +1,290 @@
+{% comment %}
+  JUNGLCORE / NUBE — editorial homepage.
+  Dedicated first-pass design, intentionally independent of Dawn's existing blocks.
+  Media and ordering settings are configurable in Shopify's theme editor.
+  The original homepage and global settings are preserved on main.
+{% endcomment %}
+{% liquid
+  assign jc_product = section.settings.product
+  assign jc_pack = section.settings.pack_image
+  if jc_pack == blank and jc_product != blank
+    assign jc_pack = jc_product.featured_image
+  endif
+
+  assign jc_order_url = jc_product.url
+  if section.settings.order_mode == 'whatsapp'
+    assign jc_encoded_message = section.settings.whatsapp_message | url_encode
+    assign jc_order_url = 'https://wa.me/' | append: section.settings.whatsapp_number | append: '?text=' | append: jc_encoded_message
+  endif
+  if jc_order_url == blank
+    assign jc_order_url = '#jc-nube-product'
+  endif
+%}
+<div class="jc-home" id="jc-top">
+  <header class="jc-nav" aria-label="JUNGLCORE">
+    <a class="jc-nav__brand" href="{{ routes.root_url }}" aria-label="Junglcore, inicio">JUNGLCORE</a>
+    <nav class="jc-nav__links" aria-label="Navegación">
+      <a href="#jc-nube-product">NUBE</a>
+      <a href="#jc-how">CÓMO FUNCIONA</a>
+      <a href="{{ routes.cart_url }}" aria-label="Carrito de compras">BOLSA ({{ cart.item_count }})</a>
+    </nav>
+  </header>
+
+  <section class="jc-hero" aria-labelledby="jc-hero-title">
+    <div class="jc-hero__media">
+      {% if section.settings.hero_video != blank %}
+        {{ section.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'jc-hero__video' }}
+      {% elsif section.settings.hero_poster != blank %}
+        {{ section.settings.hero_poster | image_url: width: 2400 | image_tag: class: 'jc-hero__video', loading: 'eager', fetchpriority: 'high', widths: '750, 1100, 1600, 2200' }}
+      {% else %}
+        <div class="jc-hero__empty" aria-label="NUBE, base congelada para bebida vegetal">
+          <span>NUBE / SACHA INCHI</span>
+          <span>UN CUBO. AGUA. LICUADORA.</span>
+        </div>
+      {% endif %}
+    </div>
+    <div class="jc-hero__shade" aria-hidden="true"></div>
+    <div class="jc-hero__topline"><span>COLOMBIA / 001</span><span>NUBE — BEBIDA VEGETAL</span></div>
+    <div class="jc-hero__bottom">
+      <h1 id="jc-hero-title" class="jc-hero__wordmark">JUNGLCORE</h1>
+      <div class="jc-hero__subline">
+        <span>NO VIENE EN CAJA.</span>
+        <a href="#jc-nube-product" aria-label="Conocer NUBE">DESCUBRE NUBE <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="jc-intro jc-width" aria-labelledby="jc-intro-title">
+    <p class="jc-kicker">01 / ALGO DIFERENTE</p>
+    <h2 id="jc-intro-title">SER VEGETAL<br><em>NO ES SUFICIENTE.</em></h2>
+    <div class="jc-intro__copy">
+      <p>Una bebida vegetal hecha cuando tú la necesitas.</p>
+      <p>De una semilla colombiana. En un cubo congelado.</p>
+    </div>
+  </section>
+
+  <section class="jc-process jc-width" id="jc-how" aria-labelledby="jc-process-title">
+    <div class="jc-section-head">
+      <p class="jc-kicker">02 / EL RITUAL</p>
+      <h2 id="jc-process-title">LO HACES TÚ.</h2>
+    </div>
+    <div class="jc-process__grid" role="list">
+      <div class="jc-process__step" role="listitem">
+        <span class="jc-process__count">01</span>
+        <strong>UN CUBO.</strong>
+        <span>Saca una tab del congelador.</span>
+      </div>
+      <div class="jc-process__step" role="listitem">
+        <span class="jc-process__count">02</span>
+        <strong>AGUA.</strong>
+        <span>Añade agua a la licuadora.</span>
+      </div>
+      <div class="jc-process__step" role="listitem">
+        <span class="jc-process__count">03</span>
+        <strong>LICÚA.</strong>
+        <span>Disfruta una bebida recién hecha.</span>
+      </div>
+    </div>
+    {% if section.settings.drink_image != blank %}
+      <div class="jc-process__image">
+        {{ section.settings.drink_image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '750, 1100, 1600', alt: 'Bebida NUBE de sacha inchi lista para tomar' }}
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="jc-product" id="jc-nube-product" aria-labelledby="jc-product-title">
+    <div class="jc-product__inner jc-width">
+      <div class="jc-product__visual">
+        {% if jc_pack != blank %}
+          {{ jc_pack | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '480, 750, 1200, 1600', alt: 'JUNGLCORE NUBE, empaque del producto' }}
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-pouch-original.jpg?v=1793638193" alt="JUNGLCORE NUBE, empaque blanco original" loading="lazy" width="1254" height="1254">
+        {% endif %}
+      </div>
+      <div class="jc-product__info">
+        <p class="jc-kicker">03 / EL PRODUCTO</p>
+        <h2 id="jc-product-title">NUBE.</h2>
+        <p class="jc-product__lead">La bebida vegetal que empieza en tu congelador.</p>
+        <p class="jc-product__description">Sacha inchi, agua y goma gelana. Tres ingredientes. Una nueva forma de preparar tu bebida vegetal.</p>
+        <div class="jc-product__facts" aria-label="Características">
+          <div><strong>03</strong><span>INGREDIENTES</span></div>
+          <div><strong>{{ section.settings.protein_value | escape }}</strong><span>PROTEÍNA POR TAB*</span></div>
+          <div><strong>{{ section.settings.fibre_value | escape }}</strong><span>FIBRA POR TAB*</span></div>
+        </div>
+        <p class="jc-product__note">*Valores sujetos a confirmación con la etiqueta final. Producto congelado. Disponible inicialmente en Bogotá.</p>
+        {% if jc_product != blank %}
+          <p class="jc-product__price">{{ jc_product.price | money }}</p>
+        {% endif %}
+        <a class="jc-button" href="{{ jc_order_url | strip | escape }}">
+          {% if section.settings.order_mode == 'whatsapp' %}PEDIR POR WHATSAPP{% else %}VER PRODUCTO{% endif %}
+          <span aria-hidden="true">↗</span>
+        </a>
+        {% if section.settings.order_mode == 'whatsapp' %}
+          <p class="jc-product__shipping">Entrega congelada coordinada por WhatsApp · Bogotá</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="jc-outro jc-width" aria-labelledby="jc-outro-title">
+    <p class="jc-kicker">04 / DE AQUÍ</p>
+    <h2 id="jc-outro-title">UNA SEMILLA.<br>OTRA MANERA<br>DE HACERLO.</h2>
+    <p>NUBE nace de la sacha inchi, una semilla cultivada en Colombia. Buena comida, sin tantas vueltas.</p>
+    <a class="jc-outro__link" href="#jc-nube-product">CONOCE NUBE <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <footer class="jc-footer jc-width">
+    <span class="jc-footer__logo">JUNGLCORE</span>
+    <span>HECHO DE AQUÍ.</span>
+    <a href="{{ routes.root_url }}">VOLVER ARRIBA ↑</a>
+  </footer>
+</div>
+
+{% style %}
+  .jc-home, .jc-home * { box-sizing: border-box; }
+  .jc-home {
+    --jc-ink: #101010;
+    --jc-paper: #faf9f6;
+    --jc-soft: #f0eee9;
+    --jc-rule: #d5d2cc;
+    width: 100%;
+    background: var(--jc-paper);
+    color: var(--jc-ink);
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 1.4;
+    overflow: clip;
+  }
+  .jc-home h1, .jc-home h2, .jc-home h3, .jc-home p { margin: 0; font-family: inherit; color: inherit; }
+  .jc-home h1, .jc-home h2, .jc-home strong { font-weight: 750; }
+  .jc-home a { color: inherit; text-decoration: none; }
+  .jc-home a:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+  .jc-width { width: min(100% - 48px, 1260px); margin-inline: auto; }
+  .jc-kicker { font-size: 11px; font-weight: 600; letter-spacing: .24em; }
+  .jc-nav {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(22px, 3.2vw, 60px);
+    gap: 20px;
+    border-bottom: 1px solid var(--jc-rule);
+  }
+  .jc-nav__brand, .jc-footer__logo { font-size: 24px; font-weight: 800; letter-spacing: -.075em; line-height: 1; }
+  .jc-nav__links { display: flex; align-items: center; gap: clamp(16px, 3vw, 54px); }
+  .jc-nav__links a { font-size: 11px; font-weight: 600; letter-spacing: .14em; }
+  .jc-nav__links a:hover, .jc-outro__link:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .jc-hero { position: relative; min-height: min(76vw, 800px); height: min(80vh, 800px); background: #242424; color: #fff; overflow: hidden; }
+  .jc-hero__media, .jc-hero__video, .jc-hero__shade { position: absolute; inset: 0; height: 100%; width: 100%; }
+  .jc-hero__video { display: block; object-fit: cover; filter: grayscale(1); }
+  .jc-hero__shade { background: linear-gradient(180deg, rgba(0,0,0,.23), transparent 38%, rgba(0,0,0,.55)); pointer-events: none; }
+  .jc-hero__empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: clamp(30px, 6vw, 120px); color: #b8b8b8; font-size: clamp(12px, 1.5vw, 21px); letter-spacing: .15em; background: linear-gradient(132deg, #404040, #181818 65%); }
+  .jc-hero__topline { position: absolute; top: 30px; left: 3.2vw; right: 3.2vw; display: flex; justify-content: space-between; gap: 16px; font-size: 10px; letter-spacing: .23em; font-weight: 500; }
+  .jc-hero__bottom { position: absolute; bottom: clamp(22px, 3vw, 54px); left: 2.4vw; right: 2.4vw; }
+  .jc-hero__wordmark { font-size: min(15.4vw, 240px); line-height: .82; letter-spacing: -.075em; font-weight: 800; text-align: center; white-space: nowrap; }
+  .jc-hero__subline { display: flex; justify-content: space-between; align-items: center; padding: 24px 1vw 0; font-size: clamp(10px, 1vw, 13px); font-weight: 600; letter-spacing: .19em; }
+  .jc-hero__subline a { border-bottom: 1px solid #fff; padding-bottom: 8px; }
+  .jc-intro { padding-block: clamp(95px, 14vw, 220px) clamp(100px, 14vw, 200px); }
+  .jc-intro h2 { margin-top: 30px; font-size: clamp(50px, 9.3vw, 142px); letter-spacing: -.085em; line-height: .98; }
+  .jc-intro h2 em { font-style: normal; font-weight: 350; }
+  .jc-intro__copy { margin-top: 65px; margin-left: auto; max-width: 420px; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.55; }
+  .jc-intro__copy p + p { margin-top: 15px; }
+  .jc-process { padding-bottom: 125px; }
+  .jc-section-head { border-top: 1px solid var(--jc-ink); padding-top: 20px; display: flex; justify-content: space-between; align-items: end; gap: 22px; }
+  .jc-section-head h2 { font-size: clamp(35px, 5vw, 77px); line-height: 1; letter-spacing: -.065em; }
+  .jc-process__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 55px; border-top: 1px solid var(--jc-rule); }
+  .jc-process__step { display: flex; flex-direction: column; padding: 30px 35px 45px 0; min-height: 260px; gap: 16px; border-bottom: 1px solid var(--jc-rule); }
+  .jc-process__step + .jc-process__step { border-left: 1px solid var(--jc-rule); padding-left: 35px; }
+  .jc-process__count { font-size: 12px; letter-spacing: .18em; color: #666; }
+  .jc-process__step strong { font-size: clamp(28px, 3.6vw, 56px); letter-spacing: -.065em; }
+  .jc-process__step > span:last-child { font-size: 15px; color: #555; }
+  .jc-process__image { margin-top: 40px; max-height: 650px; overflow: hidden; }
+  .jc-process__image img { display: block; width: 100%; height: auto; object-fit: cover; }
+  .jc-product { background: var(--jc-soft); padding-block: clamp(75px, 9vw, 140px); }
+  .jc-product__inner { display: grid; grid-template-columns: 1.06fr 1fr; align-items: center; gap: clamp(50px, 8vw, 130px); }
+  .jc-product__visual { display: flex; align-items: center; justify-content: center; min-height: 450px; }
+  .jc-product__visual img { display: block; width: 100%; max-height: 680px; object-fit: contain; }
+  .jc-product__info h2 { margin-top: 30px; font-size: clamp(90px, 12vw, 185px); letter-spacing: -.11em; line-height: .83; }
+  .jc-product__lead { margin-top: 30px !important; font-size: clamp(22px, 2.5vw, 35px); font-weight: 550; line-height: 1.2; letter-spacing: -.04em; }
+  .jc-product__description { margin-top: 22px !important; max-width: 480px; font-size: 17px; line-height: 1.65; color: #444 !important; }
+  .jc-product__facts { margin-top: 38px; border-top: 1px solid #bbb; border-bottom: 1px solid #bbb; padding: 26px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .jc-product__facts div { display: flex; flex-direction: column; gap: 10px; }
+  .jc-product__facts strong { font-size: clamp(24px, 2.5vw, 40px); letter-spacing: -.05em; line-height: 1; }
+  .jc-product__facts span { font-size: 9px; letter-spacing: .09em; line-height: 1.4; }
+  .jc-product__note { margin-top: 16px !important; font-size: 11px; color: #666 !important; line-height: 1.5; }
+  .jc-product__price { margin-top: 30px !important; font-size: 22px; font-weight: 650; }
+  .jc-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 60px; width: 100%; max-width: 410px; background: #111; color: #fff !important; margin-top: 32px; padding: 20px 26px; font-size: 12px; font-weight: 600; letter-spacing: .16em; transition: background .2s; }
+  .jc-button:hover { background: #444; }
+  .jc-product__shipping { margin-top: 18px !important; font-size: 12px; color: #666 !important; }
+  .jc-outro { padding-block: clamp(115px, 15vw, 230px); }
+  .jc-outro h2 { margin-top: 26px; font-size: clamp(56px, 9.7vw, 148px); line-height: .95; letter-spacing: -.09em; }
+  .jc-outro > p:not(.jc-kicker) { margin-top: 50px; max-width: 460px; margin-left: auto; font-size: 20px; line-height: 1.5; }
+  .jc-outro__link { display: block; width: fit-content; margin: 25px 0 0 auto; font-size: 12px; font-weight: 600; letter-spacing: .16em; border-bottom: 1px solid #111; padding-bottom: 10px; }
+  .jc-footer { display: flex; justify-content: space-between; align-items: baseline; padding-block: 24px 38px; gap: 20px; border-top: 1px solid #111; }
+  .jc-footer > span:not(.jc-footer__logo), .jc-footer > a { font-size: 10px; font-weight: 600; letter-spacing: .16em; }
+  @media(max-width: 749px) {
+    .jc-width { width: calc(100% - 36px); }
+    .jc-nav { min-height: 64px; padding-inline: 18px; }
+    .jc-nav__brand { font-size: 22px; }
+    .jc-nav__links { gap: 14px; }
+    .jc-nav__links a { font-size: 9px; letter-spacing: .05em; }
+    .jc-nav__links a:nth-child(2) { display: none; }
+    .jc-hero { height: 74svh; min-height: 560px; }
+    .jc-hero__topline { top: 22px; left: 18px; right: 18px; font-size: 9px; }
+    .jc-hero__empty { flex-direction: column; align-items: start; justify-content: center; gap: 24px; }
+    .jc-hero__bottom { left: 8px; right: 8px; bottom: 35px; }
+    .jc-hero__wordmark { font-size: 15.4vw; letter-spacing: -.075em; }
+    .jc-hero__subline { padding: 19px 12px 0; font-size: 9px; letter-spacing: .08em; }
+    .jc-intro { padding-block: 95px 110px; }
+    .jc-intro h2 { font-size: clamp(40px, 10vw, 70px); letter-spacing: -.07em; }
+    .jc-intro__copy { margin: 45px 0 0; font-size: 18px; }
+    .jc-process { padding-bottom: 90px; }
+    .jc-section-head { display: block; }
+    .jc-section-head h2 { margin-top: 20px; font-size: 47px; }
+    .jc-process__grid { display: block; margin-top: 35px; }
+    .jc-process__step { min-height: 0; padding: 24px 0 35px; gap: 10px; }
+    .jc-process__step + .jc-process__step { border-left: 0; padding-left: 0; }
+    .jc-process__step strong { font-size: 42px; }
+    .jc-product { padding-block: 70px 95px; }
+    .jc-product__inner { display: flex; flex-direction: column; gap: 55px; }
+    .jc-product__visual { width: 100%; min-height: 0; }
+    .jc-product__visual img { max-height: 480px; }
+    .jc-product__info { width: 100%; }
+    .jc-product__info h2 { font-size: 110px; }
+    .jc-product__facts { gap: 10px; }
+    .jc-product__facts strong { font-size: 25px; }
+    .jc-product__facts span { font-size: 8px; }
+    .jc-outro { padding-block: 110px 120px; }
+    .jc-outro h2 { font-size: clamp(50px, 12vw, 90px); }
+    .jc-outro > p:not(.jc-kicker) { margin: 40px 0 0; font-size: 18px; }
+    .jc-outro__link { margin-left: 0; }
+    .jc-footer { flex-wrap: wrap; }
+    .jc-footer__logo { width: 100%; font-size: 30px; margin-bottom: 15px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .jc-button { transition: none; } }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NUBE editorial",
+  "tag": "section",
+  "class": "jc-editorial-section",
+  "settings": [
+    {"type":"header","content":"Video y primera impresión"},
+    {"type":"video","id":"hero_video","label":"Video de preparación NUBE (silenciado, en bucle)"},
+    {"type":"image_picker","id":"hero_poster","label":"Imagen de portada si todavía no hay video"},
+    {"type":"header","content":"Producto y compra"},
+    {"type":"product","id":"product","label":"Producto NUBE"},
+    {"type":"image_picker","id":"pack_image","label":"Fotografía del pouch NUBE (reemplaza foto de producto)"},
+    {"type":"image_picker","id":"drink_image","label":"Fotografía de bebida preparada (opcional)"},
+    {"type":"select","id":"order_mode","label":"Cómo pedir","options":[{"value":"whatsapp","label":"WhatsApp — entrega Bogotá"},{"value":"product","label":"Página de producto Shopify"}],"default":"whatsapp"},
+    {"type":"text","id":"whatsapp_number","label":"WhatsApp con código de país, sin +","default":"573011571039"},
+    {"type":"text","id":"whatsapp_message","label":"Mensaje predefinido WhatsApp","default":"Hola, quiero pedir JUNGLCORE NUBE en Bogotá."},
+    {"type":"header","content":"Valores de etiqueta — confirmar antes de publicar"},
+    {"type":"text","id":"protein_value","label":"Proteína por tab","default":"6,3 g"},
+    {"type":"text","id":"fibre_value","label":"Fibra por tab","default":"1,4 g"}
+  ],
+  "presets":[{"name":"NUBE editorial"}]
+}
+{% endschema %}
