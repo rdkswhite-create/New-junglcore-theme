@@ -136,7 +136,8 @@
     </div>
   </section>
 
-  <section class="jc-v2__collection jc-v2__frame" id="jc-v2-collection" aria-labelledby="jc-v2-collection-heading">
+  <section class="jc-v2__collection" id="jc-v2-collection" aria-labelledby="jc-v2-collection-heading">
+    <div class="jc-v2__frame">
     <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>LA COLECCIÓN</span></div>
     <h2 id="jc-v2-collection-heading">MÁS DE<br>JUNGLCORE.</h2>
     <p class="jc-v2__collection-lead">Una semilla. Distintas posibilidades.</p>
@@ -192,6 +193,7 @@
           {% endif %}
         </div>
       </article>
+    </div>
     </div>
   </section>
 
@@ -430,6 +432,98 @@
 }
 @media (max-width: 359px) {
   .jc-v2__collection-photo { height: 280px; }
+}
+
+/* JUNGLCORE collection: warm off-white, small product gallery, responsive two-up mobile.
+   Retains existing section position and product card ordering. */
+.jc-v2__collection {
+  background: #f5f5f1;
+  padding: clamp(78px, 9vw, 125px) 0 clamp(95px, 10vw, 135px);
+}
+.jc-v2__collection-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 42px);
+  margin-top: clamp(42px, 6vw, 78px);
+}
+.jc-v2__collection-card { min-width: 0; }
+.jc-v2__collection-photo {
+  background: transparent;
+  height: clamp(245px, 29vw, 330px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.jc-v2__collection-photo img {
+  display: block;
+  width: min(86%, 260px);
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.jc-v2__collection-card--one-mini .jc-v2__collection-photo img {
+  width: min(83%, 250px);
+}
+.jc-v2__collection-body {
+  border-color: #bbbdb8;
+  padding-top: 16px;
+  gap: 6px 8px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.jc-v2__collection-body > div { flex: 1 1 100%; min-width: 0; }
+.jc-v2__collection-body h3 {
+  font-weight: 450;
+  font-size: clamp(23px, 2.6vw, 29px);
+  margin-bottom: 9px;
+}
+.jc-v2__collection-body p {
+  max-width: 340px;
+  color: #676965;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.jc-v2__collection-body > span,
+.jc-v2__collection-body > a {
+  font-size: 11px;
+  color: #70736e;
+  padding-bottom: 0;
+  letter-spacing: .06em;
+  white-space: normal;
+}
+.jc-v2__collection-body .jc-v2__collection-variant {
+  font-size: 10px;
+  letter-spacing: .1em;
+  margin-bottom: 6px !important;
+}
+@media (min-width: 750px) and (max-width: 950px) {
+  .jc-v2__collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 749px) {
+  .jc-v2__collection {
+    padding-top: 74px;
+    padding-bottom: 93px;
+  }
+  .jc-v2__collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 43px 18px;
+    margin-top: 38px;
+  }
+  .jc-v2__collection-photo { height: clamp(172px, 52vw, 242px); }
+  .jc-v2__collection-photo img { width: 91%; }
+  .jc-v2__collection-card--one-mini .jc-v2__collection-photo img { width: 89%; }
+  .jc-v2__collection-body { gap: 6px; padding-top: 12px; }
+  .jc-v2__collection-body h3 { font-size: 22px; margin-bottom: 6px; }
+  .jc-v2__collection-body p { font-size: 11.5px; line-height: 1.45; }
+  .jc-v2__collection-body > span, .jc-v2__collection-body > a { font-size: 10px; }
+  .jc-v2__collection-lead { font-size: 16px; }
+}
+@media (max-width: 360px) {
+  .jc-v2__collection-grid { gap: 36px 12px; }
+  .jc-v2__collection-photo { height: 175px; }
+  .jc-v2__collection-body h3 { font-size: 20px; }
 }
 
 {% endstyle %}
