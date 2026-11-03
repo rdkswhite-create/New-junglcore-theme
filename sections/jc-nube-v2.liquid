@@ -138,6 +138,7 @@
 
   <section class="jc-v2__collection" id="jc-v2-collection" aria-label="Colección JUNGLCORE">
     <div class="jc-v2__frame">
+      <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>LA COLECCIÓN</span></div>
       <div class="jc-v2__collection-grid">
         <article class="jc-v2__collection-card">
           <div class="jc-v2__collection-photo">
@@ -208,7 +209,7 @@
   </section>
 
   <section class="jc-v2__faq jc-v2__frame" id="jc-v2-faq" aria-labelledby="jc-v2-faq-title">
-    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>PREGUNTAS FRECUENTES</span></div>
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>06</span><span>PREGUNTAS FRECUENTES</span></div>
     <h2 id="jc-v2-faq-title">LO ESENCIAL.</h2>
     <details><summary>¿Cómo se prepara NUBE?<span aria-hidden="true">+</span></summary><p>Saca un tab del congelador, añade 150 ml de agua para una bebida espesa o 200 ml para una bebida más ligera y licúa durante 30 segundos.</p></details>
     <details><summary>¿Cómo se conserva?<span aria-hidden="true">+</span></summary><p>NUBE es un producto congelado. Consérvalo en el congelador y sigue las instrucciones de conservación de su envase.</p></details>
@@ -621,6 +622,13 @@
 @media (max-width: 359px) {
   .jc-v2__collection .jc-v2__collection-grid { gap: 46px 13px; }
   .jc-v2__collection .jc-v2__collection-photo { height: 185px; }
+}
+
+
+/* Restore the small collection chapter label while keeping the four-product layout. */
+.jc-v2__collection .jc-v2__collection-grid { margin-top: clamp(32px, 4vw, 50px); }
+@media (max-width: 749px) {
+  .jc-v2__collection .jc-v2__collection-grid { margin-top: 30px; }
 }
 
 {% endstyle %}
