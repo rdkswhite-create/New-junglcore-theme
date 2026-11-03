@@ -689,3 +689,10 @@
   .jc-v2__collection .jc-v2__collection-grid { gap: 46px 13px; }
   .jc-v2__collection .jc-v2__collection-photo { height: 185px; }
 }
+
+
+/* Restore the small collection chapter label while keeping the four-product layout. */
+.jc-v2__collection .jc-v2__collection-grid { margin-top: clamp(32px, 4vw, 50px); }
+@media (max-width: 749px) {
+  .jc-v2__collection .jc-v2__collection-grid { margin-top: 30px; }
+}
