@@ -10,6 +10,7 @@
 {% liquid
   assign selected_nube = section.settings.nube_product
   assign selected_one = section.settings.one_product
+  assign selected_one_sachets = section.settings.one_sachets_product
   assign selected_oil = section.settings.oil_product
   assign message = section.settings.whatsapp_message | url_encode
   assign contact = 'https://wa.me/' | append: section.settings.whatsapp_number | append: '?text=' | append: message
@@ -152,6 +153,23 @@
           <div><h3>ONE</h3><p>Proteína y fibra de una misma semilla. La sacha inchi.</p></div>
           {% if selected_one != blank %}
             <a href="{{ selected_one.url }}">VER ONE ↗</a>
+          {% else %}
+            <span>PRÓXIMAMENTE</span>
+          {% endif %}
+        </div>
+      </article>
+      <article class="jc-v2__collection-card jc-v2__collection-card--one-mini">
+        <div class="jc-v2__collection-photo">
+          {% if section.settings.one_sachets_image != blank %}
+            {{ section.settings.one_sachets_image | image_url: width: 1300 | image_tag: loading: 'lazy', widths: '280, 450, 660, 1000, 1300', alt: 'Caja JUNGLCORE ONE, cinco sobres resellables de 30 g' }}
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-5-sobres-resellables-30g.png?v=1793666734" alt="JUNGLCORE ONE, caja de cinco sobres resellables de 30 g de harina de sacha inchi" width="1122" height="1402" loading="lazy" decoding="async">
+          {% endif %}
+        </div>
+        <div class="jc-v2__collection-body">
+          <div><h3>ONE</h3><p class="jc-v2__collection-variant">5 SOBRES × 30 G</p><p>Harina de sacha inchi. Cinco sobres individuales resellables, 150 g en total.</p></div>
+          {% if selected_one_sachets != blank %}
+            <a href="{{ selected_one_sachets.url }}">VER ONE ↗</a>
           {% else %}
             <span>PRÓXIMAMENTE</span>
           {% endif %}
@@ -342,6 +360,78 @@
   }
 }
 
+
+/* Small, equally scaled JUNGLCORE collection products: ONE, ONE 5 sobres, OIL. */
+.jc-v2__collection-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.3vw, 29px);
+  margin-top: 52px;
+}
+.jc-v2__collection-photo {
+  width: 100%;
+  height: clamp(310px, 32vw, 390px);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.jc-v2__collection-photo img {
+  width: min(96%, 320px);
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  aspect-ratio: auto;
+  margin-inline: auto;
+}
+.jc-v2__collection-card--one-mini .jc-v2__collection-photo img {
+  width: min(92%, 295px);
+}
+.jc-v2__collection-body {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  padding-top: 18px;
+}
+.jc-v2__collection-body > div { min-width: 0; flex: 1 1 170px; }
+.jc-v2__collection-body h3 {
+  font-size: clamp(27px, 3vw, 35px);
+  margin-bottom: 9px;
+}
+.jc-v2__collection-body p {
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 290px;
+}
+.jc-v2__collection-body .jc-v2__collection-variant {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  color: #111;
+  margin: 0 0 8px !important;
+}
+.jc-v2__collection-body > span,
+.jc-v2__collection-body > a {
+  font-size: 10px;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+@media (min-width: 750px) and (max-width: 950px) {
+  .jc-v2__collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 749px) {
+  .jc-v2__collection { padding-top: 78px; padding-bottom: 86px; }
+  .jc-v2__collection-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 35px; }
+  .jc-v2__collection-photo { height: 310px; }
+  .jc-v2__collection-photo img { width: min(88%, 300px); }
+  .jc-v2__collection-card--one-mini .jc-v2__collection-photo img { width: min(78%, 270px); }
+  .jc-v2__collection-body { gap: 9px 18px; padding-top: 15px; }
+  .jc-v2__collection-body h3 { font-size: 30px; }
+}
+@media (max-width: 359px) {
+  .jc-v2__collection-photo { height: 280px; }
+}
+
 {% endstyle %}
 
 {% schema %}
@@ -370,8 +460,10 @@
     {"type":"text","id":"legal_address","label":"Dirección de notificación"},
     {"type":"header","content":"La colección"},
     {"type":"image_picker","id":"one_image","label":"Foto de ONE"},
+    {"type":"image_picker","id":"one_sachets_image","label":"Foto de ONE caja, 5 sobres"},
     {"type":"image_picker","id":"oil_image","label":"Foto de OIL"},
     {"type":"product","id":"one_product","label":"Producto ONE (cuando esté listo)"},
+    {"type":"product","id":"one_sachets_product","label":"Producto ONE caja, 5 sobres (cuando esté listo)"},
     {"type":"product","id":"oil_product","label":"Producto OIL (cuando esté listo)"}
   ],
   "presets":[{"name":"Junglcore NUBE V2"}]
