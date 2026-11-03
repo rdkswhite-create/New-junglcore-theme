@@ -89,7 +89,7 @@
 
   <section class="jc-v2__ritual jc-v2__frame" id="jc-v2-ritual" aria-labelledby="jc-v2-ritual-heading">
     <div class="jc-v2__chapter jc-v2__chapter--rule"><span>02</span><span>EL RITUAL</span></div>
-    <h2 id="jc-v2-ritual-heading">UN TAB.<br>AGUA.<br>LICUADORA.</h2>
+    <h2 id="jc-v2-ritual-heading"><span class="jc-v2__ritual-heading-desktop">UN TAB.<br>AGUA.<br>LICUADORA.</span><span class="jc-v2__ritual-heading-mobile">UN TAB. AGUA.<br>LICUADORA.</span></h2>
     <div class="jc-v2__ritual-grid">
       <div><span>01</span><h3>SACA</h3><p>Saca un tab del congelador.</p></div>
       <div><span>02</span><h3>AÑADE</h3><p>Añade agua a la licuadora.<br>150 ml para una bebida espesa.<br>200 ml para una bebida refrescante.</p></div>
@@ -269,6 +269,31 @@
   .jc-v2__footer-nav:last-child { grid-column:2; }
   .jc-v2__footer-bottom { flex-direction:column; align-items:flex-start; margin-top:60px; padding-bottom:40px; }
   .jc-v2__footer-company { display:flex; flex-direction:column; align-items:flex-start; gap:4px; }
+}
+
+
+/* v2 mobile ritual: explicit two-line headline, compact top/bottom rhythm.
+   Keep the existing three-line design unchanged on desktop. */
+.jc-v2__ritual-heading-mobile { display: none; }
+@media (max-width: 749px) {
+  .jc-v2__ritual-heading-desktop { display: none; }
+  .jc-v2__ritual-heading-mobile { display: block; }
+  .jc-v2__ritual h2 {
+    font-size: clamp(28px, 7.7vw, 39px);
+    line-height: 1.04;
+    letter-spacing: -.025em;
+    font-weight: 650;
+    margin: 19px 0 24px;
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+  .jc-v2__ritual-heading-mobile { white-space: nowrap; }
+  .jc-v2__ritual-grid > div { padding-top: 16px; padding-bottom: 20px; }
+  .jc-v2__ritual-grid h3 { margin-top: 9px; margin-bottom: 6px; }
+  .jc-v2__ritual { padding-bottom: 68px; }
+}
+@media (max-width: 359px) {
+  .jc-v2__ritual h2 { font-size: 27px; letter-spacing: -.035em; }
 }
 
 {% endstyle %}
