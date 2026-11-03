@@ -97,8 +97,7 @@
     </div>
   </section>
 
-  {% if section.settings.show_nutrition_comparison %}
-    <section class="jc-v2__comparison jc-v2__frame" id="jc-v2-comparison" aria-labelledby="jc-v2-comparison-heading">
+  <section class="jc-v2__comparison jc-v2__frame" id="jc-v2-comparison" aria-labelledby="jc-v2-comparison-heading">
       <div class="jc-v2__chapter jc-v2__chapter--rule"><span>03</span><span>COMPARACIÓN NUTRICIONAL</span></div>
       <h2 id="jc-v2-comparison-heading">¿QUÉ HAY EN TU BEBIDA VEGETAL?</h2>
       <p class="jc-v2__comparison-lead">Datos por preparación indicada; no son dos bebidas de volumen final equivalente.</p>
@@ -125,11 +124,10 @@
         <p>Nature's Heart: información nutricional del producto colombiano Almendra Sin Azúcar, por 200 ml. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-beb-alm-sazr-12x946ml-co" target="_blank" rel="noopener noreferrer">Consultar etiqueta y fuente ↗</a></p>
       </div>
     </section>
-  {% endif %}
 
   <section class="jc-v2__manifesto" aria-labelledby="jc-v2-manifesto-heading">
     <div class="jc-v2__frame">
-      <div class="jc-v2__chapter"><span>{% if section.settings.show_nutrition_comparison %}04{% else %}03{% endif %}</span><span>NUESTRA IDEA</span></div>
+      <div class="jc-v2__chapter"><span>04</span><span>NUESTRA IDEA</span></div>
       <h2 id="jc-v2-manifesto-heading">SER VEGETAL<br>NO ES<br>SUFICIENTE.</h2>
       <div class="jc-v2__manifesto-bottom">
         <p>La comida tiene que alimentar. Por eso empezamos por una semilla, no por una lista interminable de ingredientes.</p>
@@ -139,7 +137,7 @@
   </section>
 
   <section class="jc-v2__collection jc-v2__frame" id="jc-v2-collection" aria-labelledby="jc-v2-collection-heading">
-    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>{% if section.settings.show_nutrition_comparison %}05{% else %}04{% endif %}</span><span>LA COLECCIÓN</span></div>
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>LA COLECCIÓN</span></div>
     <h2 id="jc-v2-collection-heading">MÁS DE<br>JUNGLCORE.</h2>
     <p class="jc-v2__collection-lead">Una semilla. Distintas posibilidades.</p>
     <div class="jc-v2__collection-grid">
@@ -181,7 +179,7 @@
   </section>
 
   <section class="jc-v2__faq jc-v2__frame" id="jc-v2-faq" aria-labelledby="jc-v2-faq-title">
-    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>{% if section.settings.show_nutrition_comparison %}06{% else %}05{% endif %}</span><span>PREGUNTAS FRECUENTES</span></div>
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>06</span><span>PREGUNTAS FRECUENTES</span></div>
     <h2 id="jc-v2-faq-title">LO ESENCIAL.</h2>
     <details><summary>¿Cómo se prepara NUBE?<span aria-hidden="true">+</span></summary><p>Saca un tab del congelador, añade 150 ml de agua para una bebida espesa o 200 ml para una bebida más ligera y licúa durante 30 segundos.</p></details>
     <details><summary>¿Cómo se conserva?<span aria-hidden="true">+</span></summary><p>NUBE es un producto congelado. Consérvalo en el congelador y sigue las instrucciones de conservación de su envase.</p></details>
@@ -247,7 +245,6 @@
     {"type":"text","id":"protein_value","label":"Proteína por tab (confirmar)","default":"6,3 g"},
     {"type":"text","id":"fibre_value","label":"Fibra por tab (confirmar)","default":"1,4 g"},
     {"type":"header","content":"Comparación nutricional"},
-    {"type":"checkbox","id":"show_nutrition_comparison","label":"Mostrar tabla referencial (NUBE pendiente de laboratorio)","default":true},
     {"type":"header","content":"Datos de contacto y empresa"},
     {"type":"text","id":"contact_email","label":"Email de contacto","default":"hola@junglcore.com"},
     {"type":"text","id":"contact_phone","label":"Teléfono comercial"},
