@@ -7,7 +7,8 @@
         "whatsapp_number": "573011571039",
         "whatsapp_message": "Hola, quiero pedir JUNGLCORE NUBE en Bogotá.",
         "protein_value": "6,3 g",
-        "fibre_value": "1,4 g"
+        "fibre_value": "1,4 g",
+        "show_nutrition_comparison": true
       }
     }
   },
