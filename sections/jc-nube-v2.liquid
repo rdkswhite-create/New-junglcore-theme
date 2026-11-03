@@ -136,69 +136,79 @@
     </div>
   </section>
 
-  <section class="jc-v2__collection" id="jc-v2-collection" aria-labelledby="jc-v2-collection-heading">
+  <section class="jc-v2__collection" id="jc-v2-collection" aria-label="Colección JUNGLCORE">
     <div class="jc-v2__frame">
-    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>LA COLECCIÓN</span></div>
-    <h2 id="jc-v2-collection-heading">MÁS DE<br>JUNGLCORE.</h2>
-    <p class="jc-v2__collection-lead">Una semilla. Distintas posibilidades.</p>
-    <div class="jc-v2__collection-grid">
-      <article class="jc-v2__collection-card">
-        <div class="jc-v2__collection-photo">
-          {% if section.settings.one_image != blank %}
-            {{ section.settings.one_image | image_url: width: 1300 | image_tag: loading: 'lazy', widths: '350, 650, 1000, 1300', alt: 'JUNGLCORE ONE' }}
-          {% else %}
-            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-approved-white-shadow-nov2026.jpg?v=1793661672" alt="JUNGLCORE ONE, harina de sacha inchi en bolsa blanca" width="660" height="724" loading="lazy">
-          {% endif %}
-        </div>
-        <div class="jc-v2__collection-body">
-          <div><h3>ONE</h3><p>Proteína y fibra de una misma semilla. La sacha inchi.</p></div>
-          {% if selected_one != blank %}
-            <a href="{{ selected_one.url }}">VER ONE ↗</a>
-          {% else %}
-            <span>PRÓXIMAMENTE</span>
-          {% endif %}
-        </div>
-      </article>
-      <article class="jc-v2__collection-card jc-v2__collection-card--one-mini">
-        <div class="jc-v2__collection-photo">
-          {% if section.settings.one_sachets_image != blank %}
-            {{ section.settings.one_sachets_image | image_url: width: 1300 | image_tag: loading: 'lazy', widths: '280, 450, 660, 1000, 1300', alt: 'Caja JUNGLCORE ONE, cinco sobres resellables de 30 g' }}
-          {% else %}
-            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-5-sobres-resellables-30g.png?v=1793666734" alt="JUNGLCORE ONE, caja de cinco sobres resellables de 30 g de harina de sacha inchi" width="1122" height="1402" loading="lazy" decoding="async">
-          {% endif %}
-        </div>
-        <div class="jc-v2__collection-body">
-          <div><h3>ONE</h3><p class="jc-v2__collection-variant">5 SOBRES × 30 G</p><p>Harina de sacha inchi. Cinco sobres individuales resellables, 150 g en total.</p></div>
-          {% if selected_one_sachets != blank %}
-            <a href="{{ selected_one_sachets.url }}">VER ONE ↗</a>
-          {% else %}
-            <span>PRÓXIMAMENTE</span>
-          {% endif %}
-        </div>
-      </article>
-      <article class="jc-v2__collection-card">
-        <div class="jc-v2__collection-photo">
-          {% if section.settings.oil_image != blank %}
-            {{ section.settings.oil_image | image_url: width: 1300 | image_tag: loading: 'lazy', widths: '350, 650, 1000, 1300', alt: 'JUNGLCORE OIL' }}
-          {% else %}
-            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-oil-approved-white-shadow-nov2026.jpg?v=1793661645" alt="JUNGLCORE OIL, aceite de sacha inchi en botella blanca" width="660" height="724" loading="lazy">
-          {% endif %}
-        </div>
-        <div class="jc-v2__collection-body">
-          <div><h3>OIL</h3><p>Aceite de sacha inchi, prensado en frío.</p></div>
-          {% if selected_oil != blank %}
-            <a href="{{ selected_oil.url }}">VER OIL ↗</a>
-          {% else %}
-            <span>PRÓXIMAMENTE</span>
-          {% endif %}
-        </div>
-      </article>
-    </div>
+      <div class="jc-v2__collection-grid">
+        <article class="jc-v2__collection-card">
+          <div class="jc-v2__collection-photo">
+            {% if section.settings.nube_image != blank %}
+              {{ section.settings.nube_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE NUBE, base congelada de sacha inchi' }}
+            {% else %}
+              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-approved-white-shadow-nov2026.jpg?v=1793661639" alt="JUNGLCORE NUBE, bolsa blanca de base congelada de sacha inchi" width="660" height="724" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="jc-v2__collection-body">
+            <h3>nube</h3>
+            <a href="{{ order_url | strip | escape }}">Pedir NUBE ↗</a>
+          </div>
+        </article>
+        <article class="jc-v2__collection-card">
+          <div class="jc-v2__collection-photo">
+            {% if section.settings.one_image != blank %}
+              {{ section.settings.one_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE ONE, harina de sacha inchi' }}
+            {% else %}
+              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-approved-white-shadow-nov2026.jpg?v=1793661672" alt="JUNGLCORE ONE, bolsa blanca de harina de sacha inchi" width="660" height="724" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="jc-v2__collection-body">
+            <h3>one</h3>
+            {% if selected_one != blank %}
+              <a href="{{ selected_one.url }}">Ver ONE ↗</a>
+            {% else %}
+              <span>Próximamente</span>
+            {% endif %}
+          </div>
+        </article>
+        <article class="jc-v2__collection-card jc-v2__collection-card--one-mini">
+          <div class="jc-v2__collection-photo">
+            {% if section.settings.one_sachets_image != blank %}
+              {{ section.settings.one_sachets_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE ONE, caja con cinco sobres resellables de 30 g' }}
+            {% else %}
+              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-5-sobres-resellables-30g.png?v=1793666734" alt="JUNGLCORE ONE, caja con cinco sobres resellables de 30 g" width="1122" height="1402" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="jc-v2__collection-body">
+            <h3>one · 5 sobres</h3>
+            {% if selected_one_sachets != blank %}
+              <a href="{{ selected_one_sachets.url }}">Ver ONE ↗</a>
+            {% else %}
+              <span>Próximamente</span>
+            {% endif %}
+          </div>
+        </article>
+        <article class="jc-v2__collection-card">
+          <div class="jc-v2__collection-photo">
+            {% if section.settings.oil_image != blank %}
+              {{ section.settings.oil_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE OIL, aceite de sacha inchi' }}
+            {% else %}
+              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-oil-approved-white-shadow-nov2026.jpg?v=1793661645" alt="JUNGLCORE OIL, botella blanca de aceite de sacha inchi" width="660" height="724" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="jc-v2__collection-body">
+            <h3>oil</h3>
+            {% if selected_oil != blank %}
+              <a href="{{ selected_oil.url }}">Ver OIL ↗</a>
+            {% else %}
+              <span>Próximamente</span>
+            {% endif %}
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="jc-v2__faq jc-v2__frame" id="jc-v2-faq" aria-labelledby="jc-v2-faq-title">
-    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>06</span><span>PREGUNTAS FRECUENTES</span></div>
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>PREGUNTAS FRECUENTES</span></div>
     <h2 id="jc-v2-faq-title">LO ESENCIAL.</h2>
     <details><summary>¿Cómo se prepara NUBE?<span aria-hidden="true">+</span></summary><p>Saca un tab del congelador, añade 150 ml de agua para una bebida espesa o 200 ml para una bebida más ligera y licúa durante 30 segundos.</p></details>
     <details><summary>¿Cómo se conserva?<span aria-hidden="true">+</span></summary><p>NUBE es un producto congelado. Consérvalo en el congelador y sigue las instrucciones de conservación de su envase.</p></details>
@@ -524,6 +534,93 @@
   .jc-v2__collection-grid { gap: 36px 12px; }
   .jc-v2__collection-photo { height: 175px; }
   .jc-v2__collection-body h3 { font-size: 20px; }
+}
+
+
+/* JUNGLCORE minimal four-item collection — matched to the approved INCHY reference,
+   no title, no descriptive blocks, no card rules. Existing homepage order stays intact. */
+.jc-v2__collection {
+  background: #f3f5f2;
+  padding: clamp(52px, 6vw, 90px) 0 clamp(92px, 12vw, 180px);
+}
+.jc-v2__collection .jc-v2__collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 85px) clamp(22px, 3.5vw, 42px);
+  margin-top: 0;
+}
+.jc-v2__collection .jc-v2__collection-card { min-width: 0; }
+.jc-v2__collection .jc-v2__collection-photo {
+  background: transparent;
+  width: 100%;
+  height: clamp(220px, 24vw, 310px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jc-v2__collection .jc-v2__collection-photo img,
+.jc-v2__collection .jc-v2__collection-card--one-mini .jc-v2__collection-photo img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+  aspect-ratio: auto;
+  mix-blend-mode: multiply;
+}
+.jc-v2__collection .jc-v2__collection-body {
+  border: 0;
+  padding: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 3px;
+}
+.jc-v2__collection .jc-v2__collection-body h3 {
+  margin: 0;
+  font-size: clamp(17px, 1.7vw, 22px);
+  font-weight: 420;
+  line-height: 1.28;
+  letter-spacing: -.025em;
+  text-transform: none;
+}
+.jc-v2__collection .jc-v2__collection-body a,
+.jc-v2__collection .jc-v2__collection-body > span {
+  display: block;
+  padding: 0;
+  font-size: clamp(13px, 1.15vw, 16px);
+  color: #727571;
+  line-height: 1.42;
+  letter-spacing: 0;
+  font-weight: 400;
+  text-transform: none;
+  white-space: normal;
+}
+.jc-v2__collection .jc-v2__collection-body a { border-bottom: 0; }
+.jc-v2__collection .jc-v2__collection-body a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 749px) {
+  .jc-v2__collection {
+    padding: 50px 0 105px;
+  }
+  .jc-v2__collection .jc-v2__collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px 22px;
+  }
+  .jc-v2__collection .jc-v2__collection-photo {
+    height: clamp(188px, 61vw, 275px);
+  }
+  .jc-v2__collection .jc-v2__collection-body { padding-top: 8px; gap: 3px; }
+  .jc-v2__collection .jc-v2__collection-body h3 { font-size: clamp(17px, 4.3vw, 21px); }
+  .jc-v2__collection .jc-v2__collection-body a,
+  .jc-v2__collection .jc-v2__collection-body > span { font-size: clamp(13px, 3.5vw, 15px); }
+}
+@media (max-width: 359px) {
+  .jc-v2__collection .jc-v2__collection-grid { gap: 46px 13px; }
+  .jc-v2__collection .jc-v2__collection-photo { height: 185px; }
 }
 
 {% endstyle %}
