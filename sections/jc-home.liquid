@@ -166,7 +166,13 @@
   </section>
   {%- endif -%}
 
-  {% render 'jc-faq', number: '07' %}
+  {%- liquid
+    assign faq_number = '06'
+    if section.blocks.size > 0
+      assign faq_number = '07'
+    endif
+  -%}
+  {% render 'jc-faq', number: faq_number %}
 
   <section class="jcs-final" aria-labelledby="jc-final-title">
     <div class="jcs-frame">
