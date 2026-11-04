@@ -1,0 +1,46 @@
+{% doc %}
+Shows the same three NUBE breakfast occasions on the homepage and product page.
+@param {string} heading_id - Unique heading ID for this page.
+{% enddoc %}
+<div class="jc-breakfast">
+  <h2 id="{{ heading_id | escape }}">{{ 'jc_breakfast.title' | t }}</h2>
+  <p class="jc-breakfast__bridge">{{ 'jc_breakfast.bridge' | t }}</p>
+  <div class="jc-breakfast__grid">
+    <figure>
+      <div class="jc-breakfast__scene">
+        <img class="jc-breakfast__photo" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6557.jpg?v=1793784459&width=928" width="928" height="1152" loading="lazy" alt="{{ 'jc_breakfast.oats_alt' | t }}">
+      </div>
+      <figcaption>{{ 'jc_breakfast.oats' | t }}</figcaption>
+    </figure>
+    <figure>
+      <div class="jc-breakfast__scene"><img class="jc-breakfast__photo" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6560.jpg?v=1793784885&width=928" width="928" height="1152" loading="lazy" alt="{{ 'jc_breakfast.smoothie_alt' | t }}"></div>
+      <figcaption>{{ 'jc_breakfast.smoothie' | t }}</figcaption>
+    </figure>
+    <figure>
+      <div class="jc-breakfast__scene"><img class="jc-breakfast__photo" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6559.jpg?v=1793784540&width=928" width="928" height="1152" loading="lazy" alt="{{ 'jc_breakfast.glass_alt' | t }}"></div>
+      <figcaption>{{ 'jc_breakfast.glass' | t }}</figcaption>
+    </figure>
+  </div>
+</div>
+{% stylesheet %}
+.jc-v2 .jc-breakfast h2{font-size:clamp(29px,4vw,52px);font-weight:500;line-height:1.15;letter-spacing:-.025em;margin:32px 0 22px}
+.jc-v2 .jc-breakfast__bridge{font-size:16px;line-height:1.6;color:#555951;margin:0 0 34px}
+.jc-v2 .jc-breakfast__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.jc-v2 .jc-breakfast__grid figure{margin:0;min-width:0}
+.jc-v2 .jc-breakfast__scene{position:relative;aspect-ratio:3/4;overflow:hidden;background:#f3f1eb}
+.jc-v2 .jc-breakfast__photo{display:block;width:100%;height:100%;object-fit:cover}
+.jc-v2 .jc-breakfast figcaption{font-size:12px;line-height:1.6;letter-spacing:.045em;font-weight:500;padding:18px 0 0;color:#343630}
+@media(max-width:749px){
+.jc-v2 .jc-breakfast h2{font-size:clamp(29px,7.5vw,42px);margin:26px 0 20px}
+.jc-v2 .jc-breakfast__grid{gap:14px}
+.jc-v2 .jc-breakfast__bridge{font-size:15px;margin-bottom:28px}
+.jc-v2 .jc-breakfast figcaption{font-size:10px;letter-spacing:.02em;padding-top:12px}
+}
+@media(max-width:479px){
+.jc-v2 .jc-breakfast__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px}
+.jc-v2 .jc-breakfast__grid figure:first-child{grid-column:1/-1}
+.jc-v2 .jc-breakfast__grid figure:first-child .jc-breakfast__scene{aspect-ratio:3/4;max-width:360px;margin-inline:auto}
+.jc-v2 .jc-breakfast figcaption{font-size:11px}
+.jc-v2 .jc-breakfast__grid figure:first-child figcaption{text-align:center}
+}
+{% endstylesheet %}

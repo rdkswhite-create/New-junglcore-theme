@@ -1,0 +1,66 @@
+.jc-lab-home,.jc-lab-products{color:#252922;font-family:inherit}
+#jc-v2-top .jc-lab-home{padding:36px 0 72px}
+.jc-lab-home__intro{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px;align-items:center;margin:38px 0 56px}
+#jc-v2-top .jc-lab-home__intro h2{font-size:clamp(30px,3.6vw,50px);line-height:1.12;letter-spacing:-.03em;font-weight:500;margin:0;max-width:25ch;text-wrap:balance}
+.jc-lab-home .jc-lab-home__intro>p{font-size:18px;line-height:1.6;margin:0;max-width:45ch;color:#51564c}
+.jc-lab-home__investigation{margin-bottom:76px}
+.jc-lab-home__investigation:last-child{margin-bottom:0}
+.jc-lab-home__question{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;background:#eeefea;padding:32px;margin-bottom:30px}
+.jc-lab-eyebrow,.jc-lab-products .jc-lab-products__label{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;line-height:1.6;letter-spacing:.04em;font-weight:400}
+#jc-v2-top .jc-lab-eyebrow{margin:0 0 20px}
+#jc-v2-top .jc-lab-home__question h3{font-size:clamp(26px,2.8vw,40px);line-height:1.14;letter-spacing:-.025em;font-weight:500;max-width:27ch;margin:0;text-wrap:balance}
+.jc-lab-home__question>div>p:not(.jc-lab-eyebrow){font-size:17px;line-height:1.6;color:#51564c;margin:0 0 24px;max-width:46ch}
+.jc-lab-textlink{display:inline-block;text-decoration:none;color:inherit;font-size:12px;letter-spacing:.04em;border-bottom:1px solid #9fa499;padding-bottom:6px}
+.jc-lab-products{margin-top:30px}
+.jc-lab-products .jc-lab-products__label{margin:0 0 24px;color:#5b6256}
+.jc-lab-products__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;align-items:stretch}
+.jc-lab-card{min-width:0;display:flex;flex-direction:column;background:transparent;scroll-margin-top:32px}
+.jc-lab-card__image{display:flex;align-items:center;justify-content:center;min-width:0;background:#f0f1ec;padding:18px;height:clamp(300px,29vw,420px)}
+.jc-lab-card__image img,.jc-lab-card__image svg{width:100%;height:100%;max-width:420px;display:block;object-fit:contain}
+.jc-lab-card__body{min-width:0;display:flex;flex-direction:column;align-items:flex-start;flex:1;padding:26px 0 0}
+.jc-lab-card__identity{width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.jc-lab-card__identity h4{font-size:28px;font-weight:500;line-height:1.1;letter-spacing:-.02em;margin:0}
+.jc-lab-card__status{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.5;letter-spacing:.03em;color:#656c5f}
+.jc-lab-card .jc-lab-card__line{font-size:clamp(22px,2vw,28px);font-weight:400;letter-spacing:-.02em;line-height:1.25;margin:0 0 16px;color:#252922;max-width:31ch;text-wrap:balance}
+.jc-lab-card .jc-lab-card__description{font-size:16px;line-height:1.6;margin:0 0 20px;color:#555d50;max-width:46ch}
+.jc-lab-card__action{margin-top:auto;padding-top:8px}
+.jc-lab-card .jc-lab-card__price{font-size:15px;line-height:1.5;margin:0 0 18px}
+.jc-lab-card__action a{display:inline-flex;align-items:center;justify-content:space-between;gap:22px;min-height:46px;padding:12px 18px;background:transparent;border:1px solid #aeb4a6;font-size:12px;line-height:1.5;letter-spacing:.025em;color:#252922;text-decoration:none}
+.jc-lab-card__action a:hover{background:#eeefea}
+.jc-lab-card__research{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:13px 18px;background:#686e63;color:white!important;text-decoration:none;font-size:11px;line-height:1.5;letter-spacing:.02em;margin-top:24px}
+.jc-lab-card__research>span:first-child{font-size:9px;flex-basis:100%;opacity:.85}
+.jc-lab-card__research strong{font-size:11px;font-weight:500}
+.jc-lab-card__research>span:last-child{margin-left:auto}
+.jc-lab-products--oil .jc-lab-products__grid{grid-template-columns:minmax(0,1fr)}
+.jc-lab-products--oil .jc-lab-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:stretch}
+.jc-lab-products--oil .jc-lab-card__body{justify-content:center;padding:36px clamp(12px,3vw,48px)}
+.jc-lab-products--oil .jc-lab-card__action{margin-top:12px}
+#jc-exp-top .jc-exp__opening h1{max-width:none;font-size:clamp(42px,7.6vw,104px);line-height:1.05;letter-spacing:-.04em;margin-bottom:32px}
+#jc-exp-top .jc-lab-page-intro p{font-size:18px;line-height:1.6;max-width:52ch;color:#50564e;margin:0 0 16px}
+#jc-exp-top .jc-lab-page-intro p:first-child{font-size:clamp(22px,2.3vw,30px);line-height:1.4;color:#252922}
+#jc-exp-top .jc-lab-products{margin-top:36px}
+.jc-lab-card a:focus-visible,.jc-lab-textlink:focus-visible{outline:2px solid #303b2b;outline-offset:4px}
+@media(max-width:749px){
+ #jc-v2-top .jc-lab-home{padding:24px 0 44px}
+ .jc-lab-home__intro{grid-template-columns:1fr;gap:22px;margin:28px 0 32px}
+ #jc-v2-top .jc-lab-home__intro h2{font-size:32px;max-width:24ch}
+ .jc-lab-home .jc-lab-home__intro>p{font-size:17px}
+ .jc-lab-home__investigation{margin-bottom:56px}
+ .jc-lab-home__question{grid-template-columns:1fr;gap:22px;margin-bottom:24px;padding:26px 22px}
+ #jc-v2-top .jc-lab-home__question h3{font-size:29px;max-width:none}
+ .jc-lab-home__question>div>p:not(.jc-lab-eyebrow){font-size:16px;margin-bottom:18px}
+ .jc-lab-products__grid{grid-template-columns:minmax(0,1fr);gap:40px}
+ .jc-lab-products .jc-lab-products__label{font-size:11px;margin-bottom:22px}
+ .jc-lab-card__image{height:310px;padding:16px}
+ .jc-lab-card__image img,.jc-lab-card__image svg{max-width:330px}
+ .jc-lab-card__body{padding:24px 0 0}
+ .jc-lab-card__identity{margin-bottom:18px}
+ .jc-lab-card .jc-lab-card__line{font-size:24px;max-width:28ch}
+ .jc-lab-card__action{width:100%}
+ .jc-lab-card__action a{min-height:46px;font-size:12px}
+ .jc-lab-products--oil .jc-lab-card{grid-template-columns:minmax(0,1fr);gap:0}
+ .jc-lab-products--oil .jc-lab-card__body{padding:24px 0 0}
+ #jc-exp-top .jc-lab-page-intro p{font-size:16px}
+ #jc-exp-top .jc-lab-page-intro p:first-child{font-size:24px}
+ #jc-exp-top .jc-exp__opening h1{font-size:clamp(38px,9vw,68px)}
+}

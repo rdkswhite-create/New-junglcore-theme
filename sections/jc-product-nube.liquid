@@ -1,0 +1,276 @@
+{{ 'jc-nube-v2.css' | asset_url | stylesheet_tag }}
+{{ 'jc-brand-system.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign order_message = section.settings.whatsapp_message | url_encode
+  assign order_url = 'https://wa.me/' | append: section.settings.whatsapp_number | append: '?text=' | append: order_message
+  assign city_message = 'jc_nube_product.city_message' | t | url_encode
+  assign city_url = 'https://wa.me/' | append: section.settings.whatsapp_number | append: '?text=' | append: city_message
+  assign current_variant = product.selected_or_first_available_variant
+%}
+<div class="jc-v2 jc-bio jc-product" id="jc-product-top">
+  <header class="jc-v2__header" aria-label="Junglcore">
+    <a class="jc-v2__header-logo" href="{{ routes.root_url }}" aria-label="junglcore inicio">
+      <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" alt="junglcore" width="1377" height="369" loading="eager">
+    </a>
+    <nav class="jc-v2__header-links" aria-label="Navegación">
+      <a href="{{ routes.root_url }}#jc-v2-nube">{{ 'junglcore_biodiversity.nav_products' | t }}</a>
+      <a href="{{ routes.root_url }}pages/exploraciones">{{ 'junglcore_biodiversity.nav_explorations' | t }}</a>
+      
+    </nav>
+    <a class="jc-v2__header-order" href="{{ order_url | strip | escape }}">{{ 'jc_nube_product.order' | t }} <span aria-hidden="true">↗</span></a>
+  </header>
+
+
+  <div class="jc-product__frame">
+    <nav class="jc-product__breadcrumb" aria-label="{{ 'jc_nube_product.breadcrumb' | t }}"><a href="{{ routes.root_url }}#jc-v2-nube">{{ 'junglcore_biodiversity.nav_products' | t }}</a><span aria-hidden="true">/</span><span>NUBE</span></nav>
+    <section class="jc-product__hero" aria-labelledby="jc-product-title">
+      {% render 'jc-product-gallery', gallery_id: section.id %}
+      <div class="jc-product__intro">
+        <p class="jc-product__eyebrow">{{ 'junglcore_biodiversity.hero_product' | t }}</p>
+        <h1 id="jc-product-title">{{ product.title | escape }}</h1>
+        <p class="jc-product__lead">{{ 'junglcore_biodiversity.nube_lead' | t }}</p>
+        <p class="jc-product__copy">{{ 'jc_nube_product.intro_short' | t }}</p>
+        <p class="jc-product__pack-contents">{{ 'jc_nube_product.pack_contents' | t }}</p>
+        {% if section.settings.enable_checkout and current_variant.price > 0 %}
+          <p class="jc-product__price">{{ current_variant.price | money_with_currency }}<span class="jc-product__portion-price">{{ 'jc_nube_product.portion_price' | t }}</span></p>
+          {% form 'product', product, class: 'jc-product__form' %}
+            {% if product.has_only_default_variant %}
+              <input type="hidden" name="id" value="{{ current_variant.id }}">
+            {% else %}
+              <label for="jc-product-variant-{{ section.id }}">{{ 'jc_nube_product.presentation' | t }}</label>
+              <select id="jc-product-variant-{{ section.id }}" name="id">{% for variant in product.variants %}<option value="{{ variant.id }}" {% if variant == current_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title | escape }} — {{ variant.price | money_with_currency }}</option>{% endfor %}</select>
+            {% endif %}
+            <div class="jc-product__purchase-actions">
+              <a class="jc-product__button jc-product__whatsapp" href="{{ order_url | escape }}">{{ 'jc_nube_product.order' | t }} <span aria-hidden="true">↗</span></a>
+              <button type="submit" class="jc-product__button" {% unless current_variant.available %}disabled{% endunless %}>{% if current_variant.available %}{{ 'jc_nube_product.add_to_cart' | t }}{% else %}{{ 'jc_nube_product.unavailable' | t }}{% endif %}</button>
+            </div>
+            <div class="jc-product__quantity-row">
+              <label for="jc-product-quantity-{{ section.id }}">{{ 'jc_nube_product.quantity' | t }}</label>
+              <input id="jc-product-quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1" step="1">
+            </div>
+          {% endform %}
+        {% else %}
+          <p class="jc-product__price">{{ 'jc_nube_product.confirmed_price' | t }} <span class="jc-product__price-unit">{{ 'jc_nube_product.per_bag' | t }}</span><span class="jc-product__portion-price">{{ 'jc_nube_product.portion_price' | t }}</span></p>
+          <a class="jc-product__button" href="{{ order_url | escape }}">{{ 'jc_nube_product.order' | t }} <span aria-hidden="true">↗</span></a>
+        {% endif %}
+        <p class="jc-product__delivery">{{ 'jc_nube_product.delivery_short' | t }}</p>
+        <p class="jc-product__city">{{ 'jc_nube_product.other_city' | t }} <a href="{{ city_url | escape }}">{{ 'jc_nube_product.city_contact' | t }}</a> {{ 'jc_nube_product.city_interest' | t }}</p>
+        <a class="jc-product__textlink" href="#jc-product-ritual">{{ 'jc_nube_product.how' | t }} ↓</a>
+        <a class="jc-product__textlink jc-product__compare-link" href="#jc-nutrition">{{ 'jc_nube_product.compare_link' | t }} ↓</a>
+        <div class="jc-product__details">
+<details><summary>{{ 'jc_lab.frozen_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_lab.frozen_a' | t }}</p></details>
+    <details><summary>{{ 'jc_lab.gellan_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_lab.gellan_a' | t }}</p></details>
+          <details><summary>{{ 'jc_nube_product.taste_title' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_nube_product.taste_answer' | t }}</p></details>
+          <details open><summary>{{ 'jc_nube_product.ingredients_title' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_nube_product.ingredients' | t }}</p></details>
+          <details><summary>{{ 'jc_nube_product.storage_title' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_nube_product.storage' | t }}</p></details>
+          <details><summary>{{ 'jc_nube_product.delivery_title' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_nube_product.delivery' | t }}</p></details>
+        </div>
+      </div>
+    </section>
+    <section class="jc-product__ritual" id="jc-product-ritual" aria-labelledby="jc-product-ritual-title">
+      <p class="jc-product__eyebrow">01 / {{ 'jc_nube_product.ritual_label' | t }}</p>
+      {% render 'jc-nube-ritual', heading_id: 'jc-product-ritual-title', show_film: true %}
+    </section>
+    <section class="jc-product__uses" aria-labelledby="jc-product-uses-title">
+      <p class="jc-product__eyebrow">02 / {{ 'jc_nube_product.everyday' | t }}</p>
+      {% render 'jc-nube-breakfast', heading_id: 'jc-product-uses-title' %}
+    </section>
+    {% render 'jc-price-protein', context_id: 'product' %}
+    <section class="jc-product__origin" aria-labelledby="jc-product-origin-title">
+      <figure><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-sacha-inchi-seed-leaf-roots-biodiversity-2026.jpg?v=1793696362&width=900" width="1126" height="729" alt="{{ 'jc_nube_product.seed_alt' | t }}" loading="lazy"></figure>
+      <div><p class="jc-product__eyebrow">04 / SACHA INCHI</p><h2 id="jc-product-origin-title">{{ 'jc_nube_product.origin_title' | t }}</h2><p>{{ 'jc_nube_product.origin_copy' | t }}</p><a class="jc-product__textlink" href="{{ routes.root_url }}#jc-v2-roots">{{ 'junglcore_biodiversity.plant_open' | t }} ↗</a></div>
+    </section>
+    <section class="jc-product__exploration" aria-labelledby="jc-product-exploration-title">
+      <div><p class="jc-product__eyebrow">{{ 'junglcore_biodiversity.exploration_status' | t }}</p><h2 id="jc-product-exploration-title">{{ 'junglcore_explorations.home_satiety_question' | t }}</h2></div>
+      <div><p>{{ 'jc_nube_product.exploration_copy' | t }}</p><a class="jc-product__textlink" href="{{ routes.root_url }}pages/exploraciones#jc-exp-001">{{ 'junglcore_explorations.visit' | t }} ↗</a></div>
+    </section>
+  </div>
+  <footer class="jc-v2__footer" aria-label="Información de JUNGLCORE">
+    <div class="jc-v2__footer-inner jc-v2__frame">
+      <div class="jc-v2__footer-brand">
+        <a href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" alt="junglcore" width="1377" height="369" loading="lazy"></a>
+        <p>Exploramos lo que la biodiversidad hace posible.</p>
+        <p class="jc-v2__footer-location">COLOMBIA · HECHO DE AQUÍ</p>
+      </div>
+      <nav class="jc-v2__footer-nav" aria-label="JUNGLCORE">
+        <h3>JUNGLCORE</h3>
+        <a href="{{ routes.root_url }}#jc-v2-nube">{{ 'junglcore_biodiversity.footer_products' | t }}</a>
+        <a href="{{ routes.root_url }}pages/exploraciones">{{ 'junglcore_biodiversity.footer_explorations' | t }}</a>
+        <a href="{{ routes.root_url }}#jc-v2-roots">{{ 'junglcore_biodiversity.footer_plants' | t }}</a>
+        
+      </nav>
+      <nav class="jc-v2__footer-nav" aria-label="Ayuda y contacto">
+        <h3>AYUDA</h3>
+        <a href="{{ routes.root_url }}#jc-v2-ritual">Cómo preparar NUBE</a>
+        <a href="{{ routes.root_url }}#jc-v2-faq">Preguntas frecuentes</a>
+        {% if section.settings.contact_email != blank %}<a href="mailto:{{ section.settings.contact_email | escape }}">Contacto</a>{% endif %}
+        <a href="{{ routes.root_url }}#jc-v2-faq">Envíos y entregas</a>
+      </nav>
+      <nav class="jc-v2__footer-nav" aria-label="Legal">
+        <h3>LEGAL</h3>
+        {% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Términos y condiciones</a>{% endif %}
+        {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Política de privacidad</a>{% endif %}
+        {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Cambios y devoluciones</a>{% endif %}
+        {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Política de envíos</a>{% endif %}
+      </nav>
+    </div>
+    <div class="jc-v2__footer-bottom jc-v2__frame">
+      <div class="jc-v2__footer-company">
+        {% if section.settings.legal_name != blank %}<span>{{ section.settings.legal_name | escape }}</span>{% endif %}
+        {% if section.settings.legal_nit != blank %}<span>NIT: {{ section.settings.legal_nit | escape }}</span>{% endif %}
+        {% if section.settings.legal_address != blank %}<span>{{ section.settings.legal_address | escape }}</span>{% endif %}
+        {% if section.settings.contact_phone != blank %}<span>Tel: {{ section.settings.contact_phone | escape }}</span>{% endif %}
+        {% if section.settings.contact_email != blank %}<a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a>{% endif %}
+      </div>
+      <a class="jc-v2__backtop" href="#jc-product-top">VOLVER ARRIBA ↑</a>
+    </div>
+  </footer>
+</div>
+{% stylesheet %}
+.jc-product .jc-product__pack-contents{font-size:13px;line-height:1.6;margin:0 0 14px;color:#62645f}
+.jc-product .jc-product__portion-price{display:block;margin-top:10px;font-size:16px;line-height:1.5;letter-spacing:0;color:#41433f}
+
+.jc-product{color:#101010;background:#FCFBF8}
+.jc-product__frame{width:min(100% - 52px,1090px);margin:auto}
+.jc-product__breadcrumb{display:flex;gap:16px;padding:28px 0;font-size:10px;letter-spacing:.09em}
+.jc-product__breadcrumb a,.jc-product__textlink{color:inherit;text-decoration:none}
+.jc-product__hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,6vw,80px);align-items:start;padding:18px 0 70px}
+.jc-product__pack{margin:0;position:sticky;top:30px;background:#f3f2ef;aspect-ratio:1/1.1;display:flex;align-items:center;justify-content:center}
+.jc-product__pack img{display:block;width:100%;height:auto;object-fit:contain;mix-blend-mode:multiply}
+.jc-product__intro{padding-top:14px}
+.jc-product .jc-product__eyebrow{font-size:10px;line-height:1.5;letter-spacing:.1em;color:#686868;margin:0 0 22px;text-transform:uppercase}
+.jc-product h1{font-size:clamp(48px,6vw,76px);font-weight:400;line-height:1;letter-spacing:-.03em;margin:0 0 28px}
+.jc-product .jc-product__lead{font-size:clamp(23px,2.5vw,31px);line-height:1.24;letter-spacing:-.02em;margin:0 0 22px}
+.jc-product__copy{font-size:16px;line-height:1.65;color:#62625e}
+.jc-product__facts{display:flex;flex-wrap:wrap;gap:9px 20px;border-block:1px solid #dedede;padding:17px 0;margin:26px 0;font-size:9px;letter-spacing:.06em}
+.jc-product .jc-product__button{display:inline-flex;justify-content:center;gap:14px;align-items:center;background:#101010;color:#fff;text-decoration:none;border:1px solid #101010;padding:12px 18px;font-size:11px;line-height:1.4;letter-spacing:.06em;width:auto;max-width:100%;min-height:44px;cursor:pointer}
+.jc-product .jc-product__button span{color:inherit}
+.jc-product__button:disabled{opacity:.5;cursor:default}
+.jc-product .jc-product__button:hover{background:#30302c;color:#fff}
+.jc-product .jc-product__delivery{font-size:11px;line-height:1.6;color:#686868;margin:24px 0 8px}
+.jc-product .jc-product__city{font-size:11px;line-height:1.6;color:#686868;margin:0 0 28px;max-width:390px}
+.jc-product .jc-product__city a{color:#101010;text-decoration:underline;text-underline-offset:3px}
+.jc-product__textlink{display:inline-block;font-size:10px;letter-spacing:.07em;padding-bottom:7px;border-bottom:1px solid #999a94;line-height:1.5}
+.jc-product__details{margin-top:32px;border-top:1px solid #dedede}
+.jc-product__details details{border-bottom:1px solid #dedede}
+.jc-product__details summary{display:flex;justify-content:space-between;list-style:none;padding:18px 0;font-size:12px;cursor:pointer}
+.jc-product__details summary::-webkit-details-marker{display:none}
+.jc-product__details details[open] summary span{transform:rotate(45deg)}
+.jc-product__details p{font-size:14px;line-height:1.65;color:#686868;margin:0 0 20px}
+.jc-product__ritual,.jc-product__uses{border-top:1px solid #dedede;padding:52px 0 65px;scroll-margin-top:25px}
+.jc-product h2{font-size:clamp(28px,3.7vw,46px);line-height:1.15;letter-spacing:-.025em;font-weight:500;margin:0 0 36px}
+.jc-product__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:45px}
+.jc-product__steps>div>span{font-size:10px;color:#777}
+.jc-product__steps h3{font-size:23px;font-weight:500;margin:18px 0 12px}
+.jc-product__steps p,.jc-product__origin p:not(.jc-product__eyebrow),.jc-product__exploration p:not(.jc-product__eyebrow){font-size:15px;line-height:1.65;color:#686868}
+.jc-product__use-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.jc-product__use-grid figure{margin:0}
+.jc-product__use-grid img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.jc-product__use-grid figcaption{font-size:10px;letter-spacing:.08em;margin-top:14px}
+.jc-product__origin{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:65px;padding:45px 0 80px}
+.jc-product__origin figure{margin:0}
+.jc-product__origin img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.jc-product__origin h2{margin-bottom:22px}
+.jc-product__origin .jc-product__textlink{margin-top:14px}
+.jc-product__exploration{display:grid;grid-template-columns:1fr 1fr;gap:65px;padding:42px 0 70px;border-top:1px solid #dedede}
+.jc-product__exploration h2{font-size:clamp(25px,3vw,36px);margin:0}
+.jc-product__exploration .jc-product__textlink{margin-top:16px}
+.jc-product .jc-product__price{font-size:24px;line-height:1.4;margin:0 0 28px;letter-spacing:-.015em}.jc-product__price-unit{font-size:13px;letter-spacing:0;color:#686868;margin-left:8px}
+.jc-product .jc-product__whatsapp{margin-top:12px;background:transparent;color:#101010}.jc-product .jc-product__whatsapp:hover{background:#efeee9;color:#101010}
+.jc-product__form{display:grid;gap:12px}.jc-product__form input[type=number]{width:90px;padding:10px}.jc-product__form select{padding:12px}.jc-product__form label{font-size:12px}
+.jc-product a:focus-visible,.jc-product summary:focus-visible,.jc-product button:focus-visible{outline:2px solid #52594c;outline-offset:5px}
+@media(max-width:749px){.jc-product__frame{width:calc(100% - 36px)}.jc-product__breadcrumb{padding:22px 0}.jc-product__hero{grid-template-columns:1fr;gap:28px;padding:0 0 45px}.jc-product__pack{position:static;aspect-ratio:1/1}.jc-product__pack img{max-height:400px;width:auto;max-width:100%}.jc-product__intro{padding:0}.jc-product h1{font-size:56px;margin-bottom:20px}.jc-product .jc-product__lead{font-size:26px}.jc-product__copy{font-size:15px}.jc-product__ritual,.jc-product__uses{padding:36px 0 45px}.jc-product h2{font-size:31px}.jc-product__steps{grid-template-columns:1fr;gap:22px}.jc-product__steps>div{display:grid;grid-template-columns:25px 1fr;gap:0 12px}.jc-product__steps>div>span{padding-top:4px}.jc-product__steps h3{margin:0 0 8px;font-size:21px}.jc-product__steps p{grid-column:2;margin:0}.jc-product__use-grid{gap:10px}.jc-product__use-grid figcaption{font-size:8px;letter-spacing:.03em}.jc-product__origin{grid-template-columns:1fr;gap:28px;padding:5px 0 45px}.jc-product__exploration{grid-template-columns:1fr;gap:16px;padding:35px 0 50px}.jc-product__exploration h2{font-size:29px}}
+.jc-product .jc-product__ritual h2,.jc-product .jc-product__uses h2{margin-bottom:40px}
+@media(max-width:749px){.jc-product .jc-product__ritual h2,.jc-product .jc-product__uses h2{margin-bottom:30px}}
+.jc-product .jc-product__ritual .jc-product__eyebrow,.jc-product .jc-product__uses .jc-product__eyebrow,.jc-product .jc-product__origin .jc-product__eyebrow,.jc-product .jc-product__exploration .jc-product__eyebrow{font-size:12px}
+
+#jc-product-top .jc-product__frame{width:min(calc(100% - 80px),1360px)}
+#jc-product-top .jc-product__hero{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(40px,5vw,76px);padding:24px 0 80px}
+#jc-product-top .jc-product__intro{padding-top:8px}
+#jc-product-top .jc-product__eyebrow{font-size:12px;margin-bottom:20px}
+#jc-product-top h1{font-size:clamp(56px,6vw,82px);margin-bottom:22px}
+#jc-product-top .jc-product__lead{font-size:clamp(25px,2.3vw,34px);line-height:1.2;margin-bottom:24px}
+#jc-product-top .jc-product__copy{font-size:18px;line-height:1.55;margin:0 0 28px;max-width:32em}
+#jc-product-top .jc-product__pack-contents{font-size:14px;margin:0 0 12px}
+#jc-product-top .jc-product__price{font-size:30px;margin:0 0 24px}
+#jc-product-top .jc-product__button{font-size:13px;min-height:48px;padding:14px 22px}
+#jc-product-top .jc-product__form{grid-template-columns:90px minmax(0,1fr);gap:8px 14px}
+#jc-product-top .jc-product__form label{grid-column:1/-1;font-size:13px}
+#jc-product-top .jc-product__form select{grid-column:1/-1}
+#jc-product-top .jc-product__form input[type=number]{width:100%;min-height:48px;border:1px solid #b9bcb3;background:transparent;font-size:16px;text-align:center}
+#jc-product-top .jc-product__delivery,#jc-product-top .jc-product__city{font-size:13px;line-height:1.6;max-width:none}
+#jc-product-top .jc-product__textlink{font-size:12px;line-height:1.5}
+#jc-product-top .jc-product__compare-link{margin-left:24px}
+#jc-product-top .jc-product__details{border:0;margin-top:30px;background:#eeefea;padding:0 24px}
+#jc-product-top .jc-product__details details{border-bottom:1px solid #d2d5cc}
+#jc-product-top .jc-product__details details:last-child{border-bottom:0}
+#jc-product-top .jc-product__details summary{font-size:18px;line-height:1.4;padding:20px 0;font-weight:500}
+#jc-product-top .jc-product__details p{font-size:16px;line-height:1.65;margin:0;padding:0 0 22px;color:#454b42}
+#jc-product-top .jc-gallery__stage{aspect-ratio:1 / 1.05}
+#jc-product-top .jc-gallery__panel--pack .jc-premium-pack{transform:scale(1.12)}
+#jc-product-top .jc-gallery__choices{gap:18px;justify-content:flex-start;margin-top:22px}
+#jc-product-top .jc-gallery__choice{width:calc((100% - 36px)/3);gap:12px}
+#jc-product-top .jc-gallery__choice img,#jc-product-top .jc-gallery__choice .jc-premium-pack{width:100%;height:clamp(100px,10vw,150px);object-fit:cover}
+#jc-product-top .jc-gallery__choice span{font-size:12px;letter-spacing:.04em}
+#jc-product-top .jc-product__ritual,#jc-product-top .jc-product__uses{padding:64px 0 72px}
+#jc-product-top .jc-breakfast__grid{gap:28px}
+#jc-product-top .jc-breakfast figcaption{font-size:14px}
+@media(max-width:749px){
+#jc-product-top .jc-product__frame{width:calc(100% - 36px)}
+#jc-product-top .jc-product__hero{grid-template-columns:1fr;gap:36px;padding:8px 0 48px}
+#jc-product-top .jc-gallery{max-width:none}
+#jc-product-top .jc-gallery__stage{aspect-ratio:1}
+#jc-product-top .jc-gallery__panel--pack .jc-premium-pack{transform:scale(1.16)}
+#jc-product-top .jc-gallery__choices{gap:12px;margin-top:16px}
+#jc-product-top .jc-gallery__choice{width:calc((100% - 24px)/3)}
+#jc-product-top .jc-gallery__choice img,#jc-product-top .jc-gallery__choice .jc-premium-pack{height:100px}
+#jc-product-top .jc-gallery__choice span{font-size:11px}
+#jc-product-top h1{font-size:56px}
+#jc-product-top .jc-product__lead{font-size:28px}
+#jc-product-top .jc-product__copy{font-size:17px}
+#jc-product-top .jc-product__compare-link{margin:14px 0 0;display:table}
+#jc-product-top .jc-product__details{padding:0 20px}
+#jc-product-top .jc-product__ritual,#jc-product-top .jc-product__uses{padding:42px 0 48px}
+#jc-product-top .jc-breakfast__grid{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px}
+#jc-product-top .jc-breakfast__grid figure{grid-column:auto;scroll-snap-align:start}
+#jc-product-top .jc-breakfast__grid figure:first-child .jc-breakfast__scene{max-width:none}
+#jc-product-top .jc-breakfast__grid figure:first-child figcaption{text-align:left}
+#jc-product-top .jc-breakfast figcaption{font-size:12px}
+}
+
+#jc-product-top .jc-product__form{display:flex;flex-direction:column;gap:18px}
+#jc-product-top .jc-product__purchase-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:510px}
+#jc-product-top .jc-product__purchase-actions .jc-product__button{margin:0;width:100%;min-height:44px;padding:12px 14px;font-size:11px;line-height:1.5;letter-spacing:.035em;gap:8px}
+#jc-product-top .jc-product__quantity-row{display:flex;align-items:center;gap:16px}
+#jc-product-top .jc-product__quantity-row label{font-size:13px}
+#jc-product-top .jc-product__quantity-row input[type=number]{width:72px;min-height:38px;height:38px;padding:7px;font-size:15px}
+#jc-product-top .jc-product__ritual,#jc-product-top .jc-product__uses,#jc-product-top .jc-nutrition,#jc-product-top .jc-product__exploration{border:0}
+#jc-product-top .jc-ritual-choice__steps{gap:20px;margin:36px 0 24px}
+#jc-product-top .jc-ritual-choice__steps li{border:0;background:#eeefea;padding:28px;min-width:0}
+#jc-product-top .jc-ritual-choice__steps li>span{font-size:12px;margin-bottom:28px}
+#jc-product-top .jc-ritual-choice__steps h4{font-size:24px;margin-bottom:16px}
+#jc-product-top .jc-ritual-choice__steps p{font-size:16px;line-height:1.6}
+#jc-product-top .jc-ritual-choice__value{border:0;padding:18px 0 0;margin:0}
+#jc-product-top .jc-ritual-choice__options{border:0;margin:12px 0 0}
+#jc-product-top .jc-ritual-choice__film{margin:24px 0 0}
+#jc-product-top .jc-ritual-choice__film>summary,#jc-product-top .jc-ritual-choice__options>summary{background:#f0f1ec;padding:18px 22px;border:0}
+#jc-product-top .jc-ritual-choice__options[open]>.jc-ritual-choice__intro{margin-top:24px}
+#jc-product-top .jc-ritual-choice h2,#jc-product-top .jc-breakfast h2,#jc-product-top .jc-nutrition h2{font-family:inherit;font-size:clamp(30px,4vw,52px);font-weight:500;line-height:1.15;letter-spacing:-.025em;margin:0 0 28px}
+#jc-product-top .jc-ritual-choice__opening{margin-top:0}
+#jc-product-top .jc-nutrition>.jc-product__eyebrow{margin:0 0 22px}
+@media(max-width:749px){
+#jc-product-top .jc-product__purchase-actions{gap:8px;max-width:none}
+#jc-product-top .jc-product__purchase-actions .jc-product__button{font-size:10px;padding:12px 8px;min-height:46px;gap:4px;letter-spacing:.01em}
+#jc-product-top .jc-ritual-choice__steps{gap:12px}
+#jc-product-top .jc-ritual-choice__steps li{padding:24px}
+#jc-product-top .jc-ritual-choice__steps li>span{margin-bottom:20px}
+#jc-product-top .jc-ritual-choice h2,#jc-product-top .jc-breakfast h2,#jc-product-top .jc-nutrition h2{font-size:clamp(29px,7.5vw,42px);margin:0 0 24px}
+}
+{% endstylesheet %}
+{% schema %}
+{"name":"JUNGLCORE NUBE","settings":[{"type":"text","id":"whatsapp_number","label":"Número de WhatsApp","default":"573011571039"},{"type":"text","id":"whatsapp_message","label":"Mensaje para pedidos","default":"Hola, quiero pedir JUNGLCORE NUBE en Bogotá."},{"type":"checkbox","id":"enable_checkout","label":"Activar compra en Shopify con precio y existencias confirmados","default":false}],"presets":[{"name":"JUNGLCORE NUBE"}]}
+{% endschema %}
+
+
+
+

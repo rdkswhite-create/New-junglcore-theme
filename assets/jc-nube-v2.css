@@ -1,13 +1,13 @@
 /* JUNGLCORE NUBE V2 / a deliberately quiet, product-first editorial system */
 .jc-v2, .jc-v2 * { box-sizing: border-box; font-family: Inter,"Helvetica Neue",Arial,sans-serif; }
-.jc-v2 { --ink:#101010; --muted:#686868; --line:#dedede; width:100%; overflow:hidden; background:#fff; color:var(--ink); font-size:16px; line-height:1.5; }
+.jc-v2 { --ink:#101010; --muted:#686868; --line:#dedede; width:100%; overflow:hidden; background:#FCFBF8; color:var(--ink); font-size:16px; line-height:1.5; }
 .jc-v2 h1,.jc-v2 h2,.jc-v2 h3,.jc-v2 p { margin:0; padding:0; color:inherit; font-family:inherit; }
 .jc-v2 h1,.jc-v2 h2,.jc-v2 h3 { letter-spacing:0; text-transform:none; font-weight:700; line-height:1.13; }
 .jc-v2 a { color:inherit; text-decoration:none; }
 .jc-v2 a:focus-visible { outline:3px solid #101010; outline-offset:4px; }
 .jc-v2__frame { width:min(100% - 52px,1090px); margin-inline:auto; }
 .jc-v2__eyebrow,.jc-v2__chapter { font-size:11px; font-weight:500; letter-spacing:.19em; text-transform:uppercase; }
-.jc-v2__header { height:76px; display:flex; align-items:center; justify-content:space-between; padding-inline:clamp(22px,4vw,65px); gap:20px; background:white; }
+.jc-v2__header { height:76px; display:flex; align-items:center; justify-content:space-between; padding-inline:clamp(22px,4vw,65px); gap:20px; background:#FCFBF8; }
 .jc-v2__header-logo { display:block; width:clamp(130px,13vw,175px); min-width:130px; line-height:0; }
 .jc-v2__header-logo img { display:block; width:100%; height:auto; }
 .jc-v2__header-links { display:flex; align-items:center; gap:clamp(16px,3vw,50px); }
@@ -48,18 +48,18 @@
 .jc-v2__fineprint { max-width:580px; margin:30px auto 0!important; color:#777!important; font-size:11px; line-height:1.65; }
 /* Ritual: fine rules, three editorial steps, no icons or cards. */
 .jc-v2__ritual { padding-bottom:clamp(100px,12vw,160px); }
-.jc-v2__ritual h2 { font-size:clamp(48px,7vw,105px); font-weight:650; line-height:1.12; margin:52px 0 64px; }
+.jc-v2__ritual h2 { font-size:clamp(35px,5.3vw,74px); font-weight:650; line-height:1.12; margin:52px 0 64px; }
 .jc-v2__ritual-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
 .jc-v2__ritual-grid>div { border-top:1px solid var(--line); padding:22px 24px 30px 0; }
 .jc-v2__ritual-grid>div+div { padding-left:24px; border-left:1px solid var(--line); }
 .jc-v2__ritual-grid span { font-size:11px; color:var(--muted); letter-spacing:.16em; }
-.jc-v2__ritual-grid h3 { font-size:clamp(26px,3.8vw,48px); font-weight:650; margin:26px 0 15px; letter-spacing:0; }
+.jc-v2__ritual-grid h3 { font-size:clamp(23px,3.2vw,40px); font-weight:650; margin:26px 0 15px; letter-spacing:0; }
 .jc-v2__ritual-grid p { font-size:16px; color:#5b5b5b; }
 /* Brand viewpoint follows product and practical ritual. */
 .jc-v2__manifesto { background:#171717; color:#fff; padding:clamp(78px,11vw,150px) 0 clamp(90px,10vw,140px); }
 .jc-v2__manifesto .jc-v2__chapter { color:#bbb; }
 .jc-v2__manifesto .jc-v2__chapter span:first-child { color:#fff; }
-.jc-v2__manifesto h2 { font-size:clamp(47px,8.7vw,130px); font-weight:700; line-height:1.1; margin:60px 0 75px; letter-spacing:0; }
+.jc-v2__manifesto h2 { font-size:clamp(35px,5.3vw,74px); font-weight:700; line-height:1.1; margin:60px 0 75px; letter-spacing:0; }
 .jc-v2__manifesto-bottom { display:grid; grid-template-columns:1fr 1fr; max-width:840px; margin-left:auto; gap:36px; }
 .jc-v2__manifesto-bottom p { font-size:clamp(16px,1.6vw,20px); font-weight:350; line-height:1.65; color:#e4e4e4; }
 /* ONE & OIL: secondary discovery, not the homepage hero. */
@@ -105,13 +105,13 @@
   .jc-v2__nube-actions { gap:24px; margin-top:32px; }
   .jc-v2__button { width:100%; }
   .jc-v2__ritual { padding-bottom:100px; }
-  .jc-v2__ritual h2 { font-size:clamp(42px,11vw,64px); margin:35px 0 50px; }
+  .jc-v2__ritual h2 { font-size:clamp(35px,9.2vw,54px); margin:35px 0 50px; }
   .jc-v2__ritual-grid { grid-template-columns:1fr; }
   .jc-v2__ritual-grid>div { padding:20px 0 28px; }
   .jc-v2__ritual-grid>div+div { padding-left:0; border-left:0; }
-  .jc-v2__ritual-grid h3 { margin:12px 0 8px; font-size:35px; }
+  .jc-v2__ritual-grid h3 { margin:12px 0 8px; font-size:30px; }
   .jc-v2__manifesto { padding:85px 0 95px; }
-  .jc-v2__manifesto h2 { font-size:clamp(41px,10.9vw,71px); margin:45px 0 55px; line-height:1.15; }
+  .jc-v2__manifesto h2 { font-size:clamp(35px,9.2vw,54px); margin:45px 0 55px; line-height:1.15; }
   .jc-v2__manifesto-bottom { grid-template-columns:1fr; gap:22px; }
   .jc-v2__collection { padding:100px 0 100px; }
   .jc-v2__collection h2 { font-size:clamp(43px,10vw,70px); }
@@ -334,7 +334,7 @@
 .jc-v2__faq summary span { font-size:26px; font-weight:300; color:#666; transition:transform .2s; }
 .jc-v2__faq details[open] summary span { transform:rotate(45deg); }
 .jc-v2__faq details p { max-width:700px; padding:0 0 28px; color:#555; font-size:16px; line-height:1.7; }
-.jc-v2__footer { display:block; background:#f6f6f4; border:0; padding:clamp(70px,9vw,110px) 0 0; }
+.jc-v2__footer { display:block; background:#FCFBF8; border:0; padding:clamp(70px,9vw,110px) 0 0; }
 .jc-v2__footer-inner { display:grid; grid-template-columns: minmax(250px,1.65fr) repeat(3,minmax(125px,.7fr)); column-gap:clamp(25px,4vw,75px); row-gap:50px; align-items:start; }
 .jc-v2__footer-brand > a { display:block; width:min(100%,220px); line-height:0; }
 .jc-v2__footer-brand img { display:block; width:100%; height:auto; margin:0; }
@@ -514,7 +514,7 @@
 /* JUNGLCORE collection: warm off-white, small product gallery, responsive two-up mobile.
    Retains existing section position and product card ordering. */
 .jc-v2__collection {
-  background: #f5f5f1;
+  background: #FCFBF8;
   padding: clamp(78px, 9vw, 125px) 0 clamp(95px, 10vw, 135px);
 }
 .jc-v2__collection-grid {
@@ -604,10 +604,10 @@
 }
 
 
-/* JUNGLCORE minimal four-item collection — matched to the approved INCHY reference,
+/* JUNGLCORE minimal four-item collection — neutral warm off-white background,
    no title, no descriptive blocks, no card rules. Existing homepage order stays intact. */
 .jc-v2__collection {
-  background: #f3f5f2;
+  background: #FCFBF8;
   padding: clamp(52px, 6vw, 90px) 0 clamp(92px, 12vw, 180px);
 }
 .jc-v2__collection .jc-v2__collection-grid {
@@ -688,11 +688,4 @@
 @media (max-width: 359px) {
   .jc-v2__collection .jc-v2__collection-grid { gap: 46px 13px; }
   .jc-v2__collection .jc-v2__collection-photo { height: 185px; }
-}
-
-
-/* Restore the small collection chapter label while keeping the four-product layout. */
-.jc-v2__collection .jc-v2__collection-grid { margin-top: clamp(32px, 4vw, 50px); }
-@media (max-width: 749px) {
-  .jc-v2__collection .jc-v2__collection-grid { margin-top: 30px; }
 }

@@ -1,0 +1,73 @@
+#jc-v2-top {
+  --home-heading: clamp(30px, 3.3vw, 46px);
+  --home-subheading: clamp(25px, 2.4vw, 34px);
+  --home-card-heading: clamp(20px, 1.8vw, 25px);
+}
+#jc-v2-top h1,
+#jc-v2-top h2,
+#jc-v2-top h3,
+#jc-v2-top h4,
+#jc-v2-top .jc-lab-card__line {
+  font-family: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-synthesis: none;
+  font-kerning: normal;
+}
+#jc-v2-top .jc-bio__hero-title,
+#jc-v2-top .jc-v2__nube-identity .jc-nube-offer__headline,
+#jc-v2-top .jc-ritual-choice h2,
+#jc-v2-top .jc-breakfast h2,
+#jc-v2-top .jc-v2__roots-story h2,
+#jc-v2-top .jc-story-intro h2,
+#jc-v2-top .jc-lab-home__intro h2,
+#jc-v2-top .jc-v2__faq h2 {
+  font-size: var(--home-heading);
+  font-weight: 350;
+  letter-spacing: -.015em;
+  line-height: 1.16;
+  text-wrap: balance;
+}
+#jc-v2-top .jc-bio__hero-title { font-weight: 400; }
+#jc-v2-top .jc-lab-home__question h3,
+#jc-v2-top .jc-compare h3 {
+  font-size: var(--home-subheading);
+  font-weight: 350;
+  letter-spacing: -.01em;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+#jc-v2-top .jc-lab-card .jc-lab-card__line {
+  font-size: var(--home-card-heading);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+#jc-v2-top .jc-lab-card h4 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: .035em;
+}
+#jc-v2-top .jc-ritual-choice__steps h4 {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: .02em;
+}
+#jc-v2-top .jc-lab-products .jc-lab-products__label {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .045em;
+}
+#jc-v2-top .jc-v2__chapter span:first-child { font-weight: 400; }
+#jc-v2-top .jc-v2__chapter span:last-child { letter-spacing: .06em; }
+#jc-v2-top .jc-v2__footer-nav h3 { font-weight: 500; letter-spacing: .08em; }
+@media (max-width: 749px) {
+  #jc-v2-top {
+    --home-heading: clamp(28px, 7.5vw, 36px);
+    --home-subheading: clamp(24px, 6.4vw, 30px);
+    --home-card-heading: 21px;
+  }
+  #jc-v2-top .jc-v2__nube-identity .jc-nube-offer__headline { max-width: 100%; }
+}

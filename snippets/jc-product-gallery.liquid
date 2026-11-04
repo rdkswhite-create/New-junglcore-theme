@@ -1,0 +1,67 @@
+{% doc %}
+NUBE product gallery with keyboard-accessible image selection.
+@param {string} gallery_id - Unique ID for the gallery instance.
+{% enddoc %}
+{% liquid
+  assign pack_instance = gallery_id | append: '-main'
+  assign thumb_instance = gallery_id | append: '-thumb'
+  assign drink = images['junglcore-nube-usos-en-vaso-nov2026.png']
+  assign breakfast = images['junglcore-nube-avena-desayuno-nov2026.png']
+  assign pack_alt = 'jc_nube_product.pack_alt' | t
+  assign drink_alt = 'jc_breakfast.glass_alt' | t
+  assign breakfast_alt = 'jc_breakfast.oats_alt' | t
+%}
+<fieldset class="jc-gallery">
+  <legend class="visually-hidden">{{ 'jc_gallery.label' | t }}</legend>
+  <input class="jc-gallery__radio jc-gallery__radio--pack" type="radio" name="{{ gallery_id }}" id="{{ gallery_id }}-pack" checked>
+  <input class="jc-gallery__radio jc-gallery__radio--drink" type="radio" name="{{ gallery_id }}" id="{{ gallery_id }}-drink">
+  <input class="jc-gallery__radio jc-gallery__radio--breakfast" type="radio" name="{{ gallery_id }}" id="{{ gallery_id }}-breakfast">
+  <div class="jc-gallery__stage">
+    <div class="jc-gallery__panel jc-gallery__panel--pack">
+      {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: pack_instance, description: pack_alt %}
+    </div>
+    <div class="jc-gallery__panel jc-gallery__panel--drink">
+      {{ drink | image_url: width: 1000 | image_tag: widths: '400, 700, 1000', sizes: 'auto', loading: 'lazy', alt: drink_alt }}
+    </div>
+    <div class="jc-gallery__panel jc-gallery__panel--breakfast">
+      {{ breakfast | image_url: width: 1000 | image_tag: widths: '400, 700, 1000', sizes: 'auto', loading: 'lazy', alt: breakfast_alt }}
+    </div>
+  </div>
+  <div class="jc-gallery__choices">
+    <label class="jc-gallery__choice jc-gallery__choice--pack" for="{{ gallery_id }}-pack">
+      {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: thumb_instance, description: pack_alt %}
+      <span>{{ 'jc_gallery.pack' | t }}</span>
+    </label>
+    <label class="jc-gallery__choice jc-gallery__choice--drink" for="{{ gallery_id }}-drink">
+      {{ drink | image_url: width: 180 | image_tag: loading: 'eager', alt: '' }}
+      <span>{{ 'jc_gallery.drink' | t }}</span>
+    </label>
+    <label class="jc-gallery__choice jc-gallery__choice--breakfast" for="{{ gallery_id }}-breakfast">
+      {{ breakfast | image_url: width: 180 | image_tag: loading: 'eager', alt: '' }}
+      <span>{{ 'jc_gallery.breakfast' | t }}</span>
+    </label>
+  </div>
+</fieldset>
+{% stylesheet %}
+.jc-product .jc-gallery{min-width:0;padding:0;margin:0;border:0;position:sticky;top:24px}
+.jc-gallery__radio{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.jc-gallery__stage{aspect-ratio:1;position:relative;overflow:hidden;background:transparent}
+.jc-gallery__panel{display:none;position:absolute;inset:0}
+.jc-product .jc-gallery__panel img{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:normal}
+.jc-product .jc-gallery__panel--pack img{object-fit:contain}
+.jc-gallery__radio--pack:checked~.jc-gallery__stage .jc-gallery__panel--pack,
+.jc-gallery__radio--drink:checked~.jc-gallery__stage .jc-gallery__panel--drink,
+.jc-gallery__radio--breakfast:checked~.jc-gallery__stage .jc-gallery__panel--breakfast{display:block}
+.jc-gallery__choices{display:flex;justify-content:center;gap:18px;margin-top:24px}
+.jc-gallery__choice{display:flex;flex-direction:column;align-items:center;width:88px;gap:10px;padding-bottom:10px;border-bottom:1px solid transparent;cursor:pointer}
+.jc-product .jc-gallery__choice img{display:block;width:76px;height:76px;object-fit:cover;mix-blend-mode:normal}
+.jc-product .jc-gallery__choice--pack img{object-fit:contain}
+.jc-gallery__choice span{font-size:10px;line-height:1.4;letter-spacing:.06em;text-transform:uppercase;color:#53534f;text-align:center}
+.jc-gallery__radio--pack:checked~.jc-gallery__choices .jc-gallery__choice--pack,
+.jc-gallery__radio--drink:checked~.jc-gallery__choices .jc-gallery__choice--drink,
+.jc-gallery__radio--breakfast:checked~.jc-gallery__choices .jc-gallery__choice--breakfast{border-color:#101010}
+.jc-gallery__radio--pack:focus-visible~.jc-gallery__choices .jc-gallery__choice--pack,
+.jc-gallery__radio--drink:focus-visible~.jc-gallery__choices .jc-gallery__choice--drink,
+.jc-gallery__radio--breakfast:focus-visible~.jc-gallery__choices .jc-gallery__choice--breakfast{outline:2px solid #52594c;outline-offset:4px}
+@media(max-width:749px){.jc-product .jc-gallery{position:relative;top:auto;width:100%;max-width:520px;margin-inline:auto}.jc-gallery__choices{gap:14px;margin-top:14px}.jc-gallery__choice{width:82px}.jc-product .jc-gallery__choice img{width:68px;height:68px}}
+{% endstylesheet %}

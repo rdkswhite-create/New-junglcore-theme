@@ -1,0 +1,38 @@
+{% doc %}
+Premium transparent pouch presentation with a precise silhouette and a soft rightward contact shadow.
+@param {string} product_code - NUBE or ONE.
+@param {string} instance_id - Unique presentation identifier.
+@param {string} description - Accessible image description.
+{% enddoc %}
+{% liquid
+  assign pack_file = 'junglcore-nube-premium-transparent-v2.png'
+  if product_code == 'ONE'
+    assign pack_file = 'junglcore-one-premium-transparent-v2.png'
+  endif
+  assign pack_image = images[pack_file]
+  assign pack_id = instance_id | handleize
+%}
+<svg class="jc-premium-pack" viewBox="0 0 1280 1280" width="1280" height="1280" role="img" aria-labelledby="{{ pack_id }}-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="{{ pack_id }}-title">{{ description | escape }}</title>
+  <defs>
+    <clipPath id="{{ pack_id }}-edge">
+      <path d="M333 129H918Q963 129 966 173V189H959Q951 189 951 197Q951 204 959 204H966L929 1091Q929 1124 910 1129C760 1145 504 1145 355 1130Q326 1127 325 1096L289 204H296Q304 204 304 197Q304 190 296 190H289V173Q289 129 333 129Z"/>
+    </clipPath>
+    <radialGradient id="{{ pack_id }}-shadow">
+      <stop offset="0" stop-color="#33352f" stop-opacity=".18"/>
+      <stop offset=".48" stop-color="#33352f" stop-opacity=".09"/>
+      <stop offset="1" stop-color="#33352f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="685" cy="1134" rx="390" ry="43" fill="url(#{{ pack_id }}-shadow)"/>
+  <image href="{{ pack_image | image_url: width: 1254 }}" x="0" y="0" width="1280" height="1280" preserveAspectRatio="xMidYMid meet" clip-path="url(#{{ pack_id }}-edge)"/>
+</svg>
+{% stylesheet %}
+.jc-premium-pack{display:block;width:100%;height:auto;overflow:visible}
+#jc-v2-top .jc-v2__nube-photo .jc-premium-pack{width:100%;height:auto;max-height:620px;margin:0}
+#jc-v2-top .jc-v2__collection .jc-v2__collection-photo .jc-premium-pack{width:100%;height:100%;max-width:100%;margin:0}
+.jc-about .jc-about__products .jc-premium-pack{width:100%;height:clamp(200px,24vw,300px);margin-bottom:12px}
+.jc-product .jc-gallery__panel .jc-premium-pack{width:100%;height:100%}
+.jc-product .jc-gallery__choice .jc-premium-pack{width:76px;height:76px}
+@media(max-width:749px){.jc-about .jc-about__products .jc-premium-pack{height:150px;margin-bottom:8px}.jc-product .jc-gallery__choice .jc-premium-pack{width:68px;height:68px}}
+{% endstylesheet %}

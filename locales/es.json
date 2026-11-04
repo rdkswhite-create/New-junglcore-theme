@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -221,6 +230,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Página no encontrada",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "No se encontraron resultados para “{{ terms }}” Revisa la ortografía o usa una palabra o frase diferente.",
       "results_with_count": {
@@ -269,10 +282,6 @@
         "error_heading": "Por favor, ajusta lo siguiente:",
         "title": "Formulario de contacto"
       }
-    },
-    "404": {
-      "title": "Página no encontrada",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -539,5 +548,177 @@
       "expanded": "Formulario del destinatario de la tarjeta de regalo expandido",
       "collapsed": "Formulario del destinatario de tarjeta de regalo contraído"
     }
+  },
+  "junglcore_biodiversity": {
+    "nav_products": "PRODUCTOS",
+    "nav_explorations": "EXPLORACIONES",
+    "nav_plants": "PLANTAS",
+    "nav_about": "NOSOTROS",
+    "order": "PEDIR NUBE",
+    "hero_origin": "COLOMBIA / BIODIVERSIDAD",
+    "hero_start": "EMPEZAMOS CON SACHA INCHI",
+    "idea": "EXPLORAMOS LO QUE LA BIODIVERSIDAD HACE POSIBLE.",
+    "hero_product": "NUBE / BASE CONGELADA DE SACHA INCHI",
+    "discover_nube": "DESCUBRIR NUBE",
+    "nube_lead": "¿Quién dijo que una bebida vegetal tiene que venir en caja?",
+    "nube_copy": "NUBE es una base congelada de sacha inchi. Un tab de NUBE, agua y 30 segundos en la licuadora: tu bebida vegetal, recién preparada.",
+    "comparison_title": "NUBE Y ALMENDRA SIN AZÚCAR",
+    "comparison_note": "Valores de NUBE pendientes de confirmación con el análisis del producto final. La comparación muestra preparaciones de distinto volumen final.",
+    "compare_link": "Ver comparación nutricional",
+    "our_idea": "NUESTRA IDEA",
+    "manifesto_lead": "Las plantas tienen mucho más por ofrecer.",
+    "manifesto_copy": "Exploramos lo que la biodiversidad hace posible y creamos productos para la vida cotidiana.",
+    "exploration_status": "EXPLORACIÓN 001 / EN CURSO",
+    "satiety": "SACIEDAD.",
+    "satiety_question": "¿Qué nos hace sentir satisfechos después de comer?",
+    "satiety_intro": "Exploramos el papel de la proteína, la fibra y la estructura de los alimentos. Empezamos con la sacha inchi.",
+    "products_linked": "PRODUCTOS VINCULADOS",
+    "exploration_open": "LEER MÁS",
+    "exploration_detail": "Nos interesa comprender qué cambia cuando distintos componentes de una semilla permanecen juntos. Esta pregunta orienta nuestra lectura de la ciencia y el desarrollo de nuevas formas de incorporarla a lo que comemos.",
+    "exploration_evidence": "Una pregunta abierta. No una promesa de saciedad demostrada en nuestros productos.",
+    "plant_name": "001 / SACHA INCHI",
+    "plant_copy": "Una misma semilla. Una bebida vegetal, una proteína y un aceite. Empezamos aquí, con la sacha inchi cultivada en Colombia. Y todavía queda mucho por descubrir.",
+    "plant_open": "Conocer la planta",
+    "plant_detail": "La sacha inchi es una planta sudamericana. Su historia empieza mucho antes que JUNGLCORE: en los territorios y en las personas que la conocen y la cultivan. Nos interesa aprender de ese conocimiento y desarrollar nuevas formas de utilizarla.",
+    "products_aria": "Productos JUNGLCORE",
+    "products_title": "LO QUE CREAMOS.",
+    "products_intro": "Una misma semilla. Una bebida vegetal, una proteína y un aceite.",
+    "nube_descriptor": "Prepara tu bebida vegetal en casa. Base congelada de sacha inchi.",
+    "one_descriptor": "Añade proteína y fibra a lo que ya comes. Proteína de sacha inchi en polvo.",
+    "sachets_descriptor": "La misma harina, en cinco sobres de 30 g.",
+    "oil_descriptor": "Aceite de sacha inchi para tu cocina.",
+    "footer_products": "Productos",
+    "footer_explorations": "Exploraciones",
+    "footer_plants": "Plantas",
+    "footer_about": "Nosotros",
+    "faq_brand_q": "¿Qué es JUNGLCORE?",
+    "faq_brand_a": "Exploramos lo que la biodiversidad hace posible y creamos productos para la vida cotidiana. Empezamos por la alimentación, con la sacha inchi.",
+    "use_bakery": "EN REPOSTERÍA",
+    "use_bakery_alt": "Bizcocho casero cortado sobre un plato de cerámica",
+    "use_sauce": "EN SALSAS",
+    "use_sauce_alt": "Pasta con salsa cremosa y champiñones en un cuenco de cerámica",
+    "use_soup": "EN SOPAS",
+    "use_soup_alt": "Sopa cremosa de verduras en un cuenco de cerámica",
+    "nube_benefit": "Guárdala congelada. Prepara tu bebida cuando quieras.",
+    "nube_ingredients": "Proteína y fibra de la misma semilla. Tres ingredientes: pasta de sacha inchi, agua y goma gelana.",
+    "exploration_status_seed_fats": "EXPLORACIÓN 002 / EN CURSO",
+    "seed_fats": "LAS GRASAS DE LAS SEMILLAS.",
+    "seed_fats_question": "¿Qué pueden aportar los aceites de las semillas a nuestra alimentación?",
+    "seed_fats_intro": "Exploramos su composición, sus ácidos grasos y sus usos en la cocina. Empezamos con el aceite de sacha inchi.",
+    "seed_fats_detail": "Nos interesa conocer los distintos perfiles de los aceites de semillas, cómo se obtienen y cómo se incorporan a nuestra alimentación. Esta exploración es sobre aceites comestibles, no cuidado de la piel.",
+    "seed_fats_evidence": "Una investigación en curso. No atribuimos a OIL beneficios médicos demostrados.",
+    "fold_close": "CERRAR",
+    "direct_intro": "Empezamos con una semilla: sacha inchi. La transformamos en una base para bebida vegetal, una proteína en polvo y un aceite comestible.",
+    "practical_prep_label": "Preparación",
+    "practical_prep": "1 tab + 150–200 ml de agua. Licúa 30 segundos.",
+    "practical_storage_label": "Conservación",
+    "practical_storage": "Siempre en el congelador.",
+    "practical_delivery_label": "Entrega",
+    "practical_delivery": "Inicialmente en Bogotá. Consulta el costo por WhatsApp antes de pedir.",
+    "family_label": "De la semilla a los productos"
+  },
+  "junglcore_explorations": {
+    "research": {
+      "story_title": "La exploración empezó escuchando.",
+      "story_one": "Algunas personas que probaron nuestros productos nos contaron algo que nos llamó la atención: además de sumar proteína a su alimentación, sentían que quedaban más satisfechas después de comer.",
+      "story_two": "Esa observación despertó una pregunta: ¿qué podría explicar esa sensación? Empezamos a revisar la literatura científica sobre proteína, fibra y sacha inchi. Encontramos pistas y preguntas abiertas que hoy orientan nuestra exploración de la saciedad.",
+      "story_note": "Los testimonios son nuestro punto de partida, no una prueba clínica. Comprender qué los explica es la exploración.",
+      "research_title": "Estudios que orientan esta exploración",
+      "research_intro": "Dos líneas de lectura: lo que se ha estudiado sobre la proteína en personas y lo que se ha observado sobre péptidos de sacha inchi en el laboratorio.",
+      "protein_title": "Proteína y saciedad",
+      "protein_type": "REVISIÓN Y METAANÁLISIS · ESTUDIOS EN PERSONAS",
+      "protein_ref": "Kohanmoo, Faghih y Akhlaghi · 2020 · Physiology & Behavior",
+      "protein_summary": "Una revisión de ensayos controlados encontró que, en intervenciones de corta duración, una mayor ingesta de proteína aumentó la sensación de plenitud y saciedad. Los resultados a largo plazo fueron menos concluyentes.",
+      "protein_limit": "Estos hallazgos orientan nuestra pregunta sobre la proteína. No son ensayos de sacha inchi, NUBE u ONE ni demuestran el efecto de una porción de nuestros productos.",
+      "peptide_title": "Péptidos de sacha inchi",
+      "peptide_type": "ESTUDIO DE LABORATORIO · SIN ENSAYO EN PERSONAS",
+      "peptide_ref": "Zhang y colaboradores · 2023 · Journal of the Science of Food and Agriculture",
+      "peptide_summary": "Los investigadores identificaron diez péptidos derivados de hidrolizados de proteína de harina de sacha inchi con actividad inhibidora de DPP-IV en pruebas de laboratorio. Esta enzima participa en la degradación de GLP-1, una hormona relacionada con la regulación del apetito.",
+      "peptide_limit": "El estudio evaluó hidrolizados y péptidos, no nuestros alimentos terminados. No demuestra que consumir NUBE u ONE aumente GLP-1 o produzca mayor saciedad en personas.",
+      "read_study": "Leer el estudio",
+      "open_question": "Lo que seguimos explorando",
+      "open_copy": "¿Qué papel tienen la proteína, la fibra, la preparación y la estructura del alimento en la experiencia que nos describen quienes lo prueban? La literatura nos ayuda a formular esta pregunta; todavía no demuestra qué explica esos testimonios."
+    },
+    "oil_research": {
+      "intro": "La composición del aceite de sacha inchi y los estudios publicados despertaron nuestra curiosidad. Revisamos qué se ha observado sobre el colesterol y la presión arterial, y qué preguntas siguen abiertas.",
+      "title": "Estudios que orientan esta exploración",
+      "chol_title": "Colesterol · ensayo de 2014",
+      "chol_type": "ENSAYO EN PERSONAS · 30 ADULTOS · 4 MESES",
+      "chol_summary": "Un ensayo comparó el consumo diario de aceite de sacha inchi y de girasol. Se observaron reducciones del colesterol total, del LDL y de la presión arterial con ambos aceites. También se registró un mayor HDL con sacha inchi al cuarto mes.",
+      "chol_limit": "Fue un estudio pequeño. Las reducciones observadas con ambos aceites no demuestran una ventaja exclusiva del sacha inchi. No se evaluó JUNGLCORE OIL.",
+      "chol_ref": "Gonzales y Gonzales · 2014 · Food and Chemical Toxicology",
+      "bp_title": "Presión arterial y colesterol · ensayo de 2025",
+      "bp_type": "ENSAYO PRELIMINAR EN PERSONAS · 54 PACIENTES · 12 SEMANAS",
+      "bp_summary": "Un ensayo aleatorizado y doble ciego comparó cápsulas de aceite de sacha inchi con cápsulas de aceite de maíz en pacientes con glucosa, presión arterial y lípidos elevados. Los participantes continuaron su medicación prescrita. El grupo de sacha inchi presentó reducciones de la presión arterial y del colesterol total y LDL.",
+      "bp_limit": "Son resultados preliminares en una población específica y con suplementación en cápsulas. No demuestran el mismo efecto con JUNGLCORE OIL ni justifican sustituir un tratamiento.",
+      "bp_ref": "Mhd Rodzi, Mohd Sopian y Lee · 2025 · Plant Foods for Human Nutrition",
+      "open_title": "Lo que seguimos explorando",
+      "open_copy": "Nos interesa comprender cómo influyen la composición, la cantidad y el uso cotidiano de estos aceites. Estos estudios orientan nuestras preguntas; no constituyen una promesa de resultados para OIL."
+    },
+    "oil_everyday_title": "¿COMER GRASA PARA BAJAR EL COLESTEROL?",
+    "oil_everyday_copy": "Sustituir grasas saturadas por insaturadas puede ayudar a reducir el colesterol LDL. Exploramos qué papel puede tener el aceite de sacha inchi.",
+    "intro_title": "QUEDA MUCHO",
+    "intro_title_end": "POR DESCUBRIR.",
+    "intro_copy": "Dos exploraciones abiertas. Una misma curiosidad por lo que las plantas hacen posible.",
+    "satiety_hook": "COMER.",
+    "satiety_hook_end": "¿Y DESPUÉS?",
+    "satiety_caption": "LA VIDA DESPUÉS DE LA MESA.",
+    "oil_hook": "¿COMER GRASA",
+    "oil_hook_end": "PARA BAJAR EL COLESTEROL?",
+    "oil_caption": "DEL INTERIOR DE UNA SEMILLA A NUESTRA MESA.",
+    "open_exploration": "EXPLORAR",
+    "index_label": "Elegir una exploración",
+    "oil_soon": "OIL / PRÓXIMAMENTE",
+    "home_title": "UNA SEMILLA.",
+    "home_title_end": "DOS EXPLORACIONES.",
+    "home_satiety_question": "¿Qué pasa después de comer?",
+    "home_oil_question": "Las grasas de las semillas y su relación con la salud cardiovascular.",
+    "home_oil_title": "GRASAS DE SEMILLAS.",
+    "visit": "CONOCER LA EXPLORACIÓN",
+    "home_satiety_products": "NUBE · ONE",
+    "home_oil_products": "OIL / PRÓXIMAMENTE",
+    "home_intro": "Cada exploración empieza con una pregunta. Buscamos respuestas en la biodiversidad: plantas, semillas y posibilidades que muchas veces pasan desapercibidas. Investigamos, experimentamos y convertimos lo que aprendemos en nuevas formas de llevar las plantas a la vida cotidiana.",
+    "oil_everyday_scene": "Estás preparando la comida y tomas la botella de aceite. Quizá es la misma de siempre. Un gesto cotidiano que abre una pregunta.",
+    "oil_everyday_product": "Aceite de sacha inchi para incorporar a tu rutina diaria.",
+    "oil_research_open": "EXPLORAR LA INVESTIGACIÓN"
+  },
+  "jc_home_research": {
+    "intro": "Exploramos la relación entre biodiversidad, salud y bienestar, y transformamos lo que descubrimos en productos para tu vida cotidiana.",
+    "title": "TODO EMPIEZA CON UNA PREGUNTA.",
+    "satiety_label": "001 / SACIEDAD",
+    "satiety_hook": "ACABAS DE COMER. ¿POR QUÉ SIGUES BUSCANDO ALGO?",
+    "satiety_copy": "Exploramos qué influye en sentirnos satisfechos después de comer.",
+    "oil_label": "002 / GRASAS DE SEMILLAS",
+    "oil_hook": "¿COMER GRASA PARA BAJAR EL COLESTEROL?",
+    "oil_copy": "Sustituir grasas saturadas por insaturadas puede ayudar a reducir el colesterol LDL. Exploramos qué papel puede tener el aceite de sacha inchi.",
+    "visit": "EXPLORAR"
+  },
+  "jc_plant_story": {
+    "label": "PLANTA 001 / SACHA INCHI",
+    "title": "¿CUÁNTAS POSIBILIDADES CABEN EN UNA SEMILLA?",
+    "intro": "Empezamos a estudiarla por su proteína. Nos quedamos por todo lo demás.",
+    "possibilities": "Una bebida, un ingrediente, un aceite: distintas formas de explorar una misma semilla.",
+    "closing": "Nuestra primera planta. Muchas preguntas por delante.",
+    "open": "EXPLORAR LA SACHA INCHI"
+  },
+  "jc_satiety": {
+    "headline": "¿CUÁNTO ESPACIO OCUPA LA COMIDA EN TU CABEZA?",
+    "intro": "Para algunas personas, pensar en comida interrumpe el trabajo, una conversación o un momento de descanso.",
+    "investigation": "Exploramos la relación entre alimentación, saciedad y esos pensamientos recurrentes. Empezamos con una semilla: la sacha inchi.",
+    "open_research": "LA PREGUNTA Y LA EVIDENCIA",
+    "question_label": "LA PREGUNTA",
+    "question": "¿Qué relación hay entre sentirnos satisfechos y seguir pensando en comida?",
+    "seed_reason": "La proteína, la fibra y la forma de preparar la sacha inchi nos dan un punto de partida. Revisamos qué se ha estudiado y qué preguntas siguen abiertas.",
+    "evidence_label": "QUÉ SABEMOS",
+    "evidence_intro": "Tres líneas de lectura, con alcances distintos: los pensamientos sobre comida, la saciedad y los componentes de la sacha inchi.",
+    "noise_title": "Cuando pensar en comida se vuelve una interrupción",
+    "noise_type": "REVISIÓN · DEFINICIÓN Y MEDICIÓN",
+    "noise_summary": "Una revisión de 2025 aborda el «food noise»: pensamientos persistentes sobre comida que la persona siente como no deseados o molestos. Los distingue de los pensamientos cotidianos por su intensidad y por cómo interrumpen la vida diaria.",
+    "noise_limit": "Es un campo en desarrollo. Esta revisión no demuestra que un alimento concreto reduzca esos pensamientos ni que sentir más saciedad produzca ese efecto.",
+    "noise_ref": "Dhurandhar y colaboradores · 2025 · Nutrition & Diabetes",
+    "unknown_label": "QUÉ FALTA POR SABER",
+    "unknown": "Queremos comprender cómo se relacionan el hambre, la saciedad, los antojos y los pensamientos recurrentes sobre comida. Para estudiar esa relación, hay que distinguir esas experiencias y no medirlas como si fueran lo mismo.",
+    "product_limit": "Todavía no hemos demostrado que NUBE u ONE reduzcan los pensamientos recurrentes sobre comida. Esta es una pregunta de investigación, no un beneficio probado de nuestros productos.",
+    "products_label": "CREACIONES CON SACHA INCHI"
   }
 }

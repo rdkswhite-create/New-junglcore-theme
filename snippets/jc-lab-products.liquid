@@ -1,0 +1,61 @@
+{% doc %}
+  Products developed within a JUNGLCORE LAB investigation.
+  @param {string} investigation - satiety or oil
+  @param {string} context_id - Unique context, home or lab
+  @param {boolean} [show_research] - Show investigation links when used outside an investigation
+{% enddoc %}
+{% liquid
+  if investigation == 'satiety'
+    assign codes = 'NUBE,ONE' | split: ','
+    assign investigation_label = 'jc_lab.satiety_label' | t
+    assign investigation_anchor = 'jc-exp-001'
+  else
+    assign codes = 'OIL' | split: ','
+    assign investigation_label = 'jc_lab.oil_label' | t
+    assign investigation_anchor = 'jc-exp-002'
+  endif
+%}
+<div class="jc-lab-products jc-lab-products--{{ investigation }}">
+  <h3 class="jc-lab-products__label">{{ 'jc_lab.title' | t }}</h3>
+  <div class="jc-lab-products__grid">
+    {% for code in codes %}
+      {% liquid
+        assign code_lower = code | downcase
+        assign instance_id = context_id | append: '-lab-' | append: code_lower
+        assign title_id = instance_id | append: '-title'
+        assign line_key = 'jc_lab.' | append: code_lower | append: '_line'
+        assign copy_key = 'jc_lab.' | append: code_lower | append: '_copy'
+        assign alt_key = 'jc_lab.' | append: code_lower | append: '_alt'
+        assign image_alt = alt_key | t
+      %}
+      <article class="jc-lab-card" aria-labelledby="{{ title_id }}" {% if context_id == 'home' %}id="jc-bio-{{ code_lower }}"{% endif %}>
+        <div class="jc-lab-card__image">
+          {% if code == 'OIL' %}
+            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-oil-transparent.png?v=1793687182" width="660" height="724" loading="lazy" alt="{{ image_alt | escape }}">
+          {% else %}
+            {% render 'jc-premium-pack', product_code: code, instance_id: instance_id, description: image_alt %}
+          {% endif %}
+        </div>
+        <div class="jc-lab-card__body">
+          <div class="jc-lab-card__identity">
+            <h4 id="{{ title_id }}">{{ code }}</h4>
+            <span class="jc-lab-card__status">{% if code == 'NUBE' %}{{ 'jc_lab.available_status' | t }}{% else %}{{ 'jc_lab.status' | t }}{% endif %}</span>
+          </div>
+          <p class="jc-lab-card__line">{{ line_key | t }}</p>
+          <p class="jc-lab-card__description">{{ copy_key | t }}</p>
+          <div class="jc-lab-card__action">
+            {% if code == 'NUBE' %}
+              <p class="jc-lab-card__price">{{ 'jc_lab.nube_price' | t }}</p>
+              <a href="{{ routes.root_url }}products/nube">{{ 'jc_lab.order' | t }} <span aria-hidden="true">↗</span></a>
+            {% else %}
+              {% assign message_key = 'jc_lab.' | append: code_lower | append: '_message' %}
+              <a href="https://wa.me/573011571039?text={{ message_key | t | url_encode }}" aria-label="{{ 'jc_lab.notify' | t }}: {{ code }}">{{ 'jc_lab.notify' | t }} <span aria-hidden="true">↗</span></a>
+            {% endif %}
+          </div>
+        </div>
+        {% if show_research %}<a class="jc-lab-card__research" href="{{ routes.root_url }}pages/exploraciones#{{ investigation_anchor }}"><span>{{ 'jc_lab.linked_label' | t }}</span><strong>{{ investigation_label }}</strong><span aria-hidden="true">↗</span></a>{% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</div>
+

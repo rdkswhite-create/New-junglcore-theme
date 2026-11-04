@@ -1,38 +1,29 @@
-{% comment %}
-  JUNGLCORE NUBE editorial home.
-  Sharp square-dot logo SVG assets; 16:9 preparation loop on desktop and
-  portrait original on mobile. Shopify trial cannot accept native MP4 uploads,
-  so animated WebP loops are used until native video media is enabled.
-  A Shopify-hosted video selected in the theme editor still takes precedence.
-{% endcomment %}
 {{ 'jc-nube-v2.css' | asset_url | stylesheet_tag }}
+{{ 'jc-lab.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   assign selected_nube = section.settings.nube_product
   assign selected_one = section.settings.one_product
-  assign selected_one_sachets = section.settings.one_sachets_product
   assign selected_oil = section.settings.oil_product
-  assign message = section.settings.whatsapp_message | url_encode
-  assign contact = 'https://wa.me/' | append: section.settings.whatsapp_number | append: '?text=' | append: message
-  assign order_url = contact
-  assign order_label = 'PEDIR NUBE'
+  assign order_url = routes.root_url | append: 'products/nube'
+  assign order_label = 'junglcore_biodiversity.order' | t
   if section.settings.order_mode == 'product' and selected_nube != blank
     assign order_url = selected_nube.url
-    assign order_label = 'VER NUBE'
+    assign order_label = 'junglcore_biodiversity.order' | t
   endif
 %}
 
-<div class="jc-v2">
+<div class="jc-v2 jc-bio jc-launch" id="jc-v2-top">
   <header class="jc-v2__header" aria-label="Junglcore">
     <a class="jc-v2__header-logo" href="{{ routes.root_url }}" aria-label="junglcore inicio">
-      <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" alt="junglcore" width="1377" height="369" loading="eager">
+      <img src="{{ 'jc-wordmark-refined-black.svg' | asset_url }}" alt="junglcore" width="1329" height="313" loading="eager">
     </a>
     <nav class="jc-v2__header-links" aria-label="Navegación">
-      <a href="#jc-v2-nube">NUBE</a>
-      <a href="#jc-v2-ritual">CÓMO FUNCIONA</a>
-      <a href="#jc-v2-collection">PRODUCTOS</a>
+      <a href="#jc-v2-nube">{{ 'junglcore_biodiversity.nav_products' | t }}</a>
+      <a href="{{ routes.root_url }}pages/exploraciones">{{ 'junglcore_biodiversity.nav_explorations' | t }}</a>
+      
     </nav>
-    <a class="jc-v2__header-order" href="#jc-v2-nube">EXPLORAR <span aria-hidden="true">↗</span></a>
+    <a class="jc-v2__header-order" href="{{ order_url | strip | escape }}">{{ 'junglcore_biodiversity.order' | t }} <span aria-hidden="true">↗</span></a>
   </header>
 
   <section class="jc-v2__film" aria-label="Preparación de NUBE">
@@ -49,12 +40,13 @@
       {% endif %}
     </div>
     <div class="jc-v2__film-shade" aria-hidden="true"></div>
-    <div class="jc-v2__film-top"><span>NUBE / COLOMBIA</span><span>UNA NUEVA FORMA DE PREPARAR TU BEBIDA VEGETAL</span></div>
+    <div class="jc-v2__film-top"><span>{{ 'junglcore_biodiversity.hero_origin' | t }}</span><span>{{ 'junglcore_biodiversity.hero_start' | t }}</span></div>
+    <h1 class="jc-bio__hero-title">{{ 'junglcore_biodiversity.nube_lead' | t }}</h1>
     <div class="jc-v2__film-bottom">
-      <img class="jc-v2__film-logo" src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-white-no-r.svg?v=1793662580" alt="junglcore" width="1377" height="369" fetchpriority="high">
+      <img class="jc-v2__film-logo" src="{{ 'jc-wordmark-refined-white.svg' | asset_url }}" alt="junglcore" width="1329" height="313" fetchpriority="high">
       <div class="jc-v2__film-bottomline">
-        <span>NUBE. UNA BEBIDA VEGETAL DIFERENTE.</span>
-        <a href="#jc-v2-nube">DESCUBRIR <span aria-hidden="true">↓</span></a>
+        <span>{{ 'junglcore_biodiversity.hero_product' | t }}</span>
+        <a href="#jc-v2-nube">{{ 'junglcore_biodiversity.discover_nube' | t }} <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </section>
@@ -66,152 +58,104 @@
         {% if section.settings.nube_image != blank %}
           {{ section.settings.nube_image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '360, 640, 960, 1280, 1600', alt: 'Bolsa JUNGLCORE NUBE' }}
         {% else %}
-          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-pouch-transparent.png?v=1793687157" alt="JUNGLCORE NUBE, bolsa blanca con la marca junglcore en minúsculas" width="660" height="724" loading="eager">
+          {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'home-nube-1', description: 'JUNGLCORE NUBE, base congelada de sacha inchi' %}
         {% endif %}
       </div>
       <div class="jc-v2__nube-identity">
-        <p class="jc-v2__eyebrow">BASE CONGELADA DE SACHA INCHI</p>
-        <h1 id="jc-v2-nube-heading">NUBE</h1>
-        <p class="jc-v2__nube-lead">Tu bebida vegetal empieza en el congelador.</p>
-        <p class="jc-v2__nube-copy">Un tab de sacha inchi. Añade agua, licúa y prepara tu bebida cuando quieras. Tres ingredientes: pasta de sacha inchi, agua y goma gelana.</p>
-        <div class="jc-v2__nube-facts">
-          <div><strong>{{ section.settings.protein_value | escape }}</strong><span>PROTEÍNA POR TAB*</span></div>
-          <div><strong>{{ section.settings.fibre_value | escape }}</strong><span>FIBRA POR TAB*</span></div>
-          <div><strong>3</strong><span>INGREDIENTES</span></div>
+        <p class="jc-nube-offer__name">NUBE</p>
+        <h2 class="jc-nube-offer__headline" id="jc-v2-nube-heading">{{ 'jc_home_offer.headline' | t }}<br>{{ 'jc_home_offer.headline_end' | t }}</h2>
+        <p class="jc-nube-offer__description">{{ 'jc_home_offer.description' | t }}</p>
+        <p class="jc-nube-offer__choice">{{ 'jc_home_offer.choice' | t }}</p>
+        <div class="jc-nube-offer__proof"><span class="jc-nube-offer__ingredient-label">{{ 'jc_home_offer.ingredients_label' | t }}</span><p>{{ 'jc_home_offer.proof' | t }}</p></div>
+        <div class="jc-bio__nube-value">
+          <p>{{ 'junglcore_biodiversity.nube_home_pack' | t }}</p>
+          <p><strong>{{ 'junglcore_biodiversity.value_price' | t }}</strong><span>{{ 'junglcore_biodiversity.value_portion' | t }}</span></p>
         </div>
         <div class="jc-v2__nube-actions">
           <a class="jc-v2__button" href="{{ order_url | strip | escape }}">{{ order_label }} <span aria-hidden="true">↗</span></a>
           <a class="jc-v2__textlink" href="#jc-v2-ritual">CÓMO FUNCIONA <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="jc-v2__fineprint">*Valores de la propuesta de etiqueta; confirmar con el análisis del producto final antes de publicar. Mantener congelado. Entregas iniciales en Bogotá.</p>
+        <p class="jc-v2__fineprint">{{ 'jc_nube_product.delivery_short' | t }}</p>
       </div>
     </div>
   </section>
 
   <section class="jc-v2__ritual jc-v2__frame" id="jc-v2-ritual" aria-labelledby="jc-v2-ritual-heading">
     <div class="jc-v2__chapter jc-v2__chapter--rule"><span>02</span><span>EL RITUAL</span></div>
-    <h2 id="jc-v2-ritual-heading">UN TAB.<br>AGUA.<br>LICUADORA.</h2>
-    <div class="jc-v2__ritual-grid">
-      <div><span>01</span><h3>SACA</h3><p>Saca un tab del congelador.</p></div>
-      <div><span>02</span><h3>AÑADE</h3><p>Añade agua a la licuadora.<br>150 ml para una bebida espesa.<br>200 ml para una bebida refrescante.</p></div>
-      <div><span>03</span><h3>LICÚA</h3><p>Licúa durante 30 segundos para una bebida recién preparada.</p></div>
-    </div>
+    {% render 'jc-nube-ritual', heading_id: 'jc-v2-ritual-heading', show_film: false, concise: true %}
   </section>
 
-  <section class="jc-v2__comparison jc-v2__frame" id="jc-v2-comparison" aria-labelledby="jc-v2-comparison-heading">
-      <div class="jc-v2__chapter jc-v2__chapter--rule"><span>03</span><span>COMPARACIÓN NUTRICIONAL</span></div>
-      <h2 id="jc-v2-comparison-heading">¿QUÉ HAY EN TU BEBIDA VEGETAL?</h2>
-      <p class="jc-v2__comparison-lead">Datos por preparación indicada; no son dos bebidas de volumen final equivalente.</p>
-      <div class="jc-v2__comparison-scroll" role="region" aria-label="Comparación entre NUBE y bebida de almendra" tabindex="0">
-        <table class="jc-v2__comparison-table">
-          <thead>
-            <tr>
-              <th scope="col">DATOS POR PREPARACIÓN</th>
-              <th scope="col"><strong>NUBE</strong><span class="jc-v2__comparison-subtitle-desktop">1 tab preparado con 200 ml de agua</span><span class="jc-v2__comparison-subtitle-mobile">1 tab<br>200 ml de agua</span></th>
-              <th scope="col"><strong>ALMENDRA<br class="jc-v2__comparison-mobile-break"> SIN AZÚCAR</strong><span>Nature's Heart · 200 ml</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Proteína</th><td>6,3 g</td><td>0,8 g</td></tr>
-            <tr><th scope="row">Fibra</th><td>1,4 g</td><td>1,0 g</td></tr>
-            <tr><th scope="row">Grasa total</th><td>0,7 g</td><td>2,5 g</td></tr>
-            <tr class="jc-v2__comparison-omega"><th scope="row">Omega-3 (ALA)</th><td>≈ 0,34 g*</td><td class="jc-v2__comparison-muted">No declarado</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="jc-v2__comparison-notes">
-        <p>*Estimación de omega-3 ALA: 0,7 g de grasa por tab × aproximadamente 48 % de ALA según referencias sobre aceite de sacha inchi. No es un análisis de NUBE terminado. «No declarado» significa que la etiqueta de Nature's Heart no informa omega-3; no significa cero.</p>
-        <p>Nature's Heart: información nutricional del producto colombiano Almendra Sin Azúcar, por 200 ml. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-beb-alm-sazr-12x946ml-co" target="_blank" rel="noopener noreferrer">Consultar etiqueta y fuente ↗</a></p>
-      </div>
-    </section>
-
-  <section class="jc-v2__manifesto" aria-labelledby="jc-v2-manifesto-heading">
+  <section class="jc-v2__uses" id="jc-v2-uses" aria-labelledby="jc-home-breakfast-title">
     <div class="jc-v2__frame">
-      <div class="jc-v2__chapter"><span>04</span><span>NUESTRA IDEA</span></div>
-      <h2 id="jc-v2-manifesto-heading">SER VEGETAL<br>NO ES<br>SUFICIENTE.</h2>
-      <div class="jc-v2__manifesto-bottom">
-        <p>La comida tiene que alimentar. Por eso empezamos por una semilla, no por una lista interminable de ingredientes.</p>
-        <p>La sacha inchi se cultiva en Colombia. NUBE es una forma distinta de llevarla a tu mesa.</p>
+      <div class="jc-v2__chapter jc-v2__chapter--rule"><span>03</span><span>FORMAS DE DISFRUTAR NUBE</span></div>
+      {% render 'jc-nube-breakfast', heading_id: 'jc-home-breakfast-title' %}
+      {% render 'jc-price-protein', context_id: 'home' %}
+      <div class="jc-launch__order">
+        <a class="jc-v2__button" href="{{ order_url | strip | escape }}">{{ 'junglcore_biodiversity.order' | t }} <span aria-hidden="true">↗</span></a>
+        <p>{{ 'jc_nube_product.delivery_short' | t }}</p>
       </div>
     </div>
   </section>
 
-  <section class="jc-v2__collection" id="jc-v2-collection" aria-label="Colección JUNGLCORE">
+  <section class="jc-v2__roots" id="jc-v2-roots" aria-labelledby="jc-v2-roots-heading">
     <div class="jc-v2__frame">
-      <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>LA COLECCIÓN</span></div>
-      <div class="jc-v2__collection-grid">
-        <article class="jc-v2__collection-card">
-          <div class="jc-v2__collection-photo">
-            {% if section.settings.nube_image != blank %}
-              {{ section.settings.nube_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE NUBE, base congelada de sacha inchi' }}
-            {% else %}
-              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-pouch-transparent.png?v=1793687157" alt="JUNGLCORE NUBE, bolsa blanca de base congelada de sacha inchi" width="660" height="724" loading="lazy">
-            {% endif %}
-          </div>
-          <div class="jc-v2__collection-body">
-            <h3>nube</h3>
-            <a href="{{ order_url | strip | escape }}">Pedir NUBE ↗</a>
-          </div>
-        </article>
-        <article class="jc-v2__collection-card">
-          <div class="jc-v2__collection-photo">
-            {% if section.settings.one_image != blank %}
-              {{ section.settings.one_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE ONE, harina de sacha inchi' }}
-            {% else %}
-              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-pouch-transparent.png?v=1793687163" alt="JUNGLCORE ONE, bolsa blanca de harina de sacha inchi" width="660" height="724" loading="lazy">
-            {% endif %}
-          </div>
-          <div class="jc-v2__collection-body">
-            <h3>one</h3>
-            {% if selected_one != blank %}
-              <a href="{{ selected_one.url }}">Ver ONE ↗</a>
-            {% else %}
-              <span>Próximamente</span>
-            {% endif %}
-          </div>
-        </article>
-        <article class="jc-v2__collection-card jc-v2__collection-card--one-mini">
-          <div class="jc-v2__collection-photo">
-            {% if section.settings.one_sachets_image != blank %}
-              {{ section.settings.one_sachets_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE ONE, caja con cinco sobres resellables de 30 g' }}
-            {% else %}
-              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-one-5-sobres-transparent.png?v=1793687170" alt="JUNGLCORE ONE, caja con cinco sobres resellables de 30 g" width="1122" height="1402" loading="lazy">
-            {% endif %}
-          </div>
-          <div class="jc-v2__collection-body">
-            <h3>one · 5 sobres</h3>
-            {% if selected_one_sachets != blank %}
-              <a href="{{ selected_one_sachets.url }}">Ver ONE ↗</a>
-            {% else %}
-              <span>Próximamente</span>
-            {% endif %}
-          </div>
-        </article>
-        <article class="jc-v2__collection-card">
-          <div class="jc-v2__collection-photo">
-            {% if section.settings.oil_image != blank %}
-              {{ section.settings.oil_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '300, 500, 750, 1100', alt: 'JUNGLCORE OIL, aceite de sacha inchi' }}
-            {% else %}
-              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-oil-transparent.png?v=1793687182" alt="JUNGLCORE OIL, botella blanca de aceite de sacha inchi" width="660" height="724" loading="lazy">
-            {% endif %}
-          </div>
-          <div class="jc-v2__collection-body">
-            <h3>oil</h3>
-            {% if selected_oil != blank %}
-              <a href="{{ selected_oil.url }}">Ver OIL ↗</a>
-            {% else %}
-              <span>Próximamente</span>
-            {% endif %}
-          </div>
-        </article>
+      <div class="jc-v2__chapter jc-v2__chapter--rule jc-v2__roots-top"><span>04</span><span>{{ 'jc_home_refined.plant_label' | t }}</span></div>
+      <div class="jc-story-intro">
+        <h2>{{ 'jc_story.headline' | t }}</h2>
+        <p>{{ 'jc_story.lead' | t }}</p>
       </div>
+      <div class="jc-v2__roots-layout">
+        <figure class="jc-v2__roots-image">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-sacha-inchi-seed-leaf-roots-biodiversity-2026.jpg?v=1793696362" alt="Fruto seco de sacha inchi de cuatro puntas junto a una hoja verde sobre fondo claro" width="1126" height="729" loading="lazy" decoding="async">
+        </figure>
+        <div class="jc-v2__roots-story">
+          <p class="jc-v2__eyebrow">{{ 'jc_plant_story.label' | t }}</p>
+          <h2 id="jc-v2-roots-heading">{{ 'jc_plant_story.title' | t }}</h2>
+          <p>{{ 'jc_plant_story.intro' | t }}</p>
+          <p>{{ 'jc_plant_story.possibilities' | t }}</p>
+          <p>{{ 'jc_plant_story.closing' | t }}</p>
+          <details class="jc-bio__details">
+            <summary class="jc-bio__fold-toggle"><span class="jc-bio__fold-closed">{{ 'jc_plant_story.open' | t }}</span><span class="jc-bio__fold-open">{{ 'junglcore_biodiversity.fold_close' | t }}</span><span class="jc-bio__fold-arrow" aria-hidden="true">↓</span></summary>
+            <div class="jc-bio__detail-copy"><p>{{ 'jc_story.growers' | t }}</p><p>{{ 'jc_story.relationships' | t }}</p><p>{{ 'jc_story.pilot' | t }}</p></div>
+          </details>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="jc-lab-home jc-v2__frame" id="jc-v2-explorations" aria-labelledby="jc-lab-home-title">
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>05</span><span>{{ 'jc_lab.brand' | t }}</span></div>
+    <div class="jc-lab-home__intro">
+      <h2 id="jc-lab-home-title">{{ 'jc_home_research.title' | t }}</h2>
+      <p>{{ 'jc_lab.home_intro' | t }}</p>
+    </div>
+    <div id="jc-v2-collection">
+      <section class="jc-lab-home__investigation" aria-labelledby="jc-home-satiety-title">
+        <div class="jc-lab-home__question">
+          <div><p class="jc-lab-eyebrow">{{ 'jc_lab.satiety_label' | t }}</p><h3 id="jc-home-satiety-title">{{ 'jc_home_research.satiety_hook' | t }}</h3></div>
+          <div><p>{{ 'jc_home_research.satiety_copy' | t }}</p><a class="jc-lab-textlink" href="{{ routes.root_url }}pages/exploraciones#jc-exp-001">{{ 'jc_lab.visit_satiety' | t }} ↗</a></div>
+        </div>
+        {% render 'jc-lab-products', investigation: 'satiety', context_id: 'home' %}
+      </section>
+      <section class="jc-lab-home__investigation" aria-labelledby="jc-home-oil-title">
+        <div class="jc-lab-home__question">
+          <div><p class="jc-lab-eyebrow">{{ 'jc_lab.oil_label' | t }}</p><h3 id="jc-home-oil-title">{{ 'jc_home_research.oil_hook' | t }}</h3></div>
+          <div><p>{{ 'jc_home_research.oil_copy' | t }}</p><a class="jc-lab-textlink" href="{{ routes.root_url }}pages/exploraciones#jc-exp-002">{{ 'jc_lab.visit_oil' | t }} ↗</a></div>
+        </div>
+        {% render 'jc-lab-products', investigation: 'oil', context_id: 'home' %}
+      </section>
     </div>
   </section>
 
   <section class="jc-v2__faq jc-v2__frame" id="jc-v2-faq" aria-labelledby="jc-v2-faq-title">
     <div class="jc-v2__chapter jc-v2__chapter--rule"><span>06</span><span>PREGUNTAS FRECUENTES</span></div>
     <h2 id="jc-v2-faq-title">LO ESENCIAL.</h2>
-    <details><summary>¿Cómo se prepara NUBE?<span aria-hidden="true">+</span></summary><p>Saca un tab del congelador, añade 150 ml de agua para una bebida espesa o 200 ml para una bebida más ligera y licúa durante 30 segundos.</p></details>
+<details><summary>{{ 'jc_lab.frozen_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_lab.frozen_a' | t }}</p></details>
+    <details><summary>{{ 'jc_lab.gellan_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_lab.gellan_a' | t }}</p></details>
+    <details><summary>{{ 'junglcore_biodiversity.faq_brand_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'junglcore_biodiversity.faq_brand_a' | t }}</p></details>
+    <details><summary>¿Cómo se prepara NUBE?<span aria-hidden="true">+</span></summary><p>{{ 'jc_breakfast.faq_preparation' | t }}</p></details>
     <details><summary>¿Cómo se conserva?<span aria-hidden="true">+</span></summary><p>NUBE es un producto congelado. Consérvalo en el congelador y sigue las instrucciones de conservación de su envase.</p></details>
     <details><summary>¿Dónde entregan?<span aria-hidden="true">+</span></summary><p>Las entregas iniciales de NUBE se coordinan directamente en Bogotá para mantener la cadena de frío. Contáctanos antes de hacer tu pedido.</p></details>
   </section>
@@ -219,15 +163,16 @@
   <footer class="jc-v2__footer" aria-label="Información de JUNGLCORE">
     <div class="jc-v2__footer-inner jc-v2__frame">
       <div class="jc-v2__footer-brand">
-        <a href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" alt="junglcore" width="1377" height="369" loading="lazy"></a>
-        <p>De una semilla colombiana. Para nuevas formas de comer y beber.</p>
+        <a href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio"><img src="{{ 'jc-wordmark-refined-black.svg' | asset_url }}" alt="junglcore" width="1329" height="313" loading="lazy"></a>
+        <p>Exploramos lo que la biodiversidad hace posible.</p>
         <p class="jc-v2__footer-location">COLOMBIA · HECHO DE AQUÍ</p>
       </div>
       <nav class="jc-v2__footer-nav" aria-label="JUNGLCORE">
         <h3>JUNGLCORE</h3>
-        <a href="#jc-v2-nube">NUBE</a>
-        <a href="#jc-v2-collection">ONE Y OIL</a>
-        <a href="#jc-v2-manifesto-heading">Nuestra historia</a>
+        <a href="#jc-v2-nube">{{ 'junglcore_biodiversity.footer_products' | t }}</a>
+        <a href="{{ routes.root_url }}pages/exploraciones">{{ 'junglcore_biodiversity.footer_explorations' | t }}</a>
+        <a href="#jc-v2-roots">{{ 'jc_home_refined.nav_plant' | t }}</a>
+        
       </nav>
       <nav class="jc-v2__footer-nav" aria-label="Ayuda y contacto">
         <h3>AYUDA</h3>
@@ -252,15 +197,17 @@
         {% if section.settings.contact_phone != blank %}<span>Tel: {{ section.settings.contact_phone | escape }}</span>{% endif %}
         {% if section.settings.contact_email != blank %}<a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a>{% endif %}
       </div>
-      <a class="jc-v2__backtop" href="#jc-v2-nube">VOLVER ARRIBA ↑</a>
+      <a class="jc-v2__backtop" href="#jc-v2-top">VOLVER ARRIBA ↑</a>
     </div>
   </footer>
 </div>
 
 {% style %}
-/* JUNGLCORE footer and FAQ — editorial, legible, responsive. */
+.jc-v2.jc-bio .jc-bio__invitation-intro{max-width:760px;margin:0 0 36px;font-size:16px;line-height:1.7;color:#50534f}
+
+
 .jc-v2__faq { padding-bottom: clamp(85px, 10vw, 125px); }
-.jc-v2__faq h2 { font-size: clamp(36px, 5.5vw, 75px); font-weight: 650; line-height: 1.13; margin: 35px 0 50px; }
+.jc-v2__faq h2 { font-size: clamp(35px, 5.3vw, 74px); font-weight: 650; line-height: 1.13; margin: 35px 0 50px; }
 .jc-v2__faq details { border-bottom: 1px solid #d5d5d5; }
 .jc-v2__faq details:first-of-type { border-top: 1px solid #d5d5d5; }
 .jc-v2__faq summary { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:24px 2px; cursor:pointer; font-size:clamp(17px,2vw,24px); font-weight:450; list-style:none; }
@@ -268,7 +215,7 @@
 .jc-v2__faq summary span { font-size:26px; font-weight:300; color:#666; transition:transform .2s; }
 .jc-v2__faq details[open] summary span { transform:rotate(45deg); }
 .jc-v2__faq details p { max-width:700px; padding:0 0 28px; color:#555; font-size:16px; line-height:1.7; }
-.jc-v2__footer { display:block; background:#f6f6f4; border:0; padding:clamp(70px,9vw,110px) 0 0; }
+.jc-v2__footer { display:block; background:#FCFBF8; border:0; padding:clamp(70px,9vw,110px) 0 0; }
 .jc-v2__footer-inner { display:grid; grid-template-columns: minmax(250px,1.65fr) repeat(3,minmax(125px,.7fr)); column-gap:clamp(25px,4vw,75px); row-gap:50px; align-items:start; }
 .jc-v2__footer-brand > a { display:block; width:min(100%,220px); line-height:0; }
 .jc-v2__footer-brand img { display:block; width:100%; height:auto; margin:0; }
@@ -290,7 +237,7 @@
 }
 @media (max-width: 749px) {
   .jc-v2__faq { padding-bottom:80px; }
-  .jc-v2__faq h2 { font-size:43px; margin:28px 0 35px; }
+  .jc-v2__faq h2 { font-size:clamp(28px, 8.6vw, 54px); margin:28px 0 35px; }
   .jc-v2__faq summary { padding:19px 0; font-size:18px; }
   .jc-v2__footer { padding-top:65px; }
   .jc-v2__footer-inner { grid-template-columns:repeat(2,minmax(0,1fr)); gap:45px 24px; }
@@ -304,8 +251,7 @@
 
 
 
-/* 2026-11-03 — mobile comparison table, designed to fit entirely without
-   the 540px horizontal-scroll layout. No changes to desktop sizing. */
+
 .jc-v2__comparison-subtitle-mobile { display: none !important; }
 .jc-v2__comparison-mobile-break { display: none; }
 @media (max-width: 749px) {
@@ -374,7 +320,7 @@
 }
 
 
-/* Small, equally scaled JUNGLCORE collection products: ONE, ONE 5 sobres, OIL. */
+
 .jc-v2__collection-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2.3vw, 29px);
@@ -445,10 +391,9 @@
   .jc-v2__collection-photo { height: 280px; }
 }
 
-/* JUNGLCORE collection: warm off-white, small product gallery, responsive two-up mobile.
-   Retains existing section position and product card ordering. */
+
 .jc-v2__collection {
-  background: #f5f5f1;
+  background: #FCFBF8;
   padding: clamp(78px, 9vw, 125px) 0 clamp(95px, 10vw, 135px);
 }
 .jc-v2__collection-grid {
@@ -538,10 +483,9 @@
 }
 
 
-/* JUNGLCORE minimal four-item collection — matched to the approved INCHY reference,
-   no title, no descriptive blocks, no card rules. Existing homepage order stays intact. */
+
 .jc-v2__collection {
-  background: #f3f5f2;
+  background: #FCFBF8;
   padding: clamp(52px, 6vw, 90px) 0 clamp(92px, 12vw, 180px);
 }
 .jc-v2__collection .jc-v2__collection-grid {
@@ -624,14 +568,769 @@
   .jc-v2__collection .jc-v2__collection-photo { height: 185px; }
 }
 
-
-/* Restore the small collection chapter label while keeping the four-product layout. */
-.jc-v2__collection .jc-v2__collection-grid { margin-top: clamp(32px, 4vw, 50px); }
 @media (max-width: 749px) {
-  .jc-v2__collection .jc-v2__collection-grid { margin-top: 30px; }
+  .jc-v2__manifesto-desktop-break { display: none; }
+  .jc-v2__manifesto h2 { font-size: clamp(28px, 8.6vw, 54px); }
+}
+
+
+
+.jc-v2__manifesto {
+  padding-top: clamp(90px, 11vw, 152px);
+  padding-bottom: clamp(110px, 13vw, 185px);
+}
+.jc-v2__manifesto h2 {
+  margin-bottom: clamp(62px, 8vw, 110px);
+}
+.jc-v2__idea-intro {
+  max-width: 1070px;
+}
+.jc-v2__idea-lead {
+  max-width: 825px;
+  font-size: clamp(25px, 3.5vw, 43px) !important;
+  font-weight: 430 !important;
+  color: #fff !important;
+  line-height: 1.27 !important;
+  letter-spacing: -.014em;
+  margin: 0 0 clamp(39px, 5vw, 65px) !important;
+}
+.jc-v2__idea-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(35px, 6vw, 98px);
+  align-items: start;
+}
+.jc-v2__idea-intro-grid p {
+  color: #d7d7d7;
+  font-size: clamp(16px, 1.7vw, 21px);
+  line-height: 1.65;
+  font-weight: 370;
+}
+.jc-v2__idea-intro-right {
+  display: grid;
+  gap: clamp(22px, 3vw, 38px);
+}
+.jc-v2__idea-edition {
+  margin-top: clamp(105px, 12vw, 174px);
+}
+.jc-v2__idea-edition-rule {
+  border-top: 1px solid rgba(255,255,255,.48);
+  padding-top: 22px;
+  margin-bottom: clamp(46px, 5.5vw, 72px);
+}
+.jc-v2__idea-edition-rule span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: .16em;
+  font-weight: 550;
+  color: #ddd;
+}
+.jc-v2__idea-edition h3 {
+  max-width: 925px;
+  font-size: clamp(32px, 5vw, 70px);
+  line-height: 1.17;
+  font-weight: 580;
+  letter-spacing: -.024em;
+  color: #fff;
+  margin: 0 0 clamp(29px, 4.2vw, 54px);
+}
+.jc-v2__idea-collection-note {
+  max-width: 660px;
+  margin-left: auto;
+  color: #d6d6d6;
+  font-size: clamp(16px, 1.65vw, 20px);
+  line-height: 1.65;
+  font-weight: 390;
+}
+.jc-v2__idea-product {
+  max-width: 1030px;
+  margin: clamp(95px, 10.5vw, 145px) 0 0;
+}
+.jc-v2__idea-product-top {
+  border-top: 1px solid rgba(255,255,255,.26);
+  padding-top: 21px;
+  margin-bottom: clamp(30px, 4vw, 52px);
+}
+.jc-v2__idea-product-top p {
+  color: #d2d2d2;
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 390;
+  line-height: 1.55;
+}
+.jc-v2__idea-product-top strong { color: #fff; font-weight: 650; }
+.jc-v2__idea-product h4 {
+  max-width: 1000px;
+  margin: 0 0 clamp(32px, 4.5vw, 60px);
+  color: #fff;
+  font-size: clamp(30px, 4.1vw, 56px);
+  line-height: 1.2;
+  font-weight: 540;
+  letter-spacing: -.019em;
+}
+.jc-v2__idea-product-copy {
+  max-width: 900px;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(26px, 4vw, 65px);
+}
+.jc-v2__idea-product-copy p {
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.65;
+  font-weight: 390;
+  color: #d6d6d6;
+}
+.jc-v2__idea-product-copy .jc-v2__idea-last { color: #fff; font-weight: 535; }
+@media (max-width: 749px) {
+  .jc-v2__manifesto { padding-top: 85px; padding-bottom: 110px; }
+  .jc-v2__manifesto h2 { margin-bottom: 55px; }
+  .jc-v2__idea-lead {
+    font-size: clamp(23px, 6.7vw, 32px) !important;
+    margin-bottom: 30px !important;
+  }
+  .jc-v2__idea-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+  .jc-v2__idea-intro-grid p { font-size: 16px; line-height: 1.65; }
+  .jc-v2__idea-intro-right { gap: 19px; }
+  .jc-v2__idea-edition { margin-top: 90px; }
+  .jc-v2__idea-edition-rule { padding-top: 16px; margin-bottom: 33px; }
+  .jc-v2__idea-edition h3 {
+    font-size: clamp(33px, 8.5vw, 51px);
+    margin-bottom: 27px;
+  }
+  .jc-v2__idea-collection-note { margin-left: 0; font-size: 16px; }
+  .jc-v2__idea-product { margin-top: 78px; }
+  .jc-v2__idea-product-top { padding-top: 16px; margin-bottom: 29px; }
+  .jc-v2__idea-product h4 { font-size: clamp(29px, 7.9vw, 44px); margin-bottom: 29px; }
+  .jc-v2__idea-product-copy { grid-template-columns: 1fr; gap: 19px; }
+  .jc-v2__idea-product-copy p { font-size: 16px; }
+}
+
+
+
+.jc-v2__roots {
+  background: #FCFBF8;
+  padding: clamp(84px, 11vw, 140px) 0 clamp(84px, 11vw, 140px);
+  color: #141414;
+}
+.jc-v2__roots-top {
+  display: flex;
+  align-items: baseline;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  margin-bottom: clamp(40px, 5vw, 70px);
+}
+.jc-v2__roots-top span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
+}
+.jc-v2__roots-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  column-gap: clamp(34px, 5vw, 85px);
+  align-items: center;
+}
+.jc-v2__roots-image {
+  min-width: 0;
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+  background: #fff;
+}
+.jc-v2__roots-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1126/729;
+  object-fit: cover;
+  filter: none;
+  mix-blend-mode: normal;
+}
+.jc-v2__roots-story { min-width: 0; }
+.jc-v2__roots-story h2 {
+  margin: 0 0 clamp(24px, 3vw, 37px);
+  font-size: clamp(33px, 3.9vw, 56px);
+  line-height: 1.16;
+  font-weight: 650;
+  letter-spacing: -.025em;
+}
+.jc-v2__roots-story p {
+  margin: 0 0 20px;
+  color: #4a4a48;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.65;
+  max-width: 545px;
+}
+.jc-v2__roots-story p:last-child { margin-bottom: 0; }
+.jc-v2__collection-edition {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding-top: clamp(27px, 4vw, 45px);
+  margin-bottom: clamp(36px, 5vw, 66px);
+}
+.jc-v2__collection-edition span {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  color: #232623;
+}
+.jc-v2__collection-edition p {
+  max-width: 530px;
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: #656963;
+  line-height: 1.5;
+}
+.jc-v2__collection .jc-v2__collection-grid { margin-top: 0; }
+@media (max-width: 749px) {
+  .jc-v2__roots { padding: 70px 0 86px; }
+  .jc-v2__roots-top { padding-top: 17px; margin-bottom: 34px; }
+  .jc-v2__roots-layout {
+    grid-template-columns: 1fr;
+    gap: 33px;
+  }
+  .jc-v2__roots-story h2 {
+    font-size: clamp(34px, 9vw, 52px);
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+  .jc-v2__roots-story p { font-size: 16px; margin-bottom: 16px; }
+  .jc-v2__collection-edition {
+    display: block;
+    padding-top: 22px;
+    margin-bottom: 35px;
+  }
+  .jc-v2__collection-edition span { display:block; margin-bottom: 11px; }
+  .jc-v2__collection-edition p { font-size: 14px; }
+}
+
+
+
+.jc-v2__idea-principle {
+  max-width: 960px;
+  margin: clamp(52px, 7vw, 105px) 0 clamp(36px, 5vw, 68px);
+}
+.jc-v2__idea-principle h3 {
+  font-size: clamp(31px, 4.7vw, 64px);
+  font-weight: 590;
+  line-height: 1.16;
+  letter-spacing: -.024em;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 0 clamp(20px, 3vw, 33px);
+}
+.jc-v2__idea-principle p {
+  font-size: clamp(19px, 2vw, 25px);
+  color: #d6d6d6;
+  line-height: 1.44;
+  font-weight: 380;
+}
+.jc-v2__idea-intro-grid {
+  border-top: 1px solid rgba(255,255,255,.22);
+  padding-top: clamp(23px, 3vw, 41px);
+}
+.jc-v2__idea-edition {
+  margin-top: clamp(95px, 10vw, 145px);
+}
+.jc-v2__idea-edition h3 {
+  max-width: 1020px;
+  font-size: clamp(33px, 4.8vw, 67px);
+  line-height: 1.14;
+  font-weight: 575;
+}
+.jc-v2__roots-top {
+  align-items: baseline;
+  gap: 24px;
+}
+.jc-v2__roots-top span:first-child {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.jc-v2__roots-top span:last-child {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
+}
+.jc-v2__collection .jc-v2__collection-body .jc-v2__collection-aside {
+  display: block;
+  margin: 1px 0 7px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .07em;
+  line-height: 1.45;
+  color: #60645f;
+}
+@media (max-width: 749px) {
+  .jc-v2__idea-principle {
+    margin: 49px 0 32px;
+  }
+  .jc-v2__idea-principle h3 {
+    font-size: clamp(30px, 8vw, 42px);
+    margin-bottom: 20px;
+  }
+  .jc-v2__idea-principle p { font-size: 19px; }
+  .jc-v2__idea-edition { margin-top: 89px; }
+  .jc-v2__idea-edition h3 {
+    font-size: clamp(29px, 7.7vw, 46px);
+    line-height: 1.17;
+  }
+  .jc-v2__roots-top { gap: 22px; }
+  .jc-v2__roots-top span:first-child { font-size: 18px; }
+  .jc-v2__collection .jc-v2__collection-body .jc-v2__collection-aside {
+    font-size: 9px;
+    letter-spacing: .035em;
+  }
+}
+
+
+
+.jc-v2 .jc-v2__manifesto {
+  background: #191919;
+  padding: clamp(78px, 9vw, 122px) 0 clamp(84px, 10vw, 135px);
+}
+.jc-v2 .jc-v2__manifesto h2 {
+  max-width: 860px;
+  font-size: clamp(38px, 6.1vw, 80px);
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: -.02em;
+  margin: clamp(44px, 5vw, 68px) 0 clamp(26px, 4vw, 45px);
+}
+.jc-v2__exhibit-overview {
+  margin-bottom: clamp(75px, 9vw, 125px);
+}
+.jc-v2__exhibit-lead {
+  max-width: 570px;
+  font-size: clamp(20px, 2.1vw, 28px);
+  font-weight: 380;
+  line-height: 1.4;
+  color: #e9e9e9;
+}
+.jc-v2__exhibit-method,
+.jc-v2__exhibit-current {
+  display: grid;
+  grid-template-columns: minmax(0, .34fr) minmax(0, .66fr);
+  gap: clamp(24px, 6vw, 100px);
+  border-top: 1px solid rgba(255,255,255,.35);
+  padding-top: clamp(22px, 3vw, 34px);
+}
+.jc-v2__exhibit-method {
+  margin-bottom: clamp(76px, 9vw, 128px);
+}
+.jc-v2__exhibit-label {
+  font-size: 11px;
+  letter-spacing: .145em;
+  font-weight: 520;
+  color: #d4d4d4;
+  line-height: 1.5;
+}
+.jc-v2__exhibit-text { max-width: 730px; }
+.jc-v2 .jc-v2__exhibit-text h3 {
+  color: #f5f5f5;
+  font-size: clamp(25px, 3vw, 40px);
+  line-height: 1.25;
+  letter-spacing: -.016em;
+  font-weight: 485;
+  margin: 0 0 clamp(18px, 2.4vw, 28px);
+  text-transform: none;
+}
+.jc-v2__exhibit-text > p {
+  max-width: 600px;
+  font-size: clamp(16px, 1.55vw, 19px);
+  line-height: 1.68;
+  color: #c9c9c9;
+  font-weight: 380;
+}
+.jc-v2__exhibit-product {
+  margin-top: clamp(47px, 6vw, 84px);
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.23);
+}
+.jc-v2__exhibit-product > span {
+  display: block;
+  margin-bottom: clamp(14px, 2vw, 23px);
+  color: #cfcfcf;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+}
+.jc-v2 .jc-v2__exhibit-product h4 {
+  margin: 0 0 clamp(17px, 2vw, 26px);
+  max-width: 640px;
+  font-size: clamp(23px, 2.6vw, 36px);
+  line-height: 1.23;
+  font-weight: 500;
+  letter-spacing: -.015em;
+  text-transform: none;
+  color: #f5f5f5;
+}
+.jc-v2__exhibit-product p {
+  font-size: clamp(15px, 1.35vw, 17px);
+  line-height: 1.65;
+  color: #c9c9c9;
+  max-width: 620px;
+}
+@media (max-width: 749px) {
+  .jc-v2 .jc-v2__manifesto { padding: 72px 0 84px; }
+  .jc-v2 .jc-v2__manifesto h2 {
+    font-size: clamp(34px, 8.8vw, 48px);
+    line-height: 1.12;
+    margin: 44px 0 26px;
+    letter-spacing: -.02em;
+  }
+  .jc-v2__exhibit-overview { margin-bottom: 70px; }
+  .jc-v2__exhibit-lead { font-size: 20px; line-height: 1.44; }
+  .jc-v2__exhibit-method,
+  .jc-v2__exhibit-current {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-top: 18px;
+  }
+  .jc-v2__exhibit-method { margin-bottom: 70px; }
+  .jc-v2__exhibit-label { font-size: 10px; }
+  .jc-v2 .jc-v2__exhibit-text h3 {
+    font-size: clamp(24px, 6.15vw, 30px);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .jc-v2__exhibit-text > p { font-size: 16px; line-height: 1.62; }
+  .jc-v2__exhibit-product { margin-top: 36px; padding-top: 18px; }
+  .jc-v2__exhibit-product > span { font-size: 10px; margin-bottom: 15px; }
+  .jc-v2 .jc-v2__exhibit-product h4 {
+    font-size: clamp(22px, 5.7vw, 27px);
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .jc-v2__exhibit-product p { font-size: 15px; line-height: 1.64; }
+}
+
+
+
+.jc-v2__uses { background:#FCFBF8; padding:clamp(75px,9vw,125px) 0 clamp(83px,9vw,128px); }
+.jc-v2__uses-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(12px,2.2vw,28px); margin-top:clamp(34px,4.6vw,60px); }
+.jc-v2__uses-item { min-width:0; margin:0; }
+.jc-v2__uses-item img { display:block; width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; background:#f1eee8; }
+.jc-v2__uses-item figcaption { margin-top:13px; font-size:11px; font-weight:500; letter-spacing:.11em; color:#202020; line-height:1.35; }
+.jc-v2__uses-note { font-size:10px; color:#777; line-height:1.55; margin:21px 0 0; }
+@media(max-width:749px) {
+ .jc-v2__uses { padding:70px 0 83px; }
+ .jc-v2__uses-grid { gap:10px; margin-top:29px; }
+ .jc-v2__uses-item figcaption { margin-top:10px; font-size:9px; letter-spacing:.025em; }
+ .jc-v2__uses-note { font-size:9px; margin-top:16px; }
+}
+
+
+.jc-bio [id] { scroll-margin-top: 30px; }
+.jc-bio .jc-v2__header-links { gap: clamp(15px,2.3vw,34px); }
+.jc-bio .jc-bio__hero-title { position: absolute; top: clamp(85px,11vh,130px); left: clamp(23px,4vw,65px); width: min(610px,68%); font-size: clamp(29px,3.6vw,52px); line-height: 1.12; font-weight: 500; letter-spacing: -.025em; color: #fff; text-wrap: balance; text-shadow: 0 2px 16px rgba(0,0,0,.25); }
+.jc-bio .jc-v2__film-shade { background: linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.16) 48%,rgba(0,0,0,.9)); }
+.jc-bio .jc-v2__nube-identity h2 { margin:14px 0 20px; font-size:clamp(44px,6.5vw,84px); font-weight:450; letter-spacing:.19em; line-height:1.16; padding-left:.19em; }
+.jc-bio .jc-v2__nube-lead { max-width: 650px; margin-inline:auto; text-wrap:balance; }
+.jc-bio .jc-v2__manifesto { padding:clamp(70px,8vw,110px) 0; }
+.jc-bio .jc-v2__manifesto h2 { font-size:clamp(35px,5.3vw,74px); line-height:1.13; font-weight:600; margin:46px 0 40px; max-width:100%; }
+.jc-bio__manifesto-copy { display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,7vw,100px); max-width:900px; }
+.jc-bio__manifesto-copy p { font-size:clamp(17px,1.7vw,22px); font-weight:380; line-height:1.5; color:#e5e5e5; }
+.jc-bio__explorations { padding-block:clamp(75px,9vw,125px); }
+.jc-bio__exploration-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,6vw,90px); margin-top:55px; }
+.jc-bio__exploration-grid .jc-v2__eyebrow { font-size:10px; color:#62645f; margin-bottom:22px; }
+.jc-bio__exploration-grid h2 { font-size:clamp(36px,4.6vw,64px); line-height:1.15; font-weight:500; letter-spacing:-.025em; }
+.jc-bio__exploration-copy h3 { font-size:clamp(24px,2.3vw,32px); line-height:1.3; font-weight:450; letter-spacing:-.015em; text-wrap:balance; }
+.jc-bio__exploration-copy > p { font-size:17px; line-height:1.65; margin-top:23px; color:#50534f; }
+.jc-bio .jc-bio__connections { display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 20px; font-size:10px; letter-spacing:.05em; margin-top:28px; }
+.jc-bio__connections a { font-size:12px; color:#161616; border-bottom:1px solid #a1a39d; padding:4px 0; }
+.jc-bio__details { border-top:1px solid #caccc5; margin-top:27px; }
+.jc-bio__details summary { display:flex; align-items:center; justify-content:space-between; gap:20px; cursor:pointer; list-style:none; padding:19px 0; font-size:13px; font-weight:450; color:#242621; }
+.jc-bio__details summary::-webkit-details-marker { display:none; }
+.jc-bio__details summary span { font-size:19px; line-height:1; transition:transform .15s; }
+.jc-bio__details[open] > summary span { transform:rotate(45deg); }
+.jc-bio__detail-copy { padding-bottom:24px; }
+.jc-bio__detail-copy p { font-size:15px; line-height:1.65; color:#50534f; }
+.jc-bio__detail-copy .jc-bio__note { font-size:12px; margin-top:18px; color:#60635d; }
+.jc-bio__nutrition { margin-top:28px; }
+.jc-bio__nutrition .jc-v2__comparison { padding:15px 0 24px; }
+.jc-bio__nutrition h3 { font-size:20px; font-weight:500; }
+.jc-bio__nutrition .jc-v2__comparison-lead { font-size:13px; }
+.jc-bio .jc-v2__collection { padding-top:0; padding-bottom:clamp(75px,9vw,125px); }
+.jc-bio .jc-v2__collection-edition { margin-bottom:40px; padding-top:30px; align-items:center; }
+.jc-bio .jc-v2__collection-edition h2 { margin:0; font-size:clamp(29px,3.3vw,46px); font-weight:500; line-height:1.2; letter-spacing:-.02em; }
+.jc-bio .jc-v2__collection-edition p { max-width:350px; }
+.jc-bio .jc-v2__collection .jc-bio__product-description { font-size:13px; font-weight:400; color:#51554f; line-height:1.45; letter-spacing:0; margin:4px 0 7px; min-height:38px; }
+.jc-bio .jc-v2__roots { padding-top:0; padding-bottom:clamp(75px,9vw,125px); }
+.jc-bio .jc-v2__roots-story .jc-v2__eyebrow { margin-bottom:20px; font-size:10px; letter-spacing:.16em; }
+.jc-bio .jc-v2__roots-story h2 { font-size:clamp(30px,3.4vw,48px); font-weight:550; }
+.jc-bio .jc-v2__roots-story .jc-bio__detail-copy p { font-size:15px; margin:0; }
+.jc-bio a:focus-visible,.jc-bio summary:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+@media(max-width:900px) and (min-width:750px) { .jc-bio .jc-v2__header-order { display:none; } }
+@media(max-width:749px) {
+  .jc-bio .jc-v2__header { height:auto; min-height:95px; padding:17px 18px 12px; display:grid; grid-template-columns:1fr auto; gap:14px 20px; }
+  .jc-bio .jc-v2__header-logo { width:141px; }
+  .jc-bio .jc-v2__header-order { grid-row:1; grid-column:2; }
+  .jc-bio .jc-v2__header-links { grid-row:2; grid-column:1 / -1; display:flex; justify-content:space-between; gap:8px; }
+  .jc-bio .jc-v2__header-links a { font-size:9px; letter-spacing:.04em; padding:8px 0; }
+  .jc-bio .jc-v2__film { min-height:530px; height:76svh; }
+  .jc-bio .jc-bio__hero-title { top:85px; left:18px; width:calc(100% - 36px); max-width:450px; font-size:clamp(28px,7.6vw,40px); line-height:1.15; }
+  .jc-bio .jc-v2__film-top { font-size:8px; letter-spacing:.09em; }
+  .jc-bio .jc-v2__film-top span:last-child { max-width:135px; }
+  .jc-bio .jc-v2__film-bottomline { align-items:flex-end; font-size:8px; letter-spacing:.035em; }
+  .jc-bio .jc-v2__film-bottomline > span { max-width:170px; }
+  .jc-bio .jc-v2__nube-identity h2 { font-size:51px; margin:10px 0 22px; }
+  .jc-bio .jc-v2__manifesto h2 { font-size:clamp(30px,7.5vw,52px); margin:36px 0 30px; }
+  .jc-bio__manifesto-copy { grid-template-columns:1fr; gap:16px; }
+  .jc-bio__manifesto-copy p { font-size:17px; max-width:450px; }
+  .jc-bio__exploration-grid { grid-template-columns:1fr; gap:31px; margin-top:35px; }
+  .jc-bio__exploration-grid h2 { font-size:clamp(38px,10vw,52px); }
+  .jc-bio__exploration-copy h3 { font-size:26px; }
+  .jc-bio__exploration-copy > p { font-size:16px; margin-top:18px; }
+  .jc-bio .jc-v2__collection-edition h2 { font-size:30px; margin-bottom:15px; }
+  .jc-bio .jc-v2__collection-edition p { font-size:14px; }
+  .jc-bio .jc-v2__roots-story h2 { font-size:clamp(30px,8vw,42px); }
+  .jc-bio .jc-v2__faq h2 { font-size:clamp(30px,7.5vw,52px); }
+}
+@media(prefers-reduced-motion:reduce) { .jc-bio__details summary span { transition:none; } }
+
+
+.jc-bio .jc-v2__uses-grid { row-gap:36px; }
+@media(max-width:749px) {
+  .jc-bio .jc-v2__uses-grid { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:14px; row-gap:28px; }
+  .jc-bio .jc-v2__uses-item figcaption { font-size:10px; letter-spacing:.06em; }
+}
+
+
+/* 2026-11-03 — two real explorations; the same restrained editorial system. */
+.jc-bio .jc-bio__nube-benefit {
+  max-width: 620px;
+  margin: 23px auto 0;
+  color: #1c1c1c;
+  font-size: clamp(18px, 1.9vw, 24px);
+  line-height: 1.38;
+  font-weight: 500;
+  letter-spacing: -.01em;
+}
+.jc-bio .jc-bio__nube-ingredients {
+  max-width: 620px;
+  margin: 12px auto 0;
+  font-size: clamp(14px, 1.25vw, 16px);
+  font-weight: 380;
+  line-height: 1.6;
+  color: #565656;
+}
+.jc-bio .jc-v2__nube-copy {
+  max-width: 630px;
+  margin-top: 15px !important;
+}
+.jc-bio .jc-v2__uses-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.jc-bio .jc-bio__exploration-pair {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: clamp(30px,4vw,68px);
+  margin-top: clamp(33px,4.6vw,63px);
+}
+.jc-bio .jc-bio__exploration-entry {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-top: 1px solid #999d95;
+  padding-top: clamp(23px,2.7vw,37px);
+}
+.jc-bio .jc-bio__exploration-entry > .jc-v2__eyebrow {
+  margin: 0 0 clamp(20px,2.5vw,30px);
+  color: #666965;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+}
+.jc-bio .jc-bio__exploration-entry h2 {
+  font-size: clamp(27px,3.1vw,43px);
+  font-weight: 520;
+  line-height: 1.16;
+  letter-spacing: -.025em;
+  margin: 0 0 clamp(19px,2.5vw,29px);
+  color: #202020;
+  overflow-wrap: normal;
+}
+.jc-bio .jc-bio__exploration-entry h3 {
+  max-width: 550px;
+  margin: 0;
+  font-size: clamp(19px,2vw,26px);
+  font-weight: 465;
+  line-height: 1.34;
+  letter-spacing: -.014em;
+  color: #232323;
+}
+.jc-bio .jc-bio__exploration-entry .jc-bio__exploration-summary {
+  color: #555951;
+  margin: 18px 0 0;
+  font-size: clamp(15px,1.35vw,17px);
+  font-weight: 380;
+  line-height: 1.6;
+}
+.jc-bio .jc-bio__exploration-entry > .jc-bio__connections {
+  margin-top: auto;
+  padding-top: 30px;
+  margin-bottom: 0;
+  color: #60645e;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: .05em;
+}
+.jc-bio .jc-bio__exploration-entry .jc-bio__connections a {
+  display: inline-block;
+  margin-left: 10px;
+  color: #232323;
+}
+.jc-bio .jc-bio__exploration-entry > details {
+  margin-top: 19px;
+  border-top: 1px solid #d8d8d4;
+}
+.jc-bio .jc-bio__exploration-entry .jc-bio__detail-copy p { font-size: 14px; line-height: 1.65; }
+@media (max-width:749px) {
+  .jc-bio .jc-bio__nube-benefit { margin-top: 20px; font-size: 19px; }
+  .jc-bio .jc-bio__nube-ingredients { margin-top: 10px; font-size: 14px; }
+  .jc-bio .jc-v2__uses-grid {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    column-gap: 10px;
+    row-gap: 0;
+  }
+  .jc-bio .jc-v2__uses-item figcaption { font-size: 9px; letter-spacing: .025em; }
+  .jc-bio .jc-bio__exploration-pair { grid-template-columns: 1fr; gap: 59px; margin-top: 34px; }
+  .jc-bio .jc-bio__exploration-entry { padding-top: 23px; }
+  .jc-bio .jc-bio__exploration-entry h2 { font-size: clamp(29px,7.3vw,38px); margin-bottom: 18px; }
+  .jc-bio .jc-bio__exploration-entry h3 { font-size: 22px; line-height: 1.34; }
+  .jc-bio .jc-bio__exploration-entry .jc-bio__exploration-summary { font-size: 15px; }
+  .jc-bio .jc-bio__exploration-entry > .jc-bio__connections { padding-top: 25px; }
+}
+
+
+/* Native open/close disclosure: minimal arrow and legible button-sized target. */
+.jc-bio .jc-bio__details summary.jc-bio__fold-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+  padding: 15px 0;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 520;
+  letter-spacing: .06em;
+  color: #262724;
+}
+.jc-bio .jc-bio__details summary.jc-bio__fold-toggle .jc-bio__fold-closed,
+.jc-bio .jc-bio__details summary.jc-bio__fold-toggle .jc-bio__fold-open {
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 520;
+  letter-spacing: .065em;
+  transform: none;
+}
+.jc-bio .jc-bio__details summary.jc-bio__fold-toggle .jc-bio__fold-open { display: none; }
+.jc-bio .jc-bio__details[open] summary.jc-bio__fold-toggle .jc-bio__fold-closed { display: none; transform: none; }
+.jc-bio .jc-bio__details[open] summary.jc-bio__fold-toggle .jc-bio__fold-open { display: inline; transform: none; }
+.jc-bio .jc-bio__details summary.jc-bio__fold-toggle .jc-bio__fold-arrow {
+  display: inline-block;
+  margin-left: auto;
+  font-size: 20px;
+  font-weight: 360;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: transform .22s ease;
+}
+.jc-bio .jc-bio__details[open] summary.jc-bio__fold-toggle .jc-bio__fold-arrow {
+  transform: rotate(180deg);
+}
+.jc-bio .jc-bio__exploration-entry > details.jc-bio__fold {
+  margin-top: clamp(29px, 3.3vw, 48px);
+}
+.jc-bio .jc-bio__fold-body {
+  padding: 6px 0 22px;
+}
+.jc-bio .jc-bio__fold-body .jc-bio__exploration-summary {
+  color: #555951;
+  font-size: 15px;
+  font-weight: 380;
+  line-height: 1.65;
+  margin: 0 0 17px;
+}
+.jc-bio .jc-bio__fold-body .jc-bio__detail-copy {
+  padding-bottom: 0;
+}
+.jc-bio .jc-bio__fold-body .jc-bio__detail-copy p {
+  margin: 0 0 14px;
+  line-height: 1.65;
+}
+.jc-bio .jc-bio__fold-body .jc-bio__connections {
+  margin: 18px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid #d8dad5;
+  color: #60645e;
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: .04em;
+}
+.jc-bio .jc-bio__fold-body .jc-bio__connections a {
+  margin-left: 9px;
+  display: inline-block;
+  color: #262724;
+  text-decoration: none;
+}
+@media (max-width: 749px) {
+  .jc-bio .jc-bio__exploration-entry > details.jc-bio__fold { margin-top: 27px; }
+  .jc-bio .jc-bio__details summary.jc-bio__fold-toggle { min-height: 50px; }
+  .jc-bio .jc-bio__fold-body .jc-bio__exploration-summary { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jc-bio .jc-bio__details summary.jc-bio__fold-toggle .jc-bio__fold-arrow { transition: none; }
+}
+
+
+/* A short invitation on the homepage; the detailed story lives on Exploraciones. */
+.jc-bio .jc-bio__exploration-entry .jc-bio__exploration-summary {
+  display:block;max-width:480px;margin:18px 0 0;font-size:clamp(15px,1.38vw,17px);
+  line-height:1.62;color:#535650;font-weight:380;
+}
+.jc-bio .jc-bio__explore-page-link {
+  display:inline-block;align-self:flex-start;margin-top:clamp(24px,3vw,42px);
+  font-size:11px;font-weight:550;letter-spacing:.075em;border-bottom:1px solid #565952;
+  padding-bottom:6px;line-height:1.5;text-decoration:none;
+}
+.jc-bio .jc-bio__explore-page-link:hover {border-color:#161616;}
+@media(max-width:749px){
+  .jc-bio .jc-bio__exploration-entry .jc-bio__exploration-summary {font-size:15px;}
+  .jc-bio .jc-bio__explore-page-link{margin-top:24px;}
 }
 
 {% endstyle %}
+{{ 'jc-brand-system.css' | asset_url | stylesheet_tag }}
+{{ 'jc-home-refinement.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+
+#jc-v2-roots .jc-story-intro{margin:0 0 52px;max-width:1200px}
+#jc-v2-roots .jc-story-intro h2{font-size:clamp(30px,3.6vw,50px);line-height:1.12;font-weight:500;letter-spacing:-.035em;margin:0 0 18px;color:#30352f}
+#jc-v2-roots .jc-story-intro p{font-size:18px;line-height:1.65;color:#555a52;margin:0;max-width:860px}
+@media(max-width:749px){#jc-v2-roots .jc-story-intro{margin-bottom:34px}#jc-v2-roots .jc-story-intro h2{font-size:clamp(29px,8vw,38px)}#jc-v2-roots .jc-story-intro p{font-size:16px}}
+{% endstyle %}
+
+{% style %}
+#jc-v2-top #jc-v2-collection .jc-v2__collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+#jc-v2-top #jc-v2-collection .jc-v2__collection-edition p{max-width:520px}
+#jc-v2-top #jc-v2-collection .jc-lab__question{font-size:clamp(20px,2vw,28px);font-weight:400;line-height:1.3;letter-spacing:-.02em;color:#30352f;margin:12px 0 18px;max-width:28ch}
+#jc-v2-top #jc-v2-collection .jc-lab__status{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;letter-spacing:.04em;color:#62675e;display:block;width:100%;margin:10px 0}
+#jc-v2-top #jc-v2-collection .jc-v2__collection-body .jc-lab__notify{display:inline-flex;align-items:center;min-height:46px;border:1px solid #b8bcb2;padding:12px 16px;font-size:12px;letter-spacing:.04em;line-height:1.5;text-decoration:none;background:#eeefeb;margin:6px 0 18px}
+#jc-v2-top #jc-v2-collection .jc-lab__available{display:flex;justify-content:space-between;align-items:center;gap:24px;background:#eeefeb;padding:26px 30px;margin-top:48px}
+#jc-v2-top #jc-v2-collection .jc-lab__available strong{font-size:20px;font-weight:500;letter-spacing:-.02em}
+#jc-v2-top #jc-v2-collection .jc-lab__available p{font-size:15px;line-height:1.6;margin:8px 0 0}
+#jc-v2-top #jc-v2-collection .jc-lab__available a{font-size:12px;letter-spacing:.05em;border-bottom:1px solid;padding:8px 0;white-space:nowrap}
+@media(max-width:749px){#jc-v2-top #jc-v2-collection .jc-v2__collection-grid{grid-template-columns:1fr;gap:42px}#jc-v2-top #jc-v2-collection .jc-lab__available{padding:24px;align-items:flex-start;flex-direction:column}#jc-v2-top #jc-v2-collection .jc-lab__question{font-size:23px}#jc-v2-top #jc-v2-collection .jc-v2__collection-photo{height:280px}}
+{% endstyle %}
+{{ 'jc-home-typography.css' | asset_url | stylesheet_tag }}
 
 {% schema %}
 {
@@ -639,32 +1338,210 @@
   "tag": "section",
   "class": "jc-v2-section",
   "settings": [
-    {"type":"header","content":"Apertura y vídeo"},
-    {"type":"video","id":"hero_video","label":"Vídeo de preparación (MP4 desde Shopify)"},
-    {"type":"image_picker","id":"hero_image","label":"Imagen de portada (opcional)"},
-    {"type":"header","content":"NUBE"},
-    {"type":"image_picker","id":"nube_image","label":"Fotografía final del pouch NUBE"},
-    {"type":"product","id":"nube_product","label":"Producto NUBE"},
-    {"type":"select","id":"order_mode","label":"Botón principal","options":[{"value":"whatsapp","label":"Pedir por WhatsApp"},{"value":"product","label":"Ir al producto Shopify"}],"default":"whatsapp"},
-    {"type":"text","id":"whatsapp_number","label":"WhatsApp (sin +)","default":"573011571039"},
-    {"type":"text","id":"whatsapp_message","label":"Mensaje WhatsApp","default":"Hola, quiero pedir JUNGLCORE NUBE en Bogotá."},
-    {"type":"text","id":"protein_value","label":"Proteína por tab (confirmar)","default":"6,3 g"},
-    {"type":"text","id":"fibre_value","label":"Fibra por tab (confirmar)","default":"1,4 g"},
-    {"type":"header","content":"Comparación nutricional"},
-    {"type":"header","content":"Datos de contacto y empresa"},
-    {"type":"text","id":"contact_email","label":"Email de contacto","default":"hola@junglcore.com"},
-    {"type":"text","id":"contact_phone","label":"Teléfono comercial"},
-    {"type":"text","id":"legal_name","label":"Razón social"},
-    {"type":"text","id":"legal_nit","label":"NIT"},
-    {"type":"text","id":"legal_address","label":"Dirección de notificación"},
-    {"type":"header","content":"La colección"},
-    {"type":"image_picker","id":"one_image","label":"Foto de ONE"},
-    {"type":"image_picker","id":"one_sachets_image","label":"Foto de ONE caja, 5 sobres"},
-    {"type":"image_picker","id":"oil_image","label":"Foto de OIL"},
-    {"type":"product","id":"one_product","label":"Producto ONE (cuando esté listo)"},
-    {"type":"product","id":"one_sachets_product","label":"Producto ONE caja, 5 sobres (cuando esté listo)"},
-    {"type":"product","id":"oil_product","label":"Producto OIL (cuando esté listo)"}
+    {
+      "type": "header",
+      "content": "Apertura y vídeo"
+    },
+    {
+      "type": "video",
+      "id": "hero_video",
+      "label": "Vídeo de preparación (MP4 desde Shopify)"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagen de portada (opcional)"
+    },
+    {
+      "type": "header",
+      "content": "NUBE"
+    },
+    {
+      "type": "image_picker",
+      "id": "nube_image",
+      "label": "Fotografía final del pouch NUBE"
+    },
+    {
+      "type": "product",
+      "id": "nube_product",
+      "label": "Producto NUBE"
+    },
+    {
+      "type": "select",
+      "id": "order_mode",
+      "label": "Botón principal",
+      "options": [
+        {
+          "value": "whatsapp",
+          "label": "Pedir por WhatsApp"
+        },
+        {
+          "value": "product",
+          "label": "Ir al producto Shopify"
+        }
+      ],
+      "default": "whatsapp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "WhatsApp (sin +)",
+      "default": "573011571039"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "Mensaje WhatsApp",
+      "default": "Hola, quiero pedir JUNGLCORE NUBE en Bogotá."
+    },
+    {
+      "type": "text",
+      "id": "protein_value",
+      "label": "Proteína por barra (confirmar)",
+      "default": "6,3 g"
+    },
+    {
+      "type": "text",
+      "id": "fibre_value",
+      "label": "Fibra por barra (confirmar)",
+      "default": "1,4 g"
+    },
+    {
+      "type": "header",
+      "content": "Formas de disfrutar NUBE"
+    },
+    {
+      "type": "image_picker",
+      "id": "use_glass_image",
+      "label": "Foto: en vaso"
+    },
+    {
+      "type": "text",
+      "id": "use_glass_label",
+      "label": "Texto: en vaso",
+      "default": "EN VASO"
+    },
+    {
+      "type": "image_picker",
+      "id": "use_oats_image",
+      "label": "Foto: con avena"
+    },
+    {
+      "type": "text",
+      "id": "use_oats_label",
+      "label": "Texto: con avena",
+      "default": "CON AVENA"
+    },
+    {
+      "type": "image_picker",
+      "id": "use_smoothie_image",
+      "label": "Foto: en batido"
+    },
+    {
+      "type": "text",
+      "id": "use_smoothie_label",
+      "label": "Texto: en batido",
+      "default": "EN BATIDO"
+    },
+    {
+      "type": "header",
+      "content": "Comparación nutricional"
+    },
+    {
+      "type": "header",
+      "content": "Datos de contacto y empresa"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email de contacto",
+      "default": "hola@junglcore.com"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Teléfono comercial"
+    },
+    {
+      "type": "text",
+      "id": "legal_name",
+      "label": "Razón social"
+    },
+    {
+      "type": "text",
+      "id": "legal_nit",
+      "label": "NIT"
+    },
+    {
+      "type": "text",
+      "id": "legal_address",
+      "label": "Dirección de notificación"
+    },
+    {
+      "type": "header",
+      "content": "La colección"
+    },
+    {
+      "type": "image_picker",
+      "id": "one_image",
+      "label": "Foto de ONE"
+    },
+    {
+      "type": "image_picker",
+      "id": "one_sachets_image",
+      "label": "Foto de ONE caja, 5 sobres"
+    },
+    {
+      "type": "image_picker",
+      "id": "oil_image",
+      "label": "Foto de OIL"
+    },
+    {
+      "type": "product",
+      "id": "one_product",
+      "label": "Producto ONE (cuando esté listo)"
+    },
+    {
+      "type": "text",
+      "id": "one_status",
+      "label": "ONE - texto antes de la venta",
+      "default": "Próximamente"
+    },
+    {
+      "type": "product",
+      "id": "one_sachets_product",
+      "label": "Producto ONE caja, 5 sobres (cuando esté listo)"
+    },
+    {
+      "type": "text",
+      "id": "one_sachets_status",
+      "label": "ONE 5 sobres - texto antes de la venta",
+      "default": "Próximamente"
+    },
+    {
+      "type": "product",
+      "id": "oil_product",
+      "label": "Producto OIL (cuando esté listo)"
+    },
+    {
+      "type": "text",
+      "id": "oil_status",
+      "label": "OIL - texto antes de la venta",
+      "default": "Próximamente"
+    }
   ],
-  "presets":[{"name":"Junglcore NUBE V2"}]
+  "presets": [
+    {
+      "name": "Junglcore NUBE V2"
+    }
+  ]
 }
 {% endschema %}
+
+
+
+
+
+
+
+

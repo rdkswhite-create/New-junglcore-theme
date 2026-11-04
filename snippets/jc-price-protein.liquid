@@ -1,0 +1,112 @@
+{% doc %}
+Displays a sourced price and protein comparison by stated preparation.
+@param {string} context_id - Unique page context for the comparison heading.
+{% enddoc %}
+{% if context_id == 'product' %}
+  {% render 'jc-nutrition-comparison' %}
+{% else %}
+<details class="jc-compare" open>
+  <summary><span>{{ 'jc_comparison.open' | t }}</span><span class="jc-compare__arrow" aria-hidden="true">↓</span></summary>
+  <div class="jc-compare__content">
+    <h3 id="jc-compare-{{ context_id | escape }}">{{ 'jc_comparison.title' | t }}</h3>
+    <p class="jc-compare__intro">{{ 'jc_comparison.intro' | t }}</p>
+    <p class="jc-compare__mobile-hint">{{ 'jc_comparison.swipe' | t }}</p>
+    <div class="jc-compare__scroll" role="region" aria-labelledby="jc-compare-{{ context_id | escape }}" tabindex="0">
+      <table>
+        <caption class="visually-hidden">{{ 'jc_comparison.caption' | t }}</caption>
+        <thead><tr><th scope="col">{{ 'jc_comparison.product' | t }}</th><th scope="col">{{ 'jc_comparison.preparation' | t }}</th><th scope="col">{{ 'jc_comparison.price' | t }}</th><th scope="col">{{ 'jc_comparison.protein' | t }}</th></tr></thead>
+        <tbody>
+<tr class="jc-compare__nube">
+            <th scope="row"><span class="jc-compare__brand">NUBE</span><span class="jc-compare__type">{{ 'jc_comparison.nube_type' | t }}</span><span class="jc-compare__pack">{{ 'jc_comparison.nube_pack' | t }}</span></th>
+            <td class="jc-compare__preparation">{{ 'jc_comparison.nube_preparation' | t }}</td>
+            <td class="jc-compare__number">1.330</td><td class="jc-compare__number">6,3 g</td>
+          </tr>
+<tr>
+            <th scope="row"><span class="jc-compare__brand">{{ 'jc_compare_labels.almond' | t }}</span><span class="jc-compare__type">{{ 'jc_compare_labels.economy' | t }}</span><span class="jc-compare__pack">{{ 'jc_comparison.d1_pack' | t }}</span></th>
+            <td class="jc-compare__preparation">{{ 'jc_comparison.almond_preparation' | t }}</td>
+            <td class="jc-compare__number">1.650</td><td class="jc-compare__number">1,0 g</td>
+          </tr>
+<tr>
+            <th scope="row"><span class="jc-compare__brand">{{ 'jc_compare_labels.almond' | t }}</span><span class="jc-compare__type">{{ 'jc_compare_labels.mid' | t }}</span><span class="jc-compare__pack">{{ 'jc_comparison.nh_pack' | t }}</span></th>
+            <td class="jc-compare__preparation">{{ 'jc_comparison.almond_preparation' | t }}</td>
+            <td class="jc-compare__number">≈ 3.425</td><td class="jc-compare__number">0,8 g</td>
+          </tr>
+<tr>
+            <th scope="row"><span class="jc-compare__brand">{{ 'jc_compare_labels.almond' | t }}</span><span class="jc-compare__type">{{ 'jc_compare_labels.high' | t }}</span><span class="jc-compare__pack">{{ 'jc_comparison.silk_pack' | t }}</span></th>
+            <td class="jc-compare__preparation">{{ 'jc_comparison.almond_preparation' | t }}</td>
+            <td class="jc-compare__number">≈ 4.429</td><td class="jc-compare__number">0,8 g</td>
+          </tr>
+</tbody>
+      </table>
+    </div>
+    <a class="jc-compare__deep-link" href="{{ routes.root_url }}products/nube#jc-nutrition">{{ 'jc_comparison.deep_link' | t }} ↗</a>
+    <div class="jc-compare__notes">
+      <p>{{ 'jc_comparison.provisional' | t }}</p>
+      <p>{{ 'jc_comparison.volumes' | t }}</p>
+      {% unless context_id == 'home' %}
+      <details class="jc-compare__sources">
+        <summary>{{ 'jc_comparison.sources' | t }} <span aria-hidden="true">+</span></summary>
+        <p>{{ 'jc_compare_labels.mapping_home' | t }}</p>
+        <p>{{ 'jc_comparison.price_note' | t }}</p>
+        <p>{{ 'jc_comparison.protein_note' | t }}</p>
+        <ul>
+          <li><a href="https://www.exito.com/bebida-almendras-sin-azucar-natures-heart-946-mililitro-292140/p" target="_blank" rel="noopener noreferrer">{{ 'jc_comparison.nh_price' | t }} ↗</a></li>
+          <li><a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-beb-alm-sazr-12x946ml-co" target="_blank" rel="noopener noreferrer">{{ 'jc_comparison.nh_protein' | t }} ↗</a></li>
+          <li><a href="https://www.farmatodo.com.co/producto/225900261-bebida-de-almendra-silk-sin-endulzar-946-ml" target="_blank" rel="noopener noreferrer">{{ 'jc_comparison.silk_price' | t }} ↗</a></li>
+          <li><a href="https://www.soriana.com/bebida-vegetal-sabor-almendra-de-california-silk-sin-azucar-946ml/11680708.html" target="_blank" rel="noopener noreferrer">{{ 'jc_comparison.silk_protein' | t }} ↗</a></li>
+          <li><a href="https://www.d1.com.co/bebida-almendra-sin-azucar-almondee-1000ml-12004193/p" target="_blank" rel="noopener noreferrer">{{ 'jc_comparison.d1_price' | t }} ↗</a></li>
+          <li><a href="https://d1tiendas.vtexassets.com/arquivos/ids/201818-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">{{ 'jc_comparison.d1_protein' | t }} ↗</a></li>
+        </ul>
+      </details>
+      {% endunless %}
+    </div>
+  </div>
+</details>
+{% endif %}
+{% stylesheet %}
+.jc-v2 .jc-compare__deep-link{display:inline-block;margin-top:26px;font-size:14px;font-weight:500;letter-spacing:.04em;color:inherit;text-underline-offset:6px}
+.jc-v2 .jc-compare{width:100%;margin:44px 0 56px;border-block:1px solid #c9cac4;color:#30352f}
+.jc-v2 .jc-compare>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;padding:22px 0;font-size:14px;font-weight:500;letter-spacing:.06em;line-height:1.5;cursor:pointer;list-style:none}
+.jc-compare>summary::-webkit-details-marker,.jc-compare__sources summary::-webkit-details-marker{display:none}
+.jc-compare[open]>summary .jc-compare__arrow{transform:rotate(180deg)}
+.jc-v2 .jc-compare__content{padding:22px 0 36px}
+.jc-v2 .jc-compare h3{max-width:none;font-size:clamp(30px,3.5vw,50px);font-weight:500;line-height:1.08;letter-spacing:-.035em;margin:0 0 22px}
+.jc-v2 .jc-compare__intro{max-width:840px;font-size:18px;line-height:1.6;margin:0 0 34px;color:#555a52}
+.jc-v2 .jc-compare__mobile-hint{display:none}
+.jc-compare__scroll{overflow-x:auto;max-width:100%;overscroll-behavior-x:contain}
+.jc-compare__scroll:focus-visible{outline:2px solid #555a52;outline-offset:5px}
+.jc-v2 .jc-compare table{width:100%;min-width:700px;border-collapse:collapse;box-shadow:none;text-align:left;table-layout:fixed}
+.jc-v2 .jc-compare th,.jc-v2 .jc-compare td{padding:20px 24px;border:0;border-bottom:1px solid #d4d5ce;font-size:17px;line-height:1.5;vertical-align:middle}
+.jc-v2 .jc-compare thead{background:#e8e9e3}
+.jc-v2 .jc-compare thead th{padding-block:18px;font-size:14px;letter-spacing:.02em;font-weight:500;color:#454b42}
+.jc-v2 .jc-compare thead th:first-child{width:38%}
+.jc-v2 .jc-compare thead th:nth-child(2){width:26%}
+.jc-v2 .jc-compare thead th:nth-child(3),.jc-v2 .jc-compare thead th:nth-child(4){width:18%;text-align:right}
+.jc-v2 .jc-compare tbody th{font-weight:400}
+.jc-v2 .jc-compare__brand{display:block;font-size:23px;line-height:1.2;font-weight:500;letter-spacing:-.025em}
+.jc-v2 .jc-compare__type{display:block;margin-top:7px;font-size:16px;line-height:1.4}
+.jc-v2 .jc-compare__pack{display:block;margin-top:9px;font-size:13px;line-height:1.5;color:#62675e}
+.jc-v2 .jc-compare td.jc-compare__number{font-size:clamp(26px,2.3vw,34px);font-weight:500;line-height:1.2;letter-spacing:-.035em;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.jc-v2 .jc-compare__nube{background:#dedfd6}
+.jc-v2 .jc-compare__nube .jc-compare__brand{font-size:30px}
+.jc-v2 .jc-compare__nube .jc-compare__number{font-weight:600}
+.jc-v2 .jc-compare__notes{margin-top:26px;max-width:1050px}
+.jc-v2 .jc-compare__notes p{font-size:13px;line-height:1.65;color:#62675e;margin:0 0 12px}
+.jc-v2 .jc-compare__notes>p:first-child{font-weight:500;color:#454b42}
+.jc-v2 .jc-compare__sources{margin-top:18px}
+.jc-v2 .jc-compare__sources summary{display:flex;justify-content:space-between;gap:20px;padding:16px 0;font-size:13px;font-weight:500;letter-spacing:.04em;list-style:none;cursor:pointer;border-top:1px solid #d4d5ce}
+.jc-v2 .jc-compare__sources ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 30px;margin:20px 0 0;padding:0;list-style:none}
+.jc-v2 .jc-compare__sources a{font-size:13px;line-height:1.6;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:749px){
+.jc-v2 .jc-compare{margin:30px 0 40px}
+.jc-v2 .jc-compare__content{padding-top:14px}
+.jc-v2 .jc-compare h3{font-size:30px}
+.jc-v2 .jc-compare__intro{font-size:16px;margin-bottom:20px}
+.jc-v2 .jc-compare__mobile-hint{display:block;font-size:12px;margin:0 0 12px;color:#62675e}
+.jc-v2 .jc-compare th,.jc-v2 .jc-compare td{font-size:16px;padding:22px 16px}
+.jc-v2 .jc-compare__brand{font-size:21px}
+.jc-v2 .jc-compare td.jc-compare__number{font-size:27px}
+.jc-v2 .jc-compare__sources ul{grid-template-columns:1fr}
+}
+{% endstylesheet %}
+

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "jc_nube_v2": {
@@ -7,12 +16,16 @@
         "whatsapp_number": "573011571039",
         "whatsapp_message": "Hola, quiero pedir JUNGLCORE NUBE en Bogotá.",
         "protein_value": "6,3 g",
-        "fibre_value": "1,4 g",
-        "show_nutrition_comparison": true
+        "fibre_value": "1,4 g"
       }
+    },
+    "jc_home_patch": {
+      "type": "jc-home-patch",
+      "settings": {}
     }
   },
   "order": [
-    "jc_nube_v2"
+    "jc_nube_v2",
+    "jc_home_patch"
   ]
 }

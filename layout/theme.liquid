@@ -15,6 +15,10 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {% if template.name == 'page' and template.suffix == 'exploraciones' %}
+      {% assign page_title = 'jc_lab.brand' | t %}
+      {% assign page_description = 'jc_lab.page_description' | t %}
+    {% endif %}
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -63,6 +67,18 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {% if request.page_type == 'index' %}
+      <link rel="preload" href="{{ 'jc-manrope-variable.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+      <style>
+        @font-face {
+          font-family: 'Manrope';
+          src: url("{{ 'jc-manrope-variable.woff2' | asset_url }}") format('woff2');
+          font-style: normal;
+          font-weight: 200 800;
+          font-display: swap;
+        }
+      </style>
+    {% endif %}
     {{ content_for_header }}
 
     {%- liquid
@@ -330,7 +346,7 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% unless template.name == 'index' %}
+    {% unless template.name == 'index' or template.suffix == 'exploraciones' or template.suffix == 'jc-nube' or template.suffix == 'jc-nosotros' %}
       {% sections 'header-group' %}
     {% endunless %}
 
@@ -344,7 +360,7 @@
       {{ content_for_layout }}
     </main>
 
-    {% unless template.name == 'index' %}
+    {% unless template.name == 'index' or template.suffix == 'exploraciones' or template.suffix == 'jc-nube' or template.suffix == 'jc-nosotros' %}
       {% sections 'footer-group' %}
     {% endunless %}
 
@@ -407,3 +423,6 @@
     {%- endif -%}
   </body>
 </html>
+
+
+
