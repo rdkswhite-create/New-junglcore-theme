@@ -357,3 +357,4 @@
 .jcs-robots__image .jcs-tapvid__frame { aspect-ratio: 4 / 5; }
 .jcs-robots__image .jcs-tapvid__video { object-position: center 60%; }
 .jcs-robots__image .jcs-tapvid.is-playing .jcs-tapvid__frame { aspect-ratio: 9 / 16; }
+.jcs-log-intro__lead--small { margin-top: 14px; font-size: 16px; color: rgba(255,255,255,.6); }
