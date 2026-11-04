@@ -1491,6 +1491,28 @@
       },
       {
         "type": "header",
+        "content": "Entregas en Bogotá"
+      },
+      {
+        "type": "range",
+        "id": "jc_cutoff_hour",
+        "label": "Hora límite para entrega el mismo día",
+        "min": 8,
+        "max": 18,
+        "step": 1,
+        "unit": "h",
+        "default": 12,
+        "info": "Hora de Bogotá. Antes de esta hora, la web dice «Llega hoy». Después, «Llega mañana»."
+      },
+      {
+        "type": "textarea",
+        "id": "jc_holidays",
+        "label": "Festivos sin entrega",
+        "default": "2026-11-16\n2026-12-08\n2026-12-25\n2027-01-01\n2027-01-11\n2027-03-22\n2027-03-25\n2027-03-26\n2027-05-01\n2027-05-10\n2027-05-31\n2027-06-07\n2027-07-05\n2027-07-12\n2027-07-20\n2027-08-07\n2027-08-16\n2027-10-18\n2027-11-01\n2027-11-15\n2027-12-08\n2027-12-25",
+        "info": "Una fecha por línea (AAAA-MM-DD). No se entrega domingos ni en estas fechas."
+      },
+      {
+        "type": "header",
         "content": "Analítica"
       },
       {

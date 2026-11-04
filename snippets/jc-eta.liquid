@@ -1,0 +1,39 @@
+{% doc %}
+"Llega hoy": the same-day promise next to the buy button. Works out today, tomorrow or the next delivery day in Bogotá time (Mon–Sat, no festivos), using the cutoff hour and holidays in Theme settings → JUNGLCORE.
+{% enddoc %}
+<div class="jcs-eta" data-jc-eta>
+  <p class="jcs-eta__big"><span class="jcs-eta__dot" aria-hidden="true"></span><span data-jc-eta-big>Llega hoy.</span></p>
+  <p class="jcs-eta__small" data-jc-eta-small>Bogotá, lunes a sábado: pide antes de las {{ settings.jc_cutoff_hour | default: 12 }}:00 y llega hoy, congelada.</p>
+</div>
+<script>
+window.jcEta = window.jcEta || (function () {
+  var cutoff = {{ settings.jc_cutoff_hour | default: 12 | json }};
+  var holidays = {{ settings.jc_holidays | default: '' | strip | newline_to_br | strip_newlines | split: '<br />' | json }};
+  var days = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  function bogota(d) { return new Date(d.getTime() + d.getTimezoneOffset() * 60000 - 5 * 3600000); }
+  function key(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function open(d) { return d.getDay() !== 0 && holidays.map(function (h) { return h.trim(); }).indexOf(key(d)) === -1; }
+  function state() {
+    var now = bogota(new Date());
+    if (open(now) && now.getHours() < cutoff) {
+      var left = (cutoff * 60) - (now.getHours() * 60 + now.getMinutes());
+      var h = Math.floor(left / 60), m = left % 60;
+      var t = h > 0 ? h + ' h ' + m + ' min' : m + ' min';
+      return { big: 'Llega hoy.', small: 'Pide en las próximas ' + t + ' y te llega hoy, congelada.', short: 'llega hoy' };
+    }
+    var d = new Date(now); d.setHours(12, 0, 0, 0);
+    for (var i = 1; i < 10; i++) { d.setDate(d.getDate() + 1); if (open(d)) break; }
+    if (i === 1) return { big: 'Llega mañana.', small: 'Pide ahora y te llega mañana, congelada.', short: 'llega mañana' };
+    return { big: 'Llega el ' + days[d.getDay()] + '.', small: 'Pide ahora y te llega el ' + days[d.getDay()] + ' ' + d.getDate() + ', congelada.', short: 'llega el ' + days[d.getDay()] };
+  }
+  function paint() {
+    var s = state();
+    document.querySelectorAll('[data-jc-eta-big]').forEach(function (el) { el.textContent = s.big; });
+    document.querySelectorAll('[data-jc-eta-small]').forEach(function (el) { el.textContent = s.small; });
+    document.querySelectorAll('[data-jc-eta-short]').forEach(function (el) { el.textContent = s.short; });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint); else paint();
+  setInterval(paint, 60000);
+  return { paint: paint };
+})();
+</script>
