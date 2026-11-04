@@ -431,3 +431,5 @@
 .jcs-mobile-nav em { font-style: normal; font-size: 13px; color: var(--muted); }
 @media (max-width: 749px) { .jcs-header__menu { display: inline-flex; } }
 @media (min-width: 750px) { .jcs-mobile-nav { display: none !important; } }
+.jcs .jcs-about__human { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted); }
+.jcs-about__human a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
