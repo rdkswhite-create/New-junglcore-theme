@@ -402,18 +402,19 @@
 }
 @media (min-width: 750px) { .jcs-review:nth-child(3n+1) { padding-left: 0; border-left: 0; } }
 
-/* ---------- Nosotros ---------- */
-.jcs-about__intro { padding: clamp(56px, 8vw, 110px) 0 clamp(24px, 4vw, 48px); }
-.jcs-about__intro .jcs-display { margin-top: clamp(28px, 4vw, 52px); max-width: 15ch; }
-.jcs-about__intro .jcs-lead { margin-top: 22px; }
-.jcs-about__block { padding: clamp(40px, 6vw, 80px) 0; }
-.jcs-about__grid > div { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 720px; margin-top: clamp(24px, 3vw, 40px); }
-.jcs-about__grid > div > p { margin-top: 18px; font-size: 17px; line-height: 1.65; color: var(--muted); }
-.jcs .jcs-about__note { font-size: 14px; font-style: italic; }
-.jcs-about__figure { margin: 28px 0 0; }
+/* ---------- Nosotros (expediente) ---------- */
+.jcs-about__intro .jcs-display { margin: clamp(28px, 4vw, 52px) 0 30px; max-width: 16ch; }
+.jcs-about__body { max-width: 720px; margin-top: clamp(20px, 3vw, 32px); padding-bottom: clamp(28px, 4vw, 48px); }
+.jcs-about__body p { margin-top: 14px; font-size: clamp(18px, 1.7vw, 21px); line-height: 1.55; }
+.jcs .jcs-about__aside { margin-top: 18px; padding-left: 16px; border-left: 2px solid var(--ink); font-size: 15px; font-style: italic; color: var(--muted); }
+.jcs-about__body--fig { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 72px); align-items: start; }
+.jcs-about__figure { margin: 0; }
 .jcs-about__figure img { width: 100%; height: auto; }
 .jcs-about__figure figcaption { margin-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.jcs-about__robots { margin-top: clamp(24px, 4vw, 48px); }
+.jcs .jcs-about__big { font-size: clamp(26px, 3.2vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -.02em; }
+.jcs-about__conclusion .jcs-link { margin-top: 22px; }
+.jcs-about .jcs-final { margin-top: clamp(24px, 4vw, 56px); }
+@media (max-width: 749px) { .jcs-about__body--fig { grid-template-columns: 1fr; } }
 
 /* ---------- Mobile menu ---------- */
 .jcs-header__actions { display: flex; align-items: center; gap: 10px; }

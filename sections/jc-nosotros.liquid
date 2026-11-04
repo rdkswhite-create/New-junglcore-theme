@@ -2,83 +2,79 @@
 <div class="jcs jcs-about" id="top">
   {% render 'jc-header' %}
 
-  <section class="jcs-about__intro" aria-labelledby="jc-about-title">
+  <section class="jcs-robots jcs-about__intro" aria-labelledby="jc-about-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>JUNGLCORE</span>Nosotros</p>
-      <h1 class="jcs-display" id="jc-about-title">Hecho de aquí. Ya era hora.</h1>
-      <p class="jcs-lead">JUNGLCORE hace alimentos con las plantas que el pasillo olvidó. Empezamos con una: la sacha inchi, de Colombia.</p>
+      <p class="jcs-chapter"><span>Nosotros</span>Informe de campo de Lupa, Chispa y Dato</p>
+      <h1 class="jcs-display" id="jc-about-title">Expediente: los humanos detrás de esto.</h1>
+      <dl class="jcs-file" aria-label="Estado del expediente">
+        <div><dt>Sujetos</dt><dd>3</dd></div>
+        <div><dt>Ubicación</dt><dd>Colombia</dd></div>
+        <div><dt>Clasificación</dt><dd>Hecho de aquí</dd></div>
+        <div><dt>Presupuesto</dt><dd><span class="jcs-file__stamp">Agotado</span></dd></div>
+      </dl>
     </div>
   </section>
 
-  <section class="jcs-about__block" aria-labelledby="jc-about-why">
-    <div class="jcs-frame jcs-about__grid">
-      <p class="jcs-chapter"><span>01</span>Por qué existimos</p>
-      <div>
-        <h2 class="jcs-title" id="jc-about-why">Ser vegetal no es suficiente.</h2>
-        <p>Hay miles de plantas que se pueden comer. El pasillo de las bebidas vegetales tiene cinco: almendra, avena, soya, arroz y coco. De Bogotá a Nueva York, de Londres a Dubái, las mismas cinco.</p>
-        <p>Colombia es uno de los países más biodiversos del planeta, y la proteína del supermercado sigue siendo arveja, soya y suero, casi siempre importados. Importar proteína no es lo raro. Lo raro es nunca haber mirado aquí.</p>
+  <article class="jcs-log-entry" aria-labelledby="jc-about-001">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Sujeto 001</span><h2 id="jc-about-001">La misión</h2><em>En curso</em></header>
+      <div class="jcs-about__body">
+        <p>Encontrar las plantas que el pasillo olvidó y convertirlas en algo que la gente quiera comer todos los días. Empezaron por una. Dicen que vienen más.</p>
+        <p class="jcs-about__aside">Lupa pidió pruebas. Le dieron una bolsa de NUBE. Sigue revisándola.</p>
       </div>
     </div>
-  </section>
+  </article>
 
-  <section class="jcs-about__block" aria-labelledby="jc-about-seed">
-    <div class="jcs-frame jcs-about__grid">
-      <p class="jcs-chapter"><span>02</span>La semilla</p>
-      <div>
-        <h2 class="jcs-title" id="jc-about-seed">Una planta que da estrellas.</h2>
-        <p>La sacha inchi es una enredadera de la Amazonía. Su fruto tiene cuatro puntas, como una estrella, con una semilla en cada una. Proteína, fibra y un aceite rico en omega-3 de origen vegetal, en una sola semilla que casi nadie fuera de aquí conoce.</p>
+  <article class="jcs-log-entry" aria-labelledby="jc-about-002">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Sujeto 002</span><h2 id="jc-about-002">Los que la cultivan</h2><em>Verificado</em></header>
+      <div class="jcs-about__body">
+        <p>Familias en Valle del Cauca, Santander y Norte de Santander. Siembran una enredadera que tarda unos siete meses en dar fruto. Se juntaron en una asociación y venden a un precio acordado antes de cosechar.</p>
+        <p class="jcs-about__aside">Dato lo anotó dos veces. En ningún pasillo había visto eso.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="jcs-log-entry" aria-labelledby="jc-about-003">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Sujeto 003</span><h2 id="jc-about-003">La semilla</h2><em>Prioritario</em></header>
+      <div class="jcs-about__body jcs-about__body--fig">
+        <div>
+          <p>No es humana, pero es lo más interesante del expediente. Fruto de cuatro puntas, una semilla en cada una. Proteína, fibra y aceite. Fuera de Colombia, casi nadie la conoce.</p>
+          <p class="jcs-about__aside">Chispa pidió que constara en acta: «por fin, un pedazo de jungla».</p>
+        </div>
         <figure class="jcs-about__figure">
           <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-sacha-inchi-seed-leaf-roots-biodiversity-2026.jpg?v=1793696362&width=1400" width="1126" height="729" loading="lazy" alt="Fruto de sacha inchi de cuatro puntas junto a una hoja y sus raíces">
-          <figcaption>Planta 001 · Sacha inchi. La primera de varias.</figcaption>
+          <figcaption>Planta 001 · Sacha inchi</figcaption>
         </figure>
       </div>
     </div>
-  </section>
+  </article>
 
-  <section class="jcs-about__block" aria-labelledby="jc-about-growers">
-    <div class="jcs-frame jcs-about__grid">
-      <p class="jcs-chapter"><span>03</span>Quién la cultiva</p>
-      <div>
-        <h2 class="jcs-title" id="jc-about-growers">Con nombre y apellido, no con intermediarios.</h2>
-        <p>{{ 'jc_story.growers' | t }}</p>
-        <p>{{ 'jc_story.relationships' | t }}</p>
-        <p class="jcs-about__note">{{ 'jc_story.pilot' | t }}</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="jcs-about__block" aria-labelledby="jc-about-chain">
-    <div class="jcs-frame jcs-about__grid">
-      <p class="jcs-chapter"><span>04</span>La apuesta</p>
-      <div>
-        <h2 class="jcs-title" id="jc-about-chain">Que gane toda la cadena.</h2>
-        <p>Queremos probar que un negocio rentable puede ser bueno para todos los que tocan la semilla: quien la cultiva, quien la transforma, quien se la toma, y la planta misma.</p>
-        <p>{{ 'jc_story.method' | t }}</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="jcs-robots jcs-about__robots" aria-labelledby="jc-about-robots">
+  <article class="jcs-log-entry" aria-labelledby="jc-about-obs">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>05</span>Y los robots</p>
-      <div class="jcs-robots__grid">
-        <figure class="jcs-robots__image">
-          <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="lazy" alt="Tres robots científicos en una nave estudian una caja de bebida de almendras, unas almendras y un vaso de agua">
-        </figure>
-        <div class="jcs-robots__copy">
-          <h2 class="jcs-display" id="jc-about-robots">Vinieron buscando la jungla.</h2>
-          <p>Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Vinieron a la Tierra a buscar la jungla y encontraron pasillos.</p>
-          <p>Ellos dicen en voz alta lo que nosotros pensamos. Nosotros comprobamos sus notas.</p>
-          <a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones">Abrir la bitácora <span aria-hidden="true">&rarr;</span></a>
-        </div>
+      <header class="jcs-log-entry__meta"><span>Anexo</span><h2 id="jc-about-obs">En observación</h2><em>Sin resultados</em></header>
+      <div class="jcs-about__body">
+        <p>Un cultivo de sacha inchi bajo árboles de cacao. Sin resultados todavía. Los humanos lo llaman «piloto». Nosotros lo llamamos «esperar».</p>
       </div>
     </div>
-  </section>
+  </article>
+
+  <article class="jcs-log-entry jcs-about__conclusion" aria-labelledby="jc-about-end">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Cierre</span><h2 id="jc-about-end">Conclusión provisional</h2><em>Firmado: L · C · D</em></header>
+      <div class="jcs-about__body">
+        <p class="jcs-about__big">Los humanos tienen la jungla al lado. Unos pocos ya se dieron cuenta.</p>
+        <p>Presupuesto: agotado. Seguimos observando.</p>
+        <a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones">Leer la bitácora completa <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </article>
 
   <section class="jcs-final" aria-labelledby="jc-about-final">
     <div class="jcs-frame">
       <h2 id="jc-about-final">Rinde más.</h2>
-      <p>La primera semilla ya está en tu congelador, si quieres. 30 vasos por bolsa.</p>
+      <p>La prueba que le dieron a Lupa. 30 vasos por bolsa.</p>
       <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
