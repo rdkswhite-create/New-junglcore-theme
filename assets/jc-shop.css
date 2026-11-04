@@ -16,6 +16,8 @@
   line-height: 1.5;
 }
 .jcs * { font-family: inherit; }
+.jcs h1, .jcs h2, .jcs h3, .jcs h4 { color: inherit; font-family: inherit; letter-spacing: inherit; }
+.jcs .jcs-hero__title { color: #fff; }
 .jcs :where(h1, h2, h3, h4, p, figure, ul, ol) { margin: 0; padding: 0; }
 .jcs :where(ul, ol) { list-style: none; }
 .jcs :where(a) { color: inherit; text-decoration: none; }
@@ -61,6 +63,7 @@
 /* Hero */
 .jcs-hero { position: relative; min-height: min(92vh, 880px); color: #fff; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; background: #1b1b1b; }
 .jcs-hero__media, .jcs-hero__media picture, .jcs-hero__media img, .jcs-hero__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.jcs-hero__media img, .jcs-hero__media video { filter: grayscale(1) contrast(1.12) brightness(.84); }
 .jcs-hero__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.08) 38%, rgba(0,0,0,.18) 62%, rgba(0,0,0,.62) 100%); }
 .jcs-hero__top, .jcs-hero__body, .jcs-hero__bottom { position: relative; width: var(--frame); margin-inline: auto; }
 .jcs-hero__top { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
