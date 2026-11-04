@@ -9,7 +9,7 @@
   {%- comment -%} The ship's log. The robots observe, we check, the rest stays open. {%- endcomment -%}
   <section class="jcs-log-intro" aria-labelledby="jc-log-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>LAB</span>Órbita terrestre · Entradas 001 — 005</p>
+      <p class="jcs-chapter"><span>LAB</span>Órbita terrestre · Entradas 001 — 006</p>
       <div class="jcs-log-intro__grid">
         <figure class="jcs-log-intro__image">
           <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="eager" alt="Tres robots científicos en una nave estudian una caja de bebida de almendras, unas almendras y un vaso de agua">
@@ -29,6 +29,7 @@
             <a href="#jc-log-003"><span>003</span>El antojo<em>Estudio abierto</em></a>
             <a href="#jc-log-004"><span>004</span>El aceite<em>En curso</em></a>
             <a href="#jc-log-005"><span>005</span>Planta 002<em>Abierto</em></a>
+            <a href="#jc-log-006"><span>006</span>¿Qué es nube?<em>Visto</em></a>
           </nav>
         </div>
       </div>
@@ -165,6 +166,32 @@
           </blockquote>
           <p class="jcs-log-open"><span>Sigue abierto</span>Cuál sigue. Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
           <a class="jcs-btn jcs-btn--ghost" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener"><span>Proponer una planta</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {%- comment -%} 006 · They watched our advert. {%- endcomment -%}
+  <article class="jcs-log-entry jcs-log-entry--flip" id="jc-log-006" aria-labelledby="jc-log-006-title">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Entrada 006</span><h2 id="jc-log-006-title">¿Qué es nube?</h2><em>Visto</em></header>
+      <div class="jcs-log-entry__grid">
+        <div class="jcs-log-entry__image">
+          {%- capture v006 -%}{{ 'jc-bitacora-006.mp4' | asset_url }}{%- endcapture -%}
+          {%- capture p006 -%}{{ 'jc-bitacora-006-poster.jpg' | asset_url }}{%- endcapture -%}
+          {% render 'jc-tap-video', id: 'jcs-lab-006', src: v006, poster: p006, label: 'Ver la entrada' %}
+        </div>
+        <div class="jcs-log-entry__body">
+          <blockquote class="jcs-log-note">
+            <p>Vimos el anuncio de los humanos. Tenemos preguntas.</p>
+            <footer>Lupa, Chispa y Dato</footer>
+          </blockquote>
+          <div class="jcs-log-check">
+            <h3>Lo que comprobamos</h3>
+            <p>Es cierto: una barra del congelador, agua caliente o licuadora. Tres ingredientes. No hay más.</p>
+          </div>
+          <p class="jcs-log-open"><span>Sigue abierto</span>Si hacen envíos a la órbita. Por ahora, solo a Bogotá.</p>
+          <a class="jcs-link" href="#jc-buy">Comprar NUBE <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>

@@ -1,0 +1,31 @@
+{% doc %}
+A video that waits for a tap, then plays with sound. For dialogue pieces (the robots) that mean nothing muted.
+@param {string} src - Video URL.
+@param {string} poster - Poster image URL.
+@param {string} label - Play button label.
+@param {string} id - Unique id.
+@param {string} [caption] - Line under the video.
+{% enddoc %}
+<figure class="jcs-tapvid" id="{{ id }}">
+  <div class="jcs-tapvid__frame">
+    <video class="jcs-tapvid__video" playsinline preload="none" poster="{{ poster }}" src="{{ src }}"></video>
+    <button type="button" class="jcs-tapvid__play" aria-label="{{ label }}"><span class="jcs-tapvid__icon" aria-hidden="true">&#9654;</span><span>{{ label }}</span></button>
+  </div>
+  {% if caption != blank %}<figcaption>{{ caption }}</figcaption>{% endif %}
+  <script>
+    (function () {
+      var root = document.getElementById({{ id | json }});
+      if (!root) return;
+      var v = root.querySelector('video');
+      var b = root.querySelector('.jcs-tapvid__play');
+      b.addEventListener('click', function () {
+        v.muted = false; v.controls = true; root.classList.add('is-playing');
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      });
+      v.addEventListener('ended', function () { root.classList.remove('is-playing'); v.controls = false; v.currentTime = 0; });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) { es.forEach(function (e) { if (!e.isIntersecting && !v.paused) v.pause(); }); }).observe(v);
+      }
+    })();
+  </script>
+</figure>
