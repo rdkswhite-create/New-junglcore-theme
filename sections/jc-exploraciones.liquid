@@ -26,7 +26,7 @@
           <nav class="jcs-log-index" aria-label="Entradas">
             <a href="#jc-log-001"><span>001</span>El pasillo<em>Comprobado</em></a>
             <a href="#jc-log-002"><span>002</span>La semilla<em>En curso</em></a>
-            <a href="#jc-log-003"><span>003</span>Las mañanas<em>En curso</em></a>
+            <a href="#jc-log-003"><span>003</span>El antojo<em>Estudio abierto</em></a>
             <a href="#jc-log-004"><span>004</span>El aceite<em>En curso</em></a>
             <a href="#jc-log-005"><span>005</span>Planta 002<em>Abierto</em></a>
           </nav>
@@ -90,27 +90,26 @@
     </div>
   </article>
 
-  {%- comment -%} 003 · Mornings. Evidence and limits stay word for word. {%- endcomment -%}
+  {%- comment -%} 003 · The craving. Our own study: the gap between a sweet craving and acting on it. A question, never a claim. {%- endcomment -%}
   <article class="jcs-log-entry" id="jc-log-003" aria-labelledby="jc-log-003-title">
     <div class="jcs-frame">
-      <header class="jcs-log-entry__meta"><span>Entrada 003</span><h2 id="jc-log-003-title">Las mañanas</h2><em>En curso</em></header>
+      <header class="jcs-log-entry__meta"><span>Entrada 003</span><h2 id="jc-log-003-title">Entre el antojo y la mano</h2><em>Estudio abierto</em></header>
       <div class="jcs-log-entry__grid">
         <figure class="jcs-log-entry__image">
-          <img src="{{ 'jc-manana.jpg' | asset_url }}" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico por la mañana junto a un vaso de NUBE">
-          <figcaption>06:00 · Bogotá · 2.640 m</figcaption>
+          <img src="{{ 'jc-noche.jpg' | asset_url }}" width="1126" height="1397" loading="lazy" alt="Una mujer sostiene una taza caliente junto a la ventana, de noche, con un plato vacío en la mesa">
+          <figcaption>Bogotá · 2.640 m</figcaption>
         </figure>
         <div class="jcs-log-entry__body">
           <blockquote class="jcs-log-note">
-            <p>Observación: muchos humanos desayunan a las 7. A las 10 ya están buscando un pan. Otros llegan al almuerzo sin acordarse de la comida. No sabemos por qué. Ellos tampoco.</p>
+            <p>Observación: a media tarde, a un humano se le antoja algo dulce. No tiene hambre. Tiene un mal día, una reunión que salió mal, un mensaje sin contestar. Abre las galletas para comerse una. Cierra el paquete vacío. Entre el antojo y la mano no hay espacio. Estamos midiendo si se puede hacer más grande.</p>
             <footer>Lupa · robot rojo</footer>
           </blockquote>
           <div class="jcs-log-check">
-            <h3>Lo que comprobamos</h3>
-            <p>{{ 'jc_satiety.investigation' | t }}</p>
+            <h3>Qué estamos midiendo</h3>
+            <p>El antojo de dulce que no viene del hambre, sino del día: la ansiedad, el estrés, el cansancio. Cuándo llega, cuánto dura y cuánto espacio hay entre sentirlo y actuar. Y si una dosis de sacha inchi antes de ese momento lo cambia.</p>
             <details class="jcs-log-fold">
-              <summary>{{ 'jc_satiety.open_research' | t }}</summary>
+              <summary>Lo que ya se ha estudiado</summary>
               <div class="jcs-log-fold__body">
-                <p class="jcs-log-fold__q">{{ 'jc_satiety.question' | t }}</p>
                 <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
                 <p class="jcs-log-fold__title">{{ 'junglcore_explorations.research.protein_title' | t }} · <span>{{ 'junglcore_explorations.research.protein_type' | t }}</span></p>
                 <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
@@ -118,11 +117,11 @@
                 <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_ref' | t }} · <a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a></p>
               </div>
             </details>
-            <p class="jcs-log-small">{{ 'jc_satiety.product_limit' | t }} Cuando lo demostremos, lo leerás aquí antes que en un anuncio.</p>
+            <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
           </div>
-          <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'jc_satiety.unknown' | t }}</p>
-          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, tomé NUBE en el desayuno. Les cuento si me rindió hasta el almuerzo:' | url_encode }}" target="_blank" rel="noopener"><span>Cuéntanos si te rindió</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-log-small jcs-log-small--after">Por WhatsApp. Lupa lo anota.</p>
+          <p class="jcs-log-open"><span>Sigue abierto</span>Si NUBE alarga ese espacio. Lo estamos estudiando nosotros, con quienes la toman.</p>
+          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero participar en el estudio de JUNGLCORE sobre los antojos de dulce.' | url_encode }}" target="_blank" rel="noopener"><span>Participar en el estudio</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <p class="jcs-log-small jcs-log-small--after">Por WhatsApp. Al escribirnos aceptas que usemos tus respuestas para este estudio, sin tu nombre y según nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>. Puedes salirte cuando quieras. Lupa lo anota.</p>
         </div>
       </div>
     </div>
@@ -194,7 +193,7 @@
   <section class="jcs-final" aria-labelledby="jc-log-final-title">
     <div class="jcs-frame">
       <h2 id="jc-log-final-title">Rinde más.</h2>
-      <p>Si rinde de verdad, lo estamos averiguando. La proteína ya la contamos: 6,3 g por vaso, 30 vasos por bolsa.</p>
+      <p>30 vasos por bolsa. Más proteína por vaso, por menos.</p>
       <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
