@@ -68,7 +68,7 @@
       <div class="jcs-manifesto__grid">
         <div class="jcs-manifesto__body">
           <h2 class="jcs-display" id="jc-manifesto-title">Ser vegetal no es suficiente.</h2>
-          <p>Colombia es el país más biodiverso del mundo. Y la proteína del supermercado sigue siendo arveja, soya y suero, casi siempre importados.</p>
+          <p>Colombia es uno de los países más biodiversos del planeta. Y la proteína del supermercado sigue siendo arveja, soya y suero, casi siempre importados.</p>
           <p>Y las bebidas vegetales: almendra, avena, soya, arroz, coco. De Bogotá a Nueva York, de Londres a Dubái: el mismo pasillo, las mismas cinco plantas.</p>
           <p class="jcs-manifesto__punch">Importar proteína no es lo raro. Lo raro es nunca haber mirado aquí.</p>
           <p>Así que miramos. La sacha inchi crece en Valle del Cauca, Santander y Norte de Santander, en manos de pequeños productores. Le hicimos un formato nuevo, en vez de meterla en el de siempre.</p>
@@ -109,7 +109,7 @@
           </ul>
           <p class="jcs-robots__finding"><span>Hallazgo anotado</span>Tres almendras y un vaso de agua. Para ellos, eso explica bastante.</p>
           {%- liquid
-            assign hallazgos = 'Un vaso de bebida de almendras lleva unas tres o cuatro almendras. El resto, sobre todo, agua.|La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso. Nadie los añadió, pero ahí están.|Contamos los ingredientes de una bebida de almendras: trece. Los de NUBE: tres. Nos sobraron diez.|En la caja dice «natural» en letra grande. En la lista de ingredientes, lo primero es agua.|Colombia es el país más biodiverso del mundo. Su pasillo de bebidas vegetales tiene cinco plantas.|Proteína por vaso: almendra, 1 g. Avena, 2,9 g. NUBE, 6,3 g. Seguimos sin entender la caja.|«Saludable», en letra grande. Las almendras, en letra pequeña.' | split: '|'
+            assign hallazgos = 'Un vaso de bebida de almendras lleva unas tres o cuatro almendras. El resto, sobre todo, agua.|La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso. Nadie los añadió, pero ahí están.|Contamos los ingredientes de una bebida de almendras: trece. Los de NUBE: tres. Nos sobraron diez.|En la caja dice «natural» en letra grande. En la lista de ingredientes, lo primero es agua.|Colombia es uno de los países más biodiversos del planeta. Su pasillo de bebidas vegetales tiene cinco plantas.|Proteína por vaso: almendra, 1 g. Avena, 2,9 g. NUBE, 6,3 g. Seguimos sin entender la caja.|«Saludable», en letra grande. Las almendras, en letra pequeña.' | split: '|'
             assign day = 'now' | date: '%j' | plus: 0
             assign pick = day | modulo: hallazgos.size
             assign hallazgo_hoy = hallazgos[pick]
