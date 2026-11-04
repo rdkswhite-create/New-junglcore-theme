@@ -265,9 +265,9 @@
 .jcs-log-intro__title { margin-top: 14px; font-size: clamp(44px, 7vw, 104px); font-weight: 500; line-height: .98; letter-spacing: -.045em; text-transform: uppercase; }
 .jcs-log-intro__lead { margin-top: 22px; max-width: 520px; color: rgba(255,255,255,.75); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; }
 .jcs-log-crew { list-style: none; margin-top: 28px; display: grid; gap: 10px; font-size: 14px; color: rgba(255,255,255,.7); }
-.jcs-log-crew li { display: flex; align-items: baseline; gap: 12px; line-height: 1.45; }
+.jcs-log-crew li { display: flex; align-items: flex-start; gap: 12px; line-height: 1.45; }
 .jcs-log-crew strong { color: #fff; font-weight: 600; min-width: 58px; }
-.jcs-log-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; align-self: center; }
+.jcs-log-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; margin-top: .42em; }
 .jcs-log-dot--red { background: #b4483c; } .jcs-log-dot--green { background: #5d8a55; } .jcs-log-dot--blue { background: #4a6fa5; }
 .jcs-log-index { display: grid; margin-top: 30px; border-top: 1px solid rgba(255,255,255,.25); max-width: 520px; }
 .jcs-log-index a { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.25); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
@@ -368,3 +368,4 @@
 .jcs-file dd { margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #fff; }
 .jcs-file__stamp { display: inline-block; padding: 2px 10px; border: 2px solid #d9573f; color: #e2674f; font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; transform: rotate(-4deg); border-radius: 3px; }
 .jcs-log-intro .jcs-file { margin-top: 18px; }
+.jcs-robots .jcs-robots__crew { margin-top: 24px; max-width: 480px; }

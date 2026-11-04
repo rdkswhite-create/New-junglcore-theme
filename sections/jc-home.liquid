@@ -102,6 +102,11 @@
           <h2 class="jcs-display" id="jc-robots-title">Vinieron buscando la jungla.</h2>
           <p>Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Interceptaron una palabra, «jungla», y consiguieron presupuesto para venir a verla.</p>
           <p>Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo de supermercado con cinco plantas en caja. El informe no va bien.</p>
+          <ul class="jcs-log-crew jcs-robots__crew" aria-label="Tripulación">
+            <li><span class="jcs-log-dot jcs-log-dot--red" aria-hidden="true"></span><strong>Lupa</strong> Roja. No se cree nada que venga en caja.</li>
+            <li><span class="jcs-log-dot jcs-log-dot--green" aria-hidden="true"></span><strong>Chispa</strong> Verde. La botánica de la misión. La única que todavía se emociona.</li>
+            <li><span class="jcs-log-dot jcs-log-dot--blue" aria-hidden="true"></span><strong>Dato</strong> Azul. Lee etiquetas para no tener que hablar con nadie.</li>
+          </ul>
           <p class="jcs-robots__finding"><span>Hallazgo anotado</span>Tres almendras y un vaso de agua. Para ellos, eso explica bastante.</p>
           {%- liquid
             assign hallazgos = 'Un vaso de bebida de almendras lleva unas tres o cuatro almendras. El resto, sobre todo, agua.|La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso. Nadie los añadió, pero ahí están.|Contamos los ingredientes de una bebida de almendras: trece. Los de NUBE: tres. Nos sobraron diez.|En la caja dice «natural» en letra grande. En la lista de ingredientes, lo primero es agua.|Colombia es el país más biodiverso del mundo. Su pasillo de bebidas vegetales tiene cinco plantas.|Proteína por vaso: almendra, 1 g. Avena, 2,9 g. NUBE, 6,3 g. Seguimos sin entender la caja.|«Saludable», en letra grande. Las almendras, en letra pequeña.' | split: '|'
