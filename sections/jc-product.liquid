@@ -45,6 +45,17 @@
 
   {% render 'jc-versus', number: '03', sources_href: '#jc-nutrition' %}
 
+  <section class="jcs-robot-note" aria-label="Hallazgo">
+    <div class="jcs-frame jcs-robot-note__grid">
+      <img src="{{ 'jc-robot-almendra.jpg' | asset_url }}" width="1000" height="1777" loading="lazy" alt="Un robot sostiene una caja de bebida de almendras y la mira con sospecha">
+      <div>
+        <p class="jcs-eyebrow">Hallazgos · Pera, Chispa y Dato</p>
+        <p class="jcs-robot-note__line">Leyó la caja dos veces. «Saludable», en letra grande. Las almendras, en letra pequeña.</p>
+        <a class="jcs-link" href="{{ routes.root_url }}#jc-hallazgos">Conocer a los robots <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
   <div class="jcs-nutrition-wrap jc-v2">
     <div class="jcs-frame">{% render 'jc-nutrition-comparison' %}</div>
   </div>

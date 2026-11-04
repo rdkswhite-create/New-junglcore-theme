@@ -84,10 +84,15 @@
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>05</span>Hallazgos</p>
       <div class="jcs-robots__grid">
-        <h2 class="jcs-display" id="jc-robots-title">Todavía no nos entienden.</h2>
-        <div>
-          <p>Tres robots científicos estudian lo que comemos los humanos. Pagamos extra por lo que casi no leemos. Elegimos comida por el dibujo de la caja. Ellos toman notas.</p>
-          {% if section.settings.hallazgos_url != blank %}<a class="jcs-link" href="{{ section.settings.hallazgos_url }}" target="_blank" rel="noopener">Ver el último hallazgo <span aria-hidden="true">&rarr;</span></a>{% endif %}
+        <figure class="jcs-robots__image">
+          <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="lazy" alt="Tres robots científicos en una nave estudian una caja de bebida de almendras, seis almendras y un vaso de agua">
+        </figure>
+        <div class="jcs-robots__copy">
+          <h2 class="jcs-display" id="jc-robots-title">Todavía no nos entienden.</h2>
+          <p>Pera, Chispa y Dato. Tres robots científicos, una nave, y la Tierra por la ventana. Vinieron a estudiar lo que comemos los humanos.</p>
+          <p>Pagamos extra por lo que casi no leemos. Elegimos comida por el dibujo de la caja. Ellos toman notas.</p>
+          <p class="jcs-robots__finding"><span>Hallazgo anotado</span>Seis almendras y un vaso de agua. Para ellos, eso explica bastante.</p>
+          {% if section.settings.hallazgos_url != blank %}<a class="jcs-link" href="{{ section.settings.hallazgos_url }}" target="_blank" rel="noopener">Ver los hallazgos <span aria-hidden="true">&rarr;</span></a>{% endif %}
         </div>
       </div>
     </div>
