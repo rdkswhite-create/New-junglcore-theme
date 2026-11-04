@@ -57,8 +57,10 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
       })();
     </script>
   {% endif %}
+  {%- assign check_id = form_id | append: '-check' -%}
+  {% render 'jc-delivery-check', id: check_id %}
   <div class="jcs-buy__notes">
-    <p><strong>Solo en Bogotá, por ahora.</strong> Llega congelada, como debe ser. Envío $20.000 · gratis desde $100.000.</p>
+    <p><strong>Solo en Bogotá, por ahora.</strong> Lunes a sábado: pide antes de las 12:00 y llega hoy, congelada. Envío $20.000 · gratis desde $100.000.</p>
     <p><strong>Sacha inchi, agua y goma gelana.</strong> Los contamos con una mano y nos sobraron dos dedos.</p>
     <p><strong>¿A qué sabe?</strong> Quienes la prueban dicen que a avena.</p>
   </div>

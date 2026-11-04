@@ -1,0 +1,44 @@
+{% doc %}
+"¿Llegamos a tu barrio?" — Bogotá gets the delivery promise, anywhere else gets a WhatsApp "avísame" with the place name.
+@param {string} id - Unique id.
+{% enddoc %}
+<details class="jcs-check" id="{{ id }}">
+  <summary>¿Llegamos a tu barrio?</summary>
+  <div class="jcs-check__body">
+    <div class="jcs-check__choices" role="group" aria-label="¿Dónde estás?">
+      <button type="button" class="jcs-check__btn" data-where="bogota">Estoy en Bogotá</button>
+      <button type="button" class="jcs-check__btn" data-where="otra">Otra ciudad o pueblo</button>
+    </div>
+    <p class="jcs-check__yes" hidden><strong>Sí llegamos.</strong> A toda Bogotá, de lunes a sábado, sin festivos. Pide antes de las 12:00 y llega el mismo día, congelada. Después, al siguiente día de entrega. Lo que pidas el sábado por la tarde o el domingo llega el lunes.</p>
+    <div class="jcs-check__no" hidden>
+      <p>Todavía no llegamos. NUBE viaja congelada y por ahora solo aguanta el tráfico de Bogotá. Dinos dónde estás y te avisamos cuando lleguemos.</p>
+      <div class="jcs-check__row">
+        <label class="visually-hidden" for="{{ id }}-place">Tu ciudad o pueblo</label>
+        <input type="text" id="{{ id }}-place" placeholder="Tu ciudad o pueblo" autocomplete="address-level2">
+        <a class="jcs-check__wa" href="https://wa.me/573011571039" target="_blank" rel="noopener">Avísame &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var root = document.getElementById({{ id | json }});
+      if (!root) return;
+      var yes = root.querySelector('.jcs-check__yes'), no = root.querySelector('.jcs-check__no');
+      var input = root.querySelector('input'), wa = root.querySelector('.jcs-check__wa');
+      root.querySelectorAll('.jcs-check__btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var bog = b.dataset.where === 'bogota';
+          yes.hidden = !bog; no.hidden = bog;
+          root.querySelectorAll('.jcs-check__btn').forEach(function (x) { x.classList.toggle('is-on', x === b); });
+          if (!bog) input.focus();
+        });
+      });
+      function upd() {
+        var place = input.value.trim();
+        var msg = 'Hola, avísenme cuando NUBE llegue a ' + (place || 'mi ciudad') + '.';
+        wa.href = 'https://wa.me/573011571039?text=' + encodeURIComponent(msg);
+      }
+      input.addEventListener('input', upd); upd();
+    })();
+  </script>
+</details>

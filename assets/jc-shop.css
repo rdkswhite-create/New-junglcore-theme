@@ -369,3 +369,19 @@
 .jcs-file__stamp { display: inline-block; padding: 2px 10px; border: 2px solid #d9573f; color: #e2674f; font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; transform: rotate(-4deg); border-radius: 3px; }
 .jcs-log-intro .jcs-file { margin-top: 18px; }
 .jcs-robots .jcs-robots__crew { margin-top: 24px; max-width: 480px; }
+
+/* ---------- ¿Llegamos a tu barrio? ---------- */
+.jcs-check { margin-top: 14px; border: 1px solid var(--rule); }
+.jcs-check summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; cursor: pointer; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.jcs-check summary::-webkit-details-marker { display: none; }
+.jcs-check summary::after { content: '+'; font-size: 18px; font-weight: 300; transition: transform .2s; }
+.jcs-check[open] summary::after { transform: rotate(45deg); }
+.jcs-check__body { padding: 0 16px 16px; }
+.jcs-check__choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.jcs-check__btn { padding: 12px 10px; border: 1px solid var(--rule); background: transparent; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink); }
+.jcs-check__btn.is-on { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.jcs .jcs-check__yes, .jcs .jcs-check__no p { margin-top: 14px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.jcs-check__yes strong { color: var(--ink); }
+.jcs-check__row { display: flex; gap: 8px; margin-top: 12px; }
+.jcs-check__row input { flex: 1; min-width: 0; padding: 12px; border: 1px solid var(--rule); font: inherit; font-size: 14px; background: #fff; }
+.jcs-check__wa { display: inline-flex; align-items: center; padding: 0 16px; background: var(--ink); color: var(--paper); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
