@@ -1,0 +1,69 @@
+{% doc %}
+"¿Qué es NUBE?" — the 27-second film. On a phone it fills the screen and plays muted when it scrolls into view;
+on desktop the vertical film sits in a tall frame with the copy beside it. Pauses when it leaves the screen.
+@param {string} [buy_href] - Where the Comprar button points.
+@param {object} [desktop_video] - Optional widescreen video from Shopify Files, used on desktop when set.
+{% enddoc %}
+{%- liquid
+  assign desktop_src = ''
+  assign best = 0
+  if desktop_video != blank
+    for source in desktop_video.sources
+      if source.format == 'mp4' and source.width > best and source.width <= 1920
+        assign best = source.width
+        assign desktop_src = source.url
+      endif
+    endfor
+  endif
+-%}
+<section class="jcs-film" id="jc-film" aria-label="¿Qué es NUBE? Película de 27 segundos">
+  <div class="jcs-film__inner">
+    <div class="jcs-film__copy">
+      <p class="jcs-eyebrow">27 segundos</p>
+      <h2 class="jcs-film__title">¿Qué es NUBE?</h2>
+      <p>Una barra del congelador. Agua caliente o licuadora. Eso es todo. El resto de la película es Bogotá.</p>
+      <a class="jcs-btn jcs-btn--light" href="{{ buy_href | default: '#jc-buy' }}"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="jcs-film__frame">
+      <video class="jcs-film__video" id="jcs-film-video" muted playsinline preload="metadata" poster="{{ 'jc-nube-video-poster.jpg' | asset_url }}"
+        data-src-mobile="{{ 'jc-nube-video-movil.mp4' | asset_url }}"
+        {% if desktop_src != '' %}data-src-desktop="{{ desktop_src }}"{% endif %}>
+      </video>
+      <button type="button" class="jcs-film__sound" id="jcs-film-sound" aria-pressed="false">Activar sonido</button>
+      <div class="jcs-film__end" id="jcs-film-end" hidden>
+        <a class="jcs-btn jcs-btn--light" href="{{ buy_href | default: '#jc-buy' }}"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <button type="button" class="jcs-film__again" id="jcs-film-again">Ver otra vez</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var v = document.getElementById('jcs-film-video');
+      if (!v) return;
+      var sound = document.getElementById('jcs-film-sound');
+      var end = document.getElementById('jcs-film-end');
+      var again = document.getElementById('jcs-film-again');
+      var wide = window.matchMedia('(min-width: 990px)').matches && v.dataset.srcDesktop;
+      v.src = wide ? v.dataset.srcDesktop : v.dataset.srcMobile;
+      if (wide) v.classList.add('is-wide');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting && e.intersectionRatio > 0.55) {
+              if (!reduce && v.paused && end.hidden) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+            } else if (!v.paused) { v.pause(); }
+          });
+        }, { threshold: [0, 0.55, 1] }).observe(v);
+      }
+      sound.addEventListener('click', function () {
+        v.muted = !v.muted;
+        sound.setAttribute('aria-pressed', String(!v.muted));
+        sound.textContent = v.muted ? 'Activar sonido' : 'Silenciar';
+        if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      });
+      v.addEventListener('ended', function () { end.hidden = false; });
+      again.addEventListener('click', function () { end.hidden = true; v.currentTime = 0; v.play(); });
+    })();
+  </script>
+</section>

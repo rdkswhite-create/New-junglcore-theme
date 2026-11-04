@@ -27,13 +27,15 @@
       <p class="jcs-hero__sub">NUBE es una barra congelada de sacha inchi para preparar una bebida vegetal. Agua, 30 segundos de licuadora, y tienes un vaso con más de seis veces la proteína de una bebida de almendra.</p>
       <div class="jcs-hero__actions">
         <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-        <a class="jcs-link" href="#jc-moments">Cómo se prepara</a>
+        <a class="jcs-link" href="#jc-film">Cómo se prepara</a>
       </div>
     </div>
     <div class="jcs-hero__bottom">
       <img class="jcs-hero__wordmark" src="{{ 'jc-wordmark-refined-white.svg' | asset_url }}" alt="junglcore" width="1329" height="313">
     </div>
   </section>
+
+  {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
 
   <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-buy-title">
     <div class="jcs-frame">
@@ -152,6 +154,7 @@
   "settings": [
     { "type": "product", "id": "nube_product", "label": "Producto NUBE" },
     { "type": "video", "id": "hero_video", "label": "Vídeo de portada (opcional)" },
+    { "type": "video", "id": "film_desktop", "label": "Película ¿Qué es NUBE?, versión horizontal para escritorio (opcional)" },
     { "type": "image_picker", "id": "nube_image", "label": "Imagen de la bolsa (opcional)" },
     { "type": "header", "content": "Dos momentos" },
     { "type": "image_picker", "id": "morning_image", "label": "Foto de la mañana" },
