@@ -46,14 +46,14 @@
           <div class="jc-lab-card__action">
             {% if code == 'NUBE' %}
               <p class="jc-lab-card__price">{{ 'jc_lab.nube_price' | t }}</p>
-              <a href="{{ routes.root_url }}products/nube">{{ 'jc_lab.order' | t }} <span aria-hidden="true">↗</span></a>
+              <a href="{{ routes.root_url }}products/nube">{{ 'jc_lab.order' | t }} <span aria-hidden="true">&rarr;</span></a>
             {% else %}
               {% assign message_key = 'jc_lab.' | append: code_lower | append: '_message' %}
-              <a href="https://wa.me/573011571039?text={{ message_key | t | url_encode }}" aria-label="{{ 'jc_lab.notify' | t }}: {{ code }}">{{ 'jc_lab.notify' | t }} <span aria-hidden="true">↗</span></a>
+              <a href="https://wa.me/573011571039?text={{ message_key | t | url_encode }}" aria-label="{{ 'jc_lab.notify' | t }}: {{ code }}">{{ 'jc_lab.notify' | t }} <span aria-hidden="true">&rarr;</span></a>
             {% endif %}
           </div>
         </div>
-        {% if show_research %}<a class="jc-lab-card__research" href="{{ routes.root_url }}pages/exploraciones#{{ investigation_anchor }}"><span>{{ 'jc_lab.linked_label' | t }}</span><strong>{{ investigation_label }}</strong><span aria-hidden="true">↗</span></a>{% endif %}
+        {% if show_research %}<a class="jc-lab-card__research" href="{{ routes.root_url }}pages/exploraciones#{{ investigation_anchor }}"><span>{{ 'jc_lab.linked_label' | t }}</span><strong>{{ investigation_label }}</strong><span aria-hidden="true">&rarr;</span></a>{% endif %}
       </article>
     {% endfor %}
   </div>

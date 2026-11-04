@@ -266,7 +266,7 @@
       "pages": "Pages"
     },
     "cart": {
-      "cart": "Cart"
+      "cart": "Carrito"
     },
     "contact": {
       "form": {
@@ -298,38 +298,39 @@
       }
     },
     "cart": {
-      "title": "Your cart",
-      "caption": "Cart items",
-      "remove_title": "Remove {{ title }}",
-      "estimated_total": "Estimated total",
-      "new_estimated_total": "New estimated total",
-      "note": "Order special instructions",
-      "checkout": "Check out",
+      "title": "Tu carrito",
+      "caption": "Productos en el carrito",
+      "remove_title": "Quitar {{ title }}",
+      "estimated_total": "Total estimado",
+      "new_estimated_total": "Nuevo total estimado",
+      "note": "Instrucciones para la entrega",
+      "checkout": "Pagar",
       "empty": "Carrito vacío. Casi tanta proteína como una bebida de almendra.",
       "product_disclosure": "Product disclosure",
       "product_disclosures": "Product disclosures",
-      "cart_error": "There was an error while updating your cart. Please try again.",
-      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
+      "cart_error": "Algo falló al actualizar tu carrito. Inténtalo de nuevo.",
+      "cart_quantity_error_html": "Solo puedes añadir {{ quantity }} de este producto.",
       "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Duties and taxes included. Discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
       "duties_and_taxes_included_shipping_at_checkout_without_policy": "Duties and taxes included. Discounts and shipping calculated at checkout.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Taxes included. Discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
-      "taxes_included_shipping_at_checkout_without_policy": "Taxes included. Discounts and shipping calculated at checkout.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "Impuestos incluidos. El <a href=\"{{ link }}\">envío</a> se calcula al pagar.",
+      "taxes_included_shipping_at_checkout_without_policy": "Impuestos incluidos. El envío se calcula al pagar.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Duties included. Taxes, discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Duties included. Taxes, discounts and shipping calculated at checkout.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxes, discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
       "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxes, discounts and shipping calculated at checkout.",
       "headings": {
-        "product": "Product",
-        "price": "Price",
+        "product": "Producto",
+        "price": "Precio",
         "total": "Total",
-        "quantity": "Quantity",
-        "image": "Product image"
+        "quantity": "Cantidad",
+        "image": "Imagen"
       },
       "update": "Update",
       "login": {
         "title": "Have an account?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
-      }
+      },
+      "taxes_and_shipping_at_checkout": "Impuestos y envío calculados al pagar."
     },
     "footer": {
       "payment": "Payment methods"
@@ -665,10 +666,10 @@
       "peptide_limit": "El estudio evaluó hidrolizados y péptidos, no nuestros alimentos terminados. No demuestra que consumir NUBE u ONE aumente GLP-1 o produzca mayor saciedad en personas.",
       "read_study": "Leer el estudio",
       "open_question": "Lo que seguimos explorando",
-      "open_copy": "¿Qué papel tienen la proteína, la fibra, la preparación y la estructura del alimento en la experiencia que nos describen quienes lo prueban? La literatura nos ayuda a formular esta pregunta; todavía no demuestra qué explica esos testimonios."
+      "open_copy": "¿Qué papel tienen la proteína, la fibra y la forma de prepararla en lo que nos cuentan quienes la prueban? La literatura nos ayuda a hacer la pregunta. Todavía no la responde."
     },
     "oil_research": {
-      "intro": "La composición del aceite de sacha inchi y los estudios publicados despertaron nuestra curiosidad. Revisamos qué se ha observado sobre el colesterol y la presión arterial, y qué preguntas siguen abiertas.",
+      "intro": "Empezamos por lo básico: de qué está hecho el aceite de sacha inchi y cómo llevarlo a la cocina de todos los días.",
       "title": "Estudios que orientan esta exploración",
       "chol_title": "Colesterol · ensayo de 2014",
       "chol_type": "ENSAYO EN PERSONAS · 30 ADULTOS · 4 MESES",
@@ -681,10 +682,12 @@
       "bp_limit": "Son resultados preliminares en una población específica y con suplementación en cápsulas. No demuestran el mismo efecto con JUNGLCORE OIL ni justifican sustituir un tratamiento.",
       "bp_ref": "Mhd Rodzi, Mohd Sopian y Lee · 2025 · Plant Foods for Human Nutrition",
       "open_title": "Lo que seguimos explorando",
-      "open_copy": "Nos interesa comprender cómo influyen la composición, la cantidad y el uso cotidiano de estos aceites. Estos estudios orientan nuestras preguntas; no constituyen una promesa de resultados para OIL."
+      "open_copy": "Cómo usarlo en la cocina, en qué cantidad y en qué platos. OIL está en desarrollo. Cuando lo sepamos, te lo contamos.",
+      "composition": "Un estudio con sacha inchi colombiana encontró que cerca de la mitad de los ácidos grasos de su aceite son omega-3 de origen vegetal (ácido alfa-linolénico).",
+      "composition_ref": "Gutiérrez, Rosada y Jiménez · 2011 · composición del aceite de sacha inchi colombiana. Es un dato de composición, no una promesa de salud."
     },
-    "oil_everyday_title": "¿COMER GRASA PARA BAJAR EL COLESTEROL?",
-    "oil_everyday_copy": "Sustituir grasas saturadas por insaturadas puede ayudar a reducir el colesterol LDL. Exploramos qué papel puede tener el aceite de sacha inchi.",
+    "oil_everyday_title": "¿CUÁNTO VALOR CABE EN UN ACEITE?",
+    "oil_everyday_copy": "La semilla guarda mucho de lo que es en su aceite. Exploramos qué hacer con él.",
     "home_intro": "Cada exploración empieza con una pregunta. Buscamos respuestas en la biodiversidad: plantas, semillas y posibilidades que muchas veces pasan desapercibidas. Investigamos, experimentamos y convertimos lo que aprendemos en nuevas formas de llevar las plantas a la vida cotidiana.",
     "oil_everyday_scene": "Estás preparando la comida y tomas la botella de aceite. Quizá es la misma de siempre. Un gesto cotidiano que abre una pregunta.",
     "oil_everyday_product": "Aceite de sacha inchi para incorporar a tu rutina diaria.",
@@ -924,23 +927,23 @@
     "open": "EXPLORAR LA SACHA INCHI"
   },
   "jc_satiety": {
-    "headline": "ACABAS DE COMER. ¿POR QUÉ SIGUES PENSANDO EN COMIDA?",
-    "intro": "Terminas de comer. Vuelves a lo tuyo. Pero la comida sigue en tu cabeza.",
-    "investigation": "Exploramos qué influye en sentirnos satisfechos y cómo se relaciona con esos pensamientos recurrentes. Empezamos con la sacha inchi.",
+    "headline": "DESAYUNASTE A LAS 7. ¿TE RINDIÓ HASTA EL ALMUERZO?",
+    "intro": "Hay mañanas que rinden y mañanas que a las diez ya te están pidiendo un pan.",
+    "investigation": "Queremos entender por qué. Empezamos por lo más estudiado: la proteína y la fibra en el desayuno. La sacha inchi trae las dos en la misma semilla.",
     "open_research": "LA PREGUNTA Y LA EVIDENCIA",
     "question_label": "LA PREGUNTA",
-    "question": "¿Qué relación hay entre sentirnos satisfechos y seguir pensando en comida?",
-    "seed_reason": "La proteína, la fibra y la forma de preparar la sacha inchi nos dan un punto de partida. Revisamos qué se ha estudiado y qué preguntas siguen abiertas.",
+    "question": "¿Qué hace que un desayuno rinda más?",
+    "seed_reason": "La proteína y la fibra de la sacha inchi nos dan un punto de partida. Revisamos qué se ha estudiado y qué sigue abierto.",
     "evidence_label": "QUÉ SABEMOS",
-    "evidence_intro": "Tres líneas de lectura, con alcances distintos: los pensamientos sobre comida, la saciedad y los componentes de la sacha inchi.",
+    "evidence_intro": "Lo que se ha estudiado sobre la proteína y la saciedad en personas. Con sus límites, que también contamos.",
     "noise_title": "Cuando pensar en comida se vuelve una interrupción",
     "noise_type": "REVISIÓN · DEFINICIÓN Y MEDICIÓN",
     "noise_summary": "Una revisión de 2025 aborda el «food noise»: pensamientos persistentes sobre comida que la persona siente como no deseados o molestos. Los distingue de los pensamientos cotidianos por su intensidad y por cómo interrumpen la vida diaria.",
     "noise_limit": "Es un campo en desarrollo. Esta revisión no demuestra que un alimento concreto reduzca esos pensamientos ni que sentir más saciedad produzca ese efecto.",
     "noise_ref": "Dhurandhar y colaboradores · 2025 · Nutrition & Diabetes",
     "unknown_label": "QUÉ FALTA POR SABER",
-    "unknown": "Queremos comprender cómo se relacionan el hambre, la saciedad, los antojos y los pensamientos recurrentes sobre comida. Para estudiar esa relación, hay que distinguir esas experiencias y no medirlas como si fueran lo mismo.",
-    "product_limit": "Todavía no hemos demostrado que NUBE u ONE reduzcan los pensamientos recurrentes sobre comida. Esta es una pregunta de investigación, no un beneficio probado de nuestros productos.",
+    "unknown": "Todavía no sabemos cuánto rinde NUBE en tu mañana. Por eso se lo preguntamos a quienes la toman: ¿te rindió?",
+    "product_limit": "No hemos demostrado que NUBE aumente la saciedad. Es una pregunta abierta, no una promesa.",
     "products_label": "CREACIONES VINCULADAS"
   },
   "jc_nutrition": {
@@ -995,7 +998,7 @@
     "pilot": "También colaboramos en un piloto de cultivo de sacha inchi junto a árboles de cacao, con la agricultura regenerativa como orientación. Está en desarrollo: aún no contamos con resultados ambientales medidos.",
     "method": "Partimos de preguntas. Estudiamos plantas, revisamos la evidencia y experimentamos con nuevas formas de llevarlas a la vida cotidiana. Algunas preguntas se convierten en productos. Otras siguen abiertas.",
     "future_title": "ESTO APENAS EMPIEZA.",
-    "future_copy": "La sacha inchi es la primera planta. Seguimos explorando otras, con nuevas posibilidades para la alimentación y el cuidado de la piel.",
+    "future_copy": "La sacha inchi es la primera planta. Vienen otras.",
     "future_humour": "Hicimos una bebida. Nos salieron más preguntas.",
     "products": "DESCUBRIR LOS PRODUCTOS",
     "relocated": "Nuestra historia empieza con una semilla.",
@@ -1003,7 +1006,7 @@
   },
   "jc_lab": {
     "title": "CREACIONES VINCULADAS",
-    "intro": "Exploramos la relación entre biodiversidad, salud y bienestar.",
+    "intro": "Hicimos una bebida. Nos salieron más preguntas.",
     "status": "EN DESARROLLO",
     "notify": "AVÍSAME POR WHATSAPP",
     "one_question": "PROTEÍNA Y FIBRA. UNA SEMILLA. UN SOLO INGREDIENTE.",
@@ -1018,9 +1021,9 @@
     "gellan_q": "¿Qué es la goma gelana?",
     "gellan_a": "Nuestro tercer ingrediente, y no lo escondemos. Mantiene todo suspendido para que la bebida quede suave y no arenosa.",
     "brand": "JUNGLCORE LAB",
-    "method": "Partimos de preguntas sobre la vida cotidiana. Estudiamos plantas, revisamos la evidencia y desarrollamos nuevas formas de incorporarlas a tu día.",
+    "method": "Aquí las dejamos abiertas: lo que sabemos, lo que no, y de dónde lo sacamos. Sin promesas que no podamos probar.",
     "page_description": "JUNGLCORE LAB: exploramos la relación entre biodiversidad, salud y bienestar. Saciedad, grasas de semillas y productos en desarrollo con sacha inchi.",
-    "research_label": "EXPLORACIONES EN CURSO",
+    "research_label": "Preguntas abiertas",
     "satiety_label": "EXPLORACIÓN 001 / SACIEDAD",
     "oil_label": "EXPLORACIÓN 002 / GRASAS DE SEMILLAS",
     "linked_label": "INVESTIGACIÓN VINCULADA",

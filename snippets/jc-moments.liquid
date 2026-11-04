@@ -1,0 +1,39 @@
+{% doc %}
+Dos momentos: morning cold, night hot. Full-bleed, dark.
+@param {string} [number] - Chapter number.
+@param {object} [morning_image] - Image for the morning panel.
+@param {object} [night_image] - Image for the night panel. Without one, a lamp is drawn.
+{% enddoc %}
+<section class="jcs-moments" id="jc-moments" aria-labelledby="jc-moments-title">
+  <div class="jcs-frame">
+    <p class="jcs-chapter"><span>{{ number | default: '02' }}</span>Dos momentos</p>
+    <div class="jcs-moments__head">
+      <h2 class="jcs-title" id="jc-moments-title">La misma barra.<br>Dos momentos.<br>Ningún cartón.</h2>
+      <p>Por la mañana, fría y licuada. Por la noche, caliente y sin licuadora. Una bolsa en el congelador y ya sabes cuándo.</p>
+    </div>
+  </div>
+  <div class="jcs-moments__grid">
+    <figure class="jcs-moment">
+      {% if morning_image != blank %}
+        {{ morning_image | image_url: width: 1400 | image_tag: widths: '600, 900, 1200, 1400', sizes: '(max-width: 749px) 100vw, 50vw', loading: 'lazy', alt: 'La mañana con NUBE' }}
+      {% else %}
+        <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6559.jpg?v=1793784540&width=1200" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico junto a un vaso de NUBE por la mañana">
+      {% endif %}
+      <figcaption>
+        <span class="jcs-moment__time">06:00 · Bogotá · 2.640 m</span>
+        <span class="jcs-moment__word">Mañana</span>
+        <p>Una barra, agua, 30 segundos de licuadora. Antes de que empiece todo lo demás.</p>
+      </figcaption>
+    </figure>
+    <figure class="jcs-moment{% if night_image == blank %} jcs-moment--lamp{% endif %}">
+      {% if night_image != blank %}
+        {{ night_image | image_url: width: 1400 | image_tag: widths: '600, 900, 1200, 1400', sizes: '(max-width: 749px) 100vw, 50vw', loading: 'lazy', alt: 'La noche con NUBE' }}
+      {% endif %}
+      <figcaption>
+        <span class="jcs-moment__time">21:00 · Bogotá · 2.640 m</span>
+        <span class="jcs-moment__word">Noche</span>
+        <p>Una barra en una taza de agua caliente. Se deshace sola, despacio. Sin licuadora, sin ruido.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>

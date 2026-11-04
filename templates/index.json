@@ -9,18 +9,12 @@
  */
 {
   "sections": {
-    "jc_nube_v2": {
-      "type": "jc-nube-v2",
-      "settings": {
-        "order_mode": "whatsapp",
-        "whatsapp_number": "573011571039",
-        "whatsapp_message": "Hola, quiero pedir JUNGLCORE NUBE en Bogotá.",
-        "protein_value": "6,3 g",
-        "fibre_value": "1,4 g"
-      }
+    "jc_home": {
+      "type": "jc-home",
+      "settings": {}
     }
   },
   "order": [
-    "jc_nube_v2"
+    "jc_home"
   ]
 }

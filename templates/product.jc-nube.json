@@ -10,12 +10,8 @@
 {
   "sections": {
     "main": {
-      "type": "jc-product-nube",
-      "settings": {
-        "whatsapp_number": "573011571039",
-        "whatsapp_message": "Hola, quiero pedir JUNGLCORE NUBE en Bogotá.",
-        "enable_checkout": true
-      }
+      "type": "jc-product",
+      "settings": {}
     }
   },
   "order": [

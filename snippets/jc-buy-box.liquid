@@ -1,0 +1,51 @@
+{% doc %}
+The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout.
+@param {object} product - The NUBE product.
+@param {string} form_id - Unique form id.
+@param {boolean} [show_title] - Show the big headline.
+{% enddoc %}
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign per_glass = v.price | divided_by: 30
+  assign three = v.price | times: 3
+  assign wa_text = 'Hola, tengo una pregunta sobre NUBE.' | url_encode
+-%}
+<div class="jcs-buy">
+  <p class="jcs-eyebrow">NUBE · Base congelada de sacha inchi</p>
+  {% if show_title %}<h2 class="jcs-buy__title">Tu bebida vegetal.<br>El agua la pones tú.</h2>{% endif %}
+  <p class="jcs-buy__versus">Por vaso, menos que una bebida de almendra. <strong>Seis veces la proteína.</strong></p>
+  <ul class="jcs-facts">
+    <li><strong>6,3 g</strong><span>Proteína por vaso</span></li>
+    <li><strong>1,4 g</strong><span>Fibra</span></li>
+    <li><strong>3</strong><span>Ingredientes</span></li>
+  </ul>
+  {% if v and v.price > 0 %}
+    {% form 'product', product, id: form_id, class: 'jcs-buy__form' %}
+      <input type="hidden" name="id" value="{{ v.id }}">
+      <input type="hidden" name="return_to" value="/checkout">
+      <fieldset class="jcs-options">
+        <legend class="visually-hidden">Elige cuántas bolsas</legend>
+        <label class="jcs-option">
+          <input type="radio" name="quantity" value="1" checked>
+          <span><span class="jcs-option__name">1 bolsa</span><span class="jcs-option__meta">30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</span></span>
+          <span class="jcs-option__price">{{ v.price | money_without_trailing_zeros }}</span>
+        </label>
+        <label class="jcs-option">
+          <span class="jcs-option__tag">Envío gratis</span>
+          <input type="radio" name="quantity" value="3">
+          <span><span class="jcs-option__name">3 bolsas</span><span class="jcs-option__meta">90 vasos · un trimestre de mañanas</span></span>
+          <span class="jcs-option__price">{{ three | money_without_trailing_zeros }}</span>
+        </label>
+      </fieldset>
+      <button type="submit" class="jcs-btn jcs-btn--full" {% unless v.available %}disabled{% endunless %}>
+        {% if v.available %}<span>Comprar</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada. Volvemos pronto.</span>{% endif %}
+      </button>
+    {% endform %}
+  {% endif %}
+  <div class="jcs-buy__notes">
+    <p><strong>Solo en Bogotá, por ahora.</strong> Llega congelada, como debe ser. Envío $20.000 · gratis desde $100.000.</p>
+    <p><strong>Sacha inchi, agua y goma gelana.</strong> Los contamos con una mano y nos sobraron dos dedos.</p>
+    <p><strong>¿A qué sabe?</strong> Quienes la prueban dicen que a avena.</p>
+  </div>
+  <a class="jcs-link jcs-buy__help" href="https://wa.me/573011571039?text={{ wa_text }}" target="_blank" rel="noopener">¿Dudas? Escríbenos <span aria-hidden="true">&rarr;</span></a>
+</div>

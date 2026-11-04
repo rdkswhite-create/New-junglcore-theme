@@ -1,0 +1,41 @@
+{% doc %}
+JUNGLCORE footer, shared by the homepage, NUBE page and Lab.
+@param {string} [legal_name] - Razón social.
+@param {string} [legal_nit] - NIT.
+@param {string} [legal_address] - Dirección.
+{% enddoc %}
+<footer class="jcs-footer">
+  <div class="jcs-frame">
+    <div class="jcs-footer__grid">
+      <div class="jcs-footer__brand">
+        <a href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio"><img src="{{ 'jc-wordmark-refined-black.svg' | asset_url }}" alt="junglcore" width="1329" height="313" loading="lazy"></a>
+        <p>Exploramos lo que la biodiversidad hace posible. Empezamos con una semilla colombiana.</p>
+        <p class="jcs-footer__dry">Hecho de aquí. Ya era hora.</p>
+      </div>
+      <nav aria-label="JUNGLCORE">
+        <h3>Junglcore</h3>
+        <a href="{{ routes.root_url }}products/nube">NUBE</a>
+        <a href="{{ routes.root_url }}pages/exploraciones">JUNGLCORE LAB</a>
+        <a href="{{ routes.root_url }}#jc-manifesto">La semilla</a>
+      </nav>
+      <nav aria-label="Ayuda">
+        <h3>Ayuda</h3>
+        <a href="{{ routes.root_url }}#jc-moments">Cómo prepararla</a>
+        <a href="{{ routes.root_url }}#jc-faq">Preguntas</a>
+        <a href="mailto:hola@junglcore.com">hola@junglcore.com</a>
+        <a href="https://wa.me/573011571039" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+      <nav aria-label="Legal">
+        <h3>Legal</h3>
+        {% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Términos y condiciones</a>{% endif %}
+        {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacidad</a>{% endif %}
+        {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Cambios y devoluciones</a>{% endif %}
+        {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Envíos</a>{% endif %}
+      </nav>
+    </div>
+    <div class="jcs-footer__bottom">
+      <span>© {{ 'now' | date: '%Y' }} JUNGLCORE · Colombia{% if legal_name != blank %} · {{ legal_name | escape }}{% endif %}{% if legal_nit != blank %} · NIT {{ legal_nit | escape }}{% endif %}{% if legal_address != blank %} · {{ legal_address | escape }}{% endif %}</span>
+      <a href="#top">Volver arriba</a>
+    </div>
+  </div>
+</footer>

@@ -1,14 +1,7 @@
+{{ 'jc-shop.css' | asset_url | stylesheet_tag }}
 {{ 'jc-lab.css' | asset_url | stylesheet_tag }}
 <div class="jc-exp" id="jc-exp-top">
-  <header class="jc-exp__header">
-    <a class="jc-exp__logo" href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" alt="junglcore" width="1377" height="369" loading="eager"></a>
-    <nav class="jc-exp__nav" aria-label="Navegación principal">
-      <a href="{{ routes.root_url }}#jc-v2-nube">PRODUCTOS</a>
-      <a href="#jc-exp-top" aria-current="page">{{ 'jc_lab.brand' | t }}</a>
-      
-    </nav>
-    <a class="jc-exp__header-cta" href="{{ routes.root_url }}products/nube">DESCUBRIR NUBE <span aria-hidden="true">↗</span></a>
-  </header>
+  <div class="jcs">{% render 'jc-header' %}</div>
   <div class="jc-exp__main">
     <section class="jc-exp__opening jc-exp__frame" aria-labelledby="jc-exp-title">
       <div class="jc-exp__rule"><span>{{ 'jc_lab.research_label' | t }}</span><span>001 — 002 / EN CURSO</span></div>
@@ -44,16 +37,7 @@
             <h3 id="jc-satiety-evidence-label">{{ 'jc_satiety.evidence_label' | t }}</h3>
             <div>
               <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
-              <details class="jc-exp__fold jc-exp__paper">
-                <summary><span>{{ 'jc_satiety.noise_title' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
-                <div class="jc-exp__fold-content">
-                  <p class="jc-exp__paper-type">{{ 'jc_satiety.noise_type' | t }}</p>
-                  <p>{{ 'jc_satiety.noise_summary' | t }}</p>
-                  <p class="jc-exp__research-note">{{ 'jc_satiety.noise_limit' | t }}</p>
-                  <p class="jc-exp__paper-ref">{{ 'jc_satiety.noise_ref' | t }}</p>
-                  <a class="jc-exp__paper-link" href="https://pubmed.ncbi.nlm.nih.gov/40628707/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} ↗</a>
-                </div>
-              </details>
+              
               <details class="jc-exp__fold jc-exp__paper">
               <summary><span>{{ 'junglcore_explorations.research.protein_title' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
               <div class="jc-exp__fold-content">
@@ -61,19 +45,10 @@
                 <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
                 <p class="jc-exp__research-note">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
                 <p class="jc-exp__paper-ref">{{ 'junglcore_explorations.research.protein_ref' | t }}</p>
-                <a class="jc-exp__paper-link" href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} ↗</a>
+                <a class="jc-exp__paper-link" href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a>
               </div>
             </details>
-<details class="jc-exp__fold jc-exp__paper">
-              <summary><span>{{ 'junglcore_explorations.research.peptide_title' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
-              <div class="jc-exp__fold-content">
-                <p class="jc-exp__paper-type">{{ 'junglcore_explorations.research.peptide_type' | t }}</p>
-                <p>{{ 'junglcore_explorations.research.peptide_summary' | t }}</p>
-                <p class="jc-exp__research-note">{{ 'junglcore_explorations.research.peptide_limit' | t }}</p>
-                <p class="jc-exp__paper-ref">{{ 'junglcore_explorations.research.peptide_ref' | t }}</p>
-                <a class="jc-exp__paper-link" href="https://pubmed.ncbi.nlm.nih.gov/36692392/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} ↗</a>
-              </div>
-            </details>
+
             </div>
           </section>
           <section class="jc-exp__research-row" aria-labelledby="jc-satiety-open-label">
@@ -108,27 +83,10 @@
           </section>
           <section class="jc-exp__research-row" aria-labelledby="jc-oil-evidence-label">
             <h3 id="jc-oil-evidence-label">{{ 'jc_satiety.evidence_label' | t }}</h3>
+            <div><p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p><p class="jc-exp__research-note">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p></div>
             <div>
-<details class="jc-exp__fold jc-exp__paper">
-<summary><span>{{ 'junglcore_explorations.oil_research.chol_title' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
-<div class="jc-exp__fold-content">
-<p class="jc-exp__paper-type">{{ 'junglcore_explorations.oil_research.chol_type' | t }}</p>
-<p>{{ 'junglcore_explorations.oil_research.chol_summary' | t }}</p>
-<p class="jc-exp__research-note">{{ 'junglcore_explorations.oil_research.chol_limit' | t }}</p>
-<p class="jc-exp__paper-ref">{{ 'junglcore_explorations.oil_research.chol_ref' | t }}</p>
-<a class="jc-exp__paper-link" href="https://pubmed.ncbi.nlm.nih.gov/24389453/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} ↗</a>
-</div>
-</details>
-<details class="jc-exp__fold jc-exp__paper">
-<summary><span>{{ 'junglcore_explorations.oil_research.bp_title' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
-<div class="jc-exp__fold-content">
-<p class="jc-exp__paper-type">{{ 'junglcore_explorations.oil_research.bp_type' | t }}</p>
-<p>{{ 'junglcore_explorations.oil_research.bp_summary' | t }}</p>
-<p class="jc-exp__research-note">{{ 'junglcore_explorations.oil_research.bp_limit' | t }}</p>
-<p class="jc-exp__paper-ref">{{ 'junglcore_explorations.oil_research.bp_ref' | t }}</p>
-<a class="jc-exp__paper-link" href="https://pubmed.ncbi.nlm.nih.gov/39998708/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} ↗</a>
-</div>
-</details>
+
+
             </div>
           </section>
           <section class="jc-exp__research-row" aria-labelledby="jc-oil-open-label">
@@ -142,33 +100,14 @@
     <div class="jc-exp__frame">
       <section class="jc-exp__outro jc-story-future" aria-labelledby="jc-story-future-title">
         <div><h2 id="jc-story-future-title">{{ 'jc_story.future_title' | t }}</h2><p class="jc-story-future__copy">{{ 'jc_story.future_copy' | t }}</p><p class="jc-story-future__humour">{{ 'jc_story.future_humour' | t }}</p></div>
-        <a href="{{ routes.root_url }}#jc-v2-nube">{{ 'jc_story.products' | t }} <span aria-hidden="true">↗</span></a>
+        <a href="{{ routes.root_url }}products/nube">{{ 'jc_story.products' | t }} <span aria-hidden="true">&rarr;</span></a>
       </section>
     </div>
   </div>
-  <footer class="jc-exp__footer">
-    <div class="jc-exp__frame jc-exp__footer-top">
-      <div class="jc-exp__footer-brand">
-        <a href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-approved-master-black-no-r.svg?v=1793662575" width="1377" height="369" alt="junglcore" loading="lazy"></a>
-        <p>Exploramos lo que la biodiversidad hace posible.</p>
-        <span>COLOMBIA · HECHO DE AQUÍ</span>
-      </div>
-      <nav class="jc-exp__footer-links" aria-label="JUNGLCORE">
-        <a href="{{ routes.root_url }}#jc-v2-nube">Productos</a>
-        <a href="#jc-exp-top">{{ 'jc_lab.brand' | t }}</a>
-        <a href="{{ routes.root_url }}#jc-v2-roots">Plantas</a>
-        
-      </nav>
-      <nav class="jc-exp__footer-links" aria-label="Ayuda y contacto">
-        <a href="mailto:hola@junglcore.com">hola@junglcore.com</a>
-        {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacidad</a>{% endif %}
-        {% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Términos y condiciones</a>{% endif %}
-      </nav>
-    </div>
-  </footer>
+  <div class="jcs">{% render 'jc-footer' %}</div>
 </div>
 {% style %}
-.jc-exp { --jc-paper:#FCFBF8; --jc-ink:#181918; --jc-muted:#63655f; --jc-rule:#d3d5cf; background:var(--jc-paper); color:var(--jc-ink); font-family:Inter,"Helvetica Neue",Arial,sans-serif; font-synthesis:none; }
+.jc-exp { --jc-paper:#FCFBF8; --jc-ink:#181918; --jc-muted:#63655f; --jc-rule:#d3d5cf; background:var(--jc-paper); color:var(--jc-ink); font-family:'Manrope',"Helvetica Neue",Arial,sans-serif; font-synthesis:none; }
 .jc-exp * {box-sizing:border-box;}
 .jc-exp a { color:inherit; text-decoration:none; }
 .jc-exp img { max-width:100%; }

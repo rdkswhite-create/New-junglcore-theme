@@ -1,0 +1,33 @@
+{% doc %}
+Mobile buy bar. Appears once the main buy box has scrolled out of view.
+@param {object} product - The NUBE product.
+{% enddoc %}
+{%- assign v = product.selected_or_first_available_variant -%}
+{% if v and v.price > 0 and v.available %}
+<div class="jcs-sticky" id="jcs-sticky" aria-hidden="true">
+  {% form 'product', product, id: 'jcs-sticky-form' %}
+    <input type="hidden" name="id" value="{{ v.id }}">
+    <input type="hidden" name="quantity" value="1">
+    <input type="hidden" name="return_to" value="/checkout">
+    <div class="jcs-sticky__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>30 vasos · solo Bogotá</span></div>
+    <button type="submit" class="jcs-btn" tabindex="-1"><span>Comprar</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></button>
+  {% endform %}
+</div>
+<script>
+(function () {
+  var bar = document.getElementById('jcs-sticky');
+  var box = document.querySelector('.jcs-buy');
+  var hero = document.querySelector('.jcs-hero');
+  if (!bar || !box || !('IntersectionObserver' in window)) return;
+  var boxVisible = false, heroVisible = !!hero, passedBox = false;
+  function update() {
+    var show = !boxVisible && !heroVisible && passedBox;
+    bar.classList.toggle('is-visible', show);
+    bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+    var btn = bar.querySelector('button'); if (btn) btn.tabIndex = show ? 0 : -1;
+  }
+  new IntersectionObserver(function (e) { boxVisible = e[0].isIntersecting; if (!boxVisible && e[0].boundingClientRect.top < 0) passedBox = true; if (boxVisible) passedBox = false; update(); }).observe(box);
+  if (hero) new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); }).observe(hero);
+})();
+</script>
+{% endif %}

@@ -1,0 +1,149 @@
+{{ 'jc-shop.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign nube = section.settings.nube_product
+  if nube == blank
+    assign nube = all_products['nube']
+  endif
+  assign v = nube.selected_or_first_available_variant
+-%}
+<div class="jcs" id="top">
+  {% render 'jc-header', buy_href: '#jc-buy' %}
+
+  <section class="jcs-hero" aria-labelledby="jc-hero-title">
+    <div class="jcs-hero__media">
+      {% if section.settings.hero_video != blank %}
+        {{ section.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
+      {% else %}
+        <picture>
+          <source media="(max-width: 749px)" srcset="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-portrait-loop.webp?v=1793647878" type="image/webp">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-landscape-loop.webp?v=1793647871" alt="Una barra de NUBE cae en la licuadora con agua" width="910" height="512" loading="eager" fetchpriority="high">
+        </picture>
+      {% endif %}
+    </div>
+    <div class="jcs-hero__shade" aria-hidden="true"></div>
+    <div class="jcs-hero__top"><span>Colombia / Biodiversidad</span><span>6,3 g de proteína por vaso</span></div>
+    <div class="jcs-hero__body">
+      <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
+      <p class="jcs-hero__sub">NUBE es una barra congelada de sacha inchi colombiana. Agua, 30 segundos de licuadora, y tienes un vaso con seis veces la proteína de una bebida de almendra.</p>
+      <div class="jcs-hero__actions">
+        <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="jcs-link" href="#jc-moments">Cómo se prepara</a>
+      </div>
+    </div>
+    <div class="jcs-hero__bottom">
+      <img class="jcs-hero__wordmark" src="{{ 'jc-wordmark-refined-white.svg' | asset_url }}" alt="junglcore" width="1329" height="313">
+    </div>
+  </section>
+
+  <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-buy-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>01</span>NUBE</p>
+      <div class="jcs-shop__grid">
+        <div>
+          <div class="jcs-shop__visual">
+            {% if section.settings.nube_image != blank %}
+              {{ section.settings.nube_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: 'Bolsa JUNGLCORE NUBE' }}
+            {% else %}
+              {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'home-buy-pack', description: 'Bolsa JUNGLCORE NUBE, base congelada de sacha inchi' %}
+            {% endif %}
+          </div>
+        </div>
+        <div>
+          <h2 class="visually-hidden" id="jc-buy-title">Comprar NUBE</h2>
+          {% if nube != blank %}
+            {% render 'jc-buy-box', product: nube, form_id: 'jcs-home-buy', show_title: true %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% render 'jc-moments', number: '02', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
+
+  <section class="jcs-manifesto" id="jc-manifesto" aria-labelledby="jc-manifesto-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>03</span>Por qué existimos</p>
+      <div class="jcs-manifesto__grid">
+        <div class="jcs-manifesto__body">
+          <h2 class="jcs-display" id="jc-manifesto-title">Ser vegetal no es suficiente.</h2>
+          <p>Colombia es el país más biodiverso del mundo. Y la proteína del supermercado sigue siendo arveja, soya y suero, casi siempre importados.</p>
+          <p class="jcs-manifesto__punch">Importar proteína no es lo raro. Lo raro es nunca haber mirado aquí.</p>
+          <p>Así que miramos. La sacha inchi crece en Valle del Cauca, Santander y Norte de Santander, en manos de pequeños productores. Le hicimos un formato nuevo, en vez de meterla en el de siempre.</p>
+        </div>
+        <figure>
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-sacha-inchi-seed-leaf-roots-biodiversity-2026.jpg?v=1793696362&width=1100" width="1126" height="729" loading="lazy" alt="Fruto de sacha inchi de cuatro puntas junto a una hoja">
+          <figcaption>Planta 001 · Sacha inchi. La primera de varias.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {% render 'jc-versus', number: '04', sources_href: '/products/nube#jc-nutrition' %}
+
+  <section class="jcs-robots" id="jc-hallazgos" aria-labelledby="jc-robots-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>05</span>Hallazgos</p>
+      <div class="jcs-robots__grid">
+        <h2 class="jcs-display" id="jc-robots-title">Todavía no nos entienden.</h2>
+        <div>
+          <p>Tres robots científicos estudian lo que comemos los humanos. Pagamos extra por lo que casi no leemos. Elegimos comida por el dibujo de la caja. Ellos toman notas.</p>
+          {% if section.settings.hallazgos_url != blank %}<a class="jcs-link" href="{{ section.settings.hallazgos_url }}" target="_blank" rel="noopener">Ver el último hallazgo <span aria-hidden="true">&rarr;</span></a>{% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jcs-next" aria-label="Lo que viene">
+    <div class="jcs-frame">
+      <div class="jcs-next__grid">
+        <div class="jcs-next__item">
+          <p class="jcs-eyebrow">JUNGLCORE LAB</p>
+          <h3>Hicimos una bebida. Nos salieron más preguntas.</h3>
+          <p>¿Por qué algunas mañanas rinden más que otras? Lo que sabemos, lo que no, y de dónde lo sacamos.</p>
+          <a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones">Entrar al Lab <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="jcs-next__item">
+          <p class="jcs-eyebrow">Próximamente · ONE</p>
+          <h3>La misma semilla, en polvo. Para llevar.</h3>
+          <p>Proteína y fibra de un solo ingrediente, para lo que ya comes. Te avisamos cuando llegue.</p>
+          <a class="jcs-link" href="https://wa.me/573011571039?text={{ 'Hola, avísenme cuando llegue JUNGLCORE ONE.' | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% render 'jc-faq', number: '06' %}
+
+  <section class="jcs-final" aria-labelledby="jc-final-title">
+    <div class="jcs-frame">
+      <h2 id="jc-final-title">Rinde más.</h2>
+      <p>Proteína y fibra de una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
+      <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  {% render 'jc-footer', legal_name: section.settings.legal_name, legal_nit: section.settings.legal_nit, legal_address: section.settings.legal_address %}
+  {% if nube != blank %}{% render 'jc-sticky-buy', product: nube %}{% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "JUNGLCORE inicio",
+  "tag": "div",
+  "settings": [
+    { "type": "product", "id": "nube_product", "label": "Producto NUBE" },
+    { "type": "video", "id": "hero_video", "label": "Vídeo de portada (opcional)" },
+    { "type": "image_picker", "id": "nube_image", "label": "Imagen de la bolsa (opcional)" },
+    { "type": "header", "content": "Dos momentos" },
+    { "type": "image_picker", "id": "morning_image", "label": "Foto de la mañana" },
+    { "type": "image_picker", "id": "night_image", "label": "Foto de la noche" },
+    { "type": "header", "content": "Hallazgos" },
+    { "type": "url", "id": "hallazgos_url", "label": "Enlace al último hallazgo (Instagram)" },
+    { "type": "header", "content": "Datos legales" },
+    { "type": "text", "id": "legal_name", "label": "Razón social" },
+    { "type": "text", "id": "legal_nit", "label": "NIT" },
+    { "type": "text", "id": "legal_address", "label": "Dirección" }
+  ],
+  "presets": [{ "name": "JUNGLCORE inicio" }]
+}
+{% endschema %}

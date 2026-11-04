@@ -1,0 +1,72 @@
+{{ 'jc-nube-v2.css' | asset_url | stylesheet_tag }}
+{{ 'jc-shop.css' | asset_url | stylesheet_tag }}
+<div class="jcs" id="top">
+  {% render 'jc-header', buy_href: '#jc-buy' %}
+
+  <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-product-title">
+    <div class="jcs-frame">
+      <nav class="jcs-crumb" aria-label="Ruta"><a href="{{ routes.root_url }}">Inicio</a> / NUBE</nav>
+      <div class="jcs-shop__grid">
+        <div>
+          <div class="jcs-shop__visual">
+            {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'product-buy-pack', description: 'Bolsa JUNGLCORE NUBE, base congelada de sacha inchi' %}
+          </div>
+          <div class="jcs-shop__thumbs">
+            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6557.jpg?v=1793784459&width=500" width="928" height="1152" loading="lazy" alt="NUBE sobre la avena">
+            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6560.jpg?v=1793784885&width=500" width="928" height="1152" loading="lazy" alt="Batido con NUBE después de correr">
+            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6559.jpg?v=1793784540&width=500" width="928" height="1152" loading="lazy" alt="Un vaso de NUBE con el desayuno">
+          </div>
+        </div>
+        <div>
+          <h1 class="jcs-product-title" id="jc-product-title">NUBE</h1>
+          <p class="jcs-lead" style="margin-top:14px">¿Quién dijo que una bebida vegetal tiene que venir en caja? Una barra congelada de sacha inchi, agua y 30 segundos.</p>
+          <div style="margin-top:28px">{% render 'jc-buy-box', product: product, form_id: 'jcs-product-buy', show_title: false %}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% render 'jc-moments', number: '01' %}
+
+  <section class="jcs-uses" aria-labelledby="jc-uses-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>02</span>Formas de tomarla</p>
+      <div class="jcs-versus__head">
+        <h2 class="jcs-title" id="jc-uses-title">En el vaso. En la avena. En el batido.</h2>
+        <p class="jcs-lead">Es una bebida, no un experimento. Si la pones en el café, eso ya es cosa tuya.</p>
+      </div>
+      <div class="jcs-uses__grid">
+        <figure><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6557.jpg?v=1793784459&width=900" width="928" height="1152" loading="lazy" alt="Una mujer vierte NUBE sobre la avena"><figcaption>Con tu avena.</figcaption></figure>
+        <figure><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6560.jpg?v=1793784885&width=900" width="928" height="1152" loading="lazy" alt="Un hombre con un batido después de correr"><figcaption>En tu batido.</figcaption></figure>
+        <figure><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6559.jpg?v=1793784540&width=900" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico junto a un vaso de NUBE"><figcaption>Un vaso con el desayuno.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  {% render 'jc-versus', number: '03', sources_href: '#jc-nutrition' %}
+
+  <div class="jcs-nutrition-wrap jc-v2">
+    <div class="jcs-frame">{% render 'jc-nutrition-comparison' %}</div>
+  </div>
+
+  {% render 'jc-faq', number: '04' %}
+
+  <section class="jcs-final" aria-labelledby="jc-final-title">
+    <div class="jcs-frame">
+      <h2 id="jc-final-title">Rinde más.</h2>
+      <p>30 vasos por bolsa. Tres bolsas y el envío corre por nuestra cuenta.</p>
+      <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  {% render 'jc-footer' %}
+  {% render 'jc-sticky-buy', product: product %}
+</div>
+
+{% schema %}
+{
+  "name": "JUNGLCORE producto",
+  "tag": "div",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+{% doc %}
+JUNGLCORE header with announcement and a buy button on every page.
+@param {string} [buy_href] - Where COMPRAR points. Defaults to the NUBE buy box.
+{% enddoc %}
+{%- liquid
+  if buy_href == blank
+    assign buy_href = routes.root_url | append: 'products/nube#jc-buy'
+  endif
+-%}
+<p class="jcs-announce">Solo en Bogotá, por ahora · Envío gratis desde 3 bolsas</p>
+<header class="jcs-header">
+  <div class="jcs-header__inner">
+    <a class="jcs-header__logo" href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio">
+      <img src="{{ 'jc-wordmark-refined-black.svg' | asset_url }}" alt="junglcore" width="1329" height="313" loading="eager">
+    </a>
+    <nav class="jcs-header__nav" aria-label="Navegación">
+      <a href="{{ routes.root_url }}products/nube">NUBE</a>
+      <a href="{{ routes.root_url }}pages/exploraciones">JUNGLCORE LAB</a>
+      <a href="{{ routes.root_url }}#jc-faq">Preguntas</a>
+    </nav>
+    <a class="jcs-btn jcs-header__buy" href="{{ buy_href }}">Comprar</a>
+  </div>
+</header>
