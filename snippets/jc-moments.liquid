@@ -17,7 +17,7 @@ Dos momentos: morning cold, night hot. Full-bleed, dark.
       {% if morning_image != blank %}
         {{ morning_image | image_url: width: 1400 | image_tag: widths: '600, 900, 1200, 1400', sizes: '(max-width: 749px) 100vw, 50vw', loading: 'lazy', alt: 'La mañana con NUBE' }}
       {% else %}
-        <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6559.jpg?v=1793784540&width=1200" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico junto a un vaso de NUBE por la mañana">
+        <img src="{{ 'jc-manana.jpg' | asset_url }}" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico junto a un vaso de NUBE por la mañana">
       {% endif %}
       <figcaption>
         <span class="jcs-moment__time">06:00 · Bogotá · 2.640 m</span>
@@ -29,7 +29,7 @@ Dos momentos: morning cold, night hot. Full-bleed, dark.
       {% if night_image != blank %}
         {{ night_image | image_url: width: 1400 | image_tag: widths: '600, 900, 1200, 1400', sizes: '(max-width: 749px) 100vw, 50vw', loading: 'lazy', alt: 'La noche con NUBE' }}
       {% else %}
-        <img src="{{ 'jc-noche.jpg' | asset_url }}" width="1122" height="1402" loading="lazy" alt="Una mujer sostiene una taza caliente de NUBE junto a la ventana, de noche">
+        <img src="{{ 'jc-noche.jpg' | asset_url }}" width="1126" height="1397" loading="lazy" alt="Una mujer sostiene una taza caliente de NUBE junto a la ventana, de noche">
       {% endif %}
       <figcaption>
         <span class="jcs-moment__time">21:00 · Bogotá · 2.640 m</span>
