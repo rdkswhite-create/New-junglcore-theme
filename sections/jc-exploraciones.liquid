@@ -1,411 +1,195 @@
 {{ 'jc-shop.css' | asset_url | stylesheet_tag }}
-{{ 'jc-lab.css' | asset_url | stylesheet_tag }}
-<div class="jc-exp" id="jc-exp-top">
-  <div class="jcs">{% render 'jc-header' %}</div>
-  <div class="jc-exp__main">
-    <section class="jc-exp__opening jc-exp__frame" aria-labelledby="jc-exp-title">
-      <div class="jc-exp__rule"><span>{{ 'jc_lab.research_label' | t }}</span><span>001 — 002 / EN CURSO</span></div>
-      <h1 id="jc-exp-title">{{ 'jc_lab.brand' | t }}</h1>
-      <div class="jc-exp__opening-bottom">
-        <div class="jc-lab-page-intro"><p>{{ 'jc_lab.intro' | t }}</p><p>{{ 'jc_lab.method' | t }}</p></div>
-        <nav class="jc-exp__index" aria-label="{{ 'junglcore_explorations.index_label' | t }}">
-          <a href="#jc-exp-001"><span>001</span> SACIEDAD <span aria-hidden="true">↓</span></a>
-          <a href="#jc-exp-002"><span>002</span> LAS GRASAS DE LAS SEMILLAS <span aria-hidden="true">↓</span></a>
-        </nav>
-      </div>
-    </section>
-    <section class="jc-exp__chapter" id="jc-exp-001" aria-labelledby="jc-exp-001-title">
-      <div class="jc-editorial">
-        <figure class="jc-editorial__image jc-editorial__image--satiety"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-saciedad-despues.png?v=1793709874&width=1600" srcset="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-saciedad-despues.png?v=1793709874&width=600 600w, https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-saciedad-despues.png?v=1793709874&width=1000 1000w, https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-saciedad-despues.png?v=1793709874&width=1536 1536w" sizes="(min-width: 990px) 46vw, 100vw" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async" alt="Una mujer junto a la ventana al terminar de comer, fotografía en blanco y negro"></figure>
-        <div class="jc-editorial__copy">
-          <div class="jc-editorial__meta"><span>001 / SACIEDAD</span><span>EN CURSO</span></div>
-          <h2 id="jc-exp-001-title">{{ 'jc_satiety.headline' | t }}</h2>
-          <div class="jc-editorial__description"><p>{{ 'jc_satiety.intro' | t }}</p><p>{{ 'jc_satiety.investigation' | t }}</p></div>
-        </div>
-      </div>
-      <details class="jc-exp__fold jc-exp__research-panel" id="jc-exp-satiety-research">
-        <summary><span>{{ 'jc_satiety.open_research' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
-        <div class="jc-exp__research-content">
-          <section class="jc-exp__research-row" aria-labelledby="jc-satiety-question-label">
-            <h3 id="jc-satiety-question-label">{{ 'jc_satiety.question_label' | t }}</h3>
-            <div>
-              <p class="jc-exp__research-question">{{ 'jc_satiety.question' | t }}</p>
-              <p>{{ 'jc_satiety.seed_reason' | t }}</p>
-            </div>
-          </section>
-          <section class="jc-exp__research-row" aria-labelledby="jc-satiety-evidence-label">
-            <h3 id="jc-satiety-evidence-label">{{ 'jc_satiety.evidence_label' | t }}</h3>
-            <div>
-              <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
-              
-              <details class="jc-exp__fold jc-exp__paper">
-              <summary><span>{{ 'junglcore_explorations.research.protein_title' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
-              <div class="jc-exp__fold-content">
-                <p class="jc-exp__paper-type">{{ 'junglcore_explorations.research.protein_type' | t }}</p>
-                <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
-                <p class="jc-exp__research-note">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
-                <p class="jc-exp__paper-ref">{{ 'junglcore_explorations.research.protein_ref' | t }}</p>
-                <a class="jc-exp__paper-link" href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a>
-              </div>
-            </details>
+{%- liquid
+  assign nube = all_products['nube']
+  assign wa = 'https://wa.me/573011571039?text='
+-%}
+<div class="jcs jcs-lab" id="top">
+  {% render 'jc-header', buy_href: '#jc-buy' %}
 
-            </div>
-          </section>
-          <section class="jc-exp__research-row" aria-labelledby="jc-satiety-open-label">
-            <h3 id="jc-satiety-open-label">{{ 'jc_satiety.unknown_label' | t }}</h3>
-            <div>
-              <p>{{ 'jc_satiety.unknown' | t }}</p>
-              <p class="jc-exp__research-note">{{ 'jc_satiety.product_limit' | t }}</p>
-            </div>
-          </section>
-        </div>
-      </details>
-      {% render 'jc-lab-products', investigation: 'satiety', context_id: 'lab' %}
-    </section>
-    <section class="jc-exp__chapter jc-exp__chapter--oil" id="jc-exp-002" aria-labelledby="jc-exp-002-title">
-      <div class="jc-editorial">
-        <figure class="jc-editorial__image jc-editorial__image--oil"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1200" srcset="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=600 600w, https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1000 1000w, https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1536 1536w" sizes="(min-width: 990px) 46vw, 100vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Composición editorial de una cuchara con aceite sobre fondo claro."></figure>
-        <div class="jc-editorial__copy">
-          <div class="jc-editorial__meta"><span>002 / GRASAS DE SEMILLAS</span><span>EN CURSO</span></div>
-          <h2 id="jc-exp-002-title">{{ 'junglcore_explorations.oil_everyday_title' | t }}</h2>
-          <div class="jc-editorial__description"><p>{{ 'junglcore_explorations.oil_everyday_copy' | t }}</p></div>
+  {%- comment -%} Intro: the robots observe, the Lab checks. {%- endcomment -%}
+  <section class="jcs-robots jcs-lab-intro" aria-labelledby="jc-lab-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>LAB</span>Preguntas abiertas · 001 — 002 en curso</p>
+      <div class="jcs-robots__grid">
+        <figure class="jcs-robots__image">
+          <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="eager" alt="Tres robots científicos en una nave estudian una caja de bebida de almendras, tres almendras y un vaso de agua">
+        </figure>
+        <div class="jcs-robots__copy">
+          <p class="jcs-eyebrow jcs-lab-intro__brand">JUNGLCORE LAB</p>
+          <h1 class="jcs-display" id="jc-lab-title">Los robots toman notas. Aquí comprobamos cuáles son ciertas.</h1>
+          <p>Hicimos una bebida. Nos salieron más preguntas.</p>
+          <p>Aquí las dejamos abiertas: lo que sabemos, lo que no, y de dónde lo sacamos. Sin promesas que no podamos probar.</p>
+          <nav class="jcs-lab-index" aria-label="Investigaciones">
+            <a href="#jc-lab-001"><span>001</span>El pasillo de las cinco plantas<span aria-hidden="true">&darr;</span></a>
+            <a href="#jc-lab-002"><span>002</span>¿Rinde de verdad?<span aria-hidden="true">&darr;</span></a>
+          </nav>
         </div>
       </div>
-      <details class="jc-exp__fold jc-exp__research-panel" id="jc-exp-oil-research">
-        <summary><span>{{ 'jc_satiety.open_research' | t }}</span><span class="jc-exp__fold-arrow" aria-hidden="true">↓</span></summary>
-        <div class="jc-exp__research-content">
-          <section class="jc-exp__research-row" aria-labelledby="jc-oil-question-label">
-            <h3 id="jc-oil-question-label">{{ 'jc_satiety.question_label' | t }}</h3>
-            <div>
-              <p class="jc-exp__research-question">{{ 'junglcore_explorations.oil_everyday_title' | t }}</p>
-              <p>{{ 'junglcore_explorations.oil_research.intro' | t }}</p>
-            </div>
-          </section>
-          <section class="jc-exp__research-row" aria-labelledby="jc-oil-evidence-label">
-            <h3 id="jc-oil-evidence-label">{{ 'jc_satiety.evidence_label' | t }}</h3>
-            <div><p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p><p class="jc-exp__research-note">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p></div>
-            <div>
-
-
-            </div>
-          </section>
-          <section class="jc-exp__research-row" aria-labelledby="jc-oil-open-label">
-            <h3 id="jc-oil-open-label">{{ 'jc_satiety.unknown_label' | t }}</h3>
-            <div><p>{{ 'junglcore_explorations.oil_research.open_copy' | t }}</p></div>
-          </section>
-        </div>
-      </details>
-      {% render 'jc-lab-products', investigation: 'oil', context_id: 'lab' %}
-    </section>
-    <div class="jc-exp__frame">
-      <section class="jc-exp__outro jc-story-future" aria-labelledby="jc-story-future-title">
-        <div><h2 id="jc-story-future-title">{{ 'jc_story.future_title' | t }}</h2><p class="jc-story-future__copy">{{ 'jc_story.future_copy' | t }}</p><p class="jc-story-future__humour">{{ 'jc_story.future_humour' | t }}</p></div>
-        <a href="{{ routes.root_url }}products/nube">{{ 'jc_story.products' | t }} <span aria-hidden="true">&rarr;</span></a>
-      </section>
     </div>
-  </div>
-  <div class="jcs">{% render 'jc-footer' %}</div>
+  </section>
+
+  {%- comment -%} 001: the aisle. Every Hallazgo on the homepage is checked here. {%- endcomment -%}
+  <section class="jcs-lab-case" id="jc-lab-001" aria-labelledby="jc-lab-001-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>001</span>El pasillo de las cinco plantas<em class="jcs-lab-status">En curso</em></p>
+      <div class="jcs-lab-case__head">
+        <h2 class="jcs-title" id="jc-lab-001-title">Almendra, avena, soya, arroz, coco. Leímos las cajas.</h2>
+        <p class="jcs-lead">De Bogotá a Birmingham, el mismo pasillo. Los robots anotaron lo que vieron. Aquí está cada nota con su comprobante.</p>
+      </div>
+      <ol class="jcs-lab-notes">
+        <li>
+          <p class="jcs-lab-notes__claim"><span>Nota 01 · Almendras por vaso</span>Los robots contaron tres. Revisamos: son unas cuatro. Corregido. Sigue siendo poco.</p>
+          <p>La única etiqueta que revisamos que declara el porcentaje, Almendrola sin azúcar, trae un 2,75 % de almendras. En un vaso de 200 ml son unos 5,5 g: cuatro almendras, más o menos, porque una almendra pesa algo más de un gramo. Las demás no dicen cuánta almendra llevan. Solo que llevan.</p>
+          <p class="jcs-lab-notes__src">Fuente: ficha de Almendrola sin azúcar en AECOC. <a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Ver la ficha &rarr;</a></p>
+        </li>
+        <li>
+          <p class="jcs-lab-notes__claim"><span>Nota 02 · Azúcar que nadie añadió</span>La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso.</p>
+          <p>Es cierto que no le añaden azúcar. Normalmente sale de la propia avena: al procesarla, parte del almidón se convierte en azúcar. «Sin azúcar añadida» no significa «sin azúcares».</p>
+          <p class="jcs-lab-notes__src">Fuente: información nutricional de Nature’s Heart avena, Nestlé Colombia, por 200 ml. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-bebida-avena-se-12x946ml-co" target="_blank" rel="noopener noreferrer">Ver la ficha &rarr;</a></p>
+        </li>
+        <li>
+          <p class="jcs-lab-notes__claim"><span>Nota 03 · Ingredientes</span>Una bebida de almendras: trece ingredientes. NUBE: tres.</p>
+          <p>Agua; pasta de almendras; carbonato de calcio; sal; polifosfatos; citrato de sodio; goma gelana; goma de algarrobo; lecitina de canola; sabor natural (vainillina); vitamina A; vitamina D; vitamina E. NUBE: sacha inchi, agua y goma gelana.</p>
+          <p class="jcs-lab-notes__src">Fuente: ingredientes del envase de Almondee, publicados por D1. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Ver el envase &rarr;</a></p>
+        </li>
+        <li>
+          <p class="jcs-lab-notes__claim"><span>Nota 04 · Proteína y precio por vaso</span>Más de seis veces la proteína de una bebida de almendra. Por menos.</p>
+          <p>Cada bebida, medida en un vaso de 200 ml ya preparado, con el precio de referencia de su envase.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  {% render 'jc-versus', compact: true, sources_href: '#jc-lab-fuentes' %}
+
+  <section class="jcs-lab-sources" id="jc-lab-fuentes" aria-label="Fuentes de la investigación 001">
+    <div class="jcs-frame">
+      <details class="jcs-lab-fold">
+        <summary>Todas las fuentes y cómo calculamos</summary>
+        <div class="jcs-lab-fold__body">
+          <p>Precios de referencia consultados en noviembre de 2026. Costo por vaso: NUBE, 39.900 ÷ 30; bebidas en caja, precio del envase × 200 ÷ volumen en ml. Valores declarados en cada etiqueta, no un análisis independiente. Los precios cambian según la fecha, la ciudad y las promociones.</p>
+          <ul>
+            <li><a href="https://d1tiendas.vtexassets.com/arquivos/ids/201818-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Almondee · etiqueta nutricional de D1 &rarr;</a></li>
+            <li><a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Almondee · ingredientes del envase &rarr;</a></li>
+            <li><a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Almendrola sin azúcar · ficha en AECOC &rarr;</a></li>
+            <li><a href="https://tienda.makro.com.co/p/bebida-almendra-almendrola-sin-azucar-1l-100284" target="_blank" rel="noopener noreferrer">Almendrola sin azúcar · precio de referencia en Makro &rarr;</a></li>
+            <li><a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-bebida-avena-se-12x946ml-co" target="_blank" rel="noopener noreferrer">Nature’s Heart avena · Nestlé Colombia &rarr;</a></li>
+            <li><a href="https://www.soriana.com/bebida-vegetal-sabor-almendra-de-california-silk-sin-azucar-946ml/11680708.html" target="_blank" rel="noopener noreferrer">Silk · ficha nutricional e ingredientes &rarr;</a></li>
+          </ul>
+          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">La tabla de composición completa <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  {%- comment -%} 002: satiety. The brand questions its own slogan. Evidence and limits stay word for word. {%- endcomment -%}
+  <section class="jcs-lab-case jcs-lab-case--split" id="jc-lab-002" aria-labelledby="jc-lab-002-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>002</span>Saciedad<em class="jcs-lab-status">En curso</em></p>
+      <div class="jcs-lab-split">
+        <figure class="jcs-lab-split__image">
+          <img src="{{ 'jc-manana.jpg' | asset_url }}" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico por la mañana junto a un vaso de NUBE">
+          <figcaption>06:00 · Bogotá. Dentro de cinco horas sabremos si rindió.</figcaption>
+        </figure>
+        <div>
+          <h2 class="jcs-title" id="jc-lab-002-title">Rinde más. ¿Rinde de verdad?</h2>
+          <p class="jcs-lab-split__q">{{ 'jc_satiety.headline' | t }}</p>
+          <p class="jcs-lead">{{ 'jc_satiety.intro' | t }}</p>
+          <p class="jcs-lead">{{ 'jc_satiety.investigation' | t }}</p>
+
+          <details class="jcs-lab-fold">
+            <summary>{{ 'jc_satiety.open_research' | t }}</summary>
+            <div class="jcs-lab-fold__body">
+              <h3>{{ 'jc_satiety.question_label' | t }}</h3>
+              <p class="jcs-lab-fold__big">{{ 'jc_satiety.question' | t }}</p>
+              <p>{{ 'jc_satiety.seed_reason' | t }}</p>
+              <h3>{{ 'jc_satiety.evidence_label' | t }}</h3>
+              <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
+              <div class="jcs-lab-paper">
+                <p class="jcs-lab-paper__title">{{ 'junglcore_explorations.research.protein_title' | t }}</p>
+                <p class="jcs-lab-paper__type">{{ 'junglcore_explorations.research.protein_type' | t }}</p>
+                <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
+                <p class="jcs-lab-note">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
+                <p class="jcs-lab-paper__ref">{{ 'junglcore_explorations.research.protein_ref' | t }}</p>
+                <a class="jcs-link" href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <h3>{{ 'jc_satiety.unknown_label' | t }}</h3>
+              <p>{{ 'jc_satiety.unknown' | t }}</p>
+              <p class="jcs-lab-note">{{ 'jc_satiety.product_limit' | t }}</p>
+            </div>
+          </details>
+
+          <div class="jcs-lab-ask">
+            <p class="jcs-lab-ask__line">Cuando lo demostremos, lo leerás aquí antes que en un anuncio. Mientras tanto, la pregunta es para ti.</p>
+            <a class="jcs-btn" href="{{ wa }}{{ 'Hola, tomé NUBE en el desayuno. Les cuento si me rindió hasta el almuerzo:' | url_encode }}" target="_blank" rel="noopener"><span>Cuéntanos si te rindió</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+            <p class="jcs-lab-ask__small">Por WhatsApp. Las respuestas van a la libreta de los robots.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} The only thing on sale. Same buy box as everywhere else. {%- endcomment -%}
+  <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-lab-buy-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>NUBE</span>Lo que ya salió del laboratorio</p>
+      <div class="jcs-shop__grid">
+        <div>
+          <div class="jcs-shop__visual">
+            {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'lab-buy-pack', description: 'Bolsa JUNGLCORE NUBE, base congelada de sacha inchi' %}
+          </div>
+        </div>
+        <div>
+          <h2 class="visually-hidden" id="jc-lab-buy-title">Comprar NUBE</h2>
+          {% if nube != blank %}
+            {% render 'jc-buy-box', product: nube, form_id: 'jcs-lab-buy', show_title: true %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} Still in the lab: ONE and OIL, no essays until they exist. {%- endcomment -%}
+  <section class="jcs-next jcs-lab-next" aria-labelledby="jc-lab-next-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>En el laboratorio</span>La sacha inchi es la primera planta. Vienen otras.</p>
+      <h2 class="visually-hidden" id="jc-lab-next-title">En el laboratorio</h2>
+      <div class="jcs-next__grid">
+        <div class="jcs-next__item">
+          <p class="jcs-eyebrow">ONE · En desarrollo</p>
+          <h3>La misma semilla, en polvo. Para llevar.</h3>
+          <p>Proteína y fibra de un solo ingrediente, para lo que ya comes. Te avisamos cuando llegue.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="jcs-next__item">
+          <p class="jcs-eyebrow">OIL · En desarrollo</p>
+          <h3>El aceite de nuestra primera semilla.</h3>
+          <p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p>
+          <p class="jcs-lab-note">{{ 'junglcore_explorations.oil_research.composition_ref' | t }} {{ 'jc_lab.oil_note' | t }}</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jcs-final" aria-labelledby="jc-lab-final-title">
+    <div class="jcs-frame">
+      <h2 id="jc-lab-final-title">Rinde más.</h2>
+      <p>Si rinde de verdad, lo estamos averiguando. La proteína ya la contamos: 6,3 g por vaso, 30 vasos por bolsa.</p>
+      <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  {% render 'jc-footer' %}
+  {% if nube != blank %}{% render 'jc-sticky-buy', product: nube %}{% endif %}
 </div>
-{% style %}
-.jc-exp { --jc-paper:#FCFBF8; --jc-ink:#181918; --jc-muted:#63655f; --jc-rule:#d3d5cf; background:var(--jc-paper); color:var(--jc-ink); font-family:'Manrope',"Helvetica Neue",Arial,sans-serif; font-synthesis:none; }
-.jc-exp * {box-sizing:border-box;}
-.jc-exp a { color:inherit; text-decoration:none; }
-.jc-exp img { max-width:100%; }
-.jc-exp__frame { width:min(100% - 84px,1280px); margin-inline:auto; }
-.jc-exp__header { min-height:95px; display:grid; grid-template-columns:minmax(156px,1fr) auto minmax(146px,1fr); align-items:center; gap:30px; padding:23px clamp(25px,4vw,60px); border-bottom:1px solid #e7e6e1; background:var(--jc-paper); }
-.jc-exp__logo {display:block; width:154px; line-height:0;}
-.jc-exp__logo img {width:100%;height:auto;display:block;}
-.jc-exp__nav { display:flex; align-items:center; gap:clamp(16px,2.5vw,35px); }
-.jc-exp__nav a {font-size:10px;font-weight:500;letter-spacing:.08em;white-space:nowrap;padding:10px 0;}
-.jc-exp__nav a[aria-current="page"] {border-bottom:1px solid currentColor;}
-.jc-exp__header-cta {justify-self:end;white-space:nowrap;font-size:10px;font-weight:550;letter-spacing:.075em;border-bottom:1px solid currentColor;padding-bottom:5px;}
-.jc-exp__intro {padding:clamp(85px,10vw,148px) 0 clamp(100px,11vw,165px);}
-.jc-exp__rule,.jc-exp__study-head {display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--jc-ink);padding-top:17px;font-size:10px;font-weight:550;letter-spacing:.14em;line-height:1.5;}
-.jc-exp__intro h1 {max-width:900px;margin:clamp(58px,8vw,104px) 0 29px;font-size:clamp(41px,6.5vw,91px);font-weight:550;line-height:1.12;letter-spacing:-.035em;}
-.jc-exp__intro>p {max-width:620px;font-size:clamp(17px,1.7vw,21px);font-weight:380;line-height:1.65;color:#4b4d48;}
-.jc-exp__study {padding-bottom:clamp(110px,12vw,175px);scroll-margin-top:30px;}
-.jc-exp__study-head {border-color:var(--jc-rule);margin-bottom:clamp(45px,5vw,72px);}
-.jc-exp__study-grid {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(34px,6.3vw,105px);align-items:start;}
-.jc-exp__image {margin:0;min-width:0;}
-.jc-exp__image img {display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#ebe9e3;}
-.jc-exp__study--reverse .jc-exp__image img { aspect-ratio:4/3; object-fit:cover; }
-.jc-exp__image figcaption {margin-top:14px;font-size:10px;letter-spacing:.12em;color:var(--jc-muted);line-height:1.5;}
-.jc-exp__study-copy h2 {font-size:clamp(35px,4vw,62px);font-weight:520;line-height:1.15;letter-spacing:-.028em;margin:0 0 clamp(31px,4vw,58px);}
-.jc-exp__study-copy h3 {max-width:530px;font-size:clamp(24px,2.5vw,36px);font-weight:450;line-height:1.3;letter-spacing:-.015em;margin:0 0 23px;}
-.jc-exp__study-copy>p {max-width:540px;font-size:clamp(16px,1.35vw,18px);font-weight:380;line-height:1.68;color:#545750;margin:0 0 34px;}
-.jc-exp__study--reverse .jc-exp__image {grid-column:2;grid-row:1;}
-.jc-exp__study--reverse .jc-exp__study-copy {grid-column:1;grid-row:1;}
-.jc-exp__linked {display:flex;flex-wrap:wrap;align-items:center;column-gap:17px;row-gap:13px;font-size:11px;font-weight:500;letter-spacing:.05em;padding:20px 0;border-top:1px solid var(--jc-rule);}
-.jc-exp__linked>span {font-size:10px;color:#686b65;letter-spacing:.09em;margin-right:10px;}
-.jc-exp__linked a {text-underline-offset:4px;}
-.jc-exp__linked a:hover {text-decoration:underline;}
-.jc-exp__fold {border-top:1px solid var(--jc-rule);margin-top:8px;}
-.jc-exp__fold summary {list-style:none;cursor:pointer;padding:18px 0;min-height:54px;display:flex;align-items:center;gap:20px;font-size:11px;font-weight:520;letter-spacing:.1em;}
-.jc-exp__fold summary::-webkit-details-marker {display:none;}
-.jc-exp__fold-close {display:none;}
-.jc-exp__fold[open] .jc-exp__fold-read {display:none;}
-.jc-exp__fold[open] .jc-exp__fold-close {display:block;}
-.jc-exp__fold-arrow {margin-left:auto;font-size:22px;font-weight:300;transition:transform .2s ease;}
-.jc-exp__fold[open] .jc-exp__fold-arrow {transform:rotate(180deg);}
-.jc-exp__fold-content {max-width:530px;padding:7px 0 25px;}
-.jc-exp__fold-content p {margin:0 0 18px;color:#50534c;font-size:15px;line-height:1.7;}
-.jc-exp__outro {padding:32px 0 clamp(110px,11vw,165px);border-top:1px solid var(--jc-rule);display:flex;justify-content:space-between;align-items:end;gap:30px;}
-.jc-exp__outro p {font-size:clamp(19px,2.2vw,28px);line-height:1.4;max-width:650px;letter-spacing:-.01em;margin:0;}
-.jc-exp__outro a {font-size:11px;font-weight:550;letter-spacing:.08em;border-bottom:1px solid currentColor;padding-bottom:6px;white-space:nowrap;}
-.jc-exp__footer {background:var(--jc-paper);border-top:1px solid var(--jc-rule);padding:70px 0 55px;}
-.jc-exp__footer-top {display:grid;grid-template-columns:minmax(280px,2fr) 1fr 1fr;gap:42px;}
-.jc-exp__footer-brand>a {display:block;width:215px;line-height:0;}
-.jc-exp__footer-brand img {width:100%;height:auto;display:block;}
-.jc-exp__footer-brand p {font-size:14px;color:#555951;margin:23px 0 20px;}
-.jc-exp__footer-brand>span {font-size:10px;font-weight:500;letter-spacing:.1em;}
-.jc-exp__footer-links {display:flex;flex-direction:column;align-items:flex-start;gap:15px;}
-.jc-exp__footer-links a {font-size:13px;color:#50534d;line-height:1.45;}
-.jc-exp a:focus-visible,.jc-exp summary:focus-visible {outline:2px solid currentColor;outline-offset:5px;}
-@media(max-width:950px){.jc-exp__header {grid-template-columns:1fr auto;gap:15px;padding:20px 24px;}.jc-exp__nav {grid-column:1/-1;grid-row:2;justify-content:space-between;gap:12px;}.jc-exp__header-cta {grid-row:1;grid-column:2;}.jc-exp__frame {width:calc(100% - 48px);}}
-@media(max-width:749px){.jc-exp__header{padding:18px 18px 15px;gap:14px;}.jc-exp__logo{width:138px;}.jc-exp__nav a{font-size:9px;letter-spacing:.035em;}.jc-exp__header-cta{font-size:9px;}.jc-exp__frame{width:calc(100% - 36px);}.jc-exp__intro{padding:78px 0 96px;}.jc-exp__rule,.jc-exp__study-head{font-size:9px;letter-spacing:.06em;}.jc-exp__intro h1{font-size:clamp(37px,9vw,55px);line-height:1.15;margin:54px 0 25px;}.jc-exp__intro>p{font-size:17px;line-height:1.6;}.jc-exp__study{padding-bottom:100px;}.jc-exp__study-head{margin-bottom:33px;}.jc-exp__study-grid{grid-template-columns:1fr;gap:34px;}.jc-exp__image img{aspect-ratio:4/4.2;}.jc-exp__study-copy h2{font-size:clamp(33px,9vw,48px);margin:0 0 30px;}.jc-exp__study-copy h3{font-size:clamp(23px,6.4vw,29px);}.jc-exp__study-copy>p{font-size:16px;margin-bottom:27px;}.jc-exp__study--reverse .jc-exp__image,.jc-exp__study--reverse .jc-exp__study-copy{grid-column:1;grid-row:auto;}.jc-exp__outro{flex-direction:column;align-items:flex-start;padding:25px 0 95px;gap:28px;}.jc-exp__outro p{font-size:20px;}.jc-exp__footer{padding:54px 0;}.jc-exp__footer-top{grid-template-columns:1fr 1fr;gap:36px 20px;}.jc-exp__footer-brand{grid-column:1/-1;}.jc-exp__footer-links a{font-size:12px;}}
-@media(prefers-reduced-motion:reduce){.jc-exp__fold-arrow{transition:none;}}
-
-.jc-exp__opening{padding:65px 0 60px}
-.jc-exp__opening h1{margin:50px 0 40px;font-size:clamp(38px,6.5vw,88px);font-weight:550;line-height:1.04;letter-spacing:-.045em;color:var(--jc-ink)}
-.jc-exp__opening h1>span{color:#797b74}
-.jc-exp__opening-bottom{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}
-.jc-exp__opening-bottom>p{max-width:410px;font-size:17px;line-height:1.6;margin:0;color:#555951}
-.jc-exp__index{display:grid;gap:0}
-.jc-exp__index a{display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--jc-rule);padding:14px 0;font-size:10px;letter-spacing:.08em}
-.jc-exp__index a>span:first-child{color:#73766e}
-.jc-exp__index a>span:last-child{margin-left:auto;font-size:20px}
-.jc-exp__chapter{scroll-margin-top:20px}
-.jc-exp__cinema{position:relative;min-height:580px;height:min(75vw,820px);max-height:90svh;background:#252522;isolation:isolate;overflow:hidden;color:#fff}
-.jc-exp__cinema>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:-2}
-.jc-exp__cinema-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.36),transparent 75%),linear-gradient(180deg,rgba(0,0,0,.22),transparent 35%,rgba(0,0,0,.22));z-index:-1}
-.jc-exp__cinema-content{height:100%;padding:34px clamp(24px,5vw,80px) 40px;display:flex;flex-direction:column}
-.jc-exp__scene-meta{display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.13em;line-height:1.5}
-.jc-exp__scene-title{font-size:clamp(42px,7.3vw,112px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:auto 0;color:#fff;max-width:60%}
-.jc-exp__scene-caption{font-size:10px;letter-spacing:.14em}
-.jc-exp__chapter-detail{display:grid;grid-template-columns:.65fr 1.35fr;gap:clamp(30px,7vw,110px);padding-block:75px 100px}
-.jc-exp__chapter-number{font-size:clamp(60px,10vw,145px);font-weight:350;letter-spacing:-.065em;line-height:1;color:#999c92}
-.jc-exp__chapter-detail .jc-exp__study-copy h2{font-size:12px;letter-spacing:.14em;font-weight:550;margin:0 0 26px}
-.jc-exp__chapter-detail .jc-exp__study-copy h2 br{display:none}
-.jc-exp__chapter-detail .jc-exp__study-copy h3{font-size:clamp(28px,3.2vw,44px);max-width:680px;line-height:1.18;letter-spacing:-.025em}
-.jc-exp__chapter-detail .jc-exp__study-copy>p{max-width:600px}
-.jc-exp__botanical{padding-top:30px;padding-bottom:65px;border-top:1px solid var(--jc-rule)}
-.jc-exp__botanical-grid{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:35px;padding-top:45px}
-.jc-exp__botanical-title{font-size:clamp(34px,4.8vw,70px);font-weight:500;line-height:1.08;letter-spacing:-.035em;margin:0}
-.jc-exp__botanical-title span{color:#797b74}
-.jc-exp__botanical figure{margin:0}
-.jc-exp__botanical figure img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
-.jc-exp__botanical figcaption{font-size:9px;letter-spacing:.12em;line-height:1.5;margin-top:17px;color:#63655f}
-.jc-exp__oil-detail{background:#20231f;color:#f7f6f0}
-.jc-exp__oil-detail .jc-exp__study-copy>p,.jc-exp__oil-detail .jc-exp__fold-content p{color:#c5c9bf}
-.jc-exp__oil-detail .jc-exp__linked>span{color:#aeb5a7}
-.jc-exp__oil-detail .jc-exp__linked,.jc-exp__oil-detail .jc-exp__fold{border-color:#50574b}
-.jc-exp__oil-object{display:flex;flex-direction:column;align-items:flex-start}
-.jc-exp__oil-object>img{width:min(100%,260px);height:auto;display:block;margin:15px auto 25px}
-.jc-exp__oil-object>a{font-size:10px;letter-spacing:.12em;align-self:center;border-bottom:1px solid #858d7d;padding-bottom:9px}
-.jc-exp__outro{padding-top:60px;margin-top:65px}
-@media(max-width:749px){
-.jc-exp__opening{padding:40px 0 35px}
-.jc-exp__opening h1{font-size:clamp(32px,8.7vw,62px);line-height:1.08;margin:34px 0 27px;letter-spacing:-.035em}
-.jc-exp__opening-bottom{grid-template-columns:1fr;gap:20px}
-.jc-exp__opening-bottom>p{font-size:15px}
-.jc-exp__index a{font-size:9px;padding:11px 0;gap:12px}
-.jc-exp__cinema{height:650px;min-height:0;max-height:none}
-.jc-exp__cinema>img{object-position:73% center}
-.jc-exp__cinema-shade{background:linear-gradient(180deg,rgba(0,0,0,.3),transparent 35%,rgba(0,0,0,.78))}
-.jc-exp__cinema-content{padding:24px 20px}
-.jc-exp__scene-meta{font-size:8px;letter-spacing:.07em}
-.jc-exp__scene-title{max-width:100%;font-size:clamp(46px,12vw,78px);margin:auto 0 22px}
-.jc-exp__scene-caption{font-size:8px;letter-spacing:.1em}
-.jc-exp__chapter-detail{grid-template-columns:1fr;gap:28px;padding-block:45px 60px}
-.jc-exp__chapter-number{font-size:65px}
-.jc-exp__chapter-detail .jc-exp__study-copy h2{font-size:10px;margin-bottom:20px}
-.jc-exp__chapter-detail .jc-exp__study-copy h3{font-size:29px}
-.jc-exp__botanical{padding-top:22px;padding-bottom:35px}
-.jc-exp__botanical-grid{grid-template-columns:1fr;gap:28px;padding-top:35px}
-.jc-exp__botanical-title{font-size:clamp(35px,10vw,55px)}
-.jc-exp__botanical figcaption{font-size:8px}
-.jc-exp__oil-object{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:12px}
-.jc-exp__oil-object>img{width:150px;grid-column:2;grid-row:1/3;margin:0;justify-self:end}
-.jc-exp__oil-object>a{grid-column:1;font-size:8px;align-self:start;justify-self:start}
-.jc-exp__outro{margin-top:35px;padding-top:35px}
-}
-
-.jc-exp__oil-detail h2,.jc-exp__oil-detail h3{color:inherit}
-.jc-exp__research{margin-top:38px}
-.jc-exp__research h4{font-size:18px;font-weight:500;line-height:1.4;margin:30px 0 14px}
-.jc-exp__research>p{max-width:600px;font-size:15px;line-height:1.7;color:#545750;margin:0 0 25px}
-.jc-exp__paper summary{font-size:14px;letter-spacing:.02em;padding-block:22px}
-.jc-exp__paper .jc-exp__paper-type{font-size:10px;letter-spacing:.07em}
-.jc-exp__paper .jc-exp__paper-ref{font-size:12px;margin-top:24px}
-.jc-exp__study-copy .jc-exp__research-note{font-size:13px;line-height:1.7;color:#63655f}
-.jc-exp__paper-link{display:inline-block;font-size:13px;border-bottom:1px solid currentColor;padding-bottom:5px}
-.jc-exp .jc-exp__scene-meta{font-size:14px;font-weight:550;letter-spacing:.08em;flex-wrap:wrap;row-gap:8px}
-.jc-exp .jc-exp__index a{font-size:14px;font-weight:550;letter-spacing:.05em;line-height:1.5}
-.jc-exp .jc-exp__index a>span:first-child{color:#555951}
-.jc-exp .jc-exp__chapter-detail .jc-exp__study-copy h2{font-size:14px;font-weight:600;letter-spacing:.1em}
-.jc-exp .jc-exp__oil-detail .jc-exp__research>p,.jc-exp .jc-exp__oil-detail .jc-exp__research-note{color:#c5c9bf}
-.jc-exp .jc-exp__oil-detail .jc-exp__research h4{color:inherit}
-@media(max-width:749px){
-.jc-exp .jc-exp__scene-meta,.jc-exp .jc-exp__index a,.jc-exp .jc-exp__chapter-detail .jc-exp__study-copy h2{font-size:12px;letter-spacing:.045em}
-.jc-exp .jc-exp__index a{gap:12px}
-.jc-exp .jc-exp__index a>span{flex-shrink:0}
-}
-{% endstyle %}
-{{ 'jc-brand-system.css' | asset_url | stylesheet_tag }}
-
-{% style %}
-#jc-exp-top #jc-exp-001{background:var(--jc-paper);margin-bottom:64px}
-#jc-exp-top #jc-exp-001 .jc-exp__scene-title{font-size:clamp(34px,4.5vw,62px);line-height:1.08;letter-spacing:-.03em;max-width:58%;font-weight:500;margin:auto 0 20px;color:#fff;text-wrap:balance}
-#jc-exp-top #jc-exp-001 .jc-exp__cinema-shade{background:linear-gradient(90deg,rgba(0,0,0,.52),rgba(0,0,0,.1) 65%,transparent),linear-gradient(0deg,rgba(0,0,0,.28),transparent 65%)}
-#jc-exp-top .jc-exp__chapter-lead{max-width:790px;padding:44px 0 34px;margin:0}
-#jc-exp-top .jc-exp__chapter-lead p{font-size:clamp(17px,1.6vw,20px);line-height:1.65;color:#41443e;margin:0 0 18px}
-#jc-exp-top .jc-exp__chapter-lead p:last-child{margin-bottom:0}
-#jc-exp-top .jc-exp__research-panel{background:#eeefeb;border:0;margin:0;padding:0}
-#jc-exp-top .jc-exp__research-panel>summary{padding:23px 28px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;line-height:1.5;letter-spacing:.04em;gap:18px}
-#jc-exp-top .jc-exp__research-content{padding:12px 28px 32px}
-#jc-exp-top .jc-exp__research-row{display:grid;grid-template-columns:180px minmax(0,1fr);gap:30px;padding:28px 0}
-#jc-exp-top .jc-exp__research-row+.jc-exp__research-row{border-top:1px solid #d4d7ce}
-#jc-exp-top .jc-exp__research-row h3{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;font-weight:500;letter-spacing:.03em;line-height:1.6;margin:3px 0 0;color:#41473f}
-#jc-exp-top .jc-exp__research-row p{font-size:16px;line-height:1.65;color:#41443e;max-width:65ch;margin:0 0 18px}
-#jc-exp-top .jc-exp__research-row p:last-child{margin-bottom:0}
-#jc-exp-top .jc-exp__research-row .jc-exp__research-question{font-size:clamp(22px,2.3vw,30px);line-height:1.3;letter-spacing:-.015em;color:#181918}
-#jc-exp-top .jc-exp__research-content .jc-exp__paper>summary{background:#fcfbf8;font-size:15px;padding:18px 20px;letter-spacing:0;line-height:1.45}
-#jc-exp-top .jc-exp__research-content .jc-exp__fold-content{max-width:none;padding:20px}
-#jc-exp-top .jc-exp__research-content .jc-exp__paper-type,#jc-exp-top .jc-exp__research-content .jc-exp__paper-ref{font-size:12px;line-height:1.6}
-#jc-exp-top .jc-exp__research-content .jc-exp__research-note{font-size:14px;line-height:1.65;color:#575d52}
-#jc-exp-top .jc-exp__chapter-products{padding:28px 0 0;gap:16px 24px;border:0;font-size:13px}
-#jc-exp-top .jc-exp__chapter-products>span{font-size:11px;line-height:1.6}
-@media(max-width:749px){
-#jc-exp-top #jc-exp-001{margin-bottom:40px}
-#jc-exp-top #jc-exp-001 .jc-exp__scene-title{font-size:clamp(30px,8.2vw,46px);max-width:100%;margin:auto 0 8px;line-height:1.1}
-#jc-exp-top #jc-exp-001 .jc-exp__cinema-shade{background:linear-gradient(180deg,rgba(0,0,0,.28),transparent 32%,rgba(0,0,0,.72))}
-#jc-exp-top .jc-exp__chapter-lead{padding:28px 0;font-size:17px}
-#jc-exp-top .jc-exp__chapter-lead p{font-size:17px;line-height:1.6}
-#jc-exp-top .jc-exp__research-panel>summary{padding:20px;font-size:11px}
-#jc-exp-top .jc-exp__research-content{padding:0 20px 16px}
-#jc-exp-top .jc-exp__research-row{grid-template-columns:minmax(0,1fr);gap:16px;padding:24px 0}
-#jc-exp-top .jc-exp__research-row h3{font-size:12px;margin:0}
-#jc-exp-top .jc-exp__research-content .jc-exp__paper>summary{padding:16px;font-size:14px}
-#jc-exp-top .jc-exp__research-content .jc-exp__fold-content{padding:18px 0}
-#jc-exp-top .jc-exp__chapter-products{padding-top:24px}
-#jc-exp-top .jc-exp__chapter-products>span{flex-basis:100%;margin:0}
-}
-{% endstyle %}
-
-
-{% style %}
-#jc-exp-top #jc-exp-002{background:var(--jc-paper);margin-bottom:64px}
-#jc-exp-top #jc-exp-002 .jc-exp__botanical{background:#eeefeb;padding:32px 40px 40px}
-#jc-exp-top #jc-exp-002 .jc-exp__botanical-grid{grid-template-columns:1fr 1fr;gap:40px;padding-top:32px}
-#jc-exp-top .jc-exp__oil-intro{min-width:0}
-#jc-exp-top .jc-exp__oil-intro .jc-exp__botanical-title{margin:0;max-width:17ch;text-wrap:balance;font-size:clamp(34px,4.5vw,62px);line-height:1.08;letter-spacing:-.03em}
-#jc-exp-top #jc-exp-002 .jc-exp__botanical figure img{aspect-ratio:4/3;object-fit:contain}
-#jc-exp-top #jc-exp-002 .jc-exp__botanical figcaption{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:10px;line-height:1.6;letter-spacing:.035em;margin-top:16px}
-@media(max-width:749px){
-#jc-exp-top #jc-exp-002{margin-bottom:40px}
-#jc-exp-top #jc-exp-002 .jc-exp__botanical{padding:24px}
-#jc-exp-top #jc-exp-002 .jc-exp__botanical-grid{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:28px}
-#jc-exp-top .jc-exp__oil-intro .jc-exp__botanical-title{font-size:clamp(30px,8.2vw,46px);max-width:20ch;line-height:1.1}
-#jc-exp-top #jc-exp-002 .jc-exp__botanical figure img{aspect-ratio:4/3}
-}
-{% endstyle %}
-{% style %}
-
-#jc-exp-top .jc-story-future{border-top:0;padding-top:35px;align-items:end}
-#jc-exp-top .jc-story-future h2{font-size:clamp(30px,3.5vw,44px);font-weight:500;letter-spacing:-.035em;line-height:1.12;margin:0 0 24px}
-#jc-exp-top .jc-story-future .jc-story-future__copy{font-size:17px;line-height:1.7;letter-spacing:0;color:#555a52;max-width:700px}
-#jc-exp-top .jc-story-future .jc-story-future__humour{font-size:clamp(22px,2.3vw,30px);line-height:1.4;margin-top:28px;max-width:760px}
-@media(max-width:749px){#jc-exp-top .jc-story-future .jc-story-future__copy{font-size:16px}}
-{% endstyle %}
-
-{% style %}
-/* A shared desktop canvas for the introduction, investigations and footer. */
-@media (min-width: 990px) {
-  #jc-exp-top { --jc-exp-desktop-width: min(calc(100% - clamp(72px, 7vw, 144px)), 1760px); }
-  #jc-exp-top .jc-exp__main > .jc-exp__frame,
-  #jc-exp-top .jc-exp__main > .jc-exp__chapter,
-  #jc-exp-top .jc-exp__footer > .jc-exp__frame {
-    width: var(--jc-exp-desktop-width);
-    margin-inline: auto;
-  }
-  #jc-exp-top .jc-exp__opening-bottom {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(40px, 5vw, 80px);
-  }
-  #jc-exp-top .jc-exp__opening-bottom > p { max-width: 56ch; }
-  #jc-exp-top .jc-exp__cinema {
-    width: 100%;
-    height: clamp(460px, 43vw, 720px);
-    min-height: 460px;
-    max-height: none;
-  }
-  #jc-exp-top .jc-exp__cinema-content { padding: 36px 40px 40px; }
-  #jc-exp-top #jc-exp-002 .jc-exp__botanical { width: 100%; }
-  #jc-exp-top #jc-exp-002 .jc-exp__botanical-grid {
-    gap: clamp(40px, 5vw, 80px);
-  }
-  #jc-exp-top #jc-exp-001 .jc-exp__chapter-lead {
-    max-width: none;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(40px, 5vw, 80px);
-  }
-  #jc-exp-top #jc-exp-001 .jc-exp__chapter-lead p { margin: 0; max-width: 56ch; }
-  #jc-exp-top .jc-exp__research-content { padding: 12px 40px 32px; }
-  #jc-exp-top .jc-exp__research-panel > summary { padding-inline: 40px; }
-  #jc-exp-top .jc-exp__research-row {
-    grid-template-columns: minmax(180px, 22%) minmax(0, 1fr);
-    gap: clamp(30px, 4vw, 64px);
-  }
-}
-{% endstyle %}
-
-
-{% style %}
-/* One editorial template for every investigation. */
-#jc-exp-top .jc-editorial{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,5vw,80px);align-items:stretch;margin-bottom:28px}
-#jc-exp-top .jc-editorial__image{margin:0;aspect-ratio:1/1;overflow:hidden;background:#eeefeb}
-#jc-exp-top .jc-editorial__image img{display:block;width:100%;height:100%;object-fit:cover}
-#jc-exp-top .jc-editorial__image--satiety img{object-position:76% 50%}
-#jc-exp-top .jc-editorial__image--oil img{object-position:50% 50%}
-#jc-exp-top .jc-editorial__copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:32px 0}
-#jc-exp-top .jc-editorial__meta{display:flex;justify-content:space-between;gap:18px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;line-height:1.6;letter-spacing:.035em;color:#5b6058;margin-bottom:36px}
-#jc-exp-top .jc-editorial__meta span:last-child{white-space:nowrap}
-#jc-exp-top .jc-editorial__copy h2{font-family:inherit;font-size:clamp(34px,3.7vw,56px);font-weight:500;line-height:1.09;letter-spacing:-.035em;text-wrap:balance;color:#20231f;margin:0 0 28px;max-width:20ch}
-#jc-exp-top .jc-editorial__description{max-width:49ch}
-#jc-exp-top .jc-editorial__description p{font-size:clamp(17px,1.35vw,20px);line-height:1.65;color:#50564e;margin:0 0 16px}
-#jc-exp-top .jc-editorial__description p:last-child{margin-bottom:0}
-#jc-exp-top #jc-exp-001,#jc-exp-top #jc-exp-002{background:var(--jc-paper);margin-bottom:88px}
-#jc-exp-top .jc-exp__chapter-products{display:flex;align-items:center;gap:16px 28px;padding-top:24px}
-#jc-exp-top .jc-exp__chapter-products>span{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.6;letter-spacing:.035em;color:#5b6058;margin-right:auto}
-#jc-exp-top .jc-exp__chapter-products>a{font-size:13px;line-height:1.6;padding-bottom:4px;border-bottom:1px solid #a4a79f}
-#jc-exp-top .jc-exp__research-panel>summary{min-height:72px;font-size:12px}
-@media(max-width:989px){
- #jc-exp-top .jc-editorial{grid-template-columns:minmax(0,1fr);gap:0;margin-bottom:24px}
- #jc-exp-top .jc-editorial__image{aspect-ratio:4/3}
- #jc-exp-top .jc-editorial__copy{padding:28px 0 8px}
- #jc-exp-top .jc-editorial__meta{margin-bottom:24px;font-size:11px}
- #jc-exp-top .jc-editorial__copy h2{font-size:clamp(30px,6.5vw,48px);max-width:22ch;margin-bottom:22px}
- #jc-exp-top .jc-editorial__description{max-width:60ch}
- #jc-exp-top .jc-editorial__description p{font-size:17px}
- #jc-exp-top #jc-exp-001,#jc-exp-top #jc-exp-002{margin-bottom:56px}
-}
-@media(max-width:749px){
- #jc-exp-top .jc-exp__chapter-products>span{flex-basis:100%;margin:0}
- #jc-exp-top .jc-exp__chapter-products{gap:14px 24px}
-}
-{% endstyle %}
 
 {% schema %}
 {
-  "name":"JUNGLCORE LAB",
-  "tag":"section",
-  "class":"jc-exploraciones-section",
-  "settings":[],
-  "presets":[{"name":"JUNGLCORE LAB"}]
+  "name": "JUNGLCORE LAB",
+  "tag": "section",
+  "class": "jc-exploraciones-section",
+  "settings": [],
+  "presets": [{ "name": "JUNGLCORE LAB" }]
 }
 {% endschema %}
-
-
-
-
