@@ -2,7 +2,7 @@
 Dos momentos: morning cold, night hot. Full-bleed, dark.
 @param {string} [number] - Chapter number.
 @param {object} [morning_image] - Image for the morning panel.
-@param {object} [night_image] - Image for the night panel. Without one, a lamp is drawn.
+@param {object} [night_image] - Image for the night panel. Without one, assets/jc-noche.jpg is used.
 {% enddoc %}
 <section class="jcs-moments" id="jc-moments" aria-labelledby="jc-moments-title">
   <div class="jcs-frame">
@@ -25,9 +25,11 @@ Dos momentos: morning cold, night hot. Full-bleed, dark.
         <p>Una barra, agua, 30 segundos de licuadora. Antes de que empiece todo lo demás.</p>
       </figcaption>
     </figure>
-    <figure class="jcs-moment{% if night_image == blank %} jcs-moment--lamp{% endif %}">
+    <figure class="jcs-moment">
       {% if night_image != blank %}
         {{ night_image | image_url: width: 1400 | image_tag: widths: '600, 900, 1200, 1400', sizes: '(max-width: 749px) 100vw, 50vw', loading: 'lazy', alt: 'La noche con NUBE' }}
+      {% else %}
+        <img src="{{ 'jc-noche.jpg' | asset_url }}" width="1122" height="1402" loading="lazy" alt="Una mujer sostiene una taza caliente de NUBE junto a la ventana, de noche">
       {% endif %}
       <figcaption>
         <span class="jcs-moment__time">21:00 · Bogotá · 2.640 m</span>
