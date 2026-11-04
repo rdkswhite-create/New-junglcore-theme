@@ -3,136 +3,178 @@
   assign nube = all_products['nube']
   assign wa = 'https://wa.me/573011571039?text='
 -%}
-<div class="jcs jcs-lab" id="top">
+<div class="jcs jcs-log" id="top">
   {% render 'jc-header', buy_href: '#jc-buy' %}
 
-  {%- comment -%} Intro: the robots observe, the Lab checks. {%- endcomment -%}
-  <section class="jcs-robots jcs-lab-intro" aria-labelledby="jc-lab-title">
+  {%- comment -%} The ship's log. The robots observe, we check, the rest stays open. {%- endcomment -%}
+  <section class="jcs-log-intro" aria-labelledby="jc-log-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>LAB</span>Preguntas abiertas · 001 — 002 en curso</p>
-      <div class="jcs-robots__grid">
-        <figure class="jcs-robots__image">
-          <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="eager" alt="Tres robots científicos en una nave estudian una caja de bebida de almendras, tres almendras y un vaso de agua">
+      <p class="jcs-chapter"><span>LAB</span>Órbita terrestre · Entradas 001 — 005</p>
+      <div class="jcs-log-intro__grid">
+        <figure class="jcs-log-intro__image">
+          <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="eager" alt="Tres robots científicos en una nave estudian una caja de bebida de almendras, unas almendras y un vaso de agua">
         </figure>
-        <div class="jcs-robots__copy">
-          <p class="jcs-eyebrow jcs-lab-intro__brand">JUNGLCORE LAB</p>
-          <h1 class="jcs-display" id="jc-lab-title">Los robots toman notas. Aquí comprobamos cuáles son ciertas.</h1>
-          <p>Hicimos una bebida. Nos salieron más preguntas.</p>
-          <p>Aquí las dejamos abiertas: lo que sabemos, lo que no, y de dónde lo sacamos. Sin promesas que no podamos probar.</p>
-          <nav class="jcs-lab-index" aria-label="Investigaciones">
-            <a href="#jc-lab-001"><span>001</span>El pasillo de las cinco plantas<span aria-hidden="true">&darr;</span></a>
-            <a href="#jc-lab-002"><span>002</span>¿Rinde de verdad?<span aria-hidden="true">&darr;</span></a>
+        <div class="jcs-log-intro__copy">
+          <p class="jcs-eyebrow">JUNGLCORE LAB</p>
+          <h1 class="jcs-log-intro__title" id="jc-log-title">Bitácora de la nave.</h1>
+          <p class="jcs-log-intro__lead">Tres robots científicos estudian lo que comemos los humanos. Anotan lo que ven. Nosotros comprobamos sus notas y dejamos abierto lo que todavía no sabemos.</p>
+          <ul class="jcs-log-crew" aria-label="Tripulación">
+            <li><span class="jcs-log-dot jcs-log-dot--red" aria-hidden="true"></span><strong>Pera</strong> Rojo. Cuenta cosas.</li>
+            <li><span class="jcs-log-dot jcs-log-dot--green" aria-hidden="true"></span><strong>Chispa</strong> Verde. Le interesan las plantas.</li>
+            <li><span class="jcs-log-dot jcs-log-dot--blue" aria-hidden="true"></span><strong>Dato</strong> Azul. Lee las etiquetas. Dos veces.</li>
+          </ul>
+          <nav class="jcs-log-index" aria-label="Entradas">
+            <a href="#jc-log-001"><span>001</span>El pasillo<em>Comprobado</em></a>
+            <a href="#jc-log-002"><span>002</span>La semilla<em>En curso</em></a>
+            <a href="#jc-log-003"><span>003</span>Las mañanas<em>En curso</em></a>
+            <a href="#jc-log-004"><span>004</span>El aceite<em>En curso</em></a>
+            <a href="#jc-log-005"><span>005</span>Planta 002<em>Abierto</em></a>
           </nav>
         </div>
       </div>
     </div>
   </section>
 
-  {%- comment -%} 001: the aisle. Every Hallazgo on the homepage is checked here. {%- endcomment -%}
-  <section class="jcs-lab-case" id="jc-lab-001" aria-labelledby="jc-lab-001-title">
+  {%- comment -%} 001 · The aisle {%- endcomment -%}
+  <article class="jcs-log-entry" id="jc-log-001" aria-labelledby="jc-log-001-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>001</span>El pasillo de las cinco plantas<em class="jcs-lab-status">En curso</em></p>
-      <div class="jcs-lab-case__head">
-        <h2 class="jcs-title" id="jc-lab-001-title">Almendra, avena, soya, arroz, coco. Leímos las cajas.</h2>
-        <p class="jcs-lead">De Bogotá a Birmingham, el mismo pasillo. Los robots anotaron lo que vieron. Aquí está cada nota con su comprobante.</p>
-      </div>
-      <ol class="jcs-lab-notes">
-        <li>
-          <p class="jcs-lab-notes__claim"><span>Nota 01 · Almendras por vaso</span>Los robots contaron tres. Revisamos: son unas cuatro. Corregido. Sigue siendo poco.</p>
-          <p>La única etiqueta que revisamos que declara el porcentaje, Almendrola sin azúcar, trae un 2,75 % de almendras. En un vaso de 200 ml son unos 5,5 g: cuatro almendras, más o menos, porque una almendra pesa algo más de un gramo. Las demás no dicen cuánta almendra llevan. Solo que llevan.</p>
-          <p class="jcs-lab-notes__src">Fuente: ficha de Almendrola sin azúcar en AECOC. <a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Ver la ficha &rarr;</a></p>
-        </li>
-        <li>
-          <p class="jcs-lab-notes__claim"><span>Nota 02 · Azúcar que nadie añadió</span>La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso.</p>
-          <p>Es cierto que no le añaden azúcar. Normalmente sale de la propia avena: al procesarla, parte del almidón se convierte en azúcar. «Sin azúcar añadida» no significa «sin azúcares».</p>
-          <p class="jcs-lab-notes__src">Fuente: información nutricional de Nature’s Heart avena, Nestlé Colombia, por 200 ml. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-bebida-avena-se-12x946ml-co" target="_blank" rel="noopener noreferrer">Ver la ficha &rarr;</a></p>
-        </li>
-        <li>
-          <p class="jcs-lab-notes__claim"><span>Nota 03 · Ingredientes</span>Una bebida de almendras: trece ingredientes. NUBE: tres.</p>
-          <p>Agua; pasta de almendras; carbonato de calcio; sal; polifosfatos; citrato de sodio; goma gelana; goma de algarrobo; lecitina de canola; sabor natural (vainillina); vitamina A; vitamina D; vitamina E. NUBE: sacha inchi, agua y goma gelana.</p>
-          <p class="jcs-lab-notes__src">Fuente: ingredientes del envase de Almondee, publicados por D1. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Ver el envase &rarr;</a></p>
-        </li>
-        <li>
-          <p class="jcs-lab-notes__claim"><span>Nota 04 · Proteína y precio por vaso</span>Más de seis veces la proteína de una bebida de almendra. Por menos.</p>
-          <p>Cada bebida, medida en un vaso de 200 ml ya preparado, con el precio de referencia de su envase.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  {% render 'jc-versus', compact: true, sources_href: '#jc-lab-fuentes' %}
-
-  <section class="jcs-lab-sources" id="jc-lab-fuentes" aria-label="Fuentes de la investigación 001">
-    <div class="jcs-frame">
-      <details class="jcs-lab-fold">
-        <summary>Todas las fuentes y cómo calculamos</summary>
-        <div class="jcs-lab-fold__body">
-          <p>Precios de referencia consultados en noviembre de 2026. Costo por vaso: NUBE, 39.900 ÷ 30; bebidas en caja, precio del envase × 200 ÷ volumen en ml. Valores declarados en cada etiqueta, no un análisis independiente. Los precios cambian según la fecha, la ciudad y las promociones.</p>
-          <ul>
-            <li><a href="https://d1tiendas.vtexassets.com/arquivos/ids/201818-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Almondee · etiqueta nutricional de D1 &rarr;</a></li>
-            <li><a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Almondee · ingredientes del envase &rarr;</a></li>
-            <li><a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Almendrola sin azúcar · ficha en AECOC &rarr;</a></li>
-            <li><a href="https://tienda.makro.com.co/p/bebida-almendra-almendrola-sin-azucar-1l-100284" target="_blank" rel="noopener noreferrer">Almendrola sin azúcar · precio de referencia en Makro &rarr;</a></li>
-            <li><a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-bebida-avena-se-12x946ml-co" target="_blank" rel="noopener noreferrer">Nature’s Heart avena · Nestlé Colombia &rarr;</a></li>
-            <li><a href="https://www.soriana.com/bebida-vegetal-sabor-almendra-de-california-silk-sin-azucar-946ml/11680708.html" target="_blank" rel="noopener noreferrer">Silk · ficha nutricional e ingredientes &rarr;</a></li>
-          </ul>
-          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">La tabla de composición completa <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  {%- comment -%} 002: satiety. The brand questions its own slogan. Evidence and limits stay word for word. {%- endcomment -%}
-  <section class="jcs-lab-case jcs-lab-case--split" id="jc-lab-002" aria-labelledby="jc-lab-002-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>002</span>Saciedad<em class="jcs-lab-status">En curso</em></p>
-      <div class="jcs-lab-split">
-        <figure class="jcs-lab-split__image">
-          <img src="{{ 'jc-manana.jpg' | asset_url }}" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico por la mañana junto a un vaso de NUBE">
-          <figcaption>06:00 · Bogotá. Dentro de cinco horas sabremos si rindió.</figcaption>
+      <header class="jcs-log-entry__meta"><span>Entrada 001</span><h2 id="jc-log-001-title">El pasillo</h2><em>Comprobado</em></header>
+      <div class="jcs-log-entry__grid">
+        <figure class="jcs-log-entry__image">
+          <img src="{{ 'jc-robot-almendra.jpg' | asset_url }}" width="1000" height="1777" loading="lazy" alt="Un robot azul sostiene una caja de bebida de almendras y la mira con sospecha">
         </figure>
-        <div>
-          <h2 class="jcs-title" id="jc-lab-002-title">Rinde más. ¿Rinde de verdad?</h2>
-          <p class="jcs-lab-split__q">{{ 'jc_satiety.headline' | t }}</p>
-          <p class="jcs-lead">{{ 'jc_satiety.intro' | t }}</p>
-          <p class="jcs-lead">{{ 'jc_satiety.investigation' | t }}</p>
-
-          <details class="jcs-lab-fold">
-            <summary>{{ 'jc_satiety.open_research' | t }}</summary>
-            <div class="jcs-lab-fold__body">
-              <h3>{{ 'jc_satiety.question_label' | t }}</h3>
-              <p class="jcs-lab-fold__big">{{ 'jc_satiety.question' | t }}</p>
-              <p>{{ 'jc_satiety.seed_reason' | t }}</p>
-              <h3>{{ 'jc_satiety.evidence_label' | t }}</h3>
-              <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
-              <div class="jcs-lab-paper">
-                <p class="jcs-lab-paper__title">{{ 'junglcore_explorations.research.protein_title' | t }}</p>
-                <p class="jcs-lab-paper__type">{{ 'junglcore_explorations.research.protein_type' | t }}</p>
-                <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
-                <p class="jcs-lab-note">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
-                <p class="jcs-lab-paper__ref">{{ 'junglcore_explorations.research.protein_ref' | t }}</p>
-                <a class="jcs-link" href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} <span aria-hidden="true">&rarr;</span></a>
-              </div>
-              <h3>{{ 'jc_satiety.unknown_label' | t }}</h3>
-              <p>{{ 'jc_satiety.unknown' | t }}</p>
-              <p class="jcs-lab-note">{{ 'jc_satiety.product_limit' | t }}</p>
-            </div>
-          </details>
-
-          <div class="jcs-lab-ask">
-            <p class="jcs-lab-ask__line">Cuando lo demostremos, lo leerás aquí antes que en un anuncio. Mientras tanto, la pregunta es para ti.</p>
-            <a class="jcs-btn" href="{{ wa }}{{ 'Hola, tomé NUBE en el desayuno. Les cuento si me rindió hasta el almuerzo:' | url_encode }}" target="_blank" rel="noopener"><span>Cuéntanos si te rindió</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-            <p class="jcs-lab-ask__small">Por WhatsApp. Las respuestas van a la libreta de los robots.</p>
+        <div class="jcs-log-entry__body">
+          <blockquote class="jcs-log-note">
+            <p>Los humanos tienen miles de plantas que se pueden comer. En el pasillo de las bebidas vegetales encontré cinco: almendra, avena, soya, arroz y coco. En Bogotá y en Birmingham, las mismas cinco.</p>
+            <footer>Dato · robot azul</footer>
+          </blockquote>
+          <div class="jcs-log-check">
+            <h3>Lo que comprobamos</h3>
+            <ul>
+              <li><strong>Almendras por vaso.</strong> Pera contó tres. Revisamos: unas cuatro. La única etiqueta que declara el porcentaje trae un 2,75 % de almendras, unos 5,5 g por vaso de 200 ml. Corregido. Sigue siendo poco. <a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+              <li><strong>Azúcar que nadie añadió.</strong> La de avena dice «sin azúcar añadida» y trae 7,5 g de azúcares por vaso. Sale de la propia avena al procesarla. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-bebida-avena-se-12x946ml-co" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+              <li><strong>Ingredientes.</strong> Una bebida de almendras: trece. NUBE: tres. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+              <li><strong>Proteína por vaso.</strong> Bebida de almendra: 1,0 g. NUBE: 6,3 g. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201818-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+            </ul>
+            <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-versus">La comparación completa, con precios <span aria-hidden="true">&rarr;</span></a>
           </div>
+          <p class="jcs-log-open"><span>Sigue abierto</span>Por qué son siempre las mismas cinco. Nadie nos lo ha sabido explicar.</p>
         </div>
       </div>
     </div>
-  </section>
+  </article>
 
-  {%- comment -%} The only thing on sale. Same buy box as everywhere else. {%- endcomment -%}
-  <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-lab-buy-title">
+  {%- comment -%} 002 · The seed {%- endcomment -%}
+  <article class="jcs-log-entry jcs-log-entry--flip" id="jc-log-002" aria-labelledby="jc-log-002-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>NUBE</span>Lo que ya salió del laboratorio</p>
+      <header class="jcs-log-entry__meta"><span>Entrada 002</span><h2 id="jc-log-002-title">La semilla</h2><em>En curso</em></header>
+      <div class="jcs-log-entry__grid">
+        <figure class="jcs-log-entry__image jcs-log-entry__image--wide">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-sacha-inchi-seed-leaf-roots-biodiversity-2026.jpg?v=1793696362&width=1100" width="1126" height="729" loading="lazy" alt="Fruto de sacha inchi de cuatro puntas junto a una hoja y sus raíces">
+          <figcaption>Planta 001 · Sacha inchi</figcaption>
+        </figure>
+        <div class="jcs-log-entry__body">
+          <blockquote class="jcs-log-note">
+            <p>Encontré una planta que da estrellas. Cuatro puntas, una semilla en cada una. Aquí la llaman sacha inchi. Fuera de aquí, casi nadie la conoce. Los humanos de aquí tampoco la ponen en el pasillo.</p>
+            <footer>Chispa · robot verde</footer>
+          </blockquote>
+          <div class="jcs-log-check">
+            <h3>Lo que comprobamos</h3>
+            <p>{{ 'jc_story.growers' | t }}</p>
+            <p>{{ 'jc_story.relationships' | t }}</p>
+          </div>
+          <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'jc_story.pilot' | t }}</p>
+          <p class="jcs-log-aside">De esta semilla salió NUBE. Viene ONE: la misma semilla, en polvo. <a href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {%- comment -%} 003 · Mornings. Evidence and limits stay word for word. {%- endcomment -%}
+  <article class="jcs-log-entry" id="jc-log-003" aria-labelledby="jc-log-003-title">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Entrada 003</span><h2 id="jc-log-003-title">Las mañanas</h2><em>En curso</em></header>
+      <div class="jcs-log-entry__grid">
+        <figure class="jcs-log-entry__image">
+          <img src="{{ 'jc-manana.jpg' | asset_url }}" width="928" height="1152" loading="lazy" alt="Una mujer lee el periódico por la mañana junto a un vaso de NUBE">
+          <figcaption>06:00 · Bogotá · 2.640 m</figcaption>
+        </figure>
+        <div class="jcs-log-entry__body">
+          <blockquote class="jcs-log-note">
+            <p>Observación: muchos humanos desayunan a las 7. A las 10 ya están buscando un pan. Otros llegan al almuerzo sin acordarse de la comida. No sabemos por qué. Ellos tampoco.</p>
+            <footer>Pera · robot rojo</footer>
+          </blockquote>
+          <div class="jcs-log-check">
+            <h3>Lo que comprobamos</h3>
+            <p>{{ 'jc_satiety.investigation' | t }}</p>
+            <details class="jcs-log-fold">
+              <summary>{{ 'jc_satiety.open_research' | t }}</summary>
+              <div class="jcs-log-fold__body">
+                <p class="jcs-log-fold__q">{{ 'jc_satiety.question' | t }}</p>
+                <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
+                <p class="jcs-log-fold__title">{{ 'junglcore_explorations.research.protein_title' | t }} · <span>{{ 'junglcore_explorations.research.protein_type' | t }}</span></p>
+                <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
+                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
+                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_ref' | t }} · <a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a></p>
+              </div>
+            </details>
+            <p class="jcs-log-small">{{ 'jc_satiety.product_limit' | t }} Cuando lo demostremos, lo leerás aquí antes que en un anuncio.</p>
+          </div>
+          <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'jc_satiety.unknown' | t }}</p>
+          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, tomé NUBE en el desayuno. Les cuento si me rindió hasta el almuerzo:' | url_encode }}" target="_blank" rel="noopener"><span>Cuéntanos si te rindió</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <p class="jcs-log-small jcs-log-small--after">Por WhatsApp. Pera lo anota.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {%- comment -%} 004 · The oil {%- endcomment -%}
+  <article class="jcs-log-entry jcs-log-entry--flip" id="jc-log-004" aria-labelledby="jc-log-004-title">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Entrada 004</span><h2 id="jc-log-004-title">El aceite</h2><em>En curso</em></header>
+      <div class="jcs-log-entry__grid">
+        <figure class="jcs-log-entry__image jcs-log-entry__image--wide">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1200" loading="lazy" alt="Una cuchara con aceite de sacha inchi">
+        </figure>
+        <div class="jcs-log-entry__body">
+          <blockquote class="jcs-log-note">
+            <p>Apretamos una semilla. Salió aceite. Los humanos llevan siglos haciendo esto con otras semillas. Con esta, casi nunca.</p>
+            <footer>Dato · robot azul</footer>
+          </blockquote>
+          <div class="jcs-log-check">
+            <h3>Lo que comprobamos</h3>
+            <p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p>
+            <p class="jcs-log-small">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p>
+          </div>
+          <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'junglcore_explorations.oil_research.open_copy' | t }}</p>
+          <p class="jcs-log-aside">OIL · En desarrollo. <a href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {%- comment -%} 005 · The next plant. Open to readers. {%- endcomment -%}
+  <article class="jcs-log-entry jcs-log-entry--open" id="jc-log-005" aria-labelledby="jc-log-005-title">
+    <div class="jcs-frame">
+      <header class="jcs-log-entry__meta"><span>Entrada 005</span><h2 id="jc-log-005-title">Planta 002</h2><em>Abierto</em></header>
+      <div class="jcs-log-entry__grid">
+        <div class="jcs-log-entry__image jcs-log-blank" aria-hidden="true"><span>002</span></div>
+        <div class="jcs-log-entry__body">
+          <blockquote class="jcs-log-note">
+            <p>Llevamos una planta. Quedan miles. Necesitamos más ojos.</p>
+            <footer>Pera, Chispa y Dato</footer>
+          </blockquote>
+          <p class="jcs-log-open"><span>Sigue abierto</span>Cuál sigue. Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
+          <a class="jcs-btn jcs-btn--ghost" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener"><span>Proponer una planta</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {%- comment -%} What has come out of the log so far. Same buy box as everywhere else. {%- endcomment -%}
+  <section class="jcs-shop jcs-log-shop" id="jc-buy" aria-labelledby="jc-log-buy-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>NUBE</span>Lo que salió de la bitácora, por ahora</p>
       <div class="jcs-shop__grid">
         <div>
           <div class="jcs-shop__visual">
@@ -140,7 +182,7 @@
           </div>
         </div>
         <div>
-          <h2 class="visually-hidden" id="jc-lab-buy-title">Comprar NUBE</h2>
+          <h2 class="visually-hidden" id="jc-log-buy-title">Comprar NUBE</h2>
           {% if nube != blank %}
             {% render 'jc-buy-box', product: nube, form_id: 'jcs-lab-buy', show_title: true %}
           {% endif %}
@@ -149,32 +191,9 @@
     </div>
   </section>
 
-  {%- comment -%} Still in the lab: ONE and OIL, no essays until they exist. {%- endcomment -%}
-  <section class="jcs-next jcs-lab-next" aria-labelledby="jc-lab-next-title">
+  <section class="jcs-final" aria-labelledby="jc-log-final-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>En el laboratorio</span>La sacha inchi es la primera planta. Vienen otras.</p>
-      <h2 class="visually-hidden" id="jc-lab-next-title">En el laboratorio</h2>
-      <div class="jcs-next__grid">
-        <div class="jcs-next__item">
-          <p class="jcs-eyebrow">ONE · En desarrollo</p>
-          <h3>La misma semilla, en polvo. Para llevar.</h3>
-          <p>Proteína y fibra de un solo ingrediente, para lo que ya comes. Te avisamos cuando llegue.</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="jcs-next__item">
-          <p class="jcs-eyebrow">OIL · En desarrollo</p>
-          <h3>El aceite de nuestra primera semilla.</h3>
-          <p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p>
-          <p class="jcs-lab-note">{{ 'junglcore_explorations.oil_research.composition_ref' | t }} {{ 'jc_lab.oil_note' | t }}</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="jcs-final" aria-labelledby="jc-lab-final-title">
-    <div class="jcs-frame">
-      <h2 id="jc-lab-final-title">Rinde más.</h2>
+      <h2 id="jc-log-final-title">Rinde más.</h2>
       <p>Si rinde de verdad, lo estamos averiguando. La proteína ya la contamos: 6,3 g por vaso, 30 vasos por bolsa.</p>
       <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
