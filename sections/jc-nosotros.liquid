@@ -1,19 +1,95 @@
-{% assign story_destination = routes.root_url | append: '#jc-v2-roots' %}
-<div class="jc-story-moved" data-destination="{{ story_destination }}">
-  <h1>{{ 'jc_story.relocated' | t }}</h1>
-  <a href="{{ story_destination }}">{{ 'jc_story.relocated_link' | t }} ↗</a>
+{{ 'jc-shop.css' | asset_url | stylesheet_tag }}
+<div class="jcs jcs-about" id="top">
+  {% render 'jc-header' %}
+
+  <section class="jcs-about__intro" aria-labelledby="jc-about-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>JUNGLCORE</span>Nosotros</p>
+      <h1 class="jcs-display" id="jc-about-title">Hecho de aquí. Ya era hora.</h1>
+      <p class="jcs-lead">JUNGLCORE hace alimentos con las plantas que el pasillo olvidó. Empezamos con una: la sacha inchi, de Colombia.</p>
+    </div>
+  </section>
+
+  <section class="jcs-about__block" aria-labelledby="jc-about-why">
+    <div class="jcs-frame jcs-about__grid">
+      <p class="jcs-chapter"><span>01</span>Por qué existimos</p>
+      <div>
+        <h2 class="jcs-title" id="jc-about-why">Ser vegetal no es suficiente.</h2>
+        <p>Hay miles de plantas que se pueden comer. El pasillo de las bebidas vegetales tiene cinco: almendra, avena, soya, arroz y coco. De Bogotá a Nueva York, de Londres a Dubái, las mismas cinco.</p>
+        <p>Colombia es uno de los países más biodiversos del planeta, y la proteína del supermercado sigue siendo arveja, soya y suero, casi siempre importados. Importar proteína no es lo raro. Lo raro es nunca haber mirado aquí.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="jcs-about__block" aria-labelledby="jc-about-seed">
+    <div class="jcs-frame jcs-about__grid">
+      <p class="jcs-chapter"><span>02</span>La semilla</p>
+      <div>
+        <h2 class="jcs-title" id="jc-about-seed">Una planta que da estrellas.</h2>
+        <p>La sacha inchi es una enredadera de la Amazonía. Su fruto tiene cuatro puntas, como una estrella, con una semilla en cada una. Proteína, fibra y un aceite rico en omega-3 de origen vegetal, en una sola semilla que casi nadie fuera de aquí conoce.</p>
+        <figure class="jcs-about__figure">
+          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-sacha-inchi-seed-leaf-roots-biodiversity-2026.jpg?v=1793696362&width=1400" width="1126" height="729" loading="lazy" alt="Fruto de sacha inchi de cuatro puntas junto a una hoja y sus raíces">
+          <figcaption>Planta 001 · Sacha inchi. La primera de varias.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="jcs-about__block" aria-labelledby="jc-about-growers">
+    <div class="jcs-frame jcs-about__grid">
+      <p class="jcs-chapter"><span>03</span>Quién la cultiva</p>
+      <div>
+        <h2 class="jcs-title" id="jc-about-growers">Con nombre y apellido, no con intermediarios.</h2>
+        <p>{{ 'jc_story.growers' | t }}</p>
+        <p>{{ 'jc_story.relationships' | t }}</p>
+        <p class="jcs-about__note">{{ 'jc_story.pilot' | t }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="jcs-about__block" aria-labelledby="jc-about-chain">
+    <div class="jcs-frame jcs-about__grid">
+      <p class="jcs-chapter"><span>04</span>La apuesta</p>
+      <div>
+        <h2 class="jcs-title" id="jc-about-chain">Que gane toda la cadena.</h2>
+        <p>Queremos probar que un negocio rentable puede ser bueno para todos los que tocan la semilla: quien la cultiva, quien la transforma, quien se la toma, y la planta misma.</p>
+        <p>{{ 'jc_story.method' | t }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="jcs-robots jcs-about__robots" aria-labelledby="jc-about-robots">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>05</span>Y los robots</p>
+      <div class="jcs-robots__grid">
+        <figure class="jcs-robots__image">
+          <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="lazy" alt="Tres robots científicos en una nave estudian una caja de bebida de almendras, unas almendras y un vaso de agua">
+        </figure>
+        <div class="jcs-robots__copy">
+          <h2 class="jcs-display" id="jc-about-robots">Vinieron buscando la jungla.</h2>
+          <p>Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Vinieron a la Tierra a buscar la jungla y encontraron pasillos.</p>
+          <p>Ellos dicen en voz alta lo que nosotros pensamos. Nosotros comprobamos sus notas.</p>
+          <a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones">Abrir la bitácora <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jcs-final" aria-labelledby="jc-about-final">
+    <div class="jcs-frame">
+      <h2 id="jc-about-final">Rinde más.</h2>
+      <p>La primera semilla ya está en tu congelador, si quieres. 30 vasos por bolsa.</p>
+      <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  {% render 'jc-footer' %}
 </div>
-{% javascript %}
-const storyLink = document.querySelector('.jc-story-moved');
-if (storyLink && storyLink.dataset.destination && !window.Shopify?.designMode) {
-  window.location.replace(storyLink.dataset.destination);
-}
-{% endjavascript %}
-{% stylesheet %}
-.jc-story-moved{padding:80px 24px;max-width:1000px;margin:auto;color:#30352f}
-.jc-story-moved h1{font-size:clamp(30px,5vw,54px);line-height:1.15;font-weight:500}
-.jc-story-moved a{font-size:14px;text-underline-offset:5px}
-{% endstylesheet %}
+
 {% schema %}
-{"name":"JUNGLCORE Historia","settings":[],"presets":[{"name":"JUNGLCORE Historia"}]}
+{
+  "name": "JUNGLCORE Nosotros",
+  "settings": [],
+  "presets": [{ "name": "JUNGLCORE Nosotros" }]
+}
 {% endschema %}

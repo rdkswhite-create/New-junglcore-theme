@@ -4,6 +4,11 @@ JUNGLCORE footer, shared by the homepage, NUBE page and Lab.
 @param {string} [legal_nit] - NIT.
 @param {string} [legal_address] - Dirección.
 {% enddoc %}
+{%- liquid
+  assign legal_name = legal_name | default: settings.jc_legal_name
+  assign legal_nit = legal_nit | default: settings.jc_legal_nit
+  assign legal_address = legal_address | default: settings.jc_legal_address
+-%}
 <footer class="jcs-footer">
   <div class="jcs-frame">
     <div class="jcs-footer__grid">
@@ -16,7 +21,7 @@ JUNGLCORE footer, shared by the homepage, NUBE page and Lab.
         <h3>Junglcore</h3>
         <a href="{{ routes.root_url }}products/nube">NUBE</a>
         <a href="{{ routes.root_url }}pages/exploraciones">JUNGLCORE LAB</a>
-        <a href="{{ routes.root_url }}#jc-manifesto">La semilla</a>
+        <a href="{{ routes.root_url }}pages/nosotros">Nosotros</a>
       </nav>
       <nav aria-label="Ayuda">
         <h3>Ayuda</h3>

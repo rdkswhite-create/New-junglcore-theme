@@ -146,7 +146,27 @@
     </div>
   </section>
 
-  {% render 'jc-faq', number: '06' %}
+  {%- if section.blocks.size > 0 -%}
+  <section class="jcs-reviews" id="jc-resenas" aria-labelledby="jc-reviews-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>06</span>Lo que dijeron los humanos</p>
+      <div class="jcs-reviews__head">
+        <h2 class="jcs-title" id="jc-reviews-title">Lo que dijeron los humanos.</h2>
+        <p class="jcs-lead">Personas reales, palabras reales. Los robots no se lo terminan de creer. Lo anotan igual.</p>
+      </div>
+      <div class="jcs-reviews__grid">
+        {%- for block in section.blocks -%}
+          <figure class="jcs-review" {{ block.shopify_attributes }}>
+            <blockquote>«{{ block.settings.quote | escape }}»</blockquote>
+            <figcaption><strong>{{ block.settings.name | escape }}</strong>{% if block.settings.place != blank %} · {{ block.settings.place | escape }}{% endif %}</figcaption>
+          </figure>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {% render 'jc-faq', number: '07' %}
 
   <section class="jcs-final" aria-labelledby="jc-final-title">
     <div class="jcs-frame">
@@ -180,6 +200,18 @@
     { "type": "text", "id": "legal_nit", "label": "NIT" },
     { "type": "text", "id": "legal_address", "label": "Dirección" }
   ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Reseña",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Lo que dijo, palabra por palabra" },
+        { "type": "text", "id": "name", "label": "Nombre (con su permiso)" },
+        { "type": "text", "id": "place", "label": "Barrio o ciudad" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
   "presets": [{ "name": "JUNGLCORE inicio" }]
 }
 {% endschema %}

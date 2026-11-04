@@ -1466,5 +1466,39 @@
         "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
       }
     ]
+  },
+  {
+    "name": "JUNGLCORE",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Datos legales (aparecen en el pie de página de todas las páginas)"
+      },
+      {
+        "type": "text",
+        "id": "jc_legal_name",
+        "label": "Razón social"
+      },
+      {
+        "type": "text",
+        "id": "jc_legal_nit",
+        "label": "NIT"
+      },
+      {
+        "type": "text",
+        "id": "jc_legal_address",
+        "label": "Dirección"
+      },
+      {
+        "type": "header",
+        "content": "Analítica"
+      },
+      {
+        "type": "text",
+        "id": "jc_clarity_id",
+        "label": "Microsoft Clarity: ID del proyecto",
+        "info": "Pega aquí el ID de tu proyecto en clarity.microsoft.com para ver mapas de calor y grabaciones de visitas."
+      }
+    ]
   }
 ]

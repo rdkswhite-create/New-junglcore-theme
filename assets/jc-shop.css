@@ -385,3 +385,32 @@
 .jcs-check__row { display: flex; gap: 8px; margin-top: 12px; }
 .jcs-check__row input { flex: 1; min-width: 0; padding: 12px; border: 1px solid var(--rule); font: inherit; font-size: 14px; background: #fff; }
 .jcs-check__wa { display: inline-flex; align-items: center; padding: 0 16px; background: var(--ink); color: var(--paper); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+
+/* ---------- Reviews ---------- */
+.jcs-reviews { padding: clamp(56px, 8vw, 110px) 0 0; }
+.jcs-reviews__head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-top: clamp(28px, 4vw, 52px); }
+.jcs-reviews__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: clamp(28px, 4vw, 48px); border-top: 1px solid var(--ink); }
+.jcs-review { margin: 0; padding: 26px 24px 26px 0; border-bottom: 1px solid var(--rule); }
+.jcs-review + .jcs-review { padding-left: 24px; border-left: 1px solid var(--rule); }
+.jcs-review blockquote { margin: 0; font-size: clamp(18px, 1.7vw, 21px); line-height: 1.4; letter-spacing: -.01em; }
+.jcs-review figcaption { margin-top: 16px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.jcs-review figcaption strong { color: var(--ink); }
+@media (max-width: 749px) {
+  .jcs-reviews__head { grid-template-columns: 1fr; gap: 14px; }
+  .jcs-reviews__grid { grid-template-columns: 1fr; }
+  .jcs-review, .jcs-review + .jcs-review { padding: 22px 0; border-left: 0; }
+}
+@media (min-width: 750px) { .jcs-review:nth-child(3n+1) { padding-left: 0; border-left: 0; } }
+
+/* ---------- Nosotros ---------- */
+.jcs-about__intro { padding: clamp(56px, 8vw, 110px) 0 clamp(24px, 4vw, 48px); }
+.jcs-about__intro .jcs-display { margin-top: clamp(28px, 4vw, 52px); max-width: 15ch; }
+.jcs-about__intro .jcs-lead { margin-top: 22px; }
+.jcs-about__block { padding: clamp(40px, 6vw, 80px) 0; }
+.jcs-about__grid > div { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 720px; margin-top: clamp(24px, 3vw, 40px); }
+.jcs-about__grid > div > p { margin-top: 18px; font-size: 17px; line-height: 1.65; color: var(--muted); }
+.jcs .jcs-about__note { font-size: 14px; font-style: italic; }
+.jcs-about__figure { margin: 28px 0 0; }
+.jcs-about__figure img { width: 100%; height: auto; }
+.jcs-about__figure figcaption { margin-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.jcs-about__robots { margin-top: clamp(24px, 4vw, 48px); }
