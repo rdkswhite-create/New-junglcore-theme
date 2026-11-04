@@ -74,6 +74,13 @@
 .jcs-hero__actions .jcs-link { color: #fff; }
 .jcs-hero__bottom { padding-bottom: 22px; }
 .jcs-hero__wordmark { width: 100%; height: auto; opacity: .96; }
+/* Desktop: text on the right, pour left in the clear */
+@media (min-width: 990px) {
+  .jcs-hero__top { flex-direction: row-reverse; }
+  .jcs-hero__body > * { margin-left: 48%; max-width: 52%; }
+  .jcs-hero__title { font-size: clamp(36px, 4.1vw, 64px); }
+  .jcs-hero__shade { background: linear-gradient(90deg, rgba(0,0,0,0) 38%, rgba(0,0,0,.42) 100%), linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.08) 38%, rgba(0,0,0,.18) 62%, rgba(0,0,0,.62) 100%); }
+}
 @media (max-width: 749px) {
   .jcs-hero { min-height: 88vh; }
   .jcs-hero__top { padding-top: 18px; font-size: 10px; }
