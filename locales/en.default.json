@@ -43,7 +43,7 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Continue shopping",
+    "continue_shopping": "Seguir comprando",
     "pagination": {
       "label": "Pagination",
       "page": "Page {{ number }}",
@@ -233,7 +233,7 @@
   },
   "templates": {
     "404": {
-      "title": "Page not found",
+      "title": "Esta página no existe. Como las almendras en algunas bebidas de almendra.",
       "subtext": "404"
     },
     "search": {
@@ -305,7 +305,7 @@
       "new_estimated_total": "New estimated total",
       "note": "Order special instructions",
       "checkout": "Check out",
-      "empty": "Your cart is empty",
+      "empty": "Carrito vacío. Casi tanta proteína como una bebida de almendra.",
       "product_disclosure": "Product disclosure",
       "product_disclosures": "Product disclosures",
       "cart_error": "There was an error while updating your cart. Please try again.",
@@ -550,7 +550,7 @@
     "nav_about": "NOSOTROS",
     "order": "PEDIR NUBE",
     "hero_origin": "COLOMBIA / BIODIVERSIDAD",
-    "hero_start": "UNA BEBIDA VEGETAL DIFERENTE",
+    "hero_start": "6,3 G DE PROTEÍNA POR VASO",
     "idea": "EXPLORAMOS LO QUE LA BIODIVERSIDAD HACE POSIBLE.",
     "hero_product": "NUBE / BASE CONGELADA DE SACHA INCHI",
     "discover_nube": "DESCUBRIR NUBE",
@@ -586,7 +586,7 @@
     "footer_plants": "Plantas",
     "footer_about": "Nosotros",
     "faq_brand_q": "¿Qué es JUNGLCORE?",
-    "faq_brand_a": "Exploramos plantas y creamos nuevas formas de llevarlas a tu vida cotidiana. Trabajamos con quienes las cultivan y desarrollamos productos a partir de sus posibilidades. Empezamos con NUBE, nuestra base congelada de sacha inchi.",
+    "faq_brand_a": "Buscamos plantas olvidadas y les encontramos un uso. Empezamos con la sacha inchi, cultivada en Colombia.",
     "use_bakery": "EN REPOSTERÍA",
     "use_bakery_alt": "Bizcocho casero cortado sobre un plato de cerámica",
     "use_sauce": "EN SALSAS",
@@ -701,7 +701,7 @@
     "quantity": "Cantidad",
     "add_to_cart": "COMPRAR EN LÍNEA",
     "unavailable": "NO DISPONIBLE",
-    "delivery_short": "Entrega únicamente en Bogotá D.C. Envío: $20.000 COP. Gratis en pedidos desde $100.000 COP.",
+    "delivery_short": "Solo en Bogotá, por ahora. Llega congelada, como debe ser. Envío: $20.000 COP. Gratis en pedidos desde $100.000 COP.",
     "how": "CÓMO SE PREPARA",
     "ingredients_title": "Ingredientes",
     "ingredients": "Sacha inchi, agua y goma gelana.",
@@ -837,8 +837,8 @@
     "preview_intro": "Hoy empezamos con NUBE. ONE y OIL son nuestras próximas creaciones."
   },
   "jc_ritual": {
-    "title": "TÓMATE",
-    "title_end": "UN MOMENTO.",
+    "title": "DOS",
+    "title_end": "MOMENTOS.",
     "intro": "Más espesa o más ligera. Tú decides cuánta agua añadir.",
     "thick": "MÁS ESPESA",
     "thick_prep": "1 barra + 150 ml de agua",
@@ -858,10 +858,14 @@
     "portion_price": "1.330 COP por preparación.",
     "film": "VER LA PREPARACIÓN",
     "film_alt": "Preparación de NUBE: una barra, agua, licuadora y bebida terminada.",
-    "moment_intro": "Tu vaso favorito. Una bebida que preparas tú. Un momento antes de seguir con todo lo demás.",
+    "moment_intro": "Fría por la mañana. Caliente por la noche. La misma barra.",
     "moment_blend": "Licúa la barra con agua durante 30 segundos. Completa hasta obtener 200 ml de bebida.",
     "enjoy": "DISFRUTA",
-    "moment_enjoy": "Sirve en tu vaso favorito. Deja el celular a un lado y disfruta del primer sorbo."
+    "moment_enjoy": "Sirve en tu vaso favorito. Deja el celular a un lado y disfruta del primer sorbo.",
+    "morning": "MAÑANA",
+    "morning_copy": "Saca una barra. Licúa 30 segundos con agua. Completa hasta 200 ml. Listo.",
+    "night": "NOCHE",
+    "night_copy": "Una barra en una taza de agua caliente. Deja que se deshaga despacio. Sin licuadora."
   },
   "jc_breakfast": {
     "title": "¿CÓMO EMPIEZAS EL DÍA?",
@@ -894,17 +898,21 @@
     "description": "Una base congelada de sacha inchi para preparar tu bebida vegetal en casa.",
     "choice": "Más espesa o más ligera. Tú decides.",
     "proof": "Sacha inchi, agua y goma gelana.",
-    "ingredients_label": "TRES INGREDIENTES."
+    "ingredients_label": "TRES INGREDIENTES.",
+    "taste": "¿A qué sabe? Quienes la prueban dicen que se parece a la avena.",
+    "versus": "Por vaso, menos que una bebida de almendra.",
+    "versus_end": "Seis veces la proteína.",
+    "bundle": "3 bolsas · 119.700 COP · 90 vasos · envío gratis"
   },
   "jc_home_research": {
     "intro": "Exploramos la relación entre biodiversidad, salud y bienestar.",
     "title": "TODO EMPIEZA CON UNA PREGUNTA.",
     "satiety_label": "001 / SACIEDAD",
-    "satiety_hook": "ACABAS DE COMER. ¿POR QUÉ SIGUES PENSANDO EN COMIDA?",
-    "satiety_copy": "Exploramos la relación entre alimentación, saciedad y pensamientos recurrentes sobre comida.",
+    "satiety_hook": "DESAYUNASTE A LAS 7. ¿TE RINDIÓ HASTA EL ALMUERZO?",
+    "satiety_copy": "Proteína y fibra juntas, desde una sola semilla. Exploramos por qué algunas mañanas rinden más que otras.",
     "oil_label": "002 / GRASAS DE SEMILLAS",
-    "oil_hook": "¿COMER GRASA PARA BAJAR EL COLESTEROL?",
-    "oil_copy": "Sustituir grasas saturadas por insaturadas puede ayudar a reducir el colesterol LDL. Exploramos qué papel puede tener el aceite de sacha inchi.",
+    "oil_hook": "¿CUÁNTO VALOR CABE EN UN ACEITE?",
+    "oil_copy": "La semilla guarda mucho de lo que es en su aceite. Exploramos qué hacer con él.",
     "visit": "EXPLORAR"
   },
   "jc_plant_story": {
@@ -981,7 +989,7 @@
   },
   "jc_story": {
     "headline": "SER VEGETAL NO ES SUFICIENTE.",
-    "lead": "También importa qué planta es, cómo se cultiva y qué hacemos con ella.",
+    "lead": "Colombia es el país más biodiverso del mundo. Y la proteína del supermercado sigue siendo arveja, soya y suero, casi siempre importados. Importar proteína no es lo raro. Lo raro es nunca haber mirado aquí.",
     "growers": "Trabajamos directamente con agricultores y grupos de productores de Valle del Cauca, Santander y Norte de Santander. Hemos contribuido a desarrollar una asociación de productores de sacha inchi.",
     "relationships": "Precios acordados, compras previsibles y relaciones a largo plazo: más capacidad de planear para quienes cultivan; continuidad y calidad para lo que creamos.",
     "pilot": "También colaboramos en un piloto de cultivo de sacha inchi junto a árboles de cacao, con la agricultura regenerativa como orientación. Está en desarrollo: aún no contamos con resultados ambientales medidos.",
@@ -1006,9 +1014,9 @@
     "nube_price": "39.900 COP · 30 preparaciones",
     "order": "PEDIR NUBE",
     "frozen_q": "¿Por qué congelado?",
-    "frozen_a": "Para conservarse sin conservantes.",
+    "frozen_a": "Porque empezamos por la semilla, no por la caja. Congelada se conserva sin conservantes: la fórmula no lleva nada que la haga durar.",
     "gellan_q": "¿Qué es la goma gelana?",
-    "gellan_a": "Suspende las partículas para que la bebida quede suave.",
+    "gellan_a": "Nuestro tercer ingrediente, y no lo escondemos. Mantiene todo suspendido para que la bebida quede suave y no arenosa.",
     "brand": "JUNGLCORE LAB",
     "method": "Partimos de preguntas sobre la vida cotidiana. Estudiamos plantas, revisamos la evidencia y desarrollamos nuevas formas de incorporarlas a tu día.",
     "page_description": "JUNGLCORE LAB: exploramos la relación entre biodiversidad, salud y bienestar. Saciedad, grasas de semillas y productos en desarrollo con sacha inchi.",
@@ -1044,5 +1052,18 @@
     "mapping_product": "Referencias de esta tabla: económica = Almondee D1; precio medio = Almendrola sin azúcar; precio alto = Silk; avena = Nature’s Heart. Son productos concretos, no promedios de cada categoría.",
     "price_basis": "Clasificación por precio de referencia por litro: Almondee D1, 8.250 COP; Almendrola, 17.550 COP (Makro, consultado el 4 de noviembre de 2026); Silk, 20.950 COP por 946 ml (22.146 COP/l). Los precios pueden variar.",
     "almendrola_price": "Almendrola sin azúcar · precio de referencia en Makro"
+  },
+  "jc_hallazgos": {
+    "label": "HALLAZGOS",
+    "title": "TODAVÍA NO NOS ENTIENDEN.",
+    "copy": "Tres robots científicos estudian lo que comemos los humanos.",
+    "link": "VER EL ÚLTIMO HALLAZGO"
+  },
+  "jc_faq": {
+    "taste_q": "¿A qué sabe?",
+    "taste_a": "Quienes la prueban dicen que se parece a la avena.",
+    "hot_q": "¿Se puede tomar caliente?",
+    "hot_a": "Sí. Una barra en agua caliente, sin licuadora. Para la noche.",
+    "delivery_a": "Bogotá, por ahora. El resto de Colombia, cuando la cadena de frío nos deje. Envío: $20.000 COP. Gratis en pedidos desde $100.000 COP."
   }
 }

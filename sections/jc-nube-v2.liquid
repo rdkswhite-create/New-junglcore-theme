@@ -67,10 +67,13 @@
         <p class="jc-nube-offer__description">{{ 'jc_home_offer.description' | t }}</p>
         <p class="jc-nube-offer__choice">{{ 'jc_home_offer.choice' | t }}</p>
         <div class="jc-nube-offer__proof"><span class="jc-nube-offer__ingredient-label">{{ 'jc_home_offer.ingredients_label' | t }}</span><p>{{ 'jc_home_offer.proof' | t }}</p></div>
+        <p class="jc-nube-offer__choice jc-nube-offer__taste">{{ 'jc_home_offer.taste' | t }}</p>
         <div class="jc-bio__nube-value">
           <p>{{ 'junglcore_biodiversity.nube_home_pack' | t }}</p>
           <p><strong>{{ 'junglcore_biodiversity.value_price' | t }}</strong><span>{{ 'junglcore_biodiversity.value_portion' | t }}</span></p>
         </div>
+        <p class="jc-nube-offer__versus">{{ 'jc_home_offer.versus' | t }}<br>{{ 'jc_home_offer.versus_end' | t }}</p>
+        <p class="jc-nube-offer__bundle">{{ 'jc_home_offer.bundle' | t }}</p>
         <div class="jc-v2__nube-actions">
           <a class="jc-v2__button" href="{{ order_url | strip | escape }}">{{ order_label }} <span aria-hidden="true">↗</span></a>
           <a class="jc-v2__textlink" href="#jc-v2-ritual">CÓMO FUNCIONA <span aria-hidden="true">↓</span></a>
@@ -149,15 +152,26 @@
     </div>
   </section>
 
+  <section class="jc-v2__hallazgos jc-v2__frame" id="jc-v2-hallazgos" aria-labelledby="jc-v2-hallazgos-title">
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>06</span><span>{{ 'jc_hallazgos.label' | t }}</span></div>
+    <div class="jc-hallazgos">
+      <h2 id="jc-v2-hallazgos-title">{{ 'jc_hallazgos.title' | t }}</h2>
+      <p>{{ 'jc_hallazgos.copy' | t }}</p>
+      {% if section.settings.hallazgos_url != blank %}<a class="jc-hallazgos__link" href="{{ section.settings.hallazgos_url }}" target="_blank" rel="noopener">{{ 'jc_hallazgos.link' | t }} <span aria-hidden="true">↗</span></a>{% endif %}
+    </div>
+  </section>
+
   <section class="jc-v2__faq jc-v2__frame" id="jc-v2-faq" aria-labelledby="jc-v2-faq-title">
-    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>06</span><span>PREGUNTAS FRECUENTES</span></div>
+    <div class="jc-v2__chapter jc-v2__chapter--rule"><span>07</span><span>PREGUNTAS FRECUENTES</span></div>
     <h2 id="jc-v2-faq-title">LO ESENCIAL.</h2>
 <details><summary>{{ 'jc_lab.frozen_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_lab.frozen_a' | t }}</p></details>
     <details><summary>{{ 'jc_lab.gellan_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_lab.gellan_a' | t }}</p></details>
     <details><summary>{{ 'junglcore_biodiversity.faq_brand_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'junglcore_biodiversity.faq_brand_a' | t }}</p></details>
     <details><summary>¿Cómo se prepara NUBE?<span aria-hidden="true">+</span></summary><p>{{ 'jc_breakfast.faq_preparation' | t }}</p></details>
+    <details><summary>{{ 'jc_faq.taste_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_faq.taste_a' | t }}</p></details>
+    <details><summary>{{ 'jc_faq.hot_q' | t }}<span aria-hidden="true">+</span></summary><p>{{ 'jc_faq.hot_a' | t }}</p></details>
     <details><summary>¿Cómo se conserva?<span aria-hidden="true">+</span></summary><p>NUBE es un producto congelado. Consérvalo en el congelador y sigue las instrucciones de conservación de su envase.</p></details>
-    <details><summary>¿Dónde entregan?<span aria-hidden="true">+</span></summary><p>Las entregas iniciales de NUBE se coordinan directamente en Bogotá para mantener la cadena de frío. Contáctanos antes de hacer tu pedido.</p></details>
+    <details><summary>¿Dónde entregan?<span aria-hidden="true">+</span></summary><p>{{ 'jc_faq.delivery_a' | t }}</p></details>
   </section>
 
   <footer class="jc-v2__footer" aria-label="Información de JUNGLCORE">
@@ -1332,6 +1346,17 @@
 {% endstyle %}
 {{ 'jc-home-typography.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+#jc-v2-nube .jc-nube-offer__versus{font-size:clamp(19px,2vw,24px);font-weight:500;line-height:1.3;letter-spacing:-.01em;color:#141414;margin:22px 0 10px}
+#jc-v2-nube .jc-nube-offer__bundle{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#343630;margin:0 0 26px}
+.jc-v2__hallazgos{padding-top:clamp(70px,8vw,110px);padding-bottom:clamp(20px,3vw,40px)}
+.jc-v2__hallazgos .jc-hallazgos{background:#161616;color:#f2f2ef;padding:clamp(34px,5vw,64px);margin-top:clamp(28px,3vw,40px)}
+.jc-v2__hallazgos .jc-hallazgos h2{font-size:clamp(30px,4.4vw,58px);font-weight:500;line-height:1.12;letter-spacing:-.025em;color:#fff;margin:0 0 18px}
+.jc-v2__hallazgos .jc-hallazgos p{font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#cfcfcb;max-width:520px;margin:0}
+.jc-v2__hallazgos .jc-hallazgos__link{display:inline-block;margin-top:28px;font-size:12px;letter-spacing:.08em;color:#fff;border-bottom:1px solid #fff;padding-bottom:4px;text-decoration:none}
+@media(max-width:749px){.jc-v2__hallazgos{padding-top:64px}.jc-v2__hallazgos .jc-hallazgos{padding:30px 24px}}
+{% endstyle %}
+
 {% schema %}
 {
   "name": "Junglcore NUBE V2",
@@ -1446,6 +1471,15 @@
     {
       "type": "header",
       "content": "Comparación nutricional"
+    },
+    {
+      "type": "header",
+      "content": "Hallazgos"
+    },
+    {
+      "type": "url",
+      "id": "hallazgos_url",
+      "label": "Enlace al último hallazgo (Instagram)"
     },
     {
       "type": "header",

@@ -18,14 +18,9 @@
         "protein_value": "6,3 g",
         "fibre_value": "1,4 g"
       }
-    },
-    "jc_home_patch": {
-      "type": "jc-home-patch",
-      "settings": {}
     }
   },
   "order": [
-    "jc_nube_v2",
-    "jc_home_patch"
+    "jc_nube_v2"
   ]
 }

@@ -6,10 +6,9 @@ Invites a deliberate NUBE preparation ritual, followed by optional texture choic
 {% enddoc %}
 <div class="jc-ritual-choice">
   <div class="jc-ritual-choice__opening"><h2 id="{{ heading_id | escape }}">{{ 'jc_ritual.title' | t }}<br>{{ 'jc_ritual.title_end' | t }}</h2><p class="jc-ritual-choice__moment">{{ 'jc_ritual.moment_intro' | t }}</p></div>
-  <ol class="jc-ritual-choice__steps">
-    <li><span aria-hidden="true">01</span><h4>{{ 'jc_ritual.take' | t }}</h4><p>{{ 'jc_ritual.take_copy' | t }}</p></li>
-    <li><span aria-hidden="true">02</span><h4>{{ 'jc_ritual.blend' | t }}</h4><p>{{ 'jc_ritual.moment_blend' | t }}</p></li>
-    <li><span aria-hidden="true">03</span><h4>{{ 'jc_ritual.enjoy' | t }}</h4><p>{{ 'jc_ritual.moment_enjoy' | t }}</p></li>
+  <ol class="jc-ritual-choice__steps jc-ritual-choice__steps--moments">
+    <li><span aria-hidden="true">01</span><h4>{{ 'jc_ritual.morning' | t }}</h4><p>{{ 'jc_ritual.morning_copy' | t }}</p></li>
+    <li><span aria-hidden="true">02</span><h4>{{ 'jc_ritual.night' | t }}</h4><p>{{ 'jc_ritual.night_copy' | t }}</p></li>
   </ol>
   {% if show_film %}
     <details class="jc-ritual-choice__film">
@@ -77,4 +76,6 @@ Invites a deliberate NUBE preparation ritual, followed by optional texture choic
 .jc-v2 .jc-ritual-choice__options>summary::-webkit-details-marker{display:none}
 .jc-v2 .jc-ritual-choice__options[open]>summary>span{transform:rotate(180deg)}
 .jc-v2 .jc-ritual-choice__options .jc-ritual-choice__statement{margin-bottom:28px}
+.jc-v2 .jc-ritual-choice__steps--moments{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:749px){.jc-v2 .jc-ritual-choice__steps--moments{grid-template-columns:1fr}}
 {% endstylesheet %}
