@@ -359,3 +359,12 @@
 .jcs-robots__image .jcs-tapvid__video { object-position: center 60%; }
 .jcs-robots__image .jcs-tapvid.is-playing .jcs-tapvid__frame { aspect-ratio: 9 / 16; }
 .jcs-log-intro__lead--small { margin-top: 14px; font-size: 16px; color: rgba(255,255,255,.6); }
+
+/* ---------- Mission file (robots) ---------- */
+.jcs-file { margin: 0 0 30px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,.28); max-width: 520px; }
+.jcs-file div { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.28); }
+.jcs-file div:nth-child(odd) { padding-right: 16px; }
+.jcs-file dt { font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+.jcs-file dd { margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #fff; }
+.jcs-file__stamp { display: inline-block; padding: 2px 10px; border: 2px solid #d9573f; color: #e2674f; font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; transform: rotate(-4deg); border-radius: 3px; }
+.jcs-log-intro .jcs-file { margin-top: 18px; }
