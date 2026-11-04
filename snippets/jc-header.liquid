@@ -17,7 +17,36 @@ JUNGLCORE header with announcement and a buy button on every page.
       <a href="{{ routes.root_url }}products/nube">NUBE</a>
       <a href="{{ routes.root_url }}pages/exploraciones">JUNGLCORE LAB</a>
       <a href="{{ routes.root_url }}#jc-faq">Preguntas</a>
+      <a href="{{ routes.root_url }}pages/nosotros">Nosotros</a>
     </nav>
-    <a class="jcs-btn jcs-header__buy" href="{{ buy_href }}">Comprar</a>
+    <div class="jcs-header__actions">
+      <a class="jcs-btn jcs-header__buy" href="{{ buy_href }}">Comprar</a>
+      <button type="button" class="jcs-header__menu" aria-expanded="false" aria-controls="jcs-mobile-nav" aria-label="Abrir menú">
+        <span class="jcs-header__bars" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
   </div>
+  <nav class="jcs-mobile-nav" id="jcs-mobile-nav" aria-label="Menú" hidden>
+    <a href="{{ routes.root_url }}products/nube"><span>NUBE</span><em>La bebida</em></a>
+    <a href="{{ routes.root_url }}pages/exploraciones"><span>JUNGLCORE LAB</span><em>La bitácora de la nave</em></a>
+    <a href="{{ routes.root_url }}#jc-faq"><span>Preguntas</span><em>Lo que nos preguntan</em></a>
+    <a href="{{ routes.root_url }}pages/nosotros"><span>Nosotros</span><em>Hecho de aquí</em></a>
+    <a href="https://wa.me/573011571039" target="_blank" rel="noopener"><span>WhatsApp</span><em>Escríbenos</em></a>
+  </nav>
+  <script>
+    (function () {
+      var b = document.currentScript.parentNode.querySelector('.jcs-header__menu');
+      var n = document.getElementById('jcs-mobile-nav');
+      if (!b || !n) return;
+      function set(open) {
+        b.setAttribute('aria-expanded', String(open));
+        b.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        n.hidden = !open;
+        document.documentElement.classList.toggle('jcs-menu-open', open);
+      }
+      b.addEventListener('click', function () { set(b.getAttribute('aria-expanded') !== 'true'); });
+      n.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    })();
+  </script>
 </header>
