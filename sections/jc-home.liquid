@@ -24,7 +24,7 @@
     <div class="jcs-hero__top"><span>Colombia / Biodiversidad</span><span>6,3 g de proteína por vaso</span></div>
     <div class="jcs-hero__body">
       <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
-      <p class="jcs-hero__sub">NUBE es una barra congelada de sacha inchi colombiana. Agua, 30 segundos de licuadora, y tienes un vaso con seis veces la proteína de una bebida de almendra.</p>
+      <p class="jcs-hero__sub">NUBE es una barra congelada de sacha inchi para preparar una bebida vegetal. Agua, 30 segundos. Listo.</p>
       <div class="jcs-hero__actions">
         <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-moments">Cómo se prepara</a>
@@ -93,6 +93,16 @@
           <p>Pera, Chispa y Dato. Tres robots científicos, una nave, y la Tierra por la ventana. Vinieron a estudiar lo que comemos los humanos.</p>
           <p>Pagamos extra por lo que casi no leemos. Elegimos comida por el dibujo de la caja. Ellos toman notas.</p>
           <p class="jcs-robots__finding"><span>Hallazgo anotado</span>Tres almendras y un vaso de agua. Para ellos, eso explica bastante.</p>
+          {%- liquid
+            assign hallazgos = 'Un vaso de bebida de almendras lleva unas cuatro almendras. El resto, sobre todo, agua.|La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso. Nadie los añadió, pero ahí están.|Contamos los ingredientes de una bebida de almendras: trece. Los de NUBE: tres. Nos sobraron diez.|En la caja dice «natural» en letra grande. En la lista de ingredientes, lo primero es agua.|Colombia es el país más biodiverso del mundo. Su pasillo de bebidas vegetales tiene cinco plantas.|Proteína por vaso: almendra, 1 g. Avena, 2,9 g. NUBE, 6,3 g. Seguimos sin entender la caja.|«Saludable», en letra grande. Las almendras, en letra pequeña.' | split: '|'
+            assign day = 'now' | date: '%j' | plus: 0
+            assign pick = day | modulo: hallazgos.size
+            assign hallazgo_hoy = hallazgos[pick]
+            if section.settings.hallazgo_dia != blank
+              assign hallazgo_hoy = section.settings.hallazgo_dia
+            endif
+          -%}
+          <p class="jcs-robots__finding jcs-robots__finding--today"><span>Hallazgo del día</span>{{ hallazgo_hoy }}</p>
           <a class="jcs-link" href="{{ section.settings.hallazgos_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener">Ver los hallazgos en Instagram <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
@@ -145,6 +155,7 @@
     { "type": "image_picker", "id": "night_image", "label": "Foto de la noche" },
     { "type": "header", "content": "Hallazgos" },
     { "type": "url", "id": "hallazgos_url", "label": "Enlace al último hallazgo (Instagram)" },
+    { "type": "text", "id": "hallazgo_dia", "label": "Hallazgo del día (opcional)", "info": "Déjalo vacío y cambia solo cada día, entre siete hallazgos. Escribe uno aquí para fijarlo." },
     { "type": "header", "content": "Datos legales" },
     { "type": "text", "id": "legal_name", "label": "Razón social" },
     { "type": "text", "id": "legal_nit", "label": "NIT" },
