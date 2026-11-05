@@ -750,3 +750,5 @@
 .jcs .jcs-lab-end__lead { margin-top: 18px; }
 .jcs-lab-small { margin-top: clamp(28px, 4vw, 44px); display: grid; gap: 10px; }
 .jcs-lab-small .jcs-lab-inst { margin: 0; font-size: 14px; }
+.jcs-pausa .jcs-pausa__open { margin-top: 20px; font-size: clamp(18px, 1.8vw, 22px); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.jcs-pausa .jcs-pausa__open + .jcs-btn { margin-top: 16px; }

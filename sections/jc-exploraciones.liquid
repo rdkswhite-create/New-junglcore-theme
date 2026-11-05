@@ -93,10 +93,9 @@
           <p class="jcs-lead">Fue lo que más nos dijeron quienes la probaron: se sentían llenos por más tiempo. El antojo de media tarde llegaba más tarde.</p>
           <p class="jcs-pausa__belief">Un antojo dura minutos. Si llega más tarde, ganas tú.</p>
           <p class="jcs-pausa__text">Creemos que es la semilla. Todavía no lo hemos demostrado: lo estamos probando con gente de verdad, cada día.</p>
-          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero ser parte del grupo que está probando NUBE.' | url_encode }}" target="_blank" rel="noopener"><span>Quiero ser parte</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-pausa__open">Está abierto.</p>
-          <p class="jcs-pausa__batch">{% if settings.jc_sale_mode != 'a_la_venta' %}Los de la primera tanda pueden ser parte. <a href="{{ routes.root_url }}products/nube#jc-buy">Apúntate a la primera tanda &rarr;</a>{% else %}Quienes toman NUBE pueden ser parte. <a href="{{ routes.root_url }}products/nube#jc-buy">Ver NUBE &rarr;</a>{% endif %}</p>
-          <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional. Usamos tus respuestas sin tu nombre, según nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>.</p>
+          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
         </div>
         <div class="jcs-log-check">
           <div class="jcs-pausa__glp">
