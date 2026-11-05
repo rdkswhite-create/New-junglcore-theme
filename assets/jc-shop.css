@@ -760,3 +760,11 @@
 .jcs-entry__buy .jcs-entry__price { margin: 0; }
 .jcs .jcs-entry__share { margin-top: 22px; display: inline-flex; }
 @media (min-width: 900px) { .jcs-entry__body { padding-left: 98px; } }
+/* LAB v8 — two routes */
+.jcs-pausa__route { padding: 18px 0; border-top: 1px solid var(--rule); }
+.jcs-pausa__route:first-of-type { border-top: 0; padding-top: 4px; }
+.jcs .jcs-pausa__route-k { margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #b4362a; }
+.jcs .jcs-pausa__route h3 { margin: 0 0 8px; font-size: clamp(20px, 2vw, 24px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; text-transform: none; color: var(--ink); }
+.jcs .jcs-pausa__route p:not(.jcs-pausa__route-k) { margin: 0 0 8px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+.jcs-pausa__route-src a { display: inline-block; margin-right: 14px; font-size: 12px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.jcs-pausa__route--small .jcs-pausa__known { margin: 8px 0 0; }
