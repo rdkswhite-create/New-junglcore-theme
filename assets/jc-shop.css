@@ -476,6 +476,8 @@
 .jcs-lab-top__file { grid-area: file; }
 @media (min-width: 900px) {
   .jcs-lab-top { grid-template-columns: minmax(0, 380px) minmax(0, 1fr); grid-template-areas: "video copy" "video file"; column-gap: clamp(40px, 6vw, 96px); align-items: start; }
+  .jcs-lab-top:not(:has(.jcs-lab-top__file)) { grid-template-areas: "video copy"; }
+  .jcs-lab-top:not(:has(.jcs-lab-top__file)) .jcs-lab-top__copy { padding-top: clamp(20px, 6vw, 120px); }
 }
 .jcs-lab-latest { margin-bottom: 12px; color: #fff; font-size: 18px; font-weight: 500; letter-spacing: -.01em; }
 .jcs-lab-latest span { display: block; margin-bottom: 4px; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.6); }
@@ -711,3 +713,40 @@
 .jcs-pausa__batch a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .jcs-lab-top__file .jcs-lab-robots { margin-top: 0; margin-bottom: 14px; }
 .jcs-lab-top__file .jcs-lab-rule { margin: 0 0 24px; }
+
+/* LAB v6 — Rory: who we are, what we make, what we found, questions from the ship */
+.jcs .jcs-lab-budget { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: rgba(255,255,255,.6); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.jcs-lab-budget .jcs-file__stamp { font-size: 12px; }
+.jcs-lab-make__title { margin-top: clamp(20px, 3vw, 32px); }
+@media (min-width: 900px) { .jcs-lab-make__grid { grid-template-columns: repeat(2, 1fr); gap: 48px; } }
+.jcs-lab-make__grid .jcs-btn { align-self: flex-start; margin-top: 10px; }
+.jcs-lab-make__grid .jcs-btn + .jcs-link { margin-top: 2px; }
+.jcs-lab-also { list-style: none; margin: 8px 0 0; padding: 0; display: grid; }
+.jcs-lab-also li { padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: 15px; line-height: 1.5; color: var(--muted); }
+.jcs-lab-also strong { color: var(--ink); font-weight: 700; letter-spacing: .04em; }
+.jcs-lab-also a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+@media (min-width: 900px) { .jcs-lab-also { grid-template-columns: 1fr 1fr; column-gap: 48px; } }
+.jcs .jcs-lab-bridge { margin-top: clamp(32px, 5vw, 56px); font-size: clamp(22px, 2.6vw, 32px); font-weight: 500; letter-spacing: -.02em; line-height: 1.2; max-width: 760px; }
+.jcs-lab-bridge a { color: inherit; }
+.jcs-lab-bridge a span { display: inline-block; margin-left: 6px; }
+.jcs-lab-make { padding-bottom: clamp(40px, 6vw, 72px); }
+.jcs .jcs-pausa__title { margin: 0; }
+.jcs-pausa .jcs-pausa__belief { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.35; font-weight: 600; color: var(--ink); }
+.jcs-pausa .jcs-btn { margin-top: 22px; }
+.jcs-pausa .jcs-log-small { margin-top: 14px; max-width: 520px; }
+.jcs-lab-fold { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.jcs-lab-fold summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; cursor: pointer; }
+.jcs-lab-fold summary::-webkit-details-marker { display: none; }
+.jcs-lab-fold__q { font-size: clamp(17px, 1.6vw, 20px); font-weight: 600; letter-spacing: -.01em; line-height: 1.2; text-transform: uppercase; }
+.jcs-lab-fold__plus { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--ink); font-size: 26px; font-weight: 300; line-height: 1; }
+.jcs-lab-fold__plus::before { content: '+'; }
+.jcs-lab-fold[open] .jcs-lab-fold__plus::before { content: '–'; }
+.jcs-lab-fold .jcs-pausa__known { margin-top: 4px; }
+.jcs-lab-fold .jcs-pausa__robot { margin-bottom: 20px; }
+.jcs .jcs-lab-rule--dark { margin-top: 14px; border-color: var(--ink); color: var(--ink); }
+.jcs-entry summary { align-items: center; }
+.jcs-entry__num { padding-top: 0; }
+.jcs-entry__title { text-transform: none; }
+.jcs .jcs-lab-end__lead { margin-top: 18px; }
+.jcs-lab-small { margin-top: clamp(28px, 4vw, 44px); display: grid; gap: 10px; }
+.jcs-lab-small .jcs-lab-inst { margin: 0; font-size: 14px; }
