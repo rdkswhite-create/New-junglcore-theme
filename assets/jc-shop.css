@@ -659,9 +659,4 @@
 .jcs-lab-inst a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .jcs-pausa .jcs-log-note p { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.45; }
 .jcs-pausa .jcs-log-note { border-bottom: 0; padding-bottom: 0; }
-.jcs-lab-more-film { margin-top: 18px; border-top: 1px solid rgba(255,255,255,.25); }
-.jcs-lab-more-film summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 14px 0; cursor: pointer; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.jcs-lab-more-film summary::-webkit-details-marker { display: none; }
-.jcs-lab-more-film summary em { font-style: normal; color: rgba(255,255,255,.6); }
-.jcs-lab-more-film summary::after { content: '+'; font-size: 18px; font-weight: 300; margin-left: 12px; }
-.jcs-lab-more-film[open] summary::after { content: '–'; }
+.jcs-lab-more-film { margin-top: 32px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.25); }

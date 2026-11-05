@@ -37,12 +37,12 @@
           <p class="jcs-lab-latest"><span>Empieza aquí · {{ latest_number }}</span>{{ latest_title }}</p>
           {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
           <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
-          <details class="jcs-lab-more-film">
-            <summary><span>La misión completa</span><em>2 min</em></summary>
+          <div class="jcs-lab-more-film">
+            <p class="jcs-lab-latest"><span>La misión completa · 2 min</span>Por qué vinieron</p>
             {%- capture vm -%}{{ 'jc-lab-la-mision.mp4' | asset_url }}{%- endcapture -%}
             {%- capture pm -%}{{ 'jc-lab-la-mision-poster.jpg' | asset_url }}{%- endcapture -%}
             {% render 'jc-tap-video', id: 'jcs-lab-mision', src: vm, poster: pm, label: 'Ver La misión' %}
-          </details>
+          </div>
         </div>
         <div class="jcs-lab-top__file">
           <dl class="jcs-file" aria-label="Estado de la misión">
