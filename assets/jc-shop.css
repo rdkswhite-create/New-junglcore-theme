@@ -853,3 +853,8 @@
 .jcs-manifesto--short .jcs-display { margin-top: clamp(20px, 3vw, 32px); max-width: 900px; }
 .jcs-manifesto--short .jcs-manifesto__punch { margin-top: 18px; max-width: 640px; }
 .jcs-manifesto--short .jcs-manifesto__more { margin-top: 18px; display: inline-flex; }
+/* Floating WhatsApp */
+.jcs-wa-float { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 60; display: flex; align-items: center; gap: 10px; text-decoration: none; transition: bottom .25s ease; }
+.jcs-wa-float__icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+.jcs-wa-float__label { padding: 7px 14px; background: var(--paper, #fcfbf8); border: 1px solid var(--ink, #111); color: var(--ink, #111); font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+@media (max-width: 899px) { body:has(.jcs-sticky.is-visible) .jcs-wa-float { bottom: calc(86px + env(safe-area-inset-bottom)); } .jcs-wa-float__icon { width: 52px; height: 52px; } }
