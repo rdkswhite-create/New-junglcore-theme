@@ -805,3 +805,16 @@
 .jcs-city--dark .jcs-city__row { border-color: rgba(255,255,255,.35); }
 .jcs-city--dark .jcs-city__row input { color: #f4f3ef; }
 .jcs-city--dark .jcs-city__row button { color: #f4f3ef; border-left-color: rgba(255,255,255,.35); }
+/* Investigations */
+.jcs-invest { margin-bottom: clamp(36px, 5vw, 56px); padding-bottom: clamp(28px, 4vw, 44px); border-bottom: 1px solid var(--ink); }
+.jcs-invest__grid { display: grid; gap: 28px; margin-top: 14px; }
+@media (min-width: 900px) { .jcs-invest__grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+.jcs-invest__item { display: flex; flex-direction: column; gap: 10px; }
+.jcs .jcs-invest__n { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #b4362a; }
+.jcs .jcs-invest__q { margin: 0; font-size: clamp(24px, 3vw, 36px); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; color: var(--ink); text-transform: none; }
+.jcs .jcs-invest__data { margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
+.jcs-invest__src a { font-size: 12px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.jcs-invest__item .jcs-link { align-self: flex-start; }
+.jcs .jcs-invest__small { margin: 18px 0 0; font-size: 12px; color: var(--muted); }
+.jcs .jcs-invest__q--lab { margin-top: clamp(18px, 3vw, 28px); max-width: 820px; font-size: clamp(26px, 3.6vw, 44px); }
+.jcs-aceite { background: #ecebe5; }
