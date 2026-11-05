@@ -442,3 +442,9 @@
 @keyframes jcs-eta-pulse { 0% { box-shadow: 0 0 0 0 rgba(46,139,87,.45); } 70% { box-shadow: 0 0 0 9px rgba(46,139,87,0); } 100% { box-shadow: 0 0 0 0 rgba(46,139,87,0); } }
 @media (prefers-reduced-motion: reduce) { .jcs-eta__dot { animation: none; } }
 .jcs-sticky__info span span { display: inline; }
+
+/* Ground images (grey world) */
+.jcs-robots__ground { margin: 24px 0 8px; max-width: 480px; }
+.jcs-robots__ground img { width: 100%; height: auto; display: block; }
+.jcs-robots__ground figcaption { margin-top: 10px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.jcs-about__conclusion .jcs-about__figure img { max-height: 760px; width: auto; max-width: 100%; }
