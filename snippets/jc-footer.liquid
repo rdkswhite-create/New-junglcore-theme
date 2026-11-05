@@ -29,7 +29,7 @@ JUNGLCORE footer, shared by the homepage, NUBE page and Lab.
         <a href="{{ routes.root_url }}#jc-faq">Preguntas</a>
         <a href="mailto:hola@junglcore.com">hola@junglcore.com</a>
         <a href="https://wa.me/573011571039" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://www.instagram.com/tryjunglcore" target="_blank" rel="noopener">Instagram</a>
+        <a href="{{ settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener">Instagram</a>
       </nav>
       <nav aria-label="Legal">
         <h3>Legal</h3>

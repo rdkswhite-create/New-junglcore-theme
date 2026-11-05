@@ -454,3 +454,8 @@
 /* Lab intro: the finding of the day sits on the dark intro */
 .jcs-log-intro .jcs-robots__finding { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.25); color: #fff; font-size: clamp(18px, 1.8vw, 22px); line-height: 1.4; }
 .jcs-log-intro .jcs-log-intro__lead + .jcs-log-intro__lead { margin-top: 14px; }
+/* Follow the journey */
+.jcs-log-intro__follow { margin-top: 28px; }
+.jcs-log-intro__follow .jcs-btn { width: 100%; max-width: 420px; }
+.jcs-log-intro__follow p { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,.6); }
+.jcs-next__item .jcs-link + .jcs-link { margin-top: -2px; }

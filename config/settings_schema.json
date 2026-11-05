@@ -1491,6 +1491,17 @@
       },
       {
         "type": "header",
+        "content": "Redes"
+      },
+      {
+        "type": "url",
+        "id": "jc_instagram_url",
+        "label": "Instagram",
+        "default": "https://www.instagram.com/tryjunglcore",
+        "info": "La cuenta donde se sigue el viaje de los robots. Cambia el enlace aquí y se actualiza en toda la web."
+      },
+      {
+        "type": "header",
         "content": "Entregas en Bogotá"
       },
       {

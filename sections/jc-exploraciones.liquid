@@ -41,6 +41,10 @@
             assign pick = day | modulo: hallazgos.size
           -%}
           <p class="jcs-robots__finding jcs-robots__finding--today"><span>Hallazgo del día</span>{{ hallazgos[pick] }}</p>
+          <div class="jcs-log-intro__follow">
+            <a class="jcs-btn jcs-btn--light" href="{{ settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener"><span>Sigue su viaje entre los humanos</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+            <p>En Instagram: lo que encuentran mientras nadie los mira.</p>
+          </div>
           <nav class="jcs-log-index" aria-label="Entradas">
             <a href="#jc-log-001"><span>001</span>El pasillo<em>Comprobado</em></a>
             <a href="#jc-log-002"><span>002</span>La semilla<em>En curso</em></a>
