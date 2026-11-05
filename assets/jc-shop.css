@@ -752,3 +752,11 @@
 .jcs-lab-small .jcs-lab-inst { margin: 0; font-size: 14px; }
 .jcs-pausa .jcs-pausa__open { margin-top: 20px; font-size: clamp(18px, 1.8vw, 22px); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
 .jcs-pausa .jcs-pausa__open + .jcs-btn { margin-top: 16px; }
+/* LAB v7 — thumbnails, price, share */
+.jcs-entry summary:has(.jcs-entry__thumb) { grid-template-columns: 30px 56px minmax(0, 1fr) auto; gap: 12px; padding: 14px 0; }
+.jcs-entry__thumb { width: 56px; height: 72px; object-fit: cover; display: block; }
+.jcs-entry__buy { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 6px; }
+.jcs .jcs-entry__price { margin: 6px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jcs-entry__buy .jcs-entry__price { margin: 0; }
+.jcs .jcs-entry__share { margin-top: 22px; display: inline-flex; }
+@media (min-width: 900px) { .jcs-entry__body { padding-left: 98px; } }
