@@ -179,6 +179,33 @@
     </div>
   </section>
 
+  <section class="jcs-lab-follow jcs-home-follow" aria-labelledby="jc-home-follow-title">
+    <div class="jcs-frame">
+      {% if settings.jc_sale_mode != 'a_la_venta' %}
+        <h2 class="jcs-lab-follow__line" id="jc-home-follow-title">¿Todavía no? Te escribimos.</h2>
+        <p class="jcs-lab-follow__small">El día que sale la primera tanda, antes que a nadie. {% if settings.jc_waitlist_perk != blank %}{{ settings.jc_waitlist_perk }}{% endif %}</p>
+      {% else %}
+        <h2 class="jcs-lab-follow__line" id="jc-home-follow-title">Sigue lo que vamos encontrando.</h2>
+        <p class="jcs-lab-follow__small">Lo que nos cuenta el grupo, lo que anotan los robots y la próxima planta. Primero aquí.</p>
+      {% endif %}
+      <div class="jcs-lab-follow__actions">
+        {% form 'customer', id: 'jcs-home-follow-form', class: 'jcs-lab-follow__form' %}
+          {% if form.posted_successfully? %}
+            <p class="jcs-lab-follow__ok">Listo. Te escribimos.</p>
+          {% else %}
+            <input type="hidden" name="contact[tags]" value="{% if settings.jc_sale_mode != 'a_la_venta' %}newsletter,primera-tanda{% else %}newsletter{% endif %}">
+            <label class="visually-hidden" for="jcs-home-follow-email">Tu correo</label>
+            <div class="jcs-wait__row jcs-lab-follow__row">
+              <input type="email" id="jcs-home-follow-email" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" required>
+              <button type="submit">{% if settings.jc_sale_mode != 'a_la_venta' %}Apártamela{% else %}Síguenos{% endif %}</button>
+            </div>
+          {% endif %}
+        {% endform %}
+        <a class="jcs-btn jcs-btn--light" href="{{ settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener"><span>O síguelos en Instagram</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
   {%- if section.blocks.size > 0 -%}
   <section class="jcs-reviews" id="jc-resenas" aria-labelledby="jc-reviews-title">
     <div class="jcs-frame">

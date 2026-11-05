@@ -1536,6 +1536,12 @@
         "default": "Con tu primer pedido, un sobre de ONE: la misma semilla, en polvo, antes de que salga."
       },
       {
+        "type": "number",
+        "id": "jc_waitlist_count",
+        "label": "Personas en la lista de la primera tanda",
+        "info": "El número real (clientes con la etiqueta primera-tanda). Si es 0 o está vacío, no se muestra."
+      },
+      {
         "type": "header",
         "content": "Sellos de confianza"
       },
