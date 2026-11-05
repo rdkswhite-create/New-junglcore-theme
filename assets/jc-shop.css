@@ -540,3 +540,7 @@
 .jcs-lab-strip__form .jcs-btn { width: 100%; }
 .jcs-lab-strip > .jcs-link { justify-self: start; }
 @media (min-width: 900px) { .jcs-lab-strip { grid-template-columns: minmax(0, 1fr) 240px auto; gap: 28px; } }
+.jcs-versus__intro .jcs-lead + .jcs-lead { margin-top: 14px; }
+.jcs .jcs-versus__punch { color: var(--ink); }
+.jcs-versus__links { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.jcs-versus__links > a:not(.jcs-link) { color: var(--soft); text-decoration: underline; text-underline-offset: 3px; }

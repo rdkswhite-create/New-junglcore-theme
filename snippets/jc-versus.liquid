@@ -10,7 +10,10 @@ Price and protein per glass, readable on a phone without swiping.
     <p class="jcs-chapter"><span>{{ number | default: '04' }}</span>Por vaso de 200 ml</p>
     <div class="jcs-versus__head">
       <h2 class="jcs-title" id="jc-versus-title">Hicimos las cuentas.</h2>
-      <p class="jcs-lead">La almendra no salió bien parada. La avena tampoco. NUBE frente a las bebidas vegetales de siempre, en precio y proteína por vaso.</p>
+      <div class="jcs-versus__intro">
+        <p class="jcs-lead">No creemos que una planta se resuma en sus gramos de proteína. En los alimentos hay más de 26.000 compuestos; las bases de datos de nutrición siguen unos 150, y de la mayoría casi no se sabe nada. Lo que importa es cómo trabajan juntos.</p>
+        <p class="jcs-lead jcs-versus__punch">Pero el pasillo compara gramos y pesos. Así que jugamos su juego. La almendra no salió bien parada. La avena tampoco.</p>
+      </div>
     </div>
     {% endunless %}
     <div class="jcs-versus__rows" role="table" aria-label="Precio y proteína por vaso de 200 ml">
@@ -43,7 +46,8 @@ Price and protein per glass, readable on a phone without swiping.
     {% unless compact %}<p class="jcs-versus__finding"><span>Hallazgo anotado</span>La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso. Nadie los añadió, pero ahí están.</p>{% endunless %}
     <div class="jcs-versus__notes">
       <span>Precios de referencia consultados en noviembre de 2026, según la etiqueta de cada bebida. NUBE: 1 barra + agua hasta 200 ml, según su etiqueta.</span>
-      <a class="jcs-link" href="{{ sources_href | default: '/products/nube#jc-nutrition' }}">Fuentes y cálculo <span aria-hidden="true">&rarr;</span></a>
+      <span class="jcs-versus__links">{% unless compact %}<a href="https://www.nature.com/articles/s43016-019-0005-1" target="_blank" rel="noopener noreferrer">Barabási et al., <em>Nature Food</em>, 2020 · Fuente &rarr;</a>{% endunless %}
+      <a class="jcs-link" href="{{ sources_href | default: '/products/nube#jc-nutrition' }}">Fuentes y cálculo <span aria-hidden="true">&rarr;</span></a></span>
     </div>
   </div>
 </section>
