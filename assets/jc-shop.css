@@ -693,3 +693,21 @@
 .jcs .jcs-pausa__glp .jcs-pausa__glp-title { margin-bottom: 8px; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .jcs-pausa__glp + .jcs-pausa__known { margin-top: 0; }
 .jcs-pausa__open { margin-top: 12px; font-size: 15px; font-weight: 600; }
+/* LAB v5 */
+.jcs .jcs-lab-follow__line { color: #f4f3ef; margin-bottom: 0; }
+.jcs-lab-follow__small { margin: 12px auto 24px; max-width: 460px; }
+.jcs-lab-follow__actions { display: grid; gap: 14px; justify-items: center; max-width: 420px; margin: 0 auto; }
+.jcs-lab-follow__actions .jcs-btn { width: 100%; }
+.jcs-lab-follow__form { width: 100%; }
+.jcs-lab-follow__row { border-color: rgba(255,255,255,.35); }
+.jcs-lab-follow__row input { color: #f4f3ef; }
+.jcs-lab-follow__row input::placeholder { color: rgba(255,255,255,.5); }
+.jcs-lab-follow__row button { color: #f4f3ef; border-left-color: rgba(255,255,255,.35); }
+.jcs-lab-follow__row button:hover { background: #f4f3ef; color: var(--ink); }
+.jcs-lab-follow__ok { margin: 0; font-size: 14px; color: #f4f3ef; }
+.jcs-pausa__robot { margin: 16px 0 6px; padding: 0 0 0 14px; border-bottom: 0; border-left: 2px solid var(--rule); }
+.jcs-pausa__robot p { font-size: 15px !important; }
+.jcs-pausa__batch { margin-top: 6px; font-size: 14px; }
+.jcs-pausa__batch a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.jcs-lab-top__file .jcs-lab-robots { margin-top: 0; margin-bottom: 14px; }
+.jcs-lab-top__file .jcs-lab-rule { margin: 0 0 24px; }

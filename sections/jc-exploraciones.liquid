@@ -32,8 +32,6 @@
           <h1 class="jcs-log-intro__title" id="jc-log-title">Vinieron buscando la jungla.</h1>
           <p class="jcs-log-intro__frame"><strong>JUNGLCORE LAB estudia lo que la biodiversidad puede hacer por nuestra salud.</strong> Miles de plantas tienen algo que ofrecer. Casi todo lo que usamos sale de unas pocas, de los mismos monocultivos y de las mismas empresas.</p>
           <p class="jcs-log-intro__frame">Guardar semillas en una bóveda sirve de poco si nadie las usa. Una planta se cuida cuando se usa. Empezamos por una semilla colombiana, la sacha inchi. Y estudiándola encontramos algo que no buscábamos: <a href="#jc-pausa">saciedad. La gente se sentía llena por más tiempo y el antojo tardaba en llegar.</a></p>
-          <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es de plástico. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cuatro plantas en caja. Ellos toman notas. Nosotros las comprobamos.</p>
-          <p class="jcs-lab-rule">Los robots son ficción. Las cifras, no.</p>
         </div>
         <div class="jcs-lab-top__video">
           <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
@@ -53,6 +51,8 @@
           </details>
         </div>
         <div class="jcs-lab-top__file">
+          <p class="jcs-log-intro__lead jcs-lab-robots">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es de plástico. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cuatro plantas en caja. Ellos toman notas. Nosotros las comprobamos.</p>
+          <p class="jcs-lab-rule">Los robots son ficción. Las cifras, no.</p>
           <dl class="jcs-file" aria-label="Estado de la misión">
             <div><dt>Misión</dt><dd>Encontrar la jungla</dd></div>
             <div><dt>Presupuesto</dt><dd><span class="jcs-file__stamp">Agotado</span></dd></div>
@@ -71,50 +71,11 @@
     </div>
   </section>
 
-  {%- comment -%} 2 · What we make: overlooked plants, everyday things. {%- endcomment -%}
-  <section class="jcs-lab-next jcs-lab-make" id="jc-viene" aria-labelledby="jc-hacemos-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>01</span>Lo que hacemos</p>
-      <div class="jcs-lab-head">
-        <h2 class="jcs-title" id="jc-hacemos-title">Plantas olvidadas. Para todos los días.</h2>
-        <p class="jcs-lead">Lo que hoy sale de los mismos monocultivos, para comer y para cuidarte, hecho con una semilla que casi nadie mira.</p>
-      </div>
-      <div class="jcs-lab-next__grid jcs-lab-make__grid">
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">La bebida · NUBE · <span class="jcs-lab-status jcs-lab-status--ok">Comprobado</span></p>
-          <h3>Una bebida vegetal que no viene de un monocultivo.</h3>
-          <p>Sacha inchi, agua y goma gelana. 6,3 g de proteína por vaso. La comparamos con almendra, avena, arroz y soya, cuenta por cuenta. No siempre gana.</p>
-          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa <span aria-hidden="true">&rarr;</span></a>
-          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %} <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">La proteína · ONE · <span class="jcs-lab-status">En desarrollo</span></p>
-          <h3>Una proteína de otra planta.</h3>
-          <p>Hecha de la misma semilla. Un solo ingrediente, para lo que ya comes.</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">El aceite · OIL · <span class="jcs-lab-status">En desarrollo</span></p>
-          <h3>El aceite de la semilla. Lo estudiamos por el corazón.</h3>
-          <p>{{ 'junglcore_explorations.oil_research.composition' | t }} El omega-3 vegetal se estudia por su papel en la salud del corazón. Queremos saber qué puede hacer este, en la cocina y en la piel. Mientras lo medimos, no prometemos nada: te contamos lo que dice la evidencia, con sus límites.</p>
-          <p class="jcs-log-small">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">Planta 002 · <span class="jcs-lab-status">Abierto</span></p>
-          <h3>Una semilla, de miles.</h3>
-          <p>Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener">Proponer una planta <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {%- comment -%} 3 · La pausa: the gap between craving and hand. A question, never a claim. {%- endcomment -%}
+  {%- comment -%} 2 · Satiety: the gap between craving and hand. A question, never a claim. {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa" id="jc-pausa" aria-labelledby="jc-pausa-title">
     <span id="jc-estudio" class="jcs-anchor" aria-hidden="true"></span>
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>02</span>Lo que encontramos · Saciedad · Estudio abierto</p>
+      <p class="jcs-chapter"><span>01</span>Lo que encontramos · Saciedad · Abierto</p>
       <div class="jcs-lab-study__grid">
         <div>
           <h2 class="jcs-title" id="jc-pausa-title">Saciedad.</h2>
@@ -141,14 +102,54 @@
             <li><strong>El ruido de la comida.</strong> Así llaman los pacientes a los pensamientos constantes sobre comida. En una encuesta de Novo Nordisk, el fabricante de Ozempic, a 550 personas con Wegovy, quienes los tenían todo el día pasaron del 62 % al 16 %. Lo que ganaron no fue solo menos hambre: fue silencio. <a href="https://cris.maastrichtuniversity.nl/en/publications/retrospective-assessment-of-food-noise-changes-after-initiation-o/" target="_blank" rel="noopener noreferrer">Arnaut y col., 2026 &rarr;</a></li>
             <li><strong>Un antojo dura minutos.</strong> La psicóloga Jackie Andrade, de la Universidad de Plymouth, lo ha medido. Tres minutos de Tetris lo debilitaron cerca de un 24 %, suficiente para volver tolerable un antojo hasta que pasa solo. <a href="https://doi.org/10.1016/j.appet.2014.01.073" target="_blank" rel="noopener noreferrer">Skorka-Brown, Andrade y May, 2014 &rarr;</a></li>
           </ul>
-          <h3>Nuestro objetivo</h3>
-          <p>Estudiar los efectos de la sacha inchi en la saciedad, los antojos y señales como el GLP-1. Creemos que la forma en que la procesamos tiene mucho potencial. En las pruebas con personas lo notamos; ahora queremos entenderlo mejor.</p>
-          <h3>Cómo lo investigamos</h3>
-          <p>Con un grupo pequeño de personas que la toman cada día y nos cuentan cómo les va: cuánto les llena, cuándo llega el antojo y cuánto les dura. Sin laboratorio: lo que notan en su día a día. Lo que encontremos, lo contamos aquí.</p>
+          <h3>Lo estamos probando con gente de verdad</h3>
+          <p>Queremos entender qué hace la sacha inchi con la saciedad, los antojos y señales como el GLP-1. Creemos que la forma en que la procesamos tiene mucho potencial. Por eso la está tomando cada día un grupo pequeño de personas que nos cuentan cómo les va: cuánto les llena, cuándo llega el antojo y cuánto les dura. Lo que encontremos, lo contamos aquí.</p>
+          <blockquote class="jcs-log-note jcs-pausa__robot"><p>Me pidieron anotar a qué hora llega el antojo. Llevo tres días mirando el reloj. A mí no me llega ninguno.</p><footer>Dato · robot azul</footer></blockquote>
           <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
-          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero participar en el estudio de JUNGLCORE sobre saciedad y antojos.' | url_encode }}" target="_blank" rel="noopener"><span>Quiero ser parte</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero ser parte del grupo que está probando NUBE.' | url_encode }}" target="_blank" rel="noopener"><span>Quiero ser parte</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-pausa__open">Está abierto.</p>
+          <p class="jcs-pausa__batch">{% if settings.jc_sale_mode != 'a_la_venta' %}Los de la primera tanda pueden ser parte. <a href="{{ routes.root_url }}products/nube#jc-buy">Apúntate a la primera tanda &rarr;</a>{% else %}Quienes toman NUBE pueden ser parte. <a href="{{ routes.root_url }}products/nube#jc-buy">Ver NUBE &rarr;</a>{% endif %}</p>
           <p class="jcs-log-small">Usamos tus respuestas sin tu nombre, según nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 3 · What we make: overlooked plants, everyday things. {%- endcomment -%}
+  <section class="jcs-lab-next jcs-lab-make" id="jc-viene" aria-labelledby="jc-hacemos-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>02</span>Lo que hacemos</p>
+      <div class="jcs-lab-head">
+        <h2 class="jcs-title" id="jc-hacemos-title">Plantas olvidadas. Para todos los días.</h2>
+        <p class="jcs-lead">Lo que hoy sale de los mismos monocultivos, para comer y para cuidarte, hecho con una semilla que casi nadie mira.</p>
+      </div>
+      <div class="jcs-lab-next__grid jcs-lab-make__grid">
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">La bebida · NUBE · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }}{% else %}A la venta{% endif %}</span></p>
+          <h3>Una bebida vegetal que no viene de un monocultivo.</h3>
+          <p>Sacha inchi, agua y goma gelana. 6,3 g de proteína por vaso. La comparamos con almendra, avena, arroz y soya, cuenta por cuenta. No siempre gana.</p>
+          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa <span aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %} <span aria-hidden="true">&rarr;</span></a>
+          <p class="jcs-log-small">{% if settings.jc_sale_mode != 'a_la_venta' %}Los de la primera tanda pueden ser parte del grupo que la está probando.{% else %}Quienes la toman pueden ser parte del grupo que la está probando.{% endif %} <a href="#jc-pausa">Ver cómo &uarr;</a></p>
+        </div>
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">La proteína · ONE · <span class="jcs-lab-status">En desarrollo</span></p>
+          <h3>Una proteína de otra planta.</h3>
+          <p>Hecha de la misma semilla. Un solo ingrediente, para lo que ya comes.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">El aceite · OIL · <span class="jcs-lab-status">En desarrollo</span></p>
+          <h3>El aceite de la semilla. Lo estudiamos por el corazón.</h3>
+          <p>{{ 'junglcore_explorations.oil_research.composition' | t }} El omega-3 vegetal se estudia por su papel en la salud del corazón. Queremos saber qué puede hacer este, en la cocina y en la piel. Mientras lo medimos, no prometemos nada: te contamos lo que dice la evidencia, con sus límites.</p>
+          <p class="jcs-log-small">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">Planta 002 · <span class="jcs-lab-status">Abierto</span></p>
+          <h3>Una semilla, de miles.</h3>
+          <p>Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener">Proponer una planta <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
@@ -184,7 +185,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-007">
-          <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__pillar jcs-entry__pillar--pausa">La pausa</span><span class="jcs-entry__title">TransMilenio</span><span class="jcs-entry__line">«Todos miran un rectángulo pequeño.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Visto</span></span></summary>
+          <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Humanos</span><span class="jcs-entry__title">TransMilenio</span><span class="jcs-entry__line">«Todos miran un rectángulo pequeño.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Visto</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
               {%- capture v007 -%}{{ 'jc-bitacora-007.mp4' | asset_url }}{%- endcapture -%}
@@ -245,11 +246,11 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-003">
-          <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__pillar jcs-entry__pillar--pausa">La pausa</span><span class="jcs-entry__title">Entre el antojo y la mano</span><span class="jcs-entry__line">«Entre el antojo y la mano no hay espacio.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Estudio abierto</span></span></summary>
+          <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__pillar jcs-entry__pillar--pausa">Saciedad</span><span class="jcs-entry__title">Entre el antojo y la mano</span><span class="jcs-entry__line">«Entre el antojo y la mano no hay espacio.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Abierto</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__text">
-              <p class="jcs-log-open"><span>Ahora es un estudio</span>Con esta nota de Lupa empezó La pausa.</p>
-              <a class="jcs-link" href="#jc-pausa">Ver La pausa y participar <span aria-hidden="true">&uarr;</span></a>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Con esta nota de Lupa empezamos a mirar la saciedad.</p>
+              <a class="jcs-link" href="#jc-pausa">Ver lo que encontramos <span aria-hidden="true">&uarr;</span></a>
             </div>
           </div>
         </details>
@@ -298,7 +299,30 @@
     </div>
   </section>
 
-  {%- comment -%} 5 · The punchline, then NUBE in one line. {%- endcomment -%}
+  {%- comment -%} 5 · Follow what we find. {%- endcomment -%}
+  <section class="jcs-lab-follow" aria-labelledby="jc-follow-title">
+    <div class="jcs-frame">
+      <h2 class="jcs-lab-follow__line" id="jc-follow-title">Sigue lo que vamos encontrando.</h2>
+      <p class="jcs-lab-follow__small">Lo que nos cuenta el grupo, lo que anotan los robots y la próxima planta. Primero aquí.</p>
+      <div class="jcs-lab-follow__actions">
+        <a class="jcs-btn jcs-btn--light" href="{{ ig }}" target="_blank" rel="noopener"><span>Síguelos en Instagram</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        {% form 'customer', id: 'jcs-lab-follow-form', class: 'jcs-lab-follow__form' %}
+          {% if form.posted_successfully? %}
+            <p class="jcs-lab-follow__ok">Listo. Te escribimos cuando haya algo que contar.</p>
+          {% else %}
+            <input type="hidden" name="contact[tags]" value="newsletter,lab">
+            <label class="visually-hidden" for="jcs-lab-follow-email">Tu correo</label>
+            <div class="jcs-wait__row jcs-lab-follow__row">
+              <input type="email" id="jcs-lab-follow-email" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" required>
+              <button type="submit">Por correo</button>
+            </div>
+          {% endif %}
+        {% endform %}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 6 · The punchline, then NUBE in one line. {%- endcomment -%}
   <section class="jcs-lab-end" id="jc-nube" aria-labelledby="jc-lab-end-title">
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>Cierre</span>Conclusión provisional · Firmado: L · C · D</p>
