@@ -550,3 +550,33 @@
 .jcs-versus__intro .jcs-lead + .jcs-lead { margin-top: 0; }
 .jcs .jcs-versus__punch { font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; letter-spacing: -.02em; font-weight: 500; color: var(--ink); }
 @media (max-width: 749px) { .jcs-versus__intro { grid-template-columns: 1fr; gap: 18px; margin-top: 18px; } }
+
+/* NUBE page: full comparison */
+.jcs-full { padding: clamp(56px, 8vw, 110px) 0; }
+.jcs-full__table { margin-top: clamp(28px, 4vw, 48px); border-top: 1px solid var(--ink); }
+.jcs-full__row { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(5, minmax(0, 1fr)); align-items: center; border-bottom: 1px solid var(--rule); }
+.jcs-full__label { padding: 16px 12px 16px 0; font-size: 15px; font-weight: 600; line-height: 1.25; }
+.jcs-full__label em { display: block; margin-top: 2px; font-style: normal; font-size: 11px; font-weight: 500; letter-spacing: .06em; color: var(--soft); }
+.jcs-full__cell { padding: 16px 8px; text-align: right; font-size: clamp(16px, 2vw, 26px); font-weight: 400; letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--muted); }
+.jcs-full__cell.is-nube { background: #f1f0eb; color: var(--ink); }
+.jcs-full__cell.is-best { font-weight: 700; color: var(--ink); }
+.jcs-full__row--head .jcs-full__label, .jcs-full__row--head .jcs-full__cell { padding-top: 14px; padding-bottom: 14px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+.jcs-full__row--head .jcs-full__label { color: var(--soft); }
+.jcs-full__key { margin-top: 14px; font-size: 13px; line-height: 1.55; color: var(--soft); max-width: 720px; }
+.jcs-full__notes { margin: 22px 0 8px; display: grid; gap: 8px; max-width: 760px; }
+.jcs-full__notes p { font-size: 12px; line-height: 1.6; color: var(--soft); }
+.jcs-full .jcs-log-fold { max-width: 760px; }
+.jcs-full__lists p { margin-top: 10px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.jcs-full__lists strong { color: var(--ink); }
+.jcs-full__lists a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 749px) {
+  .jcs-full__row { grid-template-columns: minmax(0, 1.55fr) repeat(5, minmax(0, 1fr)); }
+  .jcs-full__label { font-size: 12px; padding-right: 6px; }
+  .jcs-full__label em { font-size: 10px; }
+  .jcs-full__cell { padding: 14px 3px; font-size: 13px; letter-spacing: -.01em; }
+  .jcs-full__row--head .jcs-full__cell { font-size: 9px; letter-spacing: .02em; padding-left: 1px; padding-right: 3px; }
+  .jcs-full__row--head .jcs-full__label { font-size: 9px; }
+}
+.jcs-full__row { align-items: stretch; }
+.jcs-full__cell { display: flex; align-items: center; justify-content: flex-end; }
+.jcs-full__label { display: flex; flex-direction: column; justify-content: center; }

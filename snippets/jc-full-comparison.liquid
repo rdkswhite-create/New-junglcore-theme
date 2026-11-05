@@ -1,0 +1,72 @@
+{% doc %}
+The full comparison on the NUBE page: NUBE against one commercial drink per plant, eight counts per 200 ml glass.
+Brand names live only in the sources. Bold = best in the row, whoever it is.
+{% enddoc %}
+{%- liquid
+  assign rows = 'Proteína|g|6,3|1,0|2,9|0,6|6,6|5;Azúcares|g|0,0|0,0|7,5|8,0|4,2|12;Grasa|g|0,9|1,4|2,6|2,0|3,8|;Omega-3‡|g|0,45|—|—|—|—|1;Carbohidratos netos†|g|0,4|2,0|12,2|20,0|5,0|1;Fibra|g|1,4|0,0|0,8|0,2|1,6|5;Ingredientes|nº|3|13|10|4|12|1;Precio por vaso|COP|1.330|1.650|3.700|3.420|3.573|1' | split: ';'
+-%}
+<section class="jcs-full" id="jc-nutrition" aria-labelledby="jc-full-title">
+  <div class="jcs-frame">
+    <p class="jcs-chapter"><span>{{ number | default: '03' }}</span>Por vaso de 200 ml</p>
+    <div class="jcs-versus__head">
+      <h2 class="jcs-title" id="jc-full-title">Hicimos todas las cuentas.</h2>
+      <div class="jcs-versus__intro">
+        <p class="jcs-lead">No creemos que una planta se resuma en sus gramos. En los alimentos hay más de 26.000 compuestos; las bases de datos de nutrición siguen unos 150. Pero si vamos a contar, contemos todo.</p>
+        <p class="jcs-lead jcs-versus__punch">Cinco plantas, ocho cuentas. En negrita, el mejor de cada fila. No siempre es NUBE.</p>
+      </div>
+    </div>
+
+    <div class="jcs-full__table" role="table" aria-label="NUBE frente a bebidas vegetales de marca comercial, por vaso de 200 ml">
+      <div class="jcs-full__row jcs-full__row--head" role="row">
+        <span role="columnheader" class="jcs-full__label">Por vaso</span>
+        <span role="columnheader" class="jcs-full__cell is-nube">NUBE</span>
+        <span role="columnheader" class="jcs-full__cell">Almendra</span>
+        <span role="columnheader" class="jcs-full__cell">Avena</span>
+        <span role="columnheader" class="jcs-full__cell">Arroz</span>
+        <span role="columnheader" class="jcs-full__cell">Soya</span>
+      </div>
+      {%- for r in rows -%}
+        {%- assign c = r | split: '|' -%}
+        {%- assign best = c[7] | default: '' -%}
+        <div class="jcs-full__row" role="row">
+          <span role="rowheader" class="jcs-full__label">{{ c[0] }}<em>{{ c[1] }}</em></span>
+          {%- for i in (2..6) -%}
+            {%- assign pos = i | minus: 1 | append: '' -%}
+            <span role="cell" class="jcs-full__cell{% if i == 2 %} is-nube{% endif %}{% if best contains pos %} is-best{% endif %}">{{ c[i] }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    <p class="jcs-full__key">Bebidas vegetales de marca comercial vendidas en Colombia, sin azúcar o sin azúcar añadida según su empaque. Cifras de cada etiqueta, llevadas a 200 ml.</p>
+
+    <p class="jcs-versus__finding"><span>Hallazgo anotado</span>La de soya se vende como «sin azúcar». En su etiqueta, el tercer ingrediente es azúcar de caña.</p>
+
+    <div class="jcs-full__notes">
+      <p>† Carbohidratos totales menos fibra. Cuando la etiqueta ya declara carbohidratos disponibles o usa el formato europeo, se usa esa cifra sin restar la fibra otra vez.</p>
+      <p>‡ NUBE: omega-3 (ALA) estimado, no medido en el producto final: 0,9 g de grasa × 50 % de ALA en el aceite de sacha inchi estudiado. «—» significa que la etiqueta no lo declara, no que sea cero.</p>
+      <p>La grasa no se marca: no es buena ni mala por sí sola, depende de cuál.</p>
+    </div>
+
+    <details class="jcs-log-fold">
+      <summary>Ingredientes de cada una</summary>
+      <div class="jcs-log-fold__body jcs-full__lists">
+        <p><strong>NUBE.</strong> Sacha inchi; agua; goma gelana.</p>
+        <p><strong>Almendra.</strong> {{ 'jc_nutrition.d1_list' | t }}</p>
+        <p><strong>Avena.</strong> {{ 'jc_nutrition.oat_list' | t }}</p>
+        <p><strong>Arroz.</strong> Cuatro ingredientes, según su empaque.</p>
+        <p><strong>Soya.</strong> Agua filtrada; soya; azúcar de caña; carbonato de calcio; palmitato de vitamina A; vitamina D2; riboflavina; vitamina B12; sal marina; goma gellan; ascorbato de sodio; sabor natural.</p>
+      </div>
+    </details>
+    <details class="jcs-log-fold">
+      <summary>Fuentes y cálculo</summary>
+      <div class="jcs-log-fold__body jcs-full__lists">
+        <p>Precio por vaso = precio del envase ÷ ml × 200. NUBE: bolsa de 600 g, 39.900 COP, 30 barras; una barra hace un vaso de 200 ml. Precios de referencia consultados en noviembre de 2026.</p>
+        <p><strong>Almendra:</strong> Almondee, D1. Caja de 1.000 ml, 8.250 COP. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201818-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Etiqueta &rarr;</a></p>
+        <p><strong>Avena:</strong> Nature’s Heart sin azúcar añadida, Éxito. Caja de 946 ml, 17.500 COP. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-bebida-avena-se-12x946ml-co" target="_blank" rel="noopener noreferrer">Ficha &rarr;</a></p>
+        <p><strong>Arroz:</strong> Natrue Arroz, Olímpica. Caja de 1.000 ml, 17.100 COP. Valores de la ficha del fabricante, formato europeo. <a href="https://www.olimpica.com/beb-natrue-arroz-free-1l/p" target="_blank" rel="noopener noreferrer">Precio &rarr;</a></p>
+        <p><strong>Soya:</strong> Silk Soya Original, Tienda Integral. Caja de 946 ml, 16.900 COP. Etiqueta del producto importado a Colombia.</p>
+        <p><strong>Omega-3:</strong> <a href="https://grasasyaceites.revistas.csic.es/index.php/grasasyaceites/article/view/1301/" target="_blank" rel="noopener noreferrer">Gutiérrez, Rosada y Jiménez, 2011 &rarr;</a> · <strong>26.000 compuestos:</strong> <a href="https://www.nature.com/articles/s43016-019-0005-1" target="_blank" rel="noopener noreferrer">Barabási et al., <em>Nature Food</em>, 2020 &rarr;</a></p>
+      </div>
+    </details>
+  </div>
+</section>
