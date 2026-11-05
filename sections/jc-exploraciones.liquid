@@ -130,6 +130,30 @@
       </div>
       <div class="jcs-entries">
 
+        <details class="jcs-entry" id="jc-log-006" open>
+          <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿31.000 plantas y la proteína llega en barco?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <div class="jcs-entry__body">
+            <div class="jcs-entry__media">
+              {%- capture v006 -%}{{ 'jc-lab-barco.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p006 -%}{{ 'jc-lab-barco-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-006', src: v006, poster: p006, label: 'Ver el hallazgo' %}
+            </div>
+            <div class="jcs-entry__text">
+              <div class="jcs-log-check">
+                <h3>Lo que comprobamos</h3>
+                <ul>
+                  <li><strong>El segundo país más biodiverso del mundo,</strong> después de Brasil. <a href="https://www.larepublica.co/responsabilidad-social/dia-de-la-tierra-colombia-y-su-papel-clave-en-la-conservacion-global-de-la-biodiversidad-4115432" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>Más de 31.000 plantas</strong> catalogadas en Colombia. Unas 6.000 se consideran útiles. <a href="https://radionacional.co/actualidad/medio-ambiente/biodiversidad-colombia-especies-datos-y-retos" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>Y en 2025 llegaron en barco</strong> más de 2 millones de toneladas de torta de soya y 595.000 de soya en grano, casi todo de Estados Unidos. <a href="https://occidente.co/empresario/record-fenalce-importacion-de-granos-en-colombia-2025/" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>¿Para qué?</strong> Sobre todo para alimentar pollos y cerdos. La proteína que comes empieza en un barco. <a href="https://www.las2orillas.co/?p=697268" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                </ul>
+              </div>
+              <p class="jcs-log-open"><span>Sigue abierto</span>La selva siempre estuvo aquí. Nadie la miró.</p>
+              <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </details>
+
         <details class="jcs-entry" id="jc-log-005" open>
           <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Por qué lo de aquí vale más cuando viene de afuera?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Abierto</span></span></summary>
           <div class="jcs-entry__body">
