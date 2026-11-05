@@ -688,3 +688,7 @@
 .jcs-pausa .jcs-log-check h3 + p, .jcs-pausa .jcs-log-check h3 + ul { margin-top: 10px; }
 .jcs-pausa .jcs-log-check h3 { margin-top: 22px; }
 .jcs-pausa .jcs-log-check h3:first-child { margin-top: 0; }
+.jcs-pausa__glp { margin: 4px 0 18px; padding: 18px 20px; background: var(--ink); color: var(--paper); }
+.jcs-pausa__glp p { margin: 0; font-size: 15px; line-height: 1.55; color: rgba(255,255,255,.85); }
+.jcs .jcs-pausa__glp .jcs-pausa__glp-title { margin-bottom: 8px; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.jcs-pausa__glp + .jcs-pausa__known { margin-top: 0; }
