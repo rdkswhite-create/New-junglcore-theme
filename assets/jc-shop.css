@@ -890,3 +890,5 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs-invest--short > .jcs-chapter { margin-bottom: 18px; }
 .jcs .jcs-pausa__ours { margin: 22px 0 0; }
 @media (min-width: 900px) { .jcs-lab-make__grid { grid-template-columns: repeat(3, 1fr); gap: 40px; } }
+.jcs-about__loop { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; background: #e3e3df; }
+@media (max-width: 899px) { .jcs-about__loop { aspect-ratio: 4 / 5; } .jcs-about__figure img[src*="jc-origen-piloto"] { aspect-ratio: 4 / 5; object-fit: cover; object-position: center 60%; } }
