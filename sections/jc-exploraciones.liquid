@@ -1,78 +1,168 @@
 {{ 'jc-shop.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign nube = all_products['nube']
+  assign v = nube.selected_or_first_available_variant
   assign wa = 'https://wa.me/573011571039?text='
+  assign ig = settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore'
+  assign latest_src = 'jc-bitacora-007.mp4' | asset_url
+  assign latest_poster = 'jc-bitacora-007-poster.jpg' | asset_url
+  if section.settings.latest_video != blank
+    assign best_w = 0
+    for source in section.settings.latest_video.sources
+      if source.mime_type == 'video/mp4' and source.width <= 1080 and source.width > best_w
+        assign latest_src = source.url
+        assign best_w = source.width
+      endif
+    endfor
+    assign latest_poster = section.settings.latest_video.preview_image | image_url: width: 900
+  endif
+  assign latest_number = section.settings.latest_number | default: '007'
+  assign latest_title = section.settings.latest_title | default: 'TransMilenio'
+  assign latest_line = section.settings.latest_line | default: 'Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño.'
 -%}
 <div class="jcs jcs-log" id="top">
-  {% render 'jc-header', buy_href: '#jc-buy' %}
+  {% render 'jc-header', buy_href: '#jc-nube' %}
 
-  {%- comment -%} The ship's log. The robots observe, we check, the rest stays open. {%- endcomment -%}
+  {%- comment -%} 1 · Who they are + the latest entry. {%- endcomment -%}
   <section class="jcs-log-intro" aria-labelledby="jc-log-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>LAB</span>Entradas 001 — 006 · En curso</p>
-      <div class="jcs-log-intro__grid">
-        <figure class="jcs-log-intro__image">
-          <img src="{{ 'jc-nave-mesa.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="En la nave, Lupa examina con su lupa tres almendras y una caja de bebida de almendras, Dato toma notas y Chispa mira la Tierra por la ventanilla">
-        </figure>
-        <div class="jcs-log-intro__copy">
-          <p class="jcs-eyebrow">JUNGLCORE LAB · Bitácora de la nave</p>
+      <p class="jcs-chapter"><span>LAB</span>Bitácora de la nave</p>
+      <div class="jcs-lab-top">
+        <div class="jcs-lab-top__copy">
+          <h1 class="jcs-log-intro__title" id="jc-log-title">Vinieron buscando la jungla.</h1>
+          <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cinco plantas en caja.</p>
+        </div>
+        <div class="jcs-lab-top__video">
+          <p class="jcs-lab-latest"><span>Última entrada · {{ latest_number }}</span>{{ latest_title }}</p>
+          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la entrada' %}
+          <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
+        </div>
+        <div class="jcs-lab-top__file">
           <dl class="jcs-file" aria-label="Estado de la misión">
             <div><dt>Misión</dt><dd>Encontrar la jungla</dd></div>
             <div><dt>Presupuesto</dt><dd><span class="jcs-file__stamp">Agotado</span></dd></div>
             <div><dt>Hallazgos</dt><dd>Pasillos</dd></div>
             <div><dt>Estado</dt><dd>Siguen buscando</dd></div>
           </dl>
-          <h1 class="jcs-log-intro__title" id="jc-log-title">Vinieron buscando la jungla.</h1>
-          <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Interceptaron una palabra, «jungla», y consiguieron presupuesto para venir a verla.</p>
-          <p class="jcs-log-intro__lead">Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo de supermercado con cinco plantas en caja. El informe no va bien.</p>
-          <figure class="jcs-robots__ground">
-            <img src="{{ 'jc-suelo-transmilenio.jpg' | asset_url }}" width="941" height="1176" loading="lazy" alt="Lupa, un robot rojo, sentada muy derecha en un TransMilenio lleno, entre un hombre que mira el celular y una mujer dormida contra la ventana">
-            <figcaption>A nivel del suelo · TransMilenio, 7:00. Nadie levantó la vista.</figcaption>
-          </figure>
           <ul class="jcs-log-crew" aria-label="Tripulación">
             <li><span class="jcs-log-dot jcs-log-dot--red" aria-hidden="true"></span><strong>Lupa</strong> Roja. No se cree nada que venga en caja.</li>
             <li><span class="jcs-log-dot jcs-log-dot--green" aria-hidden="true"></span><strong>Chispa</strong> Verde. La botánica de la misión. La única que todavía se emociona.</li>
             <li><span class="jcs-log-dot jcs-log-dot--blue" aria-hidden="true"></span><strong>Dato</strong> Azul. Lee etiquetas para no tener que hablar con nadie.</li>
           </ul>
-          <p class="jcs-log-intro__lead">Aquí anotan lo que ven. Nosotros comprobamos sus notas y dejamos abierto lo que todavía no sabemos.</p>
-          {%- liquid
-            assign hallazgos = 'Un vaso de bebida de almendras lleva unas tres o cuatro almendras. El resto, sobre todo, agua.|La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso. Nadie los añadió, pero ahí están.|Contamos los ingredientes de una bebida de almendras: trece. Los de NUBE: tres. Nos sobraron diez.|En la caja dice «natural» en letra grande. En la lista de ingredientes, lo primero es agua.|Colombia es uno de los países más biodiversos del planeta. Su pasillo de bebidas vegetales tiene cinco plantas.|Proteína por vaso: almendra, 1 g. Avena, 2,9 g. NUBE, 6,3 g. Seguimos sin entender la caja.|«Saludable», en letra grande. Las almendras, en letra pequeña.' | split: '|'
-            assign day = 'now' | date: '%j' | plus: 0
-            assign pick = day | modulo: hallazgos.size
-          -%}
-          <p class="jcs-robots__finding jcs-robots__finding--today"><span>Hallazgo del día</span>{{ hallazgos[pick] }}</p>
-          <div class="jcs-log-intro__follow">
-            <a class="jcs-btn jcs-btn--light" href="{{ settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener"><span>Sigue su viaje entre los humanos</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-            <p>En Instagram: lo que encuentran mientras nadie los mira.</p>
-          </div>
-          <nav class="jcs-log-index" aria-label="Entradas">
-            <a href="#jc-log-001"><span>001</span>El pasillo<em>Comprobado</em></a>
-            <a href="#jc-log-002"><span>002</span>La semilla<em>En curso</em></a>
-            <a href="#jc-log-003"><span>003</span>El antojo<em>Estudio abierto</em></a>
-            <a href="#jc-log-004"><span>004</span>El aceite<em>En curso</em></a>
-            <a href="#jc-log-005"><span>005</span>Planta 002<em>Abierto</em></a>
-            <a href="#jc-log-006"><span>006</span>¿Qué es nube?<em>Visto</em></a>
-          </nav>
+          <p class="jcs-log-intro__lead">Ellos anotan lo que ven. Nosotros comprobamos sus notas.</p>
+          <a class="jcs-lab-ig" href="{{ ig }}" target="_blank" rel="noopener">Sigue su viaje entre los humanos <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  {%- comment -%} 001 · The aisle {%- endcomment -%}
-  <article class="jcs-log-entry" id="jc-log-001" aria-labelledby="jc-log-001-title">
+  {%- comment -%} 2 · The log: newest first, one line each, open for what we checked. {%- endcomment -%}
+  <section class="jcs-lab-log" id="jc-bitacora" aria-labelledby="jc-bitacora-title">
     <div class="jcs-frame">
-      <header class="jcs-log-entry__meta"><span>Entrada 001</span><h2 id="jc-log-001-title">El pasillo</h2><em>Comprobado</em></header>
-      <div class="jcs-log-entry__grid">
-        <figure class="jcs-log-entry__image">
-          <img src="{{ 'jc-suelo-pasillo.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 78%" alt="Lupa, Chispa y Dato, tres robots pequeños, en el pasillo de bebidas vegetales de un supermercado; Dato lee la letra pequeña de una caja mientras una mujer pasa con su carrito sin mirarlos">
-          <figcaption>Pasillo de bebidas vegetales · Bogotá</figcaption>
-        </figure>
-        <div class="jcs-log-entry__body">
-          <blockquote class="jcs-log-note">
-            <p>Los humanos tienen miles de plantas que se pueden comer. En el pasillo de las bebidas vegetales encontré cinco: almendra, avena, soya, arroz y coco. En Bogotá, Nueva York, Londres y Dubái, las mismas cinco. Informe enviado. Nadie respondió.</p>
-            <footer>Dato · robot azul</footer>
-          </blockquote>
-          <div class="jcs-log-check">
+      <p class="jcs-chapter"><span>01</span>Bitácora</p>
+      <div class="jcs-lab-head">
+        <h2 class="jcs-title" id="jc-bitacora-title">Lo que anotaron. Lo que comprobamos.</h2>
+        <p class="jcs-lead">La más reciente arriba. Toca una entrada para abrirla.</p>
+      </div>
+      <div class="jcs-entries">
+
+        <details class="jcs-entry" id="jc-log-007">
+          <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__title">TransMilenio</span><span class="jcs-entry__line">«Todos miran un rectángulo pequeño.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Visto</span></span></summary>
+          <div class="jcs-entry__body">
+            <div class="jcs-entry__text">
+              <blockquote class="jcs-log-note"><p>Entrada siete. Transporte humano. Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño. Le pregunté a uno dónde estaba la jungla. Me dijo que me bajara en la setenta y dos.</p><footer>Lupa · robot rojo</footer></blockquote>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Si alguien se bajó en la 72 y la encontró.</p>
+              <a class="jcs-link" href="#jcs-lab-latest">Ver la entrada <span aria-hidden="true">&uarr;</span></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="jcs-entry" id="jc-log-006">
+          <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Qué es NUBE?</span><span class="jcs-entry__line">«Vimos el anuncio de los humanos. Tenemos preguntas.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--pantalla">Pantalla</span><span class="jcs-entry__status">Visto</span></span></summary>
+          <div class="jcs-entry__body">
+            <div class="jcs-entry__media">
+              {%- capture v006 -%}{{ 'jc-bitacora-006.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p006 -%}{{ 'jc-bitacora-006-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-006', src: v006, poster: p006, label: 'Ver la entrada' %}
+            </div>
+            <div class="jcs-entry__text">
+              <blockquote class="jcs-log-note"><p>Vimos el anuncio de los humanos. Tenemos preguntas.</p><footer>Lupa, Chispa y Dato</footer></blockquote>
+              <div class="jcs-log-check"><h3>Lo que comprobamos</h3><p>Es cierto: una barra del congelador, agua caliente o licuadora. Tres ingredientes. No hay más.</p></div>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Si hacen envíos a la órbita. Por ahora, solo a Bogotá.</p>
+              <a class="jcs-link" href="#jc-nube">Comprar NUBE <span aria-hidden="true">&darr;</span></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="jcs-entry" id="jc-log-005">
+          <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__title">Planta 002</span><span class="jcs-entry__line">«Llevamos una planta. Quedan miles.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Abierto</span></span></summary>
+          <div class="jcs-entry__body">
+            <figure class="jcs-entry__media">
+              <img src="{{ 'jc-suelo-planta-002.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 45%" alt="Chispa, sola en una sala de espera, compara una hoja de una planta de plástico con la plántula real que lleva en un frasco">
+              <figcaption>Planta 002 · Candidata. Era de plástico.</figcaption>
+            </figure>
+            <div class="jcs-entry__text">
+              <blockquote class="jcs-log-note"><p>Vinimos por la jungla. Llevamos una planta. Quedan miles. A este ritmo, el informe estará listo en tres siglos.</p><footer>Lupa, Chispa y Dato</footer></blockquote>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Cuál sigue. Si conoces una planta que nadie mira, cuéntanos.</p>
+              <a class="jcs-link" href="#jc-viene">Proponer una planta <span aria-hidden="true">&darr;</span></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="jcs-entry" id="jc-log-004">
+          <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__title">El aceite</span><span class="jcs-entry__line">«Apretamos una semilla. Salió aceite.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
+          <div class="jcs-entry__body">
+            <figure class="jcs-entry__media jcs-entry__media--wide">
+              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1200" loading="lazy" alt="Una cuchara con aceite de sacha inchi">
+            </figure>
+            <div class="jcs-entry__text">
+              <blockquote class="jcs-log-note"><p>Apretamos una semilla. Salió aceite. Los humanos llevan siglos haciendo esto con otras semillas. Con esta, casi nunca.</p><footer>Dato · robot azul</footer></blockquote>
+              <div class="jcs-log-check"><h3>Lo que comprobamos</h3><p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p><p class="jcs-log-small">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p></div>
+              <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'junglcore_explorations.oil_research.open_copy' | t }}</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="jcs-entry" id="jc-log-003">
+          <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__title">Entre el antojo y la mano</span><span class="jcs-entry__line">«Entre el antojo y la mano no hay espacio.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Estudio abierto</span></span></summary>
+          <div class="jcs-entry__body">
+            <figure class="jcs-entry__media">
+              <img src="{{ 'jc-noche-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" style="object-position: center 40%" alt="Una mujer de noche junto a la ventana, con una taza caliente entre las manos, un plato vacío y el celular boca abajo en la mesa">
+              <figcaption>Bogotá · 2.640 m</figcaption>
+            </figure>
+            <div class="jcs-entry__text">
+              <blockquote class="jcs-log-note"><p>Observación: a media tarde, a un humano se le antoja algo dulce. No tiene hambre. Tiene un mal día, una reunión que salió mal, un mensaje sin contestar. Abre las galletas para comerse una. Cierra el paquete vacío. Entre el antojo y la mano no hay espacio.</p><footer>Lupa · robot rojo</footer></blockquote>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Si se puede hacer más grande. Lo estamos estudiando, con quienes toman NUBE.</p>
+              <a class="jcs-link" href="#jc-estudio">Ver el estudio y participar <span aria-hidden="true">&darr;</span></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="jcs-entry" id="jc-log-002">
+          <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__title">La semilla</span><span class="jcs-entry__line">«Por fin, un pedazo de jungla.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
+          <div class="jcs-entry__body">
+            <figure class="jcs-entry__media jcs-entry__media--wide">
+              <img src="{{ 'jc-sacha-inchi-enredadera.jpg' | asset_url }}" width="896" height="1200" loading="lazy" alt="Una enredadera de sacha inchi con hojas en forma de corazón y frutos de cuatro puntas">
+              <figcaption>Planta 001 · Sacha inchi</figcaption>
+            </figure>
+            <div class="jcs-entry__text">
+              <blockquote class="jcs-log-note"><p>Encontré una planta con frutos en forma de estrella. Cuatro puntas, una semilla en cada una. Aquí la llaman sacha inchi. Fuera de Colombia casi nadie la conoce. Por fin, un pedazo de jungla.</p><footer>Chispa · robot verde</footer></blockquote>
+              <div class="jcs-log-check"><h3>Lo que comprobamos</h3><p>{{ 'jc_story.growers' | t }}</p><p>{{ 'jc_story.relationships' | t }}</p></div>
+              <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'jc_story.pilot' | t }}</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="jcs-entry" id="jc-log-001">
+          <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__title">El pasillo</span><span class="jcs-entry__line">«Miles de plantas. En el pasillo, cinco.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <div class="jcs-entry__body">
+            <figure class="jcs-entry__media">
+              <img src="{{ 'jc-suelo-pasillo.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 78%" alt="Lupa, Chispa y Dato en el pasillo de bebidas vegetales de un supermercado; Dato lee la letra pequeña de una caja mientras una mujer pasa con su carrito sin mirarlos">
+              <figcaption>Pasillo de bebidas vegetales · Bogotá</figcaption>
+            </figure>
+            <div class="jcs-entry__text">
+              <blockquote class="jcs-log-note"><p>Los humanos tienen miles de plantas que se pueden comer. En el pasillo de las bebidas vegetales encontré cinco: almendra, avena, soya, arroz y coco. En Bogotá, Nueva York, Londres y Dubái, las mismas cinco. Informe enviado. Nadie respondió.</p><footer>Dato · robot azul</footer></blockquote>
+              <div class="jcs-log-check">
             <h3>Lo que comprobamos</h3>
             <ul>
               <li><strong>Almendras por vaso.</strong> Lupa contó tres. Revisamos: unas cuatro. La única etiqueta que declara el porcentaje trae un 2,75 % de almendras, unos 5,5 g por vaso de 200 ml. Corregido. Sigue siendo poco. <a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
@@ -82,55 +172,27 @@
             </ul>
             <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-versus">La comparación completa, con precios <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="jcs-log-open"><span>Sigue abierto</span>Por qué son siempre las mismas cinco. Nadie nos lo ha sabido explicar.</p>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  {%- comment -%} 002 · The seed {%- endcomment -%}
-  <article class="jcs-log-entry jcs-log-entry--flip" id="jc-log-002" aria-labelledby="jc-log-002-title">
-    <div class="jcs-frame">
-      <header class="jcs-log-entry__meta"><span>Entrada 002</span><h2 id="jc-log-002-title">La semilla</h2><em>En curso</em></header>
-      <div class="jcs-log-entry__grid">
-        <figure class="jcs-log-entry__image jcs-log-entry__image--wide">
-          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-sacha-inchi-seed-leaf-roots-biodiversity-2026.jpg?v=1793696362&width=1100" width="1126" height="729" loading="lazy" alt="Fruto de sacha inchi de cuatro puntas junto a una hoja y sus raíces">
-          <figcaption>Planta 001 · Sacha inchi</figcaption>
-        </figure>
-        <div class="jcs-log-entry__body">
-          <blockquote class="jcs-log-note">
-            <p>Encontré una planta con frutos en forma de estrella. Cuatro puntas, una semilla en cada una. Aquí la llaman sacha inchi. Fuera de Colombia casi nadie la conoce. Por fin, un pedazo de jungla.</p>
-            <footer>Chispa · robot verde</footer>
-          </blockquote>
-          <div class="jcs-log-check">
-            <h3>Lo que comprobamos</h3>
-            <p>{{ 'jc_story.growers' | t }}</p>
-            <p>{{ 'jc_story.relationships' | t }}</p>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Por qué son siempre las mismas cinco. Nadie nos lo ha sabido explicar.</p>
+            </div>
           </div>
-          <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'jc_story.pilot' | t }}</p>
-          <p class="jcs-log-aside">De esta semilla salió NUBE. Viene ONE: la misma semilla, en polvo. <a href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></p>
-        </div>
+        </details>
+
       </div>
     </div>
-  </article>
+  </section>
 
-  {%- comment -%} 003 · The craving. Our own study: the gap between a sweet craving and acting on it. A question, never a claim. {%- endcomment -%}
-  <article class="jcs-log-entry" id="jc-log-003" aria-labelledby="jc-log-003-title">
+  {%- comment -%} 3 · The study: serious, separate, recruiting. A question, never a claim. {%- endcomment -%}
+  <section class="jcs-lab-study" id="jc-estudio" aria-labelledby="jc-estudio-title">
     <div class="jcs-frame">
-      <header class="jcs-log-entry__meta"><span>Entrada 003</span><h2 id="jc-log-003-title">Entre el antojo y la mano</h2><em>Estudio abierto</em></header>
-      <div class="jcs-log-entry__grid">
-        <figure class="jcs-log-entry__image">
-          <img src="{{ 'jc-noche-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" style="object-position: center 40%" alt="Una mujer de noche junto a la ventana, con una taza caliente entre las manos, un plato vacío y el celular boca abajo en la mesa">
-          <figcaption>Bogotá · 2.640 m</figcaption>
-        </figure>
-        <div class="jcs-log-entry__body">
-          <blockquote class="jcs-log-note">
-            <p>Observación: a media tarde, a un humano se le antoja algo dulce. No tiene hambre. Tiene un mal día, una reunión que salió mal, un mensaje sin contestar. Abre las galletas para comerse una. Cierra el paquete vacío. Entre el antojo y la mano no hay espacio. Estamos midiendo si se puede hacer más grande.</p>
-            <footer>Lupa · robot rojo</footer>
-          </blockquote>
-          <div class="jcs-log-check">
-            <h3>Qué estamos midiendo</h3>
-            <p>El antojo de dulce que no viene del hambre, sino del día: la ansiedad, el estrés, el cansancio. Cuándo llega, cuánto dura y cuánto espacio hay entre sentirlo y actuar. Y si una dosis de sacha inchi antes de ese momento lo cambia.</p>
+      <p class="jcs-chapter"><span>02</span>Estudio abierto</p>
+      <div class="jcs-lab-study__grid">
+        <div>
+          <h2 class="jcs-title" id="jc-estudio-title">Entre el antojo y la mano.</h2>
+          <p class="jcs-lead">El antojo de dulce que no viene del hambre, sino del día: la ansiedad, el estrés, el cansancio.</p>
+        </div>
+        <div class="jcs-log-check">
+          <h3>Qué estamos midiendo</h3>
+          <p>Cuándo llega el antojo, cuánto dura y cuánto espacio hay entre sentirlo y actuar. Y si una dosis de sacha inchi antes de ese momento lo cambia.</p>
             <details class="jcs-log-fold">
               <summary>Lo que ya se ha estudiado</summary>
               <div class="jcs-log-fold__body">
@@ -141,126 +203,99 @@
                 <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_ref' | t }} · <a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a></p>
               </div>
             </details>
-            <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
-          </div>
-          <p class="jcs-log-open"><span>Sigue abierto</span>Si NUBE alarga ese espacio. Lo estamos estudiando nosotros, con quienes la toman.</p>
+          <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
           <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero participar en el estudio de JUNGLCORE sobre los antojos de dulce.' | url_encode }}" target="_blank" rel="noopener"><span>Participar en el estudio</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-log-small jcs-log-small--after">Por WhatsApp. Al escribirnos aceptas que usemos tus respuestas para este estudio, sin tu nombre y según nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>. Puedes salirte cuando quieras. Lupa lo anota.</p>
         </div>
       </div>
     </div>
-  </article>
+  </section>
 
-  {%- comment -%} 004 · The oil {%- endcomment -%}
-  <article class="jcs-log-entry jcs-log-entry--flip" id="jc-log-004" aria-labelledby="jc-log-004-title">
+  {%- comment -%} 4 · What's coming. {%- endcomment -%}
+  <section class="jcs-lab-next" id="jc-viene" aria-labelledby="jc-viene-title">
     <div class="jcs-frame">
-      <header class="jcs-log-entry__meta"><span>Entrada 004</span><h2 id="jc-log-004-title">El aceite</h2><em>En curso</em></header>
-      <div class="jcs-log-entry__grid">
-        <figure class="jcs-log-entry__image jcs-log-entry__image--wide">
-          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1200" loading="lazy" alt="Una cuchara con aceite de sacha inchi">
-        </figure>
-        <div class="jcs-log-entry__body">
-          <blockquote class="jcs-log-note">
-            <p>Apretamos una semilla. Salió aceite. Los humanos llevan siglos haciendo esto con otras semillas. Con esta, casi nunca.</p>
-            <footer>Dato · robot azul</footer>
-          </blockquote>
-          <div class="jcs-log-check">
-            <h3>Lo que comprobamos</h3>
-            <p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p>
-            <p class="jcs-log-small">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p>
-          </div>
-          <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'junglcore_explorations.oil_research.open_copy' | t }}</p>
-          <p class="jcs-log-aside">OIL · En desarrollo. <a href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></p>
+      <p class="jcs-chapter"><span>03</span>Lo que viene</p>
+      <h2 class="visually-hidden" id="jc-viene-title">Lo que viene</h2>
+      <div class="jcs-lab-next__grid">
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">ONE · Próximamente</p>
+          <h3>La misma semilla, en polvo.</h3>
+          <p>Proteína y fibra de un solo ingrediente, para lo que ya comes.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
         </div>
-      </div>
-    </div>
-  </article>
-
-  {%- comment -%} 005 · The next plant. Open to readers. {%- endcomment -%}
-  <article class="jcs-log-entry jcs-log-entry--open" id="jc-log-005" aria-labelledby="jc-log-005-title">
-    <div class="jcs-frame">
-      <header class="jcs-log-entry__meta"><span>Entrada 005</span><h2 id="jc-log-005-title">Planta 002</h2><em>Abierto</em></header>
-      <div class="jcs-log-entry__grid">
-        <figure class="jcs-log-entry__image">
-          <img src="{{ 'jc-suelo-planta-002.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 45%" alt="Chispa, sola en una sala de espera, compara una hoja de una planta de plástico con la plántula real que lleva en un frasco">
-          <figcaption>Planta 002 · Candidata. Era de plástico.</figcaption>
-        </figure>
-        <div class="jcs-log-entry__body">
-          <blockquote class="jcs-log-note">
-            <p>Vinimos por la jungla. Llevamos una planta. Quedan miles. A este ritmo, el informe estará listo en tres siglos.</p>
-            <footer>Lupa, Chispa y Dato</footer>
-          </blockquote>
-          <p class="jcs-log-open"><span>Sigue abierto</span>Cuál sigue. Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
-          <a class="jcs-btn jcs-btn--ghost" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener"><span>Proponer una planta</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">OIL · En desarrollo</p>
+          <h3>El aceite de la semilla.</h3>
+          <p>Prensado en frío. Estamos aprendiendo en qué platos y en qué cantidad. Cuando lo sepamos, te lo contamos.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
         </div>
-      </div>
-    </div>
-  </article>
-
-  {%- comment -%} 006 · They watched our advert. {%- endcomment -%}
-  <article class="jcs-log-entry jcs-log-entry--flip" id="jc-log-006" aria-labelledby="jc-log-006-title">
-    <div class="jcs-frame">
-      <header class="jcs-log-entry__meta"><span>Entrada 006</span><h2 id="jc-log-006-title">¿Qué es nube?</h2><em>Visto</em></header>
-      <div class="jcs-log-entry__grid">
-        <div class="jcs-log-entry__image">
-          {%- capture v006 -%}{{ 'jc-bitacora-006.mp4' | asset_url }}{%- endcapture -%}
-          {%- capture p006 -%}{{ 'jc-bitacora-006-poster.jpg' | asset_url }}{%- endcapture -%}
-          {% render 'jc-tap-video', id: 'jcs-lab-006', src: v006, poster: p006, label: 'Ver la entrada' %}
-        </div>
-        <div class="jcs-log-entry__body">
-          <blockquote class="jcs-log-note">
-            <p>Vimos el anuncio de los humanos. Tenemos preguntas.</p>
-            <footer>Lupa, Chispa y Dato</footer>
-          </blockquote>
-          <div class="jcs-log-check">
-            <h3>Lo que comprobamos</h3>
-            <p>Es cierto: una barra del congelador, agua caliente o licuadora. Tres ingredientes. No hay más.</p>
-          </div>
-          <p class="jcs-log-open"><span>Sigue abierto</span>Si hacen envíos a la órbita. Por ahora, solo a Bogotá.</p>
-          <a class="jcs-link" href="#jc-buy">Comprar NUBE <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  {%- comment -%} What has come out of the log so far. Same buy box as everywhere else. {%- endcomment -%}
-  <section class="jcs-shop jcs-log-shop" id="jc-buy" aria-labelledby="jc-log-buy-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>NUBE</span>Lo que salió de la bitácora, por ahora</p>
-      <div class="jcs-shop__grid">
-        <div>
-          <div class="jcs-shop__visual">
-            {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'lab-buy-pack', description: 'Bolsa JUNGLCORE NUBE, base congelada de sacha inchi' %}
-          </div>
-        </div>
-        <div>
-          <h2 class="visually-hidden" id="jc-log-buy-title">Comprar NUBE</h2>
-          {% if nube != blank %}
-            {% render 'jc-buy-box', product: nube, form_id: 'jcs-lab-buy', show_title: true %}
-          {% endif %}
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">Planta 002 · Abierto</p>
+          <h3>¿Cuál sigue?</h3>
+          <p>Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener">Proponer una planta <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="jcs-final" aria-labelledby="jc-log-final-title">
+  {%- comment -%} 5 · Follow them. {%- endcomment -%}
+  <section class="jcs-lab-follow" aria-label="Instagram">
     <div class="jcs-frame">
-      <h2 id="jc-log-final-title">Rinde más.</h2>
-      <p>30 vasos por bolsa. Más proteína por vaso, por menos.</p>
-      <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <p class="jcs-lab-follow__line">Su viaje sigue entre los humanos.</p>
+      <a class="jcs-btn jcs-btn--light" href="{{ ig }}" target="_blank" rel="noopener"><span>Síguelos en Instagram</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <p class="jcs-lab-follow__small">Lo que encuentran mientras nadie los mira.</p>
+    </div>
+  </section>
+
+  {%- comment -%} 6 · The punchline, then NUBE in one line. {%- endcomment -%}
+  <section class="jcs-lab-end" id="jc-nube" aria-labelledby="jc-lab-end-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>Cierre</span>Conclusión provisional · Firmado: L · C · D</p>
+      <h2 class="jcs-display" id="jc-lab-end-title">La jungla no se perdió. Se dejó de mirar.</h2>
+      {% if v and v.price > 0 %}
+      <div class="jcs-lab-strip">
+        <div class="jcs-lab-strip__top">
+          {% if nube.featured_image %}<img src="{{ nube.featured_image | image_url: width: 240 }}" width="120" height="120" loading="lazy" alt="Bolsa JUNGLCORE NUBE">{% endif %}
+          <div class="jcs-lab-strip__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>Lo que salió de la bitácora, por ahora. 30 vasos por bolsa · solo Bogotá.</span></div>
+        </div>
+        {% form 'product', nube, id: 'jcs-lab-strip-form', class: 'jcs-lab-strip__form' %}
+          <input type="hidden" name="id" value="{{ v.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="return_to" value="/checkout">
+          <button type="submit" class="jcs-btn" {% unless v.available %}disabled{% endunless %}>{% if v.available %}<span>Comprar</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada</span>{% endif %}</button>
+        {% endform %}
+        <a class="jcs-link" href="{{ routes.root_url }}products/nube">Ver NUBE <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      {% endif %}
     </div>
   </section>
 
   {% render 'jc-footer' %}
-  {% if nube != blank %}{% render 'jc-sticky-buy', product: nube %}{% endif %}
 </div>
+<script>
+  (function () {
+    function openFromHash() {
+      var id = location.hash.slice(1); if (!id) return;
+      var el = document.getElementById(id);
+      if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ block: 'start' }); }
+    }
+    openFromHash(); window.addEventListener('hashchange', openFromHash);
+  })();
+</script>
 
 {% schema %}
 {
   "name": "JUNGLCORE LAB",
   "tag": "section",
   "class": "jc-exploraciones-section",
-  "settings": [],
+  "settings": [
+    { "type": "header", "content": "Última entrada" },
+    { "type": "video", "id": "latest_video", "label": "Vídeo", "info": "Sube aquí el último vídeo de los robots. Sin vídeo, se muestra la entrada 007." },
+    { "type": "text", "id": "latest_number", "label": "Número de entrada", "default": "007" },
+    { "type": "text", "id": "latest_title", "label": "Título", "default": "TransMilenio" },
+    { "type": "textarea", "id": "latest_line", "label": "Frase del robot", "default": "Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño." }
+  ],
   "presets": [{ "name": "JUNGLCORE LAB" }]
 }
 {% endschema %}
