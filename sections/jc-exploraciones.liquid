@@ -130,6 +130,30 @@
       </div>
       <div class="jcs-entries">
 
+        <details class="jcs-entry" id="jc-log-007" open>
+          <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Cuántas almendras lleva un vaso de bebida de almendra?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <div class="jcs-entry__body">
+            <div class="jcs-entry__media">
+              {%- capture v007 -%}{{ 'jc-lab-almendras.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p007 -%}{{ 'jc-lab-almendras-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-007', src: v007, poster: p007, label: 'Ver el hallazgo' %}
+            </div>
+            <div class="jcs-entry__text">
+              <div class="jcs-log-check">
+                <h3>Lo que comprobamos</h3>
+                <ul>
+                  <li><strong>Almendras por vaso.</strong> Lupa contó tres. Revisamos: unas cuatro. La única etiqueta de nuestra tabla que declara el porcentaje trae un 2,75 % de almendras, unos 5,5 g por vaso de 200 ml. Corregido. Sigue siendo poco. <a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>Ingredientes.</strong> Las bebidas de almendra de nuestra tabla traen de 10 a 15. NUBE: 3.</li>
+                  <li><strong>Las gomitas.</strong> Un puñado de ositos de goma, 13 piezas, trae unos 2 g de proteína. Un vaso de bebida de almendra, entre 0,8 y 1,4 g. <a href="https://www.fatsecret.com.mx/calor%C3%ADas-nutrici%C3%B3n/haribo/goldbears/13-piezas" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                </ul>
+                <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">La tabla completa, marca por marca <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Lea la etiqueta. Después hablamos.</p>
+              <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </details>
+
         <details class="jcs-entry" id="jc-log-006" open>
           <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿31.000 plantas y la proteína llega en barco?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
