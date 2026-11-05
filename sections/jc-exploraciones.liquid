@@ -30,6 +30,7 @@
       <div class="jcs-lab-top">
         <div class="jcs-lab-top__copy">
           <h1 class="jcs-log-intro__title" id="jc-log-title">Vinieron buscando la jungla.</h1>
+          <p class="jcs-log-intro__frame">JUNGLCORE LAB estudia dos cosas: las plantas que dejamos de mirar y <a href="#jc-pausa">la pausa</a> entre el antojo y la mano. Tres robots toman notas. Nosotros las comprobamos.</p>
           <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cinco plantas en caja.</p>
         </div>
         <div class="jcs-lab-top__video">
@@ -49,25 +50,61 @@
             <li><span class="jcs-log-dot jcs-log-dot--green" aria-hidden="true"></span><strong>Chispa</strong> Verde. La botánica de la misión. La única que todavía se emociona.</li>
             <li><span class="jcs-log-dot jcs-log-dot--blue" aria-hidden="true"></span><strong>Dato</strong> Azul. Lee etiquetas para no tener que hablar con nadie.</li>
           </ul>
-          <p class="jcs-log-intro__lead">Ellos anotan lo que ven. Nosotros comprobamos sus notas.</p>
+          <p class="jcs-log-intro__lead jcs-log-intro__lead--small">Planta 001: sacha inchi, cultivada con ASIN, la Asociación de Sachaincheros del Nororiente Colombiano. <a class="jcs-lab-asin" href="{{ routes.root_url }}pages/nosotros">Conoce a quienes la cultivan &rarr;</a></p>
           <a class="jcs-lab-ig" href="{{ ig }}" target="_blank" rel="noopener">Sigue su viaje entre los humanos <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  {%- comment -%} 2 · The log: newest first, one line each, open for what we checked. {%- endcomment -%}
+  {%- comment -%} 2 · La pausa: the gap between craving and hand. A question, never a claim. {%- endcomment -%}
+  <section class="jcs-lab-study jcs-pausa" id="jc-pausa" aria-labelledby="jc-pausa-title">
+    <span id="jc-estudio" class="jcs-anchor" aria-hidden="true"></span>
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>01</span>La pausa · Estudio abierto</p>
+      <div class="jcs-lab-study__grid">
+        <div>
+          <h2 class="jcs-title" id="jc-pausa-title">La pausa.</h2>
+          <p class="jcs-lead">El espacio entre el antojo y la mano. A veces dura un segundo. A veces no existe.</p>
+          <p class="jcs-pausa__belief">Creemos que la saciedad la hace más larga. No lo hemos demostrado. Lo estamos midiendo, con quienes toman NUBE.</p>
+          <figure class="jcs-pausa__fig">
+            <img src="{{ 'jc-noche-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" alt="Una mujer de noche junto a la ventana, con una taza caliente entre las manos, un plato vacío y el celular boca abajo en la mesa">
+            <blockquote class="jcs-log-note"><p>A media tarde, a un humano se le antoja algo dulce. No tiene hambre. Tiene un mal día, una reunión que salió mal, un mensaje sin contestar. Abre las galletas para comerse una. Cierra el paquete vacío. Entre el antojo y la mano no hay espacio.</p><footer>Lupa · robot rojo · entrada 003</footer></blockquote>
+          </figure>
+        </div>
+        <div class="jcs-log-check">
+          <h3>Qué estamos midiendo</h3>
+          <p>Cuándo llega el antojo, cuánto dura y cuánto espacio hay entre sentirlo y actuar. Y si una dosis de sacha inchi antes de ese momento lo cambia.</p>
+            <details class="jcs-log-fold">
+              <summary>Lo que ya se ha estudiado</summary>
+              <div class="jcs-log-fold__body">
+                <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
+                <p class="jcs-log-fold__title">{{ 'junglcore_explorations.research.protein_title' | t }} · <span>{{ 'junglcore_explorations.research.protein_type' | t }}</span></p>
+                <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
+                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
+                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_ref' | t }} · <a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a></p>
+              </div>
+            </details>
+          <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
+          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero participar en La pausa, el estudio de JUNGLCORE sobre los antojos.' | url_encode }}" target="_blank" rel="noopener"><span>Participar en el estudio</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <p class="jcs-log-small jcs-log-small--after">Por WhatsApp. Al escribirnos aceptas que usemos tus respuestas para este estudio, sin tu nombre y según nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>. Puedes salirte cuando quieras. Lupa lo anota.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 3 · The log: newest first, one line each, open for what we checked. {%- endcomment -%}
   <section class="jcs-lab-log" id="jc-bitacora" aria-labelledby="jc-bitacora-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>01</span>Bitácora</p>
+      <p class="jcs-chapter"><span>02</span>Bitácora</p>
       <div class="jcs-lab-head">
         <h2 class="jcs-title" id="jc-bitacora-title">Lo que anotaron. Lo que comprobamos.</h2>
-        <p class="jcs-lead">La más reciente arriba. Toca una entrada para abrirla.</p>
+        <p class="jcs-lead">Dos líneas de trabajo: plantas olvidadas y la pausa. La más reciente arriba; toca una para abrirla.</p>
       </div>
       <div class="jcs-entries">
 
         <details class="jcs-entry" id="jc-log-008">
-          <summary><span class="jcs-entry__num">008</span><span class="jcs-entry__main"><span class="jcs-entry__title">La letra pequeña</span><span class="jcs-entry__line">«Cuatro marcas. Le di la vuelta a dos: el mismo fabricante.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <summary><span class="jcs-entry__num">008</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">La letra pequeña</span><span class="jcs-entry__line">«Cuatro marcas. Le di la vuelta a dos: el mismo fabricante.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__text">
               <blockquote class="jcs-log-note"><p>Leí la parte de atrás de cuatro cajas. Cuatro marcas, cuatro plantas. Le di la vuelta a la de avena y a la de arroz: el mismo fabricante. Le pregunté a Lupa si eso cuenta como elegir. No contestó.</p><footer>Dato · robot azul</footer></blockquote>
@@ -86,7 +123,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-007">
-          <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__title">TransMilenio</span><span class="jcs-entry__line">«Todos miran un rectángulo pequeño.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Visto</span></span></summary>
+          <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__pillar jcs-entry__pillar--pausa">La pausa</span><span class="jcs-entry__title">TransMilenio</span><span class="jcs-entry__line">«Todos miran un rectángulo pequeño.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Visto</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__text">
               <blockquote class="jcs-log-note"><p>Entrada siete. Transporte humano. Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño. Le pregunté a uno dónde estaba la jungla. Me dijo que me bajara en la setenta y dos.</p><footer>Lupa · robot rojo</footer></blockquote>
@@ -97,7 +134,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-006">
-          <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Qué es NUBE?</span><span class="jcs-entry__line">«Vimos el anuncio de los humanos. Tenemos preguntas.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--pantalla">Pantalla</span><span class="jcs-entry__status">Visto</span></span></summary>
+          <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">¿Qué es NUBE?</span><span class="jcs-entry__line">«Vimos el anuncio de los humanos. Tenemos preguntas.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--pantalla">Pantalla</span><span class="jcs-entry__status">Visto</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
               {%- capture v006 -%}{{ 'jc-bitacora-006.mp4' | asset_url }}{%- endcapture -%}
@@ -114,7 +151,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-005">
-          <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__title">Planta 002</span><span class="jcs-entry__line">«Llevamos una planta. Quedan miles.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Abierto</span></span></summary>
+          <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">Planta 002</span><span class="jcs-entry__line">«Llevamos una planta. Quedan miles.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Abierto</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media">
               <img src="{{ 'jc-suelo-planta-002.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 45%" alt="Chispa, sola en una sala de espera, compara una hoja de una planta de plástico con la plántula real que lleva en un frasco">
@@ -129,7 +166,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-004">
-          <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__title">El aceite</span><span class="jcs-entry__line">«Apretamos una semilla. Salió aceite.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
+          <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">El aceite</span><span class="jcs-entry__line">«Apretamos una semilla. Salió aceite.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media jcs-entry__media--wide">
               <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1200" loading="lazy" alt="Una cuchara con aceite de sacha inchi">
@@ -143,22 +180,17 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-003">
-          <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__title">Entre el antojo y la mano</span><span class="jcs-entry__line">«Entre el antojo y la mano no hay espacio.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Estudio abierto</span></span></summary>
+          <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__pillar jcs-entry__pillar--pausa">La pausa</span><span class="jcs-entry__title">Entre el antojo y la mano</span><span class="jcs-entry__line">«Entre el antojo y la mano no hay espacio.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Estudio abierto</span></span></summary>
           <div class="jcs-entry__body">
-            <figure class="jcs-entry__media">
-              <img src="{{ 'jc-noche-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" style="object-position: center 40%" alt="Una mujer de noche junto a la ventana, con una taza caliente entre las manos, un plato vacío y el celular boca abajo en la mesa">
-              <figcaption>Bogotá · 2.640 m</figcaption>
-            </figure>
             <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Observación: a media tarde, a un humano se le antoja algo dulce. No tiene hambre. Tiene un mal día, una reunión que salió mal, un mensaje sin contestar. Abre las galletas para comerse una. Cierra el paquete vacío. Entre el antojo y la mano no hay espacio.</p><footer>Lupa · robot rojo</footer></blockquote>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Si se puede hacer más grande. Lo estamos estudiando, con quienes toman NUBE.</p>
-              <a class="jcs-link" href="#jc-estudio">Ver el estudio y participar <span aria-hidden="true">&darr;</span></a>
+              <p class="jcs-log-open"><span>Ahora es un estudio</span>Con esta nota de Lupa empezó La pausa.</p>
+              <a class="jcs-link" href="#jc-pausa">Ver La pausa y participar <span aria-hidden="true">&uarr;</span></a>
             </div>
           </div>
         </details>
 
         <details class="jcs-entry" id="jc-log-002">
-          <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__title">La semilla</span><span class="jcs-entry__line">«Por fin, un pedazo de jungla.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
+          <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">La semilla</span><span class="jcs-entry__line">«Por fin, un pedazo de jungla.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media jcs-entry__media--wide">
               <img src="{{ 'jc-sacha-inchi-enredadera.jpg' | asset_url }}" width="896" height="1200" loading="lazy" alt="Una enredadera de sacha inchi con hojas en forma de corazón y frutos de cuatro puntas">
@@ -173,7 +205,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-001">
-          <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__title">El pasillo</span><span class="jcs-entry__line">«Miles de plantas. En el pasillo, cinco.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">El pasillo</span><span class="jcs-entry__line">«Miles de plantas. En el pasillo, cinco.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media">
               <img src="{{ 'jc-suelo-pasillo.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 78%" alt="Lupa, Chispa y Dato en el pasillo de bebidas vegetales de un supermercado; Dato lee la letra pequeña de una caja mientras una mujer pasa con su carrito sin mirarlos">
@@ -196,36 +228,6 @@
           </div>
         </details>
 
-      </div>
-    </div>
-  </section>
-
-  {%- comment -%} 3 · The study: serious, separate, recruiting. A question, never a claim. {%- endcomment -%}
-  <section class="jcs-lab-study" id="jc-estudio" aria-labelledby="jc-estudio-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>02</span>Estudio abierto</p>
-      <div class="jcs-lab-study__grid">
-        <div>
-          <h2 class="jcs-title" id="jc-estudio-title">Entre el antojo y la mano.</h2>
-          <p class="jcs-lead">El antojo de dulce que no viene del hambre, sino del día: la ansiedad, el estrés, el cansancio.</p>
-        </div>
-        <div class="jcs-log-check">
-          <h3>Qué estamos midiendo</h3>
-          <p>Cuándo llega el antojo, cuánto dura y cuánto espacio hay entre sentirlo y actuar. Y si una dosis de sacha inchi antes de ese momento lo cambia.</p>
-            <details class="jcs-log-fold">
-              <summary>Lo que ya se ha estudiado</summary>
-              <div class="jcs-log-fold__body">
-                <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
-                <p class="jcs-log-fold__title">{{ 'junglcore_explorations.research.protein_title' | t }} · <span>{{ 'junglcore_explorations.research.protein_type' | t }}</span></p>
-                <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
-                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
-                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_ref' | t }} · <a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a></p>
-              </div>
-            </details>
-          <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
-          <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero participar en el estudio de JUNGLCORE sobre los antojos de dulce.' | url_encode }}" target="_blank" rel="noopener"><span>Participar en el estudio</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-log-small jcs-log-small--after">Por WhatsApp. Al escribirnos aceptas que usemos tus respuestas para este estudio, sin tu nombre y según nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>. Puedes salirte cuando quieras. Lupa lo anota.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -255,19 +257,11 @@
           <a class="jcs-link" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener">Proponer una planta <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
+      <p class="jcs-lab-inst">¿ONG, universidad, institución? Las plantas olvidadas y la pausa son preguntas grandes. <a href="{{ wa }}{{ 'Hola, les escribo desde una organización sobre JUNGLCORE LAB:' | url_encode }}" target="_blank" rel="noopener">Escríbenos &rarr;</a></p>
     </div>
   </section>
 
-  {%- comment -%} 5 · Follow them. {%- endcomment -%}
-  <section class="jcs-lab-follow" aria-label="Instagram">
-    <div class="jcs-frame">
-      <p class="jcs-lab-follow__line">Su viaje sigue entre los humanos.</p>
-      <a class="jcs-btn jcs-btn--light" href="{{ ig }}" target="_blank" rel="noopener"><span>Síguelos en Instagram</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-      <p class="jcs-lab-follow__small">Lo que encuentran mientras nadie los mira.</p>
-    </div>
-  </section>
-
-  {%- comment -%} 6 · The punchline, then NUBE in one line. {%- endcomment -%}
+  {%- comment -%} 5 · The punchline, then NUBE in one line. {%- endcomment -%}
   <section class="jcs-lab-end" id="jc-nube" aria-labelledby="jc-lab-end-title">
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>Cierre</span>Conclusión provisional · Firmado: L · C · D</p>

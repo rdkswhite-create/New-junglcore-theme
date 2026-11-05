@@ -642,3 +642,20 @@
 .jcs-wait__ok { margin: 0; padding: 14px; background: #f2f1ec; font-size: 14px; }
 .jcs-wait__err { margin: 8px 0 0; font-size: 12px; color: #a3261b; }
 .jcs-sticky__pre { display: flex; align-items: center; gap: 14px; }
+
+/* LAB v3 — the frame line, La pausa, the two lines of work */
+.jcs-log-intro__frame { margin-top: 20px; max-width: 560px; color: #fff; font-size: clamp(18px, 1.8vw, 22px); line-height: 1.45; font-weight: 500; }
+.jcs-log-intro__frame a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.jcs-lab-asin { color: #fff; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.jcs-anchor { position: relative; top: -80px; display: block; }
+.jcs-pausa .jcs-chapter { margin-top: 0; }
+.jcs-pausa__belief { margin-top: 14px; max-width: 520px; font-size: 16px; line-height: 1.55; font-weight: 600; }
+.jcs-pausa__fig { margin: 28px 0 0; display: grid; gap: 18px; }
+.jcs-pausa__fig img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 40%; }
+@media (min-width: 900px) { .jcs-pausa__fig { grid-template-columns: 220px 1fr; align-items: start; } .jcs-pausa__fig img { aspect-ratio: 3 / 4; } }
+.jcs-entry__pillar { display: block; margin-bottom: 6px; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.jcs-entry__pillar--pausa { color: #b4362a; }
+.jcs-lab-inst { margin-top: clamp(28px, 4vw, 44px); font-size: 15px; line-height: 1.5; color: var(--muted); }
+.jcs-lab-inst a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.jcs-pausa .jcs-log-note p { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.45; }
+.jcs-pausa .jcs-log-note { border-bottom: 0; padding-bottom: 0; }
