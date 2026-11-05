@@ -30,8 +30,9 @@
       <div class="jcs-lab-top">
         <div class="jcs-lab-top__copy">
           <h1 class="jcs-log-intro__title" id="jc-log-title">Vinieron buscando la jungla.</h1>
-          <p class="jcs-log-intro__frame">JUNGLCORE LAB estudia dos cosas: las plantas que dejamos de mirar y <a href="#jc-pausa">la pausa</a> entre el antojo y la mano. Tres robots toman notas. Nosotros las comprobamos.</p>
-          <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cinco plantas en caja.</p>
+          <p class="jcs-log-intro__frame"><strong>JUNGLCORE LAB estudia lo que pasa cuando volvemos a mirar las plantas que dejamos de mirar.</strong> Hay miles que se pueden comer. En el pasillo hay cuatro, de los mismos monocultivos y de las mismas empresas. Empezamos por una semilla colombiana, la sacha inchi, con una pregunta sencilla: ¿puede darnos lo de todos los días, una bebida vegetal, una proteína, sin salir de lo de siempre? Mientras la estudiábamos, encontramos algo que no estábamos buscando: <a href="#jc-pausa">una pausa entre el antojo y la mano.</a></p>
+          <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es de plástico. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cuatro plantas en caja. Ellos toman notas. Nosotros las comprobamos.</p>
+          <p class="jcs-lab-rule">Los robots son ficción. Las cifras, no.</p>
         </div>
         <div class="jcs-lab-top__video">
           <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
@@ -67,15 +68,54 @@
     </div>
   </section>
 
-  {%- comment -%} 2 · La pausa: the gap between craving and hand. A question, never a claim. {%- endcomment -%}
+  {%- comment -%} 2 · What we make: overlooked plants, everyday things. {%- endcomment -%}
+  <section class="jcs-lab-next jcs-lab-make" id="jc-viene" aria-labelledby="jc-hacemos-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>01</span>Lo que hacemos</p>
+      <div class="jcs-lab-head">
+        <h2 class="jcs-title" id="jc-hacemos-title">Plantas olvidadas. Cosas de todos los días.</h2>
+        <p class="jcs-lead">Lo que hoy sale de los mismos monocultivos, hecho con una semilla que casi nadie mira.</p>
+      </div>
+      <div class="jcs-lab-next__grid jcs-lab-make__grid">
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">La bebida · NUBE · <span class="jcs-lab-status jcs-lab-status--ok">Comprobado</span></p>
+          <h3>Una bebida vegetal que no viene de un monocultivo.</h3>
+          <p>Sacha inchi, agua y goma gelana. 6,3 g de proteína por vaso. La comparamos con almendra, avena, arroz y soya, cuenta por cuenta. No siempre gana.</p>
+          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa <span aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %} <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">La proteína · ONE · <span class="jcs-lab-status">En desarrollo</span></p>
+          <h3>Una proteína de otra planta.</h3>
+          <p>Hecha de la misma semilla. Un solo ingrediente, para lo que ya comes.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">El aceite · OIL · <span class="jcs-lab-status">En desarrollo</span></p>
+          <h3>El aceite de la semilla.</h3>
+          <p>{{ 'junglcore_explorations.oil_research.composition' | t }} El omega-3 vegetal se estudia por su relación con el corazón. No prometemos nada: leemos la evidencia y te contamos lo que dice, con sus límites.</p>
+          <p class="jcs-log-small">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="jcs-lab-next__item">
+          <p class="jcs-eyebrow">Planta 002 · <span class="jcs-lab-status">Abierto</span></p>
+          <h3>Una semilla, de miles.</h3>
+          <p>Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
+          <a class="jcs-link" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener">Proponer una planta <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 3 · La pausa: the gap between craving and hand. A question, never a claim. {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa" id="jc-pausa" aria-labelledby="jc-pausa-title">
     <span id="jc-estudio" class="jcs-anchor" aria-hidden="true"></span>
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>01</span>La pausa · Estudio abierto</p>
+      <p class="jcs-chapter"><span>02</span>Lo que encontramos · Estudio abierto</p>
       <div class="jcs-lab-study__grid">
         <div>
           <h2 class="jcs-title" id="jc-pausa-title">La pausa.</h2>
-          <p class="jcs-lead">El espacio entre el antojo y la mano. A veces dura un segundo. A veces no existe.</p>
+          <p class="jcs-lead">No la buscábamos. Apareció mientras estudiábamos la sacha inchi: el espacio entre el antojo y la mano. A veces dura un segundo. A veces no existe.</p>
           <p class="jcs-pausa__belief">Creemos que la saciedad la hace más larga. No lo hemos demostrado. Lo estamos midiendo, con quienes toman NUBE.</p>
           <figure class="jcs-pausa__fig">
             <img src="{{ 'jc-noche-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" alt="Una mujer de noche junto a la ventana, con una taza caliente entre las manos, un plato vacío y el celular boca abajo en la mesa">
@@ -103,18 +143,18 @@
     </div>
   </section>
 
-  {%- comment -%} 3 · The log: newest first, one line each, open for what we checked. {%- endcomment -%}
+  {%- comment -%} 4 · The log: newest first, one line each, open for what we checked. {%- endcomment -%}
   <section class="jcs-lab-log" id="jc-bitacora" aria-labelledby="jc-bitacora-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>02</span>Bitácora</p>
+      <p class="jcs-chapter"><span>03</span>Bitácora</p>
       <div class="jcs-lab-head">
         <h2 class="jcs-title" id="jc-bitacora-title">Lo que anotaron. Lo que comprobamos.</h2>
-        <p class="jcs-lead">Dos líneas de trabajo: plantas olvidadas y la pausa. La más reciente arriba; toca una para abrirla.</p>
+        <p class="jcs-lead">Lo que anotan los robots y lo que comprobamos. La más reciente arriba; toca una para abrirla.</p>
       </div>
       <div class="jcs-entries">
 
         <details class="jcs-entry" id="jc-log-008">
-          <summary><span class="jcs-entry__num">008</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">La letra pequeña</span><span class="jcs-entry__line">«Cuatro marcas. Le di la vuelta a dos: el mismo fabricante.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <summary><span class="jcs-entry__num">008</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">La bebida</span><span class="jcs-entry__title">La letra pequeña</span><span class="jcs-entry__line">«Cuatro marcas. Le di la vuelta a dos: el mismo fabricante.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__text">
               <blockquote class="jcs-log-note"><p>Leí la parte de atrás de cuatro cajas. Cuatro marcas, cuatro plantas. Le di la vuelta a la de avena y a la de arroz: el mismo fabricante. Le pregunté a Lupa si eso cuenta como elegir. No contestó.</p><footer>Dato · robot azul</footer></blockquote>
@@ -148,7 +188,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-006">
-          <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">¿Qué es NUBE?</span><span class="jcs-entry__line">«Vimos el anuncio de los humanos. Tenemos preguntas.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--pantalla">Pantalla</span><span class="jcs-entry__status">Visto</span></span></summary>
+          <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">La bebida</span><span class="jcs-entry__title">¿Qué es NUBE?</span><span class="jcs-entry__line">«Vimos el anuncio de los humanos. Tenemos preguntas.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--pantalla">Pantalla</span><span class="jcs-entry__status">Visto</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
               {%- capture v006 -%}{{ 'jc-bitacora-006.mp4' | asset_url }}{%- endcapture -%}
@@ -165,7 +205,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-005">
-          <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">Planta 002</span><span class="jcs-entry__line">«Llevamos una planta. Quedan miles.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Abierto</span></span></summary>
+          <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Planta 002</span><span class="jcs-entry__title">Planta 002</span><span class="jcs-entry__line">«Llevamos una planta. Quedan miles.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Abierto</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media">
               <img src="{{ 'jc-suelo-planta-002.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 45%" alt="Chispa, sola en una sala de espera, compara una hoja de una planta de plástico con la plántula real que lleva en un frasco">
@@ -174,13 +214,13 @@
             <div class="jcs-entry__text">
               <blockquote class="jcs-log-note"><p>Vinimos por la jungla. Llevamos una planta. Quedan miles. A este ritmo, el informe estará listo en tres siglos.</p><footer>Lupa, Chispa y Dato</footer></blockquote>
               <p class="jcs-log-open"><span>Sigue abierto</span>Cuál sigue. Si conoces una planta que nadie mira, cuéntanos.</p>
-              <a class="jcs-link" href="#jc-viene">Proponer una planta <span aria-hidden="true">&darr;</span></a>
+              <a class="jcs-link" href="#jc-viene">Proponer una planta <span aria-hidden="true">&uarr;</span></a>
             </div>
           </div>
         </details>
 
         <details class="jcs-entry" id="jc-log-004">
-          <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">El aceite</span><span class="jcs-entry__line">«Apretamos una semilla. Salió aceite.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
+          <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">El aceite</span><span class="jcs-entry__title">El aceite</span><span class="jcs-entry__line">«Apretamos una semilla. Salió aceite.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media jcs-entry__media--wide">
               <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1200" loading="lazy" alt="Una cuchara con aceite de sacha inchi">
@@ -204,7 +244,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-002">
-          <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">La semilla</span><span class="jcs-entry__line">«Por fin, un pedazo de jungla.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
+          <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Planta 001</span><span class="jcs-entry__title">La semilla</span><span class="jcs-entry__line">«Por fin, un pedazo de jungla.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--nave">Nave</span><span class="jcs-entry__status">En curso</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media jcs-entry__media--wide">
               <img src="{{ 'jc-sacha-inchi-enredadera.jpg' | asset_url }}" width="896" height="1200" loading="lazy" alt="Una enredadera de sacha inchi con hojas en forma de corazón y frutos de cuatro puntas">
@@ -219,7 +259,7 @@
         </details>
 
         <details class="jcs-entry" id="jc-log-001">
-          <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">Plantas olvidadas</span><span class="jcs-entry__title">El pasillo</span><span class="jcs-entry__line">«Miles de plantas. En el pasillo, cinco.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__pillar">La bebida</span><span class="jcs-entry__title">El pasillo</span><span class="jcs-entry__line">«Miles de plantas. En el pasillo, cuatro.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <figure class="jcs-entry__media">
               <img src="{{ 'jc-suelo-pasillo.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 78%" alt="Lupa, Chispa y Dato en el pasillo de bebidas vegetales de un supermercado; Dato lee la letra pequeña de una caja mientras una mujer pasa con su carrito sin mirarlos">
@@ -242,34 +282,6 @@
           </div>
         </details>
 
-      </div>
-    </div>
-  </section>
-
-  {%- comment -%} 4 · What's coming. {%- endcomment -%}
-  <section class="jcs-lab-next" id="jc-viene" aria-labelledby="jc-viene-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>03</span>Lo que viene</p>
-      <h2 class="visually-hidden" id="jc-viene-title">Lo que viene</h2>
-      <div class="jcs-lab-next__grid">
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">ONE · Próximamente</p>
-          <h3>La misma semilla, en polvo.</h3>
-          <p>Proteína y fibra de un solo ingrediente, para lo que ya comes.</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">OIL · En desarrollo</p>
-          <h3>El aceite de la semilla.</h3>
-          <p>Prensado en frío. Estamos aprendiendo en qué platos y en qué cantidad. Cuando lo sepamos, te lo contamos.</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">Planta 002 · Abierto</p>
-          <h3>¿Cuál sigue?</h3>
-          <p>Si conoces una planta que nadie mira, una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
-          <a class="jcs-link" href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener">Proponer una planta <span aria-hidden="true">&rarr;</span></a>
-        </div>
       </div>
       <p class="jcs-lab-inst">¿ONG, universidad, institución? Las plantas olvidadas y la pausa son preguntas grandes. <a href="{{ wa }}{{ 'Hola, les escribo desde una organización sobre JUNGLCORE LAB:' | url_encode }}" target="_blank" rel="noopener">Escríbenos &rarr;</a></p>
     </div>
