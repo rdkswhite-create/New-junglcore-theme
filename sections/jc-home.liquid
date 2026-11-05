@@ -103,22 +103,12 @@
 
   {% render 'jc-moments', number: '03', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
 
-  <section class="jcs-manifesto" id="jc-manifesto" aria-labelledby="jc-manifesto-title">
+  <section class="jcs-manifesto jcs-manifesto--short" id="jc-manifesto" aria-labelledby="jc-manifesto-title">
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>04</span>Por qué existimos</p>
-      <div class="jcs-manifesto__grid">
-        <div class="jcs-manifesto__body">
-          <h2 class="jcs-display" id="jc-manifesto-title">La jungla no se perdió. Se dejó de mirar.</h2>
-          <p>Colombia es uno de los países más biodiversos del planeta. Y aun así, las bebidas vegetales del supermercado salen de las mismas plantas que en Nueva York, Londres o Dubái. Las proteínas vegetales, casi todas, también. Lo que llamamos elegir es mezclar lo mismo de otra forma: una ilusión de elección.</p>
-          <p>Así que miramos aquí, en las plantas que el sistema alimentario pasó por alto. Empezamos por la sacha inchi, una planta de la Amazonía, cultivada por pequeños agricultores de Valle del Cauca, Santander y Norte de Santander. Con ellos ayudamos a crear ASIN, la Asociación de Sachaincheros del Nororiente Colombiano.</p>
-          <a class="jcs-link jcs-manifesto__more" href="{{ routes.root_url }}pages/nosotros">Conoce a quienes la cultivan <span aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-manifesto__punch">Importar ingredientes para bebidas vegetales y proteínas no es lo raro. Lo raro es nunca haber mirado aquí.</p>
-        </div>
-        <figure class="jcs-manifesto__figure">
-          <img src="{{ 'jc-sacha-inchi-enredadera.jpg' | asset_url }}" width="896" height="1200" loading="lazy" alt="Una enredadera de sacha inchi sobre papel claro: dos hojas en forma de corazón, un fruto joven, uno verde de cuatro puntas y uno seco y abierto con sus semillas">
-          <figcaption>Planta 001 · Sacha inchi. La primera de varias.</figcaption>
-        </figure>
-      </div>
+      <h2 class="jcs-display" id="jc-manifesto-title">La jungla no se perdió. Se dejó de mirar.</h2>
+      <p class="jcs-manifesto__punch">Importar ingredientes para bebidas vegetales y proteínas no es lo raro. Lo raro es nunca haber mirado aquí.</p>
+      <a class="jcs-link jcs-manifesto__more" href="{{ routes.root_url }}pages/nosotros">Por qué existimos <span aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 

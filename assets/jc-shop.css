@@ -850,3 +850,6 @@
 @media (min-width: 900px) { .jcs-reels__track { padding-left: max(20px, calc((100vw - 1240px) / 2)); } .jcs-reels__track li { flex-basis: 220px; } }
 @media (max-width: 899px) { .jcs-badges { display: grid; grid-template-columns: 1fr 1fr; overflow: visible; } .jcs-badges li { min-width: 0; border-bottom: 1px solid var(--rule); padding: 14px 16px; } .jcs-badges li:nth-child(2n) { border-right: 0; } }
 @media (max-width: 899px) { .jcs-badges li:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; } }
+.jcs-manifesto--short .jcs-display { margin-top: clamp(20px, 3vw, 32px); max-width: 900px; }
+.jcs-manifesto--short .jcs-manifesto__punch { margin-top: 18px; max-width: 640px; }
+.jcs-manifesto--short .jcs-manifesto__more { margin-top: 18px; display: inline-flex; }
