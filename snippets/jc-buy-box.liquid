@@ -67,4 +67,6 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
     <p><strong>Sacha inchi, agua y goma gelana.</strong> Los contamos con una mano y nos sobraron dos dedos.</p>
     <p><strong>¿A qué sabe?</strong> Dato dice que a avena. Dato no tiene lengua. Los humanos: suave, un poco a nuez, sin dulce añadido.</p>
   </div>
+  {%- assign city_id = form_id | append: '-city' -%}
+  {% render 'jc-other-city', id: city_id %}
 </div>

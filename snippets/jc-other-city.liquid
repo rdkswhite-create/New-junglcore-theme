@@ -1,0 +1,52 @@
+{% doc %}
+"¿No estás en Bogotá?" — email sign-up with the city, tagged fuera-bogota and ciudad-<name>, so the customer list shows which city asks most.
+@param {string} id - Unique form id.
+@param {boolean} [dark] - Light text, for dark bands.
+{% enddoc %}
+<details class="jcs-city{% if dark %} jcs-city--dark{% endif %}" id="{{ id }}-wrap">
+  <summary><span class="jcs-city__q">¿No estás en Bogotá?</span><span class="jcs-city__go">Dinos tu ciudad</span></summary>
+  <p class="jcs-city__lead">Las ciudades que más lo pidan, van primero. Te escribimos cuando lleguemos.</p>
+  {% form 'customer', id: id, class: 'jcs-city__form' %}
+    {% if form.posted_successfully? %}
+      <p class="jcs-city__ok">Anotado. Si tu ciudad sube en la lista, eres de los primeros en saberlo.</p>
+    {% else %}
+      <input type="hidden" name="contact[tags]" value="newsletter,fuera-bogota" data-city-tags>
+      <label class="visually-hidden" for="{{ id }}-city">Tu ciudad</label>
+      <select class="jcs-city__select" id="{{ id }}-city" data-city-select required>
+        <option value="">Tu ciudad</option>
+        <option>Medellín</option>
+        <option>Cali</option>
+        <option>Barranquilla</option>
+        <option>Bucaramanga</option>
+        <option>Cartagena</option>
+        <option>Pereira</option>
+        <option>Manizales</option>
+        <option>Cúcuta</option>
+        <option>Ibagué</option>
+        <option>Villavicencio</option>
+        <option>Santa Marta</option>
+        <option>Otra</option>
+      </select>
+      <label class="visually-hidden" for="{{ id }}-email">Tu correo</label>
+      <div class="jcs-wait__row jcs-city__row">
+        <input type="email" id="{{ id }}-email" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" required>
+        <button type="submit">Avísame</button>
+      </div>
+      <p class="jcs-wait__legal">Solo te escribimos sobre NUBE y JUNGLCORE. Puedes salirte cuando quieras.</p>
+    {% endif %}
+  {% endform %}
+</details>
+<script>
+  (function () {
+    var wrap = document.getElementById({{ id | append: '-wrap' | json }});
+    if (!wrap) return;
+    if (/customer_posted=true/.test(location.search) && location.hash === '#' + {{ id | json }}) wrap.open = true;
+    var sel = wrap.querySelector('[data-city-select]');
+    var tags = wrap.querySelector('[data-city-tags]');
+    if (!sel || !tags) return;
+    sel.addEventListener('change', function () {
+      var slug = sel.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
+      tags.value = 'newsletter,fuera-bogota' + (slug ? ',ciudad-' + slug : '');
+    });
+  })();
+</script>
