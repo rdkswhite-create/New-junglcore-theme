@@ -887,3 +887,4 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
   .jcs-foryou__cards { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
 }
 .jcs-foryou__count i { font-style: normal; }
+.jcs-invest--short > .jcs-chapter { margin-bottom: 18px; }

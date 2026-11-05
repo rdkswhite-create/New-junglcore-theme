@@ -141,7 +141,7 @@
   <section class="jcs-next" aria-label="Lo que viene">
     <div class="jcs-frame">
       <div class="jcs-invest jcs-invest--short">
-        <p class="jcs-eyebrow">JUNGLCORE LAB investiga</p>
+        <p class="jcs-chapter"><span>05</span>JUNGLCORE LAB investiga</p>
         <div class="jcs-invest__grid">
           <a class="jcs-invest__item jcs-invest__box" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">
             <span class="jcs-invest__n">01 · Saciedad</span>
@@ -182,7 +182,7 @@
   {%- if section.blocks.size > 0 -%}
   <section class="jcs-reviews" id="jc-resenas" aria-labelledby="jc-reviews-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>05</span>Lo que dijeron los humanos</p>
+      <p class="jcs-chapter"><span>06</span>Lo que dijeron los humanos</p>
       <div class="jcs-reviews__head">
         <h2 class="jcs-title" id="jc-reviews-title">Lo que dijeron los humanos.</h2>
         <p class="jcs-lead">Personas reales, palabras reales. Los robots no se lo terminan de creer. Lo anotan igual.</p>
@@ -200,9 +200,9 @@
   {%- endif -%}
 
   {%- liquid
-    assign faq_number = '05'
+    assign faq_number = '06'
     if section.blocks.size > 0
-      assign faq_number = '06'
+      assign faq_number = '07'
     endif
   -%}
   {% render 'jc-faq', number: faq_number %}
