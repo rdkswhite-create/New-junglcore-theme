@@ -877,3 +877,13 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs-invest--full { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
 .jcs-about__body + .jcs-invest--full, .jcs-log-entry .jcs-invest--full { margin-top: 8px; }
 .jcs-invest--short { border-bottom: 0; }
+.jcs-foryou__nav { display: none; }
+@media (max-width: 899px) {
+  .jcs-foryou__nav { display: flex; align-items: center; gap: 16px; margin-top: 14px; }
+  .jcs-foryou__btn { width: 48px; height: 48px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 20px; cursor: pointer; }
+  .jcs-foryou__btn:active { background: var(--ink); color: var(--paper); }
+  .jcs-foryou__count { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--muted); }
+  .jcs-foryou__count b { color: var(--ink); }
+  .jcs-foryou__cards { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+}
+.jcs-foryou__count i { font-style: normal; }

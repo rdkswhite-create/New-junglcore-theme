@@ -58,7 +58,29 @@
         <li><span>06</span>Tomas bebida vegetal todos los días.</li>
         <li><span>07</span>Quieres que lo que comes salga de aquí.</li>
       </ol>
-      <p class="jcs-foryou__hint" aria-hidden="true">Desliza &rarr;</p>
+      <div class="jcs-foryou__nav">
+        <button type="button" class="jcs-foryou__btn" data-dir="-1" aria-label="Anterior">&larr;</button>
+        <span class="jcs-foryou__count" aria-live="polite"><b>1</b> / <i>7</i></span>
+        <button type="button" class="jcs-foryou__btn" data-dir="1" aria-label="Siguiente">&rarr;</button>
+      </div>
+      <script>
+        (function () {
+          var track = document.querySelector('.jcs-foryou__cards');
+          var nav = document.querySelector('.jcs-foryou__nav');
+          if (!track || !nav) return;
+          var cards = track.children, count = nav.querySelector('b');
+          nav.querySelector('i').textContent = cards.length;
+          function step() { return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth; }
+          nav.addEventListener('click', function (e) {
+            var btn = e.target.closest('[data-dir]'); if (!btn) return;
+            track.scrollBy({ left: step() * Number(btn.dataset.dir), behavior: 'smooth' });
+          });
+          track.addEventListener('scroll', function () {
+            var i = Math.round(track.scrollLeft / step()) + 1;
+            count.textContent = Math.min(Math.max(i, 1), cards.length);
+          }, { passive: true });
+        })();
+      </script>
     </div>
   </section>
 
