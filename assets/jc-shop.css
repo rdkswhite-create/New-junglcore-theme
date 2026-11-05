@@ -615,3 +615,6 @@
 @media (max-width: 749px) { .jcs-shop:has(.jcs-gal) { padding-top: 16px; } body:has(.jcs-sticky--always) .jcs-footer { padding-bottom: 96px; } }
 .jcs-shop:has(.jcs-pdp-nums) .jcs-buy .jcs-facts { display: none; }
 .jcs-manifesto__more { margin-top: 18px; }
+.jcs-gal__slide figcaption { top: 12px; bottom: auto; }
+.jcs-gal__slide--pack { background: #f2f1ec; }
+.jcs-gal__slide--pack img { object-fit: contain; }

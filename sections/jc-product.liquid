@@ -14,14 +14,15 @@
           -%}
           <div class="jcs-gal" id="jcs-gal">
             <div class="jcs-gal__track" tabindex="0" aria-label="Fotos de NUBE">
-              <figure class="jcs-gal__slide"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-portrait-loop.webp?v=1793647878" width="720" height="1280" loading="eager" fetchpriority="high" alt="Una barra de NUBE cae en la licuadora con agua"><figcaption>Una barra, agua, 30 segundos.</figcaption></figure>
-              <figure class="jcs-gal__slide jcs-gal__slide--pack">{% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'product-buy-pack', description: 'Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi' %}<figcaption>30 barras · 600 g · 30 vasos.</figcaption></figure>
-              <figure class="jcs-gal__slide"><img src="{{ 'jc-manana-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" style="object-position: center 60%" alt="Una mujer junto a la ventana por la mañana, con un vaso de NUBE en la mesa"><figcaption>Antes de que empiece todo lo demás.</figcaption></figure>
-              <figure class="jcs-gal__slide"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6557.jpg?v=1793784459&width=900" width="928" height="1152" loading="lazy" alt="Una mujer vierte NUBE sobre la avena"><figcaption>En la avena.</figcaption></figure>
-              <figure class="jcs-gal__slide"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6560.jpg?v=1793784885&width=900" width="928" height="1152" loading="lazy" alt="Un hombre prepara un batido con NUBE en la cocina"><figcaption>En el batido.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-barra-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="eager" fetchpriority="high" style="object-position: center 48%" alt="Una mujer deja caer una barra congelada de NUBE en la licuadora con agua; la bolsa está sobre la mesa"><figcaption>Una barra, agua.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-licuadora-blanca.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 48%" alt="La licuadora llena de bebida blanca y cremosa, con la bolsa de NUBE sobre la mesa"><figcaption>30 segundos después.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 55%" alt="Un vaso alto de bebida de NUBE recién servida junto a la ventana, con la mano de una mujer al lado"><figcaption>6,3 g de proteína por vaso.</figcaption></figure>
+              <figure class="jcs-gal__slide jcs-gal__slide--pack"><img src="{{ 'jc-nube-bolsa.jpg' | asset_url }}" width="1254" height="1254" loading="lazy" alt="Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi, 600 g"><figcaption>30 barras · 600 g · 30 vasos.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-congelador.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 42%" alt="Una mano saca una barra de NUBE de la bolsa en la puerta del congelador"><figcaption>Del congelador, una a una.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-taza.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 50%" alt="Dos manos sostienen una taza de agua caliente donde se deshace una barra de NUBE"><figcaption>De noche, en agua caliente.</figcaption></figure>
             </div>
             <div class="jcs-gal__dots" role="tablist" aria-label="Elegir foto">
-              {%- for i in (1..5) -%}<button type="button" class="jcs-gal__dot{% if i == 1 %} is-active{% endif %}" aria-label="Foto {{ i }}"></button>{%- endfor -%}
+              {%- for i in (1..6) -%}<button type="button" class="jcs-gal__dot{% if i == 1 %} is-active{% endif %}" aria-label="Foto {{ i }}"></button>{%- endfor -%}
             </div>
           </div>
           <script>
