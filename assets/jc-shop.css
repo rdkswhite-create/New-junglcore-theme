@@ -318,7 +318,7 @@
   .jcs-log-blank { aspect-ratio: 16 / 9; }
   .jcs-log-entry .jcs-btn { width: 100%; }
 }
-.jcs-buy__wa { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 12px; padding: 14px 0; border: 1px solid var(--rule); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.jcs-buy__wa { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 12px; padding: 16px 26px; border: 1px solid var(--rule); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
 .jcs-buy__wa:hover { border-color: var(--ink); }
 
 /* ---------- Film: ¿Qué es NUBE? ---------- */
@@ -372,11 +372,11 @@
 
 /* ---------- ¿Llegamos a tu barrio? ---------- */
 .jcs-check { margin-top: 14px; border: 1px solid var(--rule); }
-.jcs-check summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; cursor: pointer; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.jcs-check summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 16px 26px; cursor: pointer; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .jcs-check summary::-webkit-details-marker { display: none; }
 .jcs-check summary::after { content: '+'; font-size: 18px; font-weight: 300; transition: transform .2s; }
 .jcs-check[open] summary::after { transform: rotate(45deg); }
-.jcs-check__body { padding: 0 16px 16px; }
+.jcs-check__body { padding: 0 26px 18px; }
 .jcs-check__choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .jcs-check__btn { padding: 12px 10px; border: 1px solid var(--rule); background: transparent; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink); }
 .jcs-check__btn.is-on { border-color: var(--ink); background: var(--ink); color: var(--paper); }
