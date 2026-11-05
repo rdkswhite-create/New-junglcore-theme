@@ -81,61 +81,13 @@
 
   {% render 'jc-versus', number: '04', sources_href: '/products/nube#jc-nutrition' %}
 
-  <section class="jcs-robots" id="jc-hallazgos" aria-labelledby="jc-robots-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>05</span>Hallazgos</p>
-      <div class="jcs-robots__grid">
-        <div class="jcs-robots__image">
-          {%- capture v006 -%}{{ 'jc-bitacora-006.mp4' | asset_url }}{%- endcapture -%}
-          {%- capture p006 -%}{{ 'jc-bitacora-006-poster.jpg' | asset_url }}{%- endcapture -%}
-          {% render 'jc-tap-video', id: 'jcs-home-006', src: v006, poster: p006, label: 'Ver lo que dijeron', caption: 'Entrada 006 · Vieron nuestro anuncio. Tenían preguntas.' %}
-        </div>
-        <div class="jcs-robots__copy">
-          <dl class="jcs-file" aria-label="Estado de la misión">
-            <div><dt>Misión</dt><dd>Encontrar la jungla</dd></div>
-            <div><dt>Presupuesto</dt><dd><span class="jcs-file__stamp">Agotado</span></dd></div>
-            <div><dt>Hallazgos</dt><dd>Pasillos</dd></div>
-            <div><dt>Estado</dt><dd>Siguen buscando</dd></div>
-          </dl>
-          <h2 class="jcs-display" id="jc-robots-title">Vinieron buscando la jungla.</h2>
-          <p>Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Interceptaron una palabra, «jungla», y consiguieron presupuesto para venir a verla.</p>
-          <p>Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo de supermercado con cinco plantas en caja. El informe no va bien.</p>
-          <figure class="jcs-robots__ground">
-            <img src="{{ 'jc-suelo-transmilenio.jpg' | asset_url }}" width="941" height="1176" loading="lazy" alt="Lupa, un robot rojo, sentada muy derecha en un TransMilenio lleno, entre un hombre que mira el celular y una mujer dormida contra la ventana">
-            <figcaption>A nivel del suelo · TransMilenio, 7:00. Nadie levantó la vista.</figcaption>
-          </figure>
-          <ul class="jcs-log-crew jcs-robots__crew" aria-label="Tripulación">
-            <li><span class="jcs-log-dot jcs-log-dot--red" aria-hidden="true"></span><strong>Lupa</strong> Roja. No se cree nada que venga en caja.</li>
-            <li><span class="jcs-log-dot jcs-log-dot--green" aria-hidden="true"></span><strong>Chispa</strong> Verde. La botánica de la misión. La única que todavía se emociona.</li>
-            <li><span class="jcs-log-dot jcs-log-dot--blue" aria-hidden="true"></span><strong>Dato</strong> Azul. Lee etiquetas para no tener que hablar con nadie.</li>
-          </ul>
-          <p class="jcs-robots__finding"><span>Hallazgo anotado</span>Tres almendras y un vaso de agua. Para ellos, eso explica bastante.</p>
-          {%- liquid
-            assign hallazgos = 'Un vaso de bebida de almendras lleva unas tres o cuatro almendras. El resto, sobre todo, agua.|La de avena dice «sin azúcar añadida». Trae 7,5 g de azúcares por vaso. Nadie los añadió, pero ahí están.|Contamos los ingredientes de una bebida de almendras: trece. Los de NUBE: tres. Nos sobraron diez.|En la caja dice «natural» en letra grande. En la lista de ingredientes, lo primero es agua.|Colombia es uno de los países más biodiversos del planeta. Su pasillo de bebidas vegetales tiene cinco plantas.|Proteína por vaso: almendra, 1 g. Avena, 2,9 g. NUBE, 6,3 g. Seguimos sin entender la caja.|«Saludable», en letra grande. Las almendras, en letra pequeña.' | split: '|'
-            assign day = 'now' | date: '%j' | plus: 0
-            assign pick = day | modulo: hallazgos.size
-            assign hallazgo_hoy = hallazgos[pick]
-            if section.settings.hallazgo_dia != blank
-              assign hallazgo_hoy = section.settings.hallazgo_dia
-            endif
-          -%}
-          <p class="jcs-robots__finding jcs-robots__finding--today"><span>Hallazgo del día</span>{{ hallazgo_hoy }}</p>
-          <div class="jcs-robots__links">
-            <a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones#jc-log-001">Comprobar las notas en la bitácora <span aria-hidden="true">&rarr;</span></a>
-            <a class="jcs-link" href="{{ section.settings.hallazgos_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener">Ver los hallazgos en Instagram <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="jcs-next" aria-label="Lo que viene">
     <div class="jcs-frame">
       <div class="jcs-next__grid">
         <div class="jcs-next__item">
           <p class="jcs-eyebrow">JUNGLCORE LAB</p>
-          <h3>Misión: encontrar la jungla.</h3>
-          <p>La bitácora de la nave. Ellos anotan lo que encuentran; nosotros comprobamos sus notas. Ahora mismo: el antojo de dulce que no viene del hambre.</p>
+          <h3>Tres robots vinieron buscando la jungla.</h3>
+          <p>Encontraron un pasillo con cinco plantas en caja. Su bitácora, y lo que comprobamos de ella, está en el Lab.</p>
           <a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones">Abrir la bitácora <span aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="jcs-next__item">
@@ -151,7 +103,7 @@
   {%- if section.blocks.size > 0 -%}
   <section class="jcs-reviews" id="jc-resenas" aria-labelledby="jc-reviews-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>06</span>Lo que dijeron los humanos</p>
+      <p class="jcs-chapter"><span>05</span>Lo que dijeron los humanos</p>
       <div class="jcs-reviews__head">
         <h2 class="jcs-title" id="jc-reviews-title">Lo que dijeron los humanos.</h2>
         <p class="jcs-lead">Personas reales, palabras reales. Los robots no se lo terminan de creer. Lo anotan igual.</p>
@@ -169,9 +121,9 @@
   {%- endif -%}
 
   {%- liquid
-    assign faq_number = '06'
+    assign faq_number = '05'
     if section.blocks.size > 0
-      assign faq_number = '07'
+      assign faq_number = '06'
     endif
   -%}
   {% render 'jc-faq', number: faq_number %}

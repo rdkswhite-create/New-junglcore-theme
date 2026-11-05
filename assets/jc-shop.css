@@ -451,3 +451,6 @@
 .jcs-about__lineup { margin: clamp(24px, 4vw, 40px) 0 clamp(8px, 2vw, 16px); }
 .jcs-about__lineup img { width: 100%; height: auto; display: block; }
 .jcs-about__lineup figcaption { margin-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+/* Lab intro: the finding of the day sits on the dark intro */
+.jcs-log-intro .jcs-robots__finding { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.25); color: #fff; font-size: clamp(18px, 1.8vw, 22px); line-height: 1.4; }
+.jcs-log-intro .jcs-log-intro__lead + .jcs-log-intro__lead { margin-top: 14px; }
