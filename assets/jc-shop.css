@@ -858,3 +858,12 @@
 .jcs-wa-float__icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
 .jcs-wa-float__label { padding: 7px 14px; background: var(--paper, #fcfbf8); border: 1px solid var(--ink, #111); color: var(--ink, #111); font-size: 13px; font-weight: 600; letter-spacing: .02em; }
 @media (max-width: 899px) { body:has(.jcs-sticky.is-visible) .jcs-wa-float { bottom: calc(86px + env(safe-area-inset-bottom)); } .jcs-wa-float__icon { width: 52px; height: 52px; } }
+/* para ti: swipe on phone, 4x2 on desktop */
+.jcs-foryou__hint { display: none; }
+@media (max-width: 899px) {
+  .jcs-foryou__cards { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin-left: -20px; margin-right: -20px; padding: 0 20px 6px; scroll-padding: 20px; }
+  .jcs-foryou__cards li { flex: 0 0 78%; scroll-snap-align: start; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 220px; padding: 22px; font-size: 24px; line-height: 1.2; }
+  .jcs-foryou__cards li:nth-child(odd) { background: #111; color: #f4f3ef; }
+  .jcs .jcs-foryou__hint { display: block; margin: 12px 0 0; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+}
+@media (min-width: 900px) { .jcs-foryou__cards { grid-template-columns: repeat(4, 1fr); } }
