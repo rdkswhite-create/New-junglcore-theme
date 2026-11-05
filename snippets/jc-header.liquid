@@ -7,7 +7,16 @@ JUNGLCORE header with announcement and a buy button on every page.
     assign buy_href = routes.root_url | append: 'products/nube#jc-buy'
   endif
 -%}
-<p class="jcs-announce">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo en Bogotá{% else %}Solo en Bogotá, por ahora · Envío gratis desde 3 bolsas{% endif %}</p>
+{%- liquid
+  assign mq_nube = all_products['nube']
+  assign mq_v = mq_nube.selected_or_first_available_variant
+-%}
+{%- capture mq -%}
+  {%- if settings.jc_sale_mode != 'a_la_venta' -%}<span>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }}</span>{%- else -%}<span>A la venta en Bogotá</span>{%- endif -%}
+  {%- if mq_v and mq_v.price > 0 -%}{%- assign mq_glass = mq_v.price | divided_by: 30 -%}<span>{{ mq_glass | money_without_trailing_zeros }} por vaso</span>{%- endif -%}
+  <span>6,3 g de proteína por vaso</span><span>3 ingredientes</span><span>Sin sellos de advertencia</span><span>Solo en Bogotá</span><span>Envío gratis desde $100.000</span>
+{%- endcapture -%}
+<div class="jcs-announce jcs-marquee" role="region" aria-label="Anuncios"><div class="jcs-marquee__track"><p class="jcs-marquee__set">{{ mq }}</p><p class="jcs-marquee__set" aria-hidden="true">{{ mq }}</p></div></div>
 <header class="jcs-header">
   <div class="jcs-header__inner">
     <a class="jcs-header__logo" href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio">
@@ -19,7 +28,7 @@ JUNGLCORE header with announcement and a buy button on every page.
       <a href="{{ routes.root_url }}#jc-faq">Preguntas</a>
     </nav>
     <div class="jcs-header__actions">
-      <a class="jcs-btn jcs-header__buy" href="{{ buy_href }}">{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate{% else %}Comprar{% endif %}</a>
+      <a class="jcs-btn jcs-header__buy" href="{{ buy_href }}">{% if settings.jc_sale_mode != 'a_la_venta' %}Apártala{% else %}Comprar{% endif %}</a>
       <button type="button" class="jcs-header__menu" aria-expanded="false" aria-controls="jcs-mobile-nav" aria-label="Abrir menú">
         <span class="jcs-header__bars" aria-hidden="true"><span></span><span></span></span>
       </button>

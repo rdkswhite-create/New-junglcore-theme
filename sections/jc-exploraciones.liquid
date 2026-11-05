@@ -69,7 +69,7 @@
           <p><strong>Una barra del congelador, agua y licuadora. Un minuto.</strong></p>
           <p>Sacha inchi, agua y goma gelana. 6,3 g de proteína por vaso. Sabe suave, un poco a nuez, sin dulce añadido. La comparamos con almendra, avena, arroz y soya. No siempre gana.</p>
           {% if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_perk != blank %}<p class="jcs-lab-perk">{{ settings.jc_waitlist_perk }}</p>{% endif %}
-          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-entry__price">{{ price_line }}</p>
           <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa <span aria-hidden="true">&rarr;</span></a>
         </div>
@@ -101,7 +101,7 @@
           <p class="jcs-pausa__belief">Un antojo dura minutos. Si llega más tarde, ganas tú.</p>
           <p class="jcs-pausa__text">Creemos que es la semilla. Todavía no lo hemos demostrado: lo estamos probando con gente de verdad, cada día.</p>
           <p class="jcs-pausa__open">Está abierto.</p>
-          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-entry__price">{{ price_line }}</p>
           <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
         </div>
@@ -205,7 +205,7 @@
               </div>
               <p class="jcs-log-open"><span>Sigue abierto</span>Lea la etiqueta. Después hablamos.</p>
               <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
                 <p class="jcs-entry__price">{{ price_line }}</p>
               </div>
               <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Cuántas almendras lleva un vaso de bebida de almendra? ' | append: shop.url | append: '/pages/exploraciones#jc-log-001' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
@@ -230,7 +230,7 @@
                 </ul>
               </div>
               <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
                 <p class="jcs-entry__price">{{ price_line }}</p>
               </div>
               <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Quién dijo que la bebida vegetal tiene que venir en caja? ' | append: shop.url | append: '/pages/exploraciones#jc-log-002' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
@@ -256,7 +256,7 @@
                 <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Las cuentas, marca por marca <span aria-hidden="true">&rarr;</span></a>
               </div>
               <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
                 <p class="jcs-entry__price">{{ price_line }}</p>
               </div>
               <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE? ' | append: shop.url | append: '/pages/exploraciones#jc-log-003' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
@@ -284,7 +284,7 @@
               </div>
               <p class="jcs-log-open"><span>Sigue abierto</span>No faltan plantas. Falta hacerles sitio.</p>
               <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
                 <p class="jcs-entry__price">{{ price_line }}</p>
               </div>
               <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Para qué se inventó la proteína de soya? ' | append: shop.url | append: '/pages/exploraciones#jc-log-004' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
@@ -312,7 +312,7 @@
               </div>
               <p class="jcs-log-open"><span>Sigue abierto</span>La selva siempre estuvo aquí. Nadie la miró.</p>
               <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
                 <p class="jcs-entry__price">{{ price_line }}</p>
               </div>
               <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿31.000 plantas y la proteína llega en barco? ' | append: shop.url | append: '/pages/exploraciones#jc-log-005' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
@@ -340,7 +340,7 @@
               </div>
               <p class="jcs-log-open"><span>Sigue abierto</span>Una planta se cuida cuando se usa. Nosotros empezamos por una.</p>
               <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
                 <p class="jcs-entry__price">{{ price_line }}</p>
               </div>
               <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿A quién le importa la jungla? ' | append: shop.url | append: '/pages/exploraciones#jc-log-006' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
@@ -366,7 +366,7 @@
               </div>
               <p class="jcs-log-open"><span>Sigue abierto</span>Por qué lo de aquí vale más cuando vuelve de afuera. Repita conmigo: sa-cha in-chi.</p>
               <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
                 <p class="jcs-entry__price">{{ price_line }}</p>
               </div>
               <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Por qué lo de aquí vale más cuando viene de afuera? ' | append: shop.url | append: '/pages/exploraciones#jc-log-007' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>

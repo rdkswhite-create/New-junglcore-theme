@@ -26,7 +26,7 @@
       <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
       <p class="jcs-hero__sub">NUBE es una barra congelada de sacha inchi para preparar una bebida vegetal. Agua, 30 segundos de licuadora, y tienes un vaso con más de seis veces la proteína de una bebida de almendra.</p>
       <div class="jcs-hero__actions">
-        <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apúntate · {{ settings.jc_launch_label | default: '20 de noviembre' }}</span>{% else %}<span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa · {{ settings.jc_launch_short | default: '20 nov' }}</span>{% else %}<span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-film">Cómo se prepara</a>
       </div>
     </div>
@@ -35,7 +35,29 @@
     </div>
   </section>
 
+  <ul class="jcs-badges" aria-label="Lo que puedes confiar">
+    {% if settings.jc_invima_number != blank %}<li><strong>Registro sanitario INVIMA</strong><span>{{ settings.jc_invima_number }}</span></li>{% endif %}
+    <li><strong>Sin sellos de advertencia</strong><span>Ni uno en la etiqueta</span></li>
+    <li><strong>Sin azúcar añadida</strong><span>0 g de azúcares por vaso</span></li>
+    <li><strong>3 ingredientes</strong><span>Sacha inchi, agua y goma gelana</span></li>
+    <li><strong>Hecho en Colombia</strong><span>Con sacha inchi de ASIN</span></li>
+    {% if settings.jc_backed_by != blank %}<li><strong>Con el apoyo de</strong><span>{{ settings.jc_backed_by }}</span></li>{% endif %}
+  </ul>
+
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
+
+  <section class="jcs-foryou" aria-labelledby="jc-foryou-title">
+    <div class="jcs-frame">
+      <h2 class="jcs-title" id="jc-foryou-title">NUBE es para ti si…</h2>
+      <ol class="jcs-foryou__cards">
+        <li><span>01</span>Te cansaste de pagar agua con un poquito de almendra.</li>
+        <li><span>02</span>Tomas bebida vegetal todos los días.</li>
+        <li><span>03</span>Quieres proteína sin un tarro de polvo.</li>
+        <li><span>04</span>El antojo de media tarde te gana.</li>
+        <li><span>05</span>Quieres que lo que comes salga de aquí.</li>
+      </ol>
+    </div>
+  </section>
 
   <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-buy-title">
     <div class="jcs-frame">
@@ -61,6 +83,23 @@
   </section>
 
   {% render 'jc-versus', number: '02', sources_href: '/products/nube#jc-nutrition' %}
+
+  <section class="jcs-reels" aria-labelledby="jc-reels-title">
+    <div class="jcs-frame">
+      <p class="jcs-eyebrow">JUNGLCORE LAB · En video</p>
+      <h2 class="jcs-title" id="jc-reels-title">Preguntas desde la nave.</h2>
+      <p class="jcs-lead">Tres robots vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta.</p>
+    </div>
+    <ol class="jcs-reels__track">
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-001"><img src="{{ 'jc-lab-almendras-reel.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">001</span><span class="jcs-reel__q">¿Cuántas almendras lleva un vaso de bebida de almendra?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-002"><img src="{{ 'jc-lab-sin-caja-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">002</span><span class="jcs-reel__q">¿Quién dijo que la bebida vegetal tiene que venir en caja?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-003"><img src="{{ 'jc-lab-cartones-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">003</span><span class="jcs-reel__q">¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-004"><img src="{{ 'jc-lab-soya-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">004</span><span class="jcs-reel__q">¿Para qué se inventó la proteína de soya?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-005"><img src="{{ 'jc-lab-barco-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">005</span><span class="jcs-reel__q">¿31.000 plantas y la proteína llega en barco?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-006"><img src="{{ 'jc-lab-fondo-cali-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">006</span><span class="jcs-reel__q">¿A quién le importa la jungla?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-007"><img src="{{ 'jc-lab-sacha-afuera-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">007</span><span class="jcs-reel__q">¿Por qué lo de aquí vale más cuando viene de afuera?</span></a></li>
+    </ol>
+  </section>
 
   {% render 'jc-moments', number: '03', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
 
@@ -159,7 +198,7 @@
     <div class="jcs-frame">
       <h2 id="jc-final-title">Rinde más.</h2>
       <p>Proteína y fibra de una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
-      <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apúntate a la primera tanda</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 

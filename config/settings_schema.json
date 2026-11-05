@@ -1537,6 +1537,22 @@
       },
       {
         "type": "header",
+        "content": "Sellos de confianza"
+      },
+      {
+        "type": "text",
+        "id": "jc_invima_number",
+        "label": "Registro sanitario INVIMA",
+        "info": "El número, tal como aparece en la etiqueta. Si está vacío, el sello no aparece."
+      },
+      {
+        "type": "text",
+        "id": "jc_backed_by",
+        "label": "Con el apoyo de",
+        "info": "Por ejemplo: ProColombia. Solo si tienes su permiso para usar el nombre. Si está vacío, el sello no aparece."
+      },
+      {
+        "type": "header",
         "content": "Entregas en Bogotá"
       },
       {

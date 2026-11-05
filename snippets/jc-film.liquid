@@ -22,7 +22,7 @@ on desktop the vertical film sits in a tall frame with the copy beside it. Pause
       <p class="jcs-eyebrow">27 segundos</p>
       <h2 class="jcs-film__title">¿Qué es NUBE?</h2>
       <p>Una barra del congelador. Agua caliente o licuadora. Eso es todo. El resto de la película es Bogotá.</p>
-      <a class="jcs-btn jcs-btn--light" href="{{ buy_href | default: '#jc-buy' }}">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apúntate a la primera tanda</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jcs-btn jcs-btn--light" href="{{ buy_href | default: '#jc-buy' }}">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="jcs-film__frame">
       <video class="jcs-film__video" id="jcs-film-video" muted playsinline preload="metadata" poster="{{ 'jc-nube-video-poster.jpg' | asset_url }}"
@@ -31,7 +31,7 @@ on desktop the vertical film sits in a tall frame with the copy beside it. Pause
       </video>
       <button type="button" class="jcs-film__sound" id="jcs-film-sound" aria-pressed="false">Activar sonido</button>
       <div class="jcs-film__end" id="jcs-film-end" hidden>
-        <a class="jcs-btn jcs-btn--light" href="{{ buy_href | default: '#jc-buy' }}">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apúntate a la primera tanda</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="jcs-btn jcs-btn--light" href="{{ buy_href | default: '#jc-buy' }}">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <button type="button" class="jcs-film__again" id="jcs-film-again">Ver otra vez</button>
       </div>
     </div>
