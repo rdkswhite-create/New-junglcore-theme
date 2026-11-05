@@ -41,14 +41,16 @@
           <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
           {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
           <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
-          <div class="jcs-lab-more-film">
-            <p class="jcs-lab-film__kicker">Película 2 · 2 min</p>
-            <h2 class="jcs-lab-film__title">La misión completa</h2>
+          <details class="jcs-lab-more-film">
+            <summary>
+              <span class="jcs-lab-more-film__text"><span class="jcs-lab-film__kicker">Película 2 · 2 min</span><span class="jcs-lab-more-film__q">¿Quieres entender la misión completa?</span></span>
+              <span class="jcs-lab-more-film__plus" aria-hidden="true"></span>
+            </summary>
             <p class="jcs-lab-film__what">Por qué vinieron: menos plantas, menos empresas, la tierra cansada. Y una semilla de la selva.</p>
             {%- capture vm -%}{{ 'jc-lab-la-mision.mp4' | asset_url }}{%- endcapture -%}
             {%- capture pm -%}{{ 'jc-lab-la-mision-poster.jpg' | asset_url }}{%- endcapture -%}
             {% render 'jc-tap-video', id: 'jcs-lab-mision', src: vm, poster: pm, label: 'Ver La misión' %}
-          </div>
+          </details>
         </div>
         <div class="jcs-lab-top__file">
           <dl class="jcs-file" aria-label="Estado de la misión">

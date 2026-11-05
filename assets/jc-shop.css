@@ -672,3 +672,12 @@
 .jcs-lab-make__grid .jcs-log-small { font-size: 12px; }
 @media (min-width: 900px) { .jcs-lab-make__grid { grid-template-columns: repeat(4, 1fr); gap: 32px; } }
 .jcs-log-intro__frame + .jcs-log-intro__frame { margin-top: 14px; }
+.jcs-lab-more-film summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; padding: 4px 0 8px; }
+.jcs-lab-more-film summary::-webkit-details-marker { display: none; }
+.jcs-lab-more-film summary::after { content: none; }
+.jcs-lab-more-film__text { display: grid; gap: 8px; }
+.jcs .jcs-lab-more-film__q { color: #fff; font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; text-transform: uppercase; }
+.jcs-lab-more-film__plus { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border: 1px solid rgba(255,255,255,.6); color: #fff; font-size: 34px; font-weight: 300; line-height: 1; }
+.jcs-lab-more-film__plus::before { content: '+'; }
+.jcs-lab-more-film[open] .jcs-lab-more-film__plus::before { content: '–'; }
+.jcs-lab-more-film[open] summary { margin-bottom: 4px; }
