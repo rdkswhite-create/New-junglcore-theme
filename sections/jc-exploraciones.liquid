@@ -130,6 +130,30 @@
       </div>
       <div class="jcs-entries">
 
+        <details class="jcs-entry" id="jc-log-003" open>
+          <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿A quién le importa la jungla?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <div class="jcs-entry__body">
+            <div class="jcs-entry__media">
+              {%- capture v003 -%}{{ 'jc-lab-fondo-cali.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p003 -%}{{ 'jc-lab-fondo-cali-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-003', src: v003, poster: p003, label: 'Ver el hallazgo' %}
+            </div>
+            <div class="jcs-entry__text">
+              <div class="jcs-log-check">
+                <h3>Lo que comprobamos</h3>
+                <ul>
+                  <li><strong>El Fondo de Cali.</strong> Nació en la cumbre de biodiversidad de la ONU en Cali, en 2024. Las empresas que ganan dinero con la información genética de la naturaleza aportarían. Meta: unos US$1.000 millones al año.</li>
+                  <li><strong>Recibido: US$7.085.</strong> Es lo que había cuando empezó la siguiente cumbre, en octubre de 2026. Tres empresas pequeñas. Ninguna farmacéutica grande. <a href="https://dawn.com/news/2038697" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>Al cierre de esa cumbre,</strong> poco más de US$10.000. <a href="https://news.mongabay.com/2026/10/leaders-grapple-with-finance-and-harmful-subsidies-at-uns-cop17-biodiversity-conference/" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>Ningún gobierno</strong> ha aprobado una ley que obligue a las empresas a aportar. <a href="https://www.carbonbrief.org/cop17-developed-countries-fall-far-short-of-un-targets-for-nature-finance" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                </ul>
+              </div>
+              <p class="jcs-log-open"><span>Sigue abierto</span>Una planta se cuida cuando se usa. Nosotros empezamos por una.</p>
+              <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </details>
+
         <details class="jcs-entry" id="jc-log-002" open>
           <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Quién dijo que la bebida vegetal tiene que venir en caja?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
