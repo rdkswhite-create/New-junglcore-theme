@@ -1494,7 +1494,7 @@
         "content": "Redes"
       },
       {
-        "type": "url",
+        "type": "text",
         "id": "jc_instagram_url",
         "label": "Instagram",
         "default": "https://www.instagram.com/tryjunglcore",
