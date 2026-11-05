@@ -124,141 +124,51 @@
       <div class="jcs-lab-head">
         <h2 class="jcs-title" id="jc-bitacora-title">Preguntas desde la nave.</h2>
         <div>
-          <p class="jcs-lead">Los robots preguntan. Nosotros comprobamos la respuesta. Toca una para abrirla.</p>
+          <p class="jcs-lead">Los robots preguntan. Nosotros comprobamos la respuesta.</p>
           <p class="jcs-lab-rule jcs-lab-rule--dark">Los robots son ficción. Las cifras, no.</p>
         </div>
       </div>
       <div class="jcs-entries">
 
-        <details class="jcs-entry" id="jc-log-008">
-          <summary><span class="jcs-entry__num">008</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Quién fabrica de verdad tu bebida de avena?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
+        <details class="jcs-entry" id="jc-log-002" open>
+          <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Quién dijo que la bebida vegetal tiene que venir en caja?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
+            <div class="jcs-entry__media">
+              {%- capture v002 -%}{{ 'jc-lab-sin-caja.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p002 -%}{{ 'jc-lab-sin-caja-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-002', src: v002, poster: p002, label: 'Ver el hallazgo' %}
+            </div>
             <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Leí la parte de atrás de cuatro cajas. Cuatro marcas, cuatro plantas. Le di la vuelta a la de avena y a la de arroz: el mismo fabricante. Le pregunté a Lupa si eso cuenta como elegir. No contestó.</p><footer>Dato · robot azul</footer></blockquote>
               <div class="jcs-log-check">
                 <h3>Lo que comprobamos</h3>
                 <ul>
-                  <li><strong>Avena y arroz, la misma casa.</strong> Las dos bebidas de nuestra tabla son Nature’s Heart, la marca de Terrafertil. Nestlé compró la mayoría de Terrafertil en 2018. <a href="https://lexlatin.com/noticias/nestle-adquiere-participacion-mayoritaria-en-terrafertil" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>La de soya.</strong> Silk es una marca de Danone; la versión que se vende en México la fabrica Danone de México. <a href="https://www.amazon.com.mx/Silk-Bebida-Soya-Az%C3%BAcar-946ml/dp/B0DGYJ6Y64" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Las cifras de cada una,</strong> por vaso de 200 ml, en la tabla completa.</li>
+                  <li><strong>Una barra, agua y la licuadora.</strong> La barra sale del congelador; el vaso, en un minuto.</li>
+                  <li><strong>Tres ingredientes.</strong> NUBE: sacha inchi, agua y goma gelana. Una bebida de almendra de supermercado: trece. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
                 </ul>
-                <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver las cinco, cuenta por cuenta <span aria-hidden="true">&rarr;</span></a>
               </div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Cuántas marcas quedan en el pasillo si se cuentan los dueños y no las cajas.</p>
+              <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
         </details>
 
-        <details class="jcs-entry" id="jc-log-007">
-          <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Por qué todos miran un rectángulo?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Visto</span></span></summary>
+        <details class="jcs-entry" id="jc-log-001" open>
+          <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
-              {%- capture v007 -%}{{ 'jc-bitacora-007.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p007 -%}{{ 'jc-bitacora-007-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-007', src: v007, poster: p007, label: 'Ver la entrada' %}
+              {%- capture v001 -%}{{ 'jc-lab-cartones.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p001 -%}{{ 'jc-lab-cartones-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-001', src: v001, poster: p001, label: 'Ver el hallazgo' %}
             </div>
             <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Entrada siete. Transporte humano. Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño. Le pregunté a uno dónde estaba la jungla. Me dijo que me bajara en la setenta y dos.</p><footer>Lupa · robot rojo</footer></blockquote>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Si alguien se bajó en la 72 y la encontró.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-006">
-          <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Qué es NUBE?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Visto</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v006 -%}{{ 'jc-bitacora-006.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p006 -%}{{ 'jc-bitacora-006-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-006', src: v006, poster: p006, label: 'Ver la entrada' %}
-            </div>
-            <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Vimos el anuncio de los humanos. Tenemos preguntas.</p><footer>Lupa, Chispa y Dato</footer></blockquote>
-              <div class="jcs-log-check"><h3>Lo que comprobamos</h3><p>Es cierto: una barra del congelador, agua caliente o licuadora. Tres ingredientes. No hay más.</p></div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Si hacen envíos a la órbita. Por ahora, solo a Bogotá.</p>
-              <a class="jcs-link" href="#jc-nube">{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %} <span aria-hidden="true">&darr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-005">
-          <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Cuál es la planta 002?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Abierto</span></span></summary>
-          <div class="jcs-entry__body">
-            <figure class="jcs-entry__media">
-              <img src="{{ 'jc-suelo-planta-002.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 45%" alt="Chispa, sola en una sala de espera, compara una hoja de una planta de plástico con la plántula real que lleva en un frasco">
-              <figcaption>Planta 002 · Candidata. Era de plástico.</figcaption>
-            </figure>
-            <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Vinimos por la jungla. Llevamos una planta. Quedan miles. A este ritmo, el informe estará listo en tres siglos.</p><footer>Lupa, Chispa y Dato</footer></blockquote>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Cuál sigue. Si conoces una planta que nadie mira, cuéntanos.</p>
-              <a class="jcs-link" href="#jc-viene">Proponer una planta <span aria-hidden="true">&uarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-004">
-          <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Qué pasa si aprietas una semilla?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">En curso</span></span></summary>
-          <div class="jcs-entry__body">
-            <figure class="jcs-entry__media jcs-entry__media--wide">
-              <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-exploracion-aceite-cuchara.png?v=1793755044&width=1200" loading="lazy" alt="Una cuchara con aceite de sacha inchi">
-            </figure>
-            <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Apretamos una semilla. Salió aceite. Los humanos llevan siglos haciendo esto con otras semillas. Con esta, casi nunca.</p><footer>Dato · robot azul</footer></blockquote>
-              <div class="jcs-log-check"><h3>Lo que comprobamos</h3><p>{{ 'junglcore_explorations.oil_research.composition' | t }}</p><p class="jcs-log-small">{{ 'junglcore_explorations.oil_research.composition_ref' | t }}</p></div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'junglcore_explorations.oil_research.open_copy' | t }}</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-003">
-          <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Qué hay entre el antojo y la mano?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Abierto</span></span></summary>
-          <div class="jcs-entry__body">
-            <figure class="jcs-entry__media">
-              <img src="{{ 'jc-noche-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" style="object-position: center 40%" alt="Una mujer de noche junto a la ventana, con una taza caliente entre las manos, un plato vacío y el celular boca abajo en la mesa">
-            </figure>
-            <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>A media tarde, a un humano se le antoja algo dulce. No tiene hambre. Tiene un mal día, una reunión que salió mal, un mensaje sin contestar. Abre las galletas para comerse una. Cierra el paquete vacío. Entre el antojo y la mano no hay espacio.</p><footer>Lupa · robot rojo</footer></blockquote>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Con esta nota empezamos a mirar la saciedad.</p>
-              <a class="jcs-link" href="#jc-pausa">Ver lo que encontramos <span aria-hidden="true">&uarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-002">
-          <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Qué es la sacha inchi?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">En curso</span></span></summary>
-          <div class="jcs-entry__body">
-            <figure class="jcs-entry__media jcs-entry__media--wide">
-              <img src="{{ 'jc-sacha-inchi-enredadera.jpg' | asset_url }}" width="896" height="1200" loading="lazy" alt="Una enredadera de sacha inchi con hojas en forma de corazón y frutos de cuatro puntas">
-              <figcaption>Planta 001 · Sacha inchi</figcaption>
-            </figure>
-            <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Encontré una planta con frutos en forma de estrella. Cuatro puntas, una semilla en cada una. Aquí la llaman sacha inchi. Fuera de Colombia casi nadie la conoce. Por fin, un pedazo de jungla.</p><footer>Chispa · robot verde</footer></blockquote>
-              <div class="jcs-log-check"><h3>Lo que comprobamos</h3><p>{{ 'jc_story.growers' | t }}</p><p>{{ 'jc_story.relationships' | t }}</p></div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>{{ 'jc_story.pilot' | t }}</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-001">
-          <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Por qué siempre las mismas plantas en el pasillo?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
-          <div class="jcs-entry__body">
-            <figure class="jcs-entry__media">
-              <img src="{{ 'jc-suelo-pasillo.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 78%" alt="Lupa, Chispa y Dato en el pasillo de bebidas vegetales de un supermercado; Dato lee la letra pequeña de una caja mientras una mujer pasa con su carrito sin mirarlos">
-              <figcaption>Pasillo de bebidas vegetales · Bogotá</figcaption>
-            </figure>
-            <div class="jcs-entry__text">
-              <blockquote class="jcs-log-note"><p>Los humanos tienen miles de plantas que se pueden comer. En el pasillo de las bebidas vegetales encontré cinco: almendra, avena, soya, arroz y coco. En Bogotá, Nueva York, Londres y Dubái, las mismas cinco. Informe enviado. Nadie respondió.</p><footer>Dato · robot azul</footer></blockquote>
               <div class="jcs-log-check">
-            <h3>Lo que comprobamos</h3>
-            <ul>
-              <li><strong>Almendras por vaso.</strong> Lupa contó tres. Revisamos: unas cuatro. La única etiqueta que declara el porcentaje trae un 2,75 % de almendras, unos 5,5 g por vaso de 200 ml. Corregido. Sigue siendo poco. <a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-              <li><strong>Azúcar que nadie añadió.</strong> La de avena dice «sin azúcar añadida» y trae 7,5 g de azúcares por vaso. Sale de la propia avena al procesarla. <a href="https://www.recetasnestle.com.co/natures-heart/productos/healthy-beverages/natures-heart-bebida-avena-se-12x946ml-co" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-              <li><strong>Ingredientes.</strong> Una bebida de almendras: trece. NUBE: tres. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-              <li><strong>Proteína por vaso.</strong> Bebida de almendra: 1,0 g. NUBE: 6,3 g. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201818-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-            </ul>
-            <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">La comparación completa, con precios <span aria-hidden="true">&rarr;</span></a>
-          </div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Por qué son siempre las mismas cinco. Nadie nos lo ha sabido explicar.</p>
+                <h3>Lo que comprobamos</h3>
+                <ul>
+                  <li><strong>Una bolsa de NUBE:</strong> 30 vasos de 6,3 g. 189 g de proteína.</li>
+                  <li><strong>Una bebida de almendra:</strong> entre 0,8 y 1,4 g por vaso, según la marca. Para llegar a 189 g hacen falta entre 27 y 47 cartones de un litro. Con la de 1,0 g, 38.</li>
+                </ul>
+                <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Las cuentas, marca por marca <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
         </details>
