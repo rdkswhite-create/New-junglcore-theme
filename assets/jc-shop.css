@@ -459,3 +459,11 @@
 .jcs-log-intro__follow .jcs-btn { width: 100%; max-width: 420px; }
 .jcs-log-intro__follow p { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,.6); }
 .jcs-next__item .jcs-link + .jcs-link { margin-top: -2px; }
+/* Section 03: the vine runs the full height of the text */
+.jcs-manifesto .jcs-manifesto__figure img { aspect-ratio: 3 / 4; object-position: center; }
+@media (min-width: 900px) {
+  .jcs-manifesto__grid { align-items: stretch; }
+  .jcs-manifesto__figure { position: relative; margin: 0; min-height: 100%; }
+  .jcs-manifesto .jcs-manifesto__figure img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; }
+  .jcs-manifesto__figure figcaption { position: absolute; top: 100%; left: 0; }
+}
