@@ -544,3 +544,9 @@
 .jcs .jcs-versus__punch { color: var(--ink); }
 .jcs-versus__links { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
 .jcs-versus__links > a:not(.jcs-link) { color: var(--soft); text-decoration: underline; text-underline-offset: 3px; }
+/* Hicimos las cuentas: headline full width, premise | turn */
+.jcs-versus__head { display: block; }
+.jcs-versus__intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); margin-top: 28px; align-items: start; }
+.jcs-versus__intro .jcs-lead + .jcs-lead { margin-top: 0; }
+.jcs .jcs-versus__punch { font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; letter-spacing: -.02em; font-weight: 500; color: var(--ink); }
+@media (max-width: 749px) { .jcs-versus__intro { grid-template-columns: 1fr; gap: 18px; margin-top: 18px; } }
