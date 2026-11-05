@@ -4,8 +4,8 @@
   assign v = nube.selected_or_first_available_variant
   assign wa = 'https://wa.me/573011571039?text='
   assign ig = settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore'
-  assign latest_src = 'jc-bitacora-007.mp4' | asset_url
-  assign latest_poster = 'jc-bitacora-007-poster.jpg' | asset_url
+  assign latest_src = 'jc-lab-vinieron.mp4' | asset_url
+  assign latest_poster = 'jc-lab-vinieron-poster.jpg' | asset_url
   if section.settings.latest_video != blank
     assign best_w = 0
     for source in section.settings.latest_video.sources
@@ -16,9 +16,9 @@
     endfor
     assign latest_poster = section.settings.latest_video.preview_image | image_url: width: 900
   endif
-  assign latest_number = section.settings.latest_number | default: '007'
-  assign latest_title = section.settings.latest_title | default: 'TransMilenio'
-  assign latest_line = section.settings.latest_line | default: 'Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño.'
+  assign latest_number = section.settings.latest_number | default: '000'
+  assign latest_title = section.settings.latest_title | default: 'Vinieron buscando la jungla'
+  assign latest_line = section.settings.latest_line | default: 'Cuatro mil días de viaje… para esto.'
 -%}
 <div class="jcs jcs-log" id="top">
   {% render 'jc-header', buy_href: '#jc-nube' %}
@@ -34,8 +34,8 @@
           <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cinco plantas en caja.</p>
         </div>
         <div class="jcs-lab-top__video">
-          <p class="jcs-lab-latest"><span>Última entrada · {{ latest_number }}</span>{{ latest_title }}</p>
-          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la entrada' %}
+          <p class="jcs-lab-latest"><span>Empieza aquí · {{ latest_number }}</span>{{ latest_title }}</p>
+          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
           <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
         </div>
         <div class="jcs-lab-top__file">
@@ -125,10 +125,14 @@
         <details class="jcs-entry" id="jc-log-007">
           <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__pillar jcs-entry__pillar--pausa">La pausa</span><span class="jcs-entry__title">TransMilenio</span><span class="jcs-entry__line">«Todos miran un rectángulo pequeño.»</span></span><span class="jcs-entry__tags"><span class="jcs-place jcs-place--tierra">Tierra</span><span class="jcs-entry__status">Visto</span></span></summary>
           <div class="jcs-entry__body">
+            <div class="jcs-entry__media">
+              {%- capture v007 -%}{{ 'jc-bitacora-007.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p007 -%}{{ 'jc-bitacora-007-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-007', src: v007, poster: p007, label: 'Ver la entrada' %}
+            </div>
             <div class="jcs-entry__text">
               <blockquote class="jcs-log-note"><p>Entrada siete. Transporte humano. Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño. Le pregunté a uno dónde estaba la jungla. Me dijo que me bajara en la setenta y dos.</p><footer>Lupa · robot rojo</footer></blockquote>
               <p class="jcs-log-open"><span>Sigue abierto</span>Si alguien se bajó en la 72 y la encontró.</p>
-              <a class="jcs-link" href="#jcs-lab-latest">Ver la entrada <span aria-hidden="true">&uarr;</span></a>
             </div>
           </div>
         </details>
@@ -308,10 +312,10 @@
   "class": "jc-exploraciones-section",
   "settings": [
     { "type": "header", "content": "Última entrada" },
-    { "type": "video", "id": "latest_video", "label": "Vídeo", "info": "Sube aquí el último vídeo de los robots. Sin vídeo, se muestra la entrada 007." },
-    { "type": "text", "id": "latest_number", "label": "Número de entrada", "default": "007" },
-    { "type": "text", "id": "latest_title", "label": "Título", "default": "TransMilenio" },
-    { "type": "textarea", "id": "latest_line", "label": "Frase del robot", "default": "Doscientas personas en una caja con ruedas. Nadie habla. Todos miran un rectángulo pequeño." }
+    { "type": "video", "id": "latest_video", "label": "Vídeo", "info": "Opcional. Sin vídeo, se muestra la película de entrada: Vinieron buscando la jungla." },
+    { "type": "text", "id": "latest_number", "label": "Número de entrada", "default": "000" },
+    { "type": "text", "id": "latest_title", "label": "Título", "default": "Vinieron buscando la jungla" },
+    { "type": "textarea", "id": "latest_line", "label": "Frase del robot", "default": "Cuatro mil días de viaje… para esto." }
   ],
   "presets": [{ "name": "JUNGLCORE LAB" }]
 }
