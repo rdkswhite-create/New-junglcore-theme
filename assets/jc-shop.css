@@ -671,3 +671,4 @@
 .jcs-lab-status--ok { color: var(--ink); }
 .jcs-lab-make__grid .jcs-log-small { font-size: 12px; }
 @media (min-width: 900px) { .jcs-lab-make__grid { grid-template-columns: repeat(4, 1fr); gap: 32px; } }
+.jcs-log-intro__frame + .jcs-log-intro__frame { margin-top: 14px; }
