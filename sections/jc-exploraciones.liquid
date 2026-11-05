@@ -118,26 +118,26 @@
       <div class="jcs-lab-study__grid">
         <div>
           <h2 class="jcs-title" id="jc-pausa-title">La pausa.</h2>
-          <p class="jcs-lead">No la buscábamos. Apareció mientras estudiábamos la sacha inchi: el espacio entre el antojo y la mano. A veces dura un segundo. A veces no existe.</p>
-          <p class="jcs-pausa__belief">Creemos que la saciedad la hace más larga. No lo hemos demostrado. Lo estamos midiendo, con quienes toman NUBE.</p>
+          <p class="jcs-lead">Un antojo dura unos minutos. Si la pausa dura más que el antojo, ganas tú.</p>
+          <p class="jcs-pausa__text">No la buscábamos. Apareció mientras estudiábamos la sacha inchi: el espacio entre el antojo y la mano. A veces dura un segundo. A veces no existe.</p>
+          <p class="jcs-pausa__belief">La pausa no es fuerza de voluntad. Es el espacio donde decides.</p>
           <figure class="jcs-pausa__fig">
             <img src="{{ 'jc-noche-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" alt="Una mujer de noche junto a la ventana, con una taza caliente entre las manos, un plato vacío y el celular boca abajo en la mesa">
             <blockquote class="jcs-log-note"><p>A media tarde, a un humano se le antoja algo dulce. No tiene hambre. Tiene un mal día, una reunión que salió mal, un mensaje sin contestar. Abre las galletas para comerse una. Cierra el paquete vacío. Entre el antojo y la mano no hay espacio.</p><footer>Lupa · robot rojo · entrada 003</footer></blockquote>
           </figure>
         </div>
         <div class="jcs-log-check">
-          <h3>Qué estamos midiendo</h3>
-          <p>Cuándo llega el antojo, cuánto dura y cuánto espacio hay entre sentirlo y actuar. Y si una dosis de sacha inchi antes de ese momento lo cambia.</p>
-            <details class="jcs-log-fold">
-              <summary>Lo que ya se ha estudiado</summary>
-              <div class="jcs-log-fold__body">
-                <p>{{ 'jc_satiety.evidence_intro' | t }}</p>
-                <p class="jcs-log-fold__title">{{ 'junglcore_explorations.research.protein_title' | t }} · <span>{{ 'junglcore_explorations.research.protein_type' | t }}</span></p>
-                <p>{{ 'junglcore_explorations.research.protein_summary' | t }}</p>
-                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_limit' | t }}</p>
-                <p class="jcs-log-small">{{ 'junglcore_explorations.research.protein_ref' | t }} · <a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">{{ 'junglcore_explorations.research.read_study' | t }} &rarr;</a></p>
-              </div>
-            </details>
+          <h3>Lo que ya se sabe</h3>
+          <ul class="jcs-pausa__known">
+            <li><strong>El ruido de la comida.</strong> Así llaman los pacientes a los pensamientos constantes sobre comida. En una encuesta de Novo Nordisk, el fabricante de Ozempic, a 550 personas con Wegovy, quienes los tenían todo el día pasaron del 62 % al 16 %. Lo que ganaron no fue menos hambre: fue silencio. Recordaban cómo estaban antes, así que es una pista, no una prueba. <a href="https://cris.maastrichtuniversity.nl/en/publications/retrospective-assessment-of-food-noise-changes-after-initiation-o/" target="_blank" rel="noopener noreferrer">Arnaut y col., 2026 &rarr;</a></li>
+            <li><strong>Un antojo dura minutos.</strong> La psicóloga Jackie Andrade, de la Universidad de Plymouth, lo ha medido: un antojo dura unos minutos. Tres minutos de Tetris lo debilitaron cerca de un 24 %, suficiente para volver tolerable un antojo insoportable hasta que pasa solo. <a href="https://doi.org/10.1016/j.appet.2014.01.073" target="_blank" rel="noopener noreferrer">Skorka-Brown, Andrade y May, 2014 &rarr;</a></li>
+            <li><strong>La atención también la alarga.</strong> Con un programa de atención plena del psiquiatra Judson Brewer, comer por antojo bajó un 40 %. Un estudio pequeño y sin grupo de control. <a href="https://escholarship.org/uc/item/6ng5f61n" target="_blank" rel="noopener noreferrer">Mason y col., 2018 &rarr;</a></li>
+            <li><strong>Estar bien alimentado ayuda.</strong> En ensayos controlados, la proteína aumenta la sensación de llenura y baja el hambre. <a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">Kohanmoo y col., 2020 &rarr;</a></li>
+          </ul>
+          <h3>Nuestro objetivo</h3>
+          <p>Entender qué alarga la pausa: lo que comes, cómo duermes, dónde pones la atención. Creemos que la forma en que procesamos la sacha inchi tiene mucho potencial para esto. No lo hemos demostrado.</p>
+          <h3>Cómo lo vamos a medir</h3>
+          <p>Con una universidad, en un estudio controlado, registrado antes de empezar y publicado sea cual sea el resultado. Medimos cuánto dura el antojo, cuánto espacio hay entre sentirlo y actuar, y si un vaso de NUBE antes de ese momento lo cambia. Con el <a href="https://doi.org/10.1002/oby.24216" target="_blank" rel="noopener noreferrer">Cuestionario de ruido de comida</a>, validado en 2025.</p>
           <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
           <a class="jcs-btn" href="{{ wa }}{{ 'Hola, quiero participar en La pausa, el estudio de JUNGLCORE sobre los antojos.' | url_encode }}" target="_blank" rel="noopener"><span>Participar en el estudio</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-log-small jcs-log-small--after">Por WhatsApp. Al escribirnos aceptas que usemos tus respuestas para este estudio, sin tu nombre y según nuestra <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">política de privacidad</a>. Puedes salirte cuando quieras. Lupa lo anota.</p>
