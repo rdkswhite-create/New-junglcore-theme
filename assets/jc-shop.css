@@ -581,3 +581,11 @@
 .jcs-full__cell { display: flex; align-items: center; justify-content: flex-end; }
 .jcs-full__label { display: flex; flex-direction: column; justify-content: center; }
 .jcs-full__key strong { color: var(--ink); font-weight: 600; }
+/* Home: door to the full table */
+.jcs-versus__more { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto; gap: 18px 32px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--ink); color: var(--ink); transition: background .2s; }
+.jcs-versus__more:hover { background: #f1f0eb; }
+.jcs-versus__more-bait { font-size: clamp(16px, 1.6vw, 20px); font-weight: 500; line-height: 1.35; letter-spacing: -.01em; }
+.jcs-versus__more-cta strong { display: block; font-size: 15px; font-weight: 700; }
+.jcs-versus__more-cta span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.jcs-versus__more-go { display: inline-flex; gap: 10px; white-space: nowrap; padding-bottom: 4px; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+@media (max-width: 749px) { .jcs-versus__more { grid-template-columns: 1fr; gap: 12px; padding: 20px 0; } .jcs-versus__more-go { justify-self: start; } }
