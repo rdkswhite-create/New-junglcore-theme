@@ -448,3 +448,6 @@
 .jcs-robots__ground img { width: 100%; height: auto; display: block; }
 .jcs-robots__ground figcaption { margin-top: 10px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
 .jcs-about__conclusion .jcs-about__figure img { max-height: 760px; width: auto; max-width: 100%; }
+.jcs-about__lineup { margin: clamp(24px, 4vw, 40px) 0 clamp(8px, 2vw, 16px); }
+.jcs-about__lineup img { width: 100%; height: auto; display: block; }
+.jcs-about__lineup figcaption { margin-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
