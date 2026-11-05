@@ -124,13 +124,13 @@
       <div class="jcs-lab-head">
         <h2 class="jcs-title" id="jc-bitacora-title">Preguntas desde la nave.</h2>
         <div>
-          <p class="jcs-lead">Los robots preguntan. Nosotros comprobamos la respuesta.</p>
+          <p class="jcs-lead">Los robots preguntan. Nosotros comprobamos la respuesta. Toca una pregunta para ver el video.</p>
           <p class="jcs-lab-rule jcs-lab-rule--dark">Los robots son ficción. Las cifras, no.</p>
         </div>
       </div>
       <div class="jcs-entries">
 
-        <details class="jcs-entry" id="jc-log-007" open>
+        <details class="jcs-entry" id="jc-log-007">
           <summary><span class="jcs-entry__num">007</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Cuántas almendras lleva un vaso de bebida de almendra?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
@@ -154,7 +154,7 @@
           </div>
         </details>
 
-        <details class="jcs-entry" id="jc-log-006" open>
+        <details class="jcs-entry" id="jc-log-006">
           <summary><span class="jcs-entry__num">006</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿31.000 plantas y la proteína llega en barco?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
@@ -178,7 +178,7 @@
           </div>
         </details>
 
-        <details class="jcs-entry" id="jc-log-005" open>
+        <details class="jcs-entry" id="jc-log-005">
           <summary><span class="jcs-entry__num">005</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Por qué lo de aquí vale más cuando viene de afuera?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Abierto</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
@@ -200,7 +200,7 @@
           </div>
         </details>
 
-        <details class="jcs-entry" id="jc-log-004" open>
+        <details class="jcs-entry" id="jc-log-004">
           <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Para qué se inventó la proteína de soya?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
@@ -224,7 +224,7 @@
           </div>
         </details>
 
-        <details class="jcs-entry" id="jc-log-003" open>
+        <details class="jcs-entry" id="jc-log-003">
           <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿A quién le importa la jungla?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
@@ -248,7 +248,7 @@
           </div>
         </details>
 
-        <details class="jcs-entry" id="jc-log-002" open>
+        <details class="jcs-entry" id="jc-log-002">
           <summary><span class="jcs-entry__num">002</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Quién dijo que la bebida vegetal tiene que venir en caja?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
@@ -269,7 +269,7 @@
           </div>
         </details>
 
-        <details class="jcs-entry" id="jc-log-001" open>
+        <details class="jcs-entry" id="jc-log-001">
           <summary><span class="jcs-entry__num">001</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
             <div class="jcs-entry__media">
@@ -360,6 +360,12 @@
       if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ block: 'start' }); }
     }
     openFromHash(); window.addEventListener('hashchange', openFromHash);
+    document.querySelectorAll('.jcs-entries .jcs-entry').forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) { d.querySelectorAll('video').forEach(function (v) { v.pause(); }); return; }
+        document.querySelectorAll('.jcs-entries .jcs-entry[open]').forEach(function (o) { if (o !== d) o.open = false; });
+      });
+    });
   })();
 </script>
 
