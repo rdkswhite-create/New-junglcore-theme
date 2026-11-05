@@ -130,6 +130,30 @@
       </div>
       <div class="jcs-entries">
 
+        <details class="jcs-entry" id="jc-log-004" open>
+          <summary><span class="jcs-entry__num">004</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿Para qué se inventó la proteína de soya?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
+          <div class="jcs-entry__body">
+            <div class="jcs-entry__media">
+              {%- capture v004 -%}{{ 'jc-lab-soya.mp4' | asset_url }}{%- endcapture -%}
+              {%- capture p004 -%}{{ 'jc-lab-soya-poster.jpg' | asset_url }}{%- endcapture -%}
+              {% render 'jc-tap-video', id: 'jcs-lab-004', src: v004, poster: p004, label: 'Ver el hallazgo' %}
+            </div>
+            <div class="jcs-entry__text">
+              <div class="jcs-log-check">
+                <h3>Lo que comprobamos</h3>
+                <ul>
+                  <li><strong>1936: papel, pegamento y pintura.</strong> La primera planta de proteína de soya aislada se construyó en Chicago para la industria: recubrir papel, pegar madera, hacer pintura. <a href="https://www.pbs.org/wgbh/nova/julian/time-nf.html" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>La guerra: apagar incendios.</strong> En la Segunda Guerra Mundial, la Marina de Estados Unidos la usó como espuma contra el fuego en sus barcos. Los marineros la llamaban «sopa de frijol». <a href="https://www.pbs.org/wgbh/nova/julian/time-nf.html" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>1959: llega a la comida.</strong> La primera proteína de soya aislada para alimentos salió más de veinte años después. <a href="https://en.wikipedia.org/wiki/Soy_protein" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
+                  <li><strong>Seis mil plantas, nueve cultivos.</strong> Los humanos cultivan más de 6.000 plantas para comer. Nueve dan casi dos tercios de toda la cosecha del mundo. <a href="https://www.downtoearth.org.in/agriculture/report-flags-growing-threat-of-monoculture-in-crop-production-63332" target="_blank" rel="noopener noreferrer">FAO, 2019 &rarr;</a></li>
+                </ul>
+              </div>
+              <p class="jcs-log-open"><span>Sigue abierto</span>No faltan plantas. Falta hacerles sitio.</p>
+              <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </details>
+
         <details class="jcs-entry" id="jc-log-003" open>
           <summary><span class="jcs-entry__num">003</span><span class="jcs-entry__main"><span class="jcs-entry__title">¿A quién le importa la jungla?</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
           <div class="jcs-entry__body">
