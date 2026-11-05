@@ -1,10 +1,11 @@
 {% doc %}
 Mobile buy bar. Appears once the main buy box has scrolled out of view.
 @param {object} product - The NUBE product.
+@param {boolean} [always] - On phones, show from the first screen (product page).
 {% enddoc %}
 {%- assign v = product.selected_or_first_available_variant -%}
 {% if v and v.price > 0 and v.available %}
-<div class="jcs-sticky" id="jcs-sticky" aria-hidden="true">
+<div class="jcs-sticky{% if always %} jcs-sticky--always{% endif %}" id="jcs-sticky" aria-hidden="true">
   {% form 'product', product, id: 'jcs-sticky-form' %}
     <input type="hidden" name="id" value="{{ v.id }}">
     <input type="hidden" name="quantity" value="1">
@@ -18,6 +19,7 @@ Mobile buy bar. Appears once the main buy box has scrolled out of view.
   var bar = document.getElementById('jcs-sticky');
   var box = document.querySelector('.jcs-buy');
   var hero = document.querySelector('.jcs-hero');
+  if (bar && bar.classList.contains('jcs-sticky--always')) { bar.classList.add('is-visible'); bar.setAttribute('aria-hidden','false'); var b0 = bar.querySelector('button'); if (b0) b0.tabIndex = 0; return; }
   if (!bar || !box || !('IntersectionObserver' in window)) return;
   var boxVisible = false, heroVisible = !!hero, passedBox = false;
   function update() {

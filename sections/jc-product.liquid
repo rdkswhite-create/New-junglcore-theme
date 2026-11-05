@@ -8,18 +8,41 @@
       <nav class="jcs-crumb" aria-label="Ruta"><a href="{{ routes.root_url }}">Inicio</a> / NUBE</nav>
       <div class="jcs-shop__grid">
         <div>
-          <div class="jcs-shop__visual">
-            {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'product-buy-pack', description: 'Bolsa JUNGLCORE NUBE, base congelada de sacha inchi' %}
+          {%- liquid
+            assign v = product.selected_or_first_available_variant
+            assign per_glass = v.price | divided_by: 30
+          -%}
+          <div class="jcs-gal" id="jcs-gal">
+            <div class="jcs-gal__track" tabindex="0" aria-label="Fotos de NUBE">
+              <figure class="jcs-gal__slide"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-portrait-loop.webp?v=1793647878" width="720" height="1280" loading="eager" fetchpriority="high" alt="Una barra de NUBE cae en la licuadora con agua"><figcaption>Una barra, agua, 30 segundos.</figcaption></figure>
+              <figure class="jcs-gal__slide jcs-gal__slide--pack">{% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'product-buy-pack', description: 'Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi' %}<figcaption>30 barras · 600 g · 30 vasos.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="{{ 'jc-manana-v2.jpg' | asset_url }}" width="768" height="1376" loading="lazy" style="object-position: center 60%" alt="Una mujer junto a la ventana por la mañana, con un vaso de NUBE en la mesa"><figcaption>Antes de que empiece todo lo demás.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6557.jpg?v=1793784459&width=900" width="928" height="1152" loading="lazy" alt="Una mujer vierte NUBE sobre la avena"><figcaption>En la avena.</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6560.jpg?v=1793784885&width=900" width="928" height="1152" loading="lazy" alt="Un hombre prepara un batido con NUBE en la cocina"><figcaption>En el batido.</figcaption></figure>
+            </div>
+            <div class="jcs-gal__dots" role="tablist" aria-label="Elegir foto">
+              {%- for i in (1..5) -%}<button type="button" class="jcs-gal__dot{% if i == 1 %} is-active{% endif %}" aria-label="Foto {{ i }}"></button>{%- endfor -%}
+            </div>
           </div>
-          <div class="jcs-shop__thumbs">
-            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6557.jpg?v=1793784459&width=500" width="928" height="1152" loading="lazy" alt="NUBE sobre la avena">
-            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6560.jpg?v=1793784885&width=500" width="928" height="1152" loading="lazy" alt="Batido con NUBE después de correr">
-            <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/IMG_6559.jpg?v=1793784540&width=500" width="928" height="1152" loading="lazy" alt="Un vaso de NUBE con el desayuno">
-          </div>
+          <script>
+            (function () {
+              var g = document.getElementById('jcs-gal'); if (!g) return;
+              var t = g.querySelector('.jcs-gal__track'), dots = g.querySelectorAll('.jcs-gal__dot');
+              dots.forEach(function (d, i) { d.addEventListener('click', function () { t.scrollTo({ left: i * t.clientWidth, behavior: 'smooth' }); }); });
+              var raf; t.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(function () {
+                var i = Math.round(t.scrollLeft / t.clientWidth); dots.forEach(function (d, j) { d.classList.toggle('is-active', i === j); }); }); }, { passive: true });
+            })();
+          </script>
         </div>
         <div>
           <h1 class="jcs-product-title" id="jc-product-title">NUBE</h1>
-          <p class="jcs-lead" style="margin-top:14px">¿Quién dijo que una bebida vegetal tiene que venir en caja? Una barra congelada de sacha inchi, agua y 30 segundos.</p>
+          <p class="jcs-pdp-price">{{ v.price | money_without_trailing_zeros }} <span>· 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</span></p>
+          <ul class="jcs-pdp-nums" aria-label="NUBE en tres cifras">
+            <li><strong>6,3 g</strong><span>proteína por vaso</span></li>
+            <li><strong>3</strong><span>ingredientes</span></li>
+            <li><strong>Bogotá</strong><span data-jc-eta-short>llega hoy</span></li>
+          </ul>
+          <p class="jcs-lead jcs-pdp-lead">¿Quién dijo que una bebida vegetal tiene que venir en caja? Una barra congelada de sacha inchi, agua y 30 segundos.</p>
           <div style="margin-top:28px">{% render 'jc-buy-box', product: product, form_id: 'jcs-product-buy', show_title: false %}</div>
         </div>
       </div>
@@ -57,7 +80,7 @@
   </section>
 
   {% render 'jc-footer' %}
-  {% render 'jc-sticky-buy', product: product %}
+  {% render 'jc-sticky-buy', product: product, always: true %}
 </div>
 
 {% schema %}
