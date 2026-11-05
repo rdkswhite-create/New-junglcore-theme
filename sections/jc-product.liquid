@@ -41,7 +41,7 @@
           <ul class="jcs-pdp-nums" aria-label="NUBE en tres cifras">
             <li><strong>6,3 g</strong><span>proteína por vaso</span></li>
             <li><strong>3</strong><span>ingredientes</span></li>
-            <li><strong>Bogotá</strong><span data-jc-eta-short>llega hoy</span></li>
+            {% if settings.jc_sale_mode != 'a_la_venta' %}<li><strong>{{ settings.jc_launch_short | default: '20 nov' }}</strong><span>primera tanda · Bogotá</span></li>{% else %}<li><strong>Bogotá</strong><span data-jc-eta-short>llega hoy</span></li>{% endif %}
           </ul>
           <p class="jcs-lead jcs-pdp-lead">¿Quién dijo que una bebida vegetal tiene que venir en caja? Una barra congelada de sacha inchi, agua y 30 segundos.</p>
           <div style="margin-top:28px">{% render 'jc-buy-box', product: product, form_id: 'jcs-product-buy', show_title: false %}</div>
@@ -76,7 +76,7 @@
     <div class="jcs-frame">
       <h2 id="jc-final-title">Rinde más.</h2>
       <p>30 vasos por bolsa. Tres bolsas y el envío corre por nuestra cuenta.</p>
-      <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apúntate a la primera tanda</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 

@@ -7,7 +7,7 @@ JUNGLCORE header with announcement and a buy button on every page.
     assign buy_href = routes.root_url | append: 'products/nube#jc-buy'
   endif
 -%}
-<p class="jcs-announce">Solo en Bogotá, por ahora · Envío gratis desde 3 bolsas</p>
+<p class="jcs-announce">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo en Bogotá{% else %}Solo en Bogotá, por ahora · Envío gratis desde 3 bolsas{% endif %}</p>
 <header class="jcs-header">
   <div class="jcs-header__inner">
     <a class="jcs-header__logo" href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio">
@@ -19,7 +19,7 @@ JUNGLCORE header with announcement and a buy button on every page.
       <a href="{{ routes.root_url }}#jc-faq">Preguntas</a>
     </nav>
     <div class="jcs-header__actions">
-      <a class="jcs-btn jcs-header__buy" href="{{ buy_href }}">Comprar</a>
+      <a class="jcs-btn jcs-header__buy" href="{{ buy_href }}">{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate{% else %}Comprar{% endif %}</a>
       <button type="button" class="jcs-header__menu" aria-expanded="false" aria-controls="jcs-mobile-nav" aria-label="Abrir menú">
         <span class="jcs-header__bars" aria-hidden="true"><span></span><span></span></span>
       </button>

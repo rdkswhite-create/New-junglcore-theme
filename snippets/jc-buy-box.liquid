@@ -22,7 +22,9 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
     <li><strong>1,4 g</strong><span>Fibra</span></li>
     <li><strong>3</strong><span>Ingredientes</span></li>
   </ul>
-  {% if v and v.price > 0 %}
+  {% if settings.jc_sale_mode != 'a_la_venta' %}
+    {% render 'jc-waitlist', product: product, form_id: form_id %}
+  {% elsif v and v.price > 0 %}
     {% form 'product', product, id: form_id, class: 'jcs-buy__form' %}
       <input type="hidden" name="id" value="{{ v.id }}">
       <input type="hidden" name="return_to" value="/checkout">

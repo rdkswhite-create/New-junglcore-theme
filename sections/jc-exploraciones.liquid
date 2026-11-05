@@ -108,7 +108,7 @@
               <blockquote class="jcs-log-note"><p>Vimos el anuncio de los humanos. Tenemos preguntas.</p><footer>Lupa, Chispa y Dato</footer></blockquote>
               <div class="jcs-log-check"><h3>Lo que comprobamos</h3><p>Es cierto: una barra del congelador, agua caliente o licuadora. Tres ingredientes. No hay más.</p></div>
               <p class="jcs-log-open"><span>Sigue abierto</span>Si hacen envíos a la órbita. Por ahora, solo a Bogotá.</p>
-              <a class="jcs-link" href="#jc-nube">Comprar NUBE <span aria-hidden="true">&darr;</span></a>
+              <a class="jcs-link" href="#jc-nube">{% if settings.jc_sale_mode != 'a_la_venta' %}Apúntate a la primera tanda{% else %}Comprar NUBE{% endif %} <span aria-hidden="true">&darr;</span></a>
             </div>
           </div>
         </details>
@@ -276,14 +276,18 @@
       <div class="jcs-lab-strip">
         <div class="jcs-lab-strip__top">
           {% if nube.featured_image %}<img src="{{ nube.featured_image | image_url: width: 240 }}" width="120" height="120" loading="lazy" alt="Bolsa JUNGLCORE NUBE">{% endif %}
-          <div class="jcs-lab-strip__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>Lo que salió de la bitácora, por ahora. 30 vasos por bolsa · solo Bogotá.</span></div>
+          <div class="jcs-lab-strip__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>Lo que salió de la bitácora, por ahora. 30 vasos por bolsa · solo Bogotá.{% if settings.jc_sale_mode != 'a_la_venta' %} Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }}.{% endif %}</span></div>
         </div>
+        {% if settings.jc_sale_mode != 'a_la_venta' %}
+          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>Primera tanda · {{ settings.jc_launch_label | default: '20 de noviembre' }}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        {% else %}
         {% form 'product', nube, id: 'jcs-lab-strip-form', class: 'jcs-lab-strip__form' %}
           <input type="hidden" name="id" value="{{ v.id }}">
           <input type="hidden" name="quantity" value="1">
           <input type="hidden" name="return_to" value="/checkout">
           <button type="submit" class="jcs-btn" {% unless v.available %}disabled{% endunless %}>{% if v.available %}<span>Comprar</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada</span>{% endif %}</button>
         {% endform %}
+        {% endif %}
         <a class="jcs-link" href="{{ routes.root_url }}products/nube">Ver NUBE <span aria-hidden="true">&rarr;</span></a>
       </div>
       {% endif %}

@@ -9,7 +9,7 @@
       <button type="button" class="jcs-check__btn" data-where="bogota">Estoy en Bogotá</button>
       <button type="button" class="jcs-check__btn" data-where="otra">Otra ciudad o pueblo</button>
     </div>
-    <p class="jcs-check__yes" hidden><strong>Sí llegamos.</strong> A toda Bogotá, de lunes a sábado, sin festivos. Pide antes de las 12:00 y llega el mismo día, congelada. Después, al siguiente día de entrega. Lo que pidas el sábado por la tarde o el domingo llega el lunes.</p>
+    <p class="jcs-check__yes" hidden><strong>Sí llegamos.</strong> {% if settings.jc_sale_mode != 'a_la_venta' %}Desde el {{ settings.jc_launch_label | default: '20 de noviembre' }}, a toda Bogotá, de lunes a sábado, sin festivos. Congelada, el mismo día si pides antes de las 12:00.{% else %}A toda Bogotá, de lunes a sábado, sin festivos. Pide antes de las 12:00 y llega el mismo día, congelada. Después, al siguiente día de entrega. Lo que pidas el sábado por la tarde o el domingo llega el lunes.{% endif %}</p>
     <div class="jcs-check__no" hidden>
       <p>Todavía no llegamos. NUBE viaja congelada y por ahora solo aguanta el tráfico de Bogotá. Dinos dónde estás y te avisamos cuando lleguemos.</p>
       <div class="jcs-check__row">

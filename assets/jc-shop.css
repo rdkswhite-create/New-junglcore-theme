@@ -618,3 +618,26 @@
 .jcs-gal__slide figcaption { top: 12px; bottom: auto; }
 .jcs-gal__slide--pack { background: #f2f1ec; }
 .jcs-gal__slide--pack img { object-fit: contain; }
+
+/* Primera tanda — waitlist instead of checkout */
+.jcs-wait { margin-top: 28px; border: 1px solid var(--ink); padding: 22px 22px 18px; }
+.jcs-wait__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+.jcs-wait__tag { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.jcs-wait__date { margin: 0; font-size: clamp(22px, 3vw, 28px); font-weight: 700; letter-spacing: -.01em; line-height: 1; }
+.jcs-wait__lead { margin: 14px 0 6px; font-size: 15px; line-height: 1.5; }
+.jcs-wait__price { margin: 0 0 14px; font-size: 13px; color: var(--muted); }
+.jcs-wait__price strong { color: var(--ink); }
+.jcs-wait__perk { margin: 0 0 16px; padding: 12px 14px; background: #f2f1ec; font-size: 13px; line-height: 1.45; }
+.jcs-wait__perk span { display: block; margin-bottom: 4px; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.jcs-wait__form { margin-top: 16px; }
+.jcs-wait__label { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.jcs-wait__row { display: flex; border: 1px solid var(--rule); }
+.jcs-wait__row input { flex: 1; min-width: 0; border: 0; padding: 0 16px; min-height: 52px; font: inherit; font-size: 16px; background: transparent; color: var(--ink); }
+.jcs-wait__row input:focus { outline: 2px solid var(--ink); outline-offset: -2px; }
+.jcs-wait__row button { border: 0; border-left: 1px solid var(--rule); background: transparent; padding: 0 20px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); cursor: pointer; }
+.jcs-wait__row button:hover { background: var(--ink); color: var(--paper); }
+.jcs-wait__legal { margin: 10px 0 0; font-size: 11px; line-height: 1.45; color: var(--muted); }
+.jcs-wait__legal a { color: inherit; text-decoration: underline; }
+.jcs-wait__ok { margin: 0; padding: 14px; background: #f2f1ec; font-size: 14px; }
+.jcs-wait__err { margin: 8px 0 0; font-size: 12px; color: #a3261b; }
+.jcs-sticky__pre { display: flex; align-items: center; gap: 14px; }

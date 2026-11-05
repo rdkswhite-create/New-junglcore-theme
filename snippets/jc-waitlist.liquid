@@ -1,0 +1,39 @@
+{% doc %}
+Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lands in Shopify Customers with the tag primera-tanda.
+@param {object} product - The NUBE product.
+@param {string} form_id - Unique id.
+{% enddoc %}
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign launch = settings.jc_launch_label | default: '20 de noviembre'
+  assign perk = settings.jc_waitlist_perk
+  assign per_glass = v.price | divided_by: 30
+  assign wa_text = 'Hola, quiero NUBE de la primera tanda (' | append: launch | append: '). Estoy en el barrio: '
+  assign email_id = form_id | append: '-email'
+-%}
+<div class="jcs-wait" id="{{ form_id }}">
+  <div class="jcs-wait__head">
+    <p class="jcs-wait__tag">Primera tanda</p>
+    <p class="jcs-wait__date">{{ launch }}</p>
+  </div>
+  <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Apúntate y te escribimos el día que sale, antes que a nadie. No pagas nada ahora.</p>
+  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</p>{% endif %}
+  {% if perk != blank %}<p class="jcs-wait__perk"><span>Para la lista</span>{{ perk }}</p>{% endif %}
+
+  <a class="jcs-btn jcs-btn--full" href="https://wa.me/573011571039?text={{ wa_text | url_encode }}" target="_blank" rel="noopener"><span>Apúntate por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+
+  {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
+    {% if form.posted_successfully? %}
+      <p class="jcs-wait__ok" role="status"><strong>Estás en la lista.</strong> Te escribimos el {{ launch }}.</p>
+    {% else %}
+      <input type="hidden" name="contact[tags]" value="newsletter,primera-tanda">
+      <label class="jcs-wait__label" for="{{ email_id }}-input">O por correo</label>
+      <div class="jcs-wait__row">
+        <input type="email" id="{{ email_id }}-input" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" autocorrect="off" autocapitalize="off" required>
+        <button type="submit">Apúntame</button>
+      </div>
+      {% if form.errors %}<p class="jcs-wait__err" role="alert">Revisa el correo. {{ form.errors.messages['email'] }}</p>{% endif %}
+      <p class="jcs-wait__legal">Solo te escribimos sobre NUBE y JUNGLCORE. Puedes salirte cuando quieras.{% if shop.privacy_policy != blank %} <a href="{{ shop.privacy_policy.url }}">Política de datos</a>.{% endif %}</p>
+    {% endif %}
+  {% endform %}
+</div>

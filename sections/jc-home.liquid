@@ -26,7 +26,7 @@
       <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
       <p class="jcs-hero__sub">NUBE es una barra congelada de sacha inchi para preparar una bebida vegetal. Agua, 30 segundos de licuadora, y tienes un vaso con más de seis veces la proteína de una bebida de almendra.</p>
       <div class="jcs-hero__actions">
-        <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Primera tanda · {{ settings.jc_launch_label | default: '20 de noviembre' }}</span>{% else %}<span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-film">Cómo se prepara</a>
       </div>
     </div>
@@ -136,7 +136,7 @@
     <div class="jcs-frame">
       <h2 id="jc-final-title">Rinde más.</h2>
       <p>Proteína y fibra de una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
-      <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>Comprar NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apúntate a la primera tanda</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 

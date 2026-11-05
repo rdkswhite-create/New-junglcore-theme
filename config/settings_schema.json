@@ -1502,6 +1502,41 @@
       },
       {
         "type": "header",
+        "content": "Lanzamiento"
+      },
+      {
+        "type": "select",
+        "id": "jc_sale_mode",
+        "label": "Modo de la tienda",
+        "options": [
+          { "value": "primera_tanda", "label": "Primera tanda (lista de espera, sin pago)" },
+          { "value": "a_la_venta", "label": "A la venta (botón Comprar y pago)" }
+        ],
+        "default": "primera_tanda",
+        "info": "El día que haya stock, cambia a «A la venta». Todos los botones vuelven a decir Comprar."
+      },
+      {
+        "type": "text",
+        "id": "jc_launch_label",
+        "label": "Fecha de la primera tanda",
+        "default": "20 de noviembre",
+        "info": "Como se lee en la web: «Primera tanda · 20 de noviembre»."
+      },
+      {
+        "type": "text",
+        "id": "jc_launch_short",
+        "label": "Fecha corta",
+        "default": "20 nov",
+        "info": "Para la barra fija del móvil."
+      },
+      {
+        "type": "text",
+        "id": "jc_waitlist_perk",
+        "label": "Lo que recibe la lista",
+        "default": "Con tu primer pedido, un sobre de ONE: la misma semilla, en polvo, antes de que salga."
+      },
+      {
+        "type": "header",
         "content": "Entregas en Bogotá"
       },
       {
