@@ -1543,6 +1543,7 @@
         "type": "text",
         "id": "jc_invima_number",
         "label": "Registro sanitario INVIMA",
+        "default": "RSA-5717-2026",
         "info": "El número, tal como aparece en la etiqueta. Si está vacío, el sello no aparece."
       },
       {
