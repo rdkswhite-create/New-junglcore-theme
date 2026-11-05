@@ -580,3 +580,4 @@
 .jcs-full__row { align-items: stretch; }
 .jcs-full__cell { display: flex; align-items: center; justify-content: flex-end; }
 .jcs-full__label { display: flex; flex-direction: column; justify-content: center; }
+.jcs-full__key strong { color: var(--ink); font-weight: 600; }
