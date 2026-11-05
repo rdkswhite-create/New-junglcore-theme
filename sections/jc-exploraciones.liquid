@@ -34,11 +34,15 @@
           <p class="jcs-log-intro__lead">Lupa, Chispa y Dato vienen de un planeta donde lo único verde es el piloto de batería baja. Desde la órbita, la Tierra es verde. A nivel del suelo, es un pasillo con cinco plantas en caja.</p>
         </div>
         <div class="jcs-lab-top__video">
-          <p class="jcs-lab-latest"><span>Empieza aquí · {{ latest_number }}</span>{{ latest_title }}</p>
+          <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
+          <h2 class="jcs-lab-film__title">{{ latest_title }}</h2>
+          <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
           {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
           <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
           <div class="jcs-lab-more-film">
-            <p class="jcs-lab-latest"><span>La misión completa · 2 min</span>Por qué vinieron</p>
+            <p class="jcs-lab-film__kicker">Película 2 · 2 min</p>
+            <h2 class="jcs-lab-film__title">La misión completa</h2>
+            <p class="jcs-lab-film__what">Por qué vinieron: menos plantas, menos empresas, la tierra cansada. Y una semilla de la selva.</p>
             {%- capture vm -%}{{ 'jc-lab-la-mision.mp4' | asset_url }}{%- endcapture -%}
             {%- capture pm -%}{{ 'jc-lab-la-mision-poster.jpg' | asset_url }}{%- endcapture -%}
             {% render 'jc-tap-video', id: 'jcs-lab-mision', src: vm, poster: pm, label: 'Ver La misión' %}
