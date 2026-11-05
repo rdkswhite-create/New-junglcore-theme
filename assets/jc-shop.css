@@ -692,3 +692,4 @@
 .jcs-pausa__glp p { margin: 0; font-size: 15px; line-height: 1.55; color: rgba(255,255,255,.85); }
 .jcs .jcs-pausa__glp .jcs-pausa__glp-title { margin-bottom: 8px; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .jcs-pausa__glp + .jcs-pausa__known { margin-top: 0; }
+.jcs-pausa__open { margin-top: 12px; font-size: 15px; font-weight: 600; }
