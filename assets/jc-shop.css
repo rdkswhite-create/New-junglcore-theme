@@ -63,7 +63,7 @@
 /* Hero */
 .jcs-hero { position: relative; min-height: min(92vh, 880px); color: #fff; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; background: #1b1b1b; }
 .jcs-hero__media, .jcs-hero__media picture, .jcs-hero__media img, .jcs-hero__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.jcs-hero__media img, .jcs-hero__media video { filter: grayscale(.38) sepia(.4) saturate(1.05) hue-rotate(-5deg) contrast(1.1) brightness(.78); }
+.jcs-hero__media img, .jcs-hero__media video { filter: grayscale(.3) sepia(.34) saturate(1.08) hue-rotate(-4deg) contrast(1.1) brightness(.78); }
 .jcs-hero__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,8,.63) 0%, rgba(20,14,8,.48) 40%, rgba(20,14,8,.3) 62%, rgba(20,14,8,.15) 78%, rgba(0,0,0,.45) 100%); }
 .jcs-hero__top, .jcs-hero__body, .jcs-hero__bottom { position: relative; width: var(--frame); margin-inline: auto; }
 .jcs-hero__top { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
@@ -1021,3 +1021,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
   .jcs-manifesto__photo { margin: 0; }
 }
 .jcs-manifesto figure.jcs-manifesto__photo img { aspect-ratio: 4 / 5; object-fit: cover; object-position: center 60%; }
+
+/* Planta 001 photo: same grade as the hero (colour through the sepia), without the hero's darkening */
+.jcs-manifesto figure.jcs-manifesto__photo img { filter: grayscale(.3) sepia(.34) saturate(1.08) hue-rotate(-4deg) contrast(1.06); }
