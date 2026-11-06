@@ -944,3 +944,6 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs-def__list li { font-size: clamp(17px, 1.8vw, 21px); line-height: 1.35; color: var(--ink); }
 .jcs .jcs-def__end { margin: 12px 0 0; font-size: 15px; line-height: 1.5; font-style: italic; color: var(--muted); }
 .jcs-invest__data strong { color: var(--ink); font-weight: 600; }
+/* ONE and OIL in light grey boxes */
+.jcs-lab-make .jcs-lab-next__item--soon { background: #f2f1ec; padding: 24px 22px; border: 0; margin-top: 12px; }
+@media (min-width: 900px) { .jcs-lab-make .jcs-lab-next__item--soon { margin-top: 0; } }
