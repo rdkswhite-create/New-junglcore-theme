@@ -44,7 +44,7 @@
     <li><strong>Sin azúcar añadida</strong><span>0 g de azúcares por vaso</span></li>
     <li><strong>3 ingredientes</strong><span>De una semilla con 3.000 años de historia</span></li>
     <li><strong>Hecho en Colombia</strong><span>De la semilla a la barra, todo aquí</span></li>
-    {% if settings.jc_backed_by != blank %}<li><strong>Con el apoyo de</strong><span>{{ settings.jc_backed_by }}</span></li>{% endif %}
+    {% if settings.jc_backed_by != blank %}<li><strong>Con el apoyo de</strong><span>{{ settings.jc_backed_by }}</span></li>{% else %}<li><strong>Entrega en Bogotá</strong><span>Gratis desde $100.000</span></li>{% endif %}
   </ul>
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
@@ -64,7 +64,7 @@
         <li data-k="08"><span>08</span><p class="jcs-foryou__t">Quieres proteína para tu día, no solo para el gimnasio.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">6,3 g proteína · 0 g azúcar &rarr;</a></li>
         <li data-k="09"><span>09</span><p class="jcs-foryou__t">La proteína en polvo te cae pesada.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin lácteos · Ver ingredientes &rarr;</a></li>
         <li data-k="10"><span>10</span><p class="jcs-foryou__t">Tu proteína en polvo tiene más ingredientes que tu almuerzo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
-        <li data-k="11"><span>11</span><p class="jcs-foryou__t">Quieres una bebida vegetal con pocos ingredientes.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
+        <li data-k="11"><span>11</span><p class="jcs-foryou__t">Dice «sin azúcar» grande y atrás tiene cinco nombres de azúcar.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">0 g de azúcar · Ver la etiqueta &rarr;</a></li>
         <li data-k="12"><span>12</span><p class="jcs-foryou__t">Cargas cajas de bebida del súper hasta la casa.</p><a class="jcs-foryou__link" href="#jc-buy">Una bolsa, 30 vasos &rarr;</a></li>
       </ol>
       <div class="jcs-foryou__nav">
@@ -131,7 +131,7 @@
             '08': { p: 'barriga', take: 'Reparte la proteína en el día: un poco en cada comida, no todo en la cena.', bot: 'chispa', line: 'La proteína no pide carné de gimnasio.' },
             '09': { p: 'barriga', take: 'Si es concentrado de suero, trae lactosa. El aislado trae mucho menos.', bot: 'chispa', line: 'Leí la etiqueta. Decía «suero». Me asusté.' },
             '10': { p: 'etiqueta', take: 'Si ves eritritol o maltitol, son edulcorantes que a algunas personas les caen pesado.', bot: 'dato', line: 'Conté 23 ingredientes. Me cansé antes que el batido.' },
-            '11': { p: 'etiqueta', take: 'Regla de la mano: si no los cuentas con una mano, devuélvelo.', bot: 'dato', line: 'Conté los de NUBE. Me sobraron dos dedos.' },
+            '11': { p: 'etiqueta', take: 'Jarabe, dextrosa, maltodextrina, sacarosa, miel: en la lista, todos cuentan como azúcar.', bot: 'dato', line: 'Encontré cinco azúcares con cinco nombres. Ninguno se presentó como azúcar.' },
             '12': { p: 'bolsillo', take: 'Haz el mercado con lista. Cargas menos peso y menos antojos.', bot: 'lupa', line: 'Cargan agua del súper. Tienen agua en la casa.' }
           };
           var PROFILES = {
@@ -216,7 +216,7 @@
           track.addEventListener('keydown', function (e) { if (e.key !== 'Enter' && e.key !== ' ') return; var li = e.target.closest('li'); if (li && e.target === li) { e.preventDefault(); toggle(li); } });
           var thinking = document.querySelector('.jcs-thinking');
           reveal.addEventListener('click', function () {
-            shown = true; newFortune(); reveal.hidden = true; res.hidden = true;
+            shown = true; newFortune(); reveal.hidden = true; res.hidden = true; document.getElementById('jc-foryou').classList.add('is-result');
             thinking.hidden = false; thinking.scrollIntoView({ behavior: 'smooth', block: 'center' });
             setTimeout(function () {
               thinking.hidden = true; render(); res.classList.remove('is-in'); void res.offsetWidth; res.classList.add('is-in');
@@ -282,7 +282,7 @@
           });
           res.querySelector('.jcs-result__again').addEventListener('click', function () {
             cards.forEach(function (li) { li.classList.remove('is-on'); li.setAttribute('aria-pressed', 'false'); });
-            shown = false; fortune = null; res.hidden = true; update(); track.scrollLeft = 0;
+            shown = false; fortune = null; res.hidden = true; document.getElementById('jc-foryou').classList.remove('is-result'); update(); track.scrollLeft = 0;
             document.getElementById('jc-foryou').scrollIntoView({ behavior: 'smooth', block: 'start' });
           });
         })();

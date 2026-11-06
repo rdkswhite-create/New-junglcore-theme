@@ -90,7 +90,7 @@
 .jcs-shop__thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
 .jcs-shop__thumbs img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 @media (max-width: 899px) {
-  .jcs-shop__grid { grid-template-columns: 1fr; gap: 28px; }
+  .jcs-shop__grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .jcs-shop__visual { position: relative; top: 0; }
 }
 
@@ -698,7 +698,7 @@
 /* LAB v5 */
 .jcs .jcs-lab-follow__line { color: #f4f3ef; margin-bottom: 0; }
 .jcs-lab-follow__small { margin: 12px auto 24px; max-width: 460px; }
-.jcs-lab-follow__actions { display: grid; gap: 14px; justify-items: center; max-width: 420px; margin: 0 auto; }
+.jcs-lab-follow__actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; justify-items: center; max-width: 420px; margin: 0 auto; }
 .jcs-lab-follow__actions .jcs-btn { width: 100%; }
 .jcs-lab-follow__form { width: 100%; }
 .jcs-lab-follow__row { border-color: rgba(255,255,255,.35); }
@@ -1119,3 +1119,12 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs .jcs-lab-films .jcs-lab-film__title { color: var(--ink); }
 .jcs .jcs-lab-films .jcs-lab-film__what { color: var(--ink); }
 .jcs .jcs-lab-films .jcs-lab-latest__line { color: var(--muted); }
+
+/* Quiz: card links only after the result */
+.jcs-foryou:not(.is-result) .jcs-foryou__link { visibility: hidden; pointer-events: none; }
+/* WhatsApp bubble: icon only on phone; steps aside near buy buttons */
+.jcs-wa-float { transition: bottom .25s ease, opacity .2s ease; }
+.jcs-wa-float.is-hidden { opacity: 0; pointer-events: none; }
+@media (max-width: 899px) { .jcs-wa-float__label { display: none; } }
+.jcs-lab-follow__row { grid-template-columns: minmax(0, 1fr) auto; }
+.jcs-lab-follow__row input { min-width: 0; width: 100%; }
