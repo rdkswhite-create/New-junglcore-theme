@@ -915,3 +915,14 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs .jcs-lab-make .jcs-lab-next__item p.jcs-lab-price { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; line-height: 1.6; color: var(--muted); }
 .jcs-lab-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 2px; }
 .jcs-lab-links a { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+/* The loop */
+.jcs-loop { display: grid; gap: 18px; margin-top: clamp(20px, 3vw, 32px); max-width: 760px; }
+.jcs-loop__box { padding: 22px; background: #e9e7e0; }
+.jcs .jcs-loop__k { margin: 0 0 12px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #b4362a; }
+.jcs-loop__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.jcs-loop__list li { padding-left: 14px; border-left: 2px solid var(--ink); font-size: clamp(16px, 1.6vw, 19px); line-height: 1.4; color: var(--ink); }
+.jcs .jcs-loop__end { margin: 16px 0 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+.jcs .jcs-loop__answer { margin: 6px 0 0; font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; letter-spacing: -.02em; line-height: 1.2; color: var(--ink); }
+.jcs .jcs-loop__glp { margin: 0; }
+.jcs .jcs-loop__glp p + p { margin-top: 10px; }
+.jcs-loop + .jcs-lab-study__grid { margin-top: clamp(32px, 4vw, 48px); }
