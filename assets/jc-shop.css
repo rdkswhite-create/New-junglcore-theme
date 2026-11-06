@@ -1109,3 +1109,13 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 @media (max-width: 420px) { .jcs-prepay__row { grid-template-columns: 1fr; } }
 
 .jcs .jcs-result__when { flex-basis: 100%; margin: -2px 0 6px; max-width: 560px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+
+/* Lab: robots move from the opening to the Bitácora */
+.jcs-lab-top__photo { margin: 0; }
+.jcs-lab-top__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 60%; filter: grayscale(.3) sepia(.34) saturate(1.08) hue-rotate(-4deg) contrast(1.06); }
+.jcs-lab-films { display: grid; gap: 32px; margin: clamp(28px, 4vw, 48px) 0 clamp(36px, 5vw, 60px); }
+@media (min-width: 750px) { .jcs-lab-films { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(24px, 4vw, 56px); max-width: 880px; } }
+.jcs .jcs-lab-films .jcs-lab-film__kicker { color: var(--muted); }
+.jcs .jcs-lab-films .jcs-lab-film__title { color: var(--ink); }
+.jcs .jcs-lab-films .jcs-lab-film__what { color: var(--ink); }
+.jcs .jcs-lab-films .jcs-lab-latest__line { color: var(--muted); }

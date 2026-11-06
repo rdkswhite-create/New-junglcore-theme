@@ -30,30 +30,12 @@
       <p class="jcs-chapter"><span>LAB</span>Ciencia abierta</p>
       <div class="jcs-lab-top">
         <div class="jcs-lab-top__copy">
-          <a class="jcs-lab-hero-thumb" href="#jcs-lab-latest" aria-label="Ver la película" data-open-p1><img src="{{ latest_poster }}" width="96" height="170" alt=""><span aria-hidden="true">&#9654;</span></a>
-          <h1 class="jcs-log-intro__title" id="jc-log-title">Vinieron buscando la jungla.</h1>
+          <h1 class="jcs-log-intro__title" id="jc-log-title">Estudiamos la comida que ya existe.</h1>
           <p class="jcs-log-intro__frame"><strong>JUNGLCORE LAB estudia lo que la biodiversidad puede hacer por tu salud.</strong> Empezamos por una semilla colombiana: la sacha inchi.</p>
           <p class="jcs-lab-hero-nube"><a href="{{ routes.root_url }}products/nube#jc-buy">Y de ahí sale NUBE, una bebida de sacha inchi. {% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda, {{ settings.jc_launch_label | default: '20 de noviembre' }}{% else %}A la venta en Bogotá{% endif %} <span aria-hidden="true">&rarr;</span></a></p>
-          <p class="jcs-lab-budget">Misión: encontrar la jungla <span aria-hidden="true">·</span> Presupuesto: <span class="jcs-file__stamp">Agotado</span></p>
         </div>
         <div class="jcs-lab-top__video">
-          <div class="jcs-lab-p1">
-          <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
-          {% unless latest_title == 'Vinieron buscando la jungla' %}<h2 class="jcs-lab-film__title">{{ latest_title }}</h2>{% endunless %}
-          <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
-          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
-          <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
-          </div>
-          <details class="jcs-lab-more-film">
-            <summary>
-              <span class="jcs-lab-more-film__text"><span class="jcs-lab-film__kicker">Película 2 · 2 min</span><span class="jcs-lab-more-film__q">¿Quieres entender la misión completa?</span></span>
-              <span class="jcs-lab-more-film__plus" aria-hidden="true"></span>
-            </summary>
-            <p class="jcs-lab-film__what">Por qué vinieron: menos plantas, menos empresas, la tierra cansada. Y una semilla de la selva.</p>
-            {%- capture vm -%}{{ 'jc-lab-la-mision.mp4' | asset_url }}{%- endcapture -%}
-            {%- capture pm -%}{{ 'jc-lab-la-mision-poster.jpg' | asset_url }}{%- endcapture -%}
-            {% render 'jc-tap-video', id: 'jcs-lab-mision', src: vm, poster: pm, label: 'Ver La misión' %}
-          </details>
+          <figure class="jcs-lab-top__photo"><img src="{{ 'jc-planta-001.jpg' | asset_url }}" width="941" height="1176" alt="Una mano de robot junto a una semilla de sacha inchi"></figure>
         </div>
       </div>
     </div>
@@ -214,8 +196,24 @@
       <div class="jcs-lab-head">
         <h2 class="jcs-title" id="jc-bitacora-title">Preguntas desde la nave.</h2>
         <div>
-          <p class="jcs-lead">Los robots preguntan. Nosotros comprobamos la respuesta. Toca una pregunta para ver el video.</p>
+          <p class="jcs-lead">Lupa, Chispa y Dato: tres robots que vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta. Empieza por las películas, o toca una pregunta.</p>
           <p class="jcs-lab-rule jcs-lab-rule--dark">Los robots son ficción. Las cifras, no.</p>
+        </div>
+      </div>
+      <div class="jcs-lab-films">
+        <div class="jcs-lab-films__item">
+          <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
+          {% unless latest_title == 'Vinieron buscando la jungla' %}<h3 class="jcs-lab-film__title">{{ latest_title }}</h3>{% endunless %}
+          <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
+          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
+          <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
+        </div>
+        <div class="jcs-lab-films__item">
+          <p class="jcs-lab-film__kicker">Película 2 · 2 min · La misión completa</p>
+          <p class="jcs-lab-film__what">Por qué vinieron: menos plantas, menos empresas, la tierra cansada. Y una semilla de la selva.</p>
+          {%- capture vm -%}{{ 'jc-lab-la-mision.mp4' | asset_url }}{%- endcapture -%}
+          {%- capture pm -%}{{ 'jc-lab-la-mision-poster.jpg' | asset_url }}{%- endcapture -%}
+          {% render 'jc-tap-video', id: 'jcs-lab-mision', src: vm, poster: pm, label: 'Ver La misión' %}
         </div>
       </div>
       <div class="jcs-entries">
@@ -440,7 +438,7 @@
   {%- comment -%} 6 · The punchline, then NUBE in one line. {%- endcomment -%}
   <section class="jcs-lab-end" id="jc-nube" aria-labelledby="jc-lab-end-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>Cierre</span>Firmado: L · C · D</p>
+      <p class="jcs-chapter"><span>Cierre</span>Firmado: JUNGLCORE LAB</p>
       <h2 class="jcs-display" id="jc-lab-end-title">La jungla no se perdió. Se dejó de mirar.</h2>
       <p class="jcs-lead jcs-lab-end__lead">Guardar semillas en una bóveda sirve de poco si nadie las usa. Una planta se cuida cuando se usa.</p>
       {% if v and v.price > 0 %}
