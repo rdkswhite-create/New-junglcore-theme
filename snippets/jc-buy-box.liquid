@@ -22,6 +22,7 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
     <li><strong>1,4 g</strong><span>Fibra</span></li>
     <li><strong>3</strong><span>Ingredientes</span></li>
   </ul>
+  <p class="jcs-buy__without">Sin azúcar añadida · Sin conservantes · Sin saborizantes · Sin lácteos</p>
   {% if settings.jc_sale_mode != 'a_la_venta' %}
     {% render 'jc-waitlist', product: product, form_id: form_id %}
   {% elsif v and v.price > 0 %}

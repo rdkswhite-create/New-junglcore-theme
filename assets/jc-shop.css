@@ -893,3 +893,4 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs-about__loop { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; background: #e3e3df; }
 @media (max-width: 899px) { .jcs-about__loop { aspect-ratio: 4 / 5; } .jcs-about__figure img[src*="jc-origen-piloto"] { aspect-ratio: 4 / 5; object-fit: cover; object-position: center 60%; } }
 .jcs .jcs-wait__count { margin: 6px 0 0; font-size: 13px; color: var(--muted); } .jcs-wait__count strong { color: var(--ink); }
+.jcs .jcs-buy__without { margin: 12px 0 0; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); line-height: 1.6; }
