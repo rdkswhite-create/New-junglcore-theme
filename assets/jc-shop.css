@@ -976,3 +976,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 /* Band behind hero text removed: text-shadow + full shade carry legibility */
 .jcs-hero__body::before { display: none; }
+
+/* Ch.04 copy runs as wide as "La jungla no se perdió." */
+.jcs-manifesto__wrap { width: fit-content; max-width: 100%; }
+.jcs-manifesto--short .jcs-manifesto__wrap .jcs-manifesto__lead { max-width: none; contain: inline-size; }
