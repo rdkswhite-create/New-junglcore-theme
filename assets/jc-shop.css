@@ -950,3 +950,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 /* Plain and simple: one paper, one beige, black for GLP-1 only */
 .jcs-lab-study, .jcs-pausa { background: var(--paper); }
 .jcs-loop__box { background: #efe9df; }
+
+/* Enemy line → the seed */
+.jcs-manifesto--short .jcs-manifesto__seed { margin-top: 18px; max-width: 640px; font-size: 17px; line-height: 1.45; color: var(--ink); }
+.jcs-manifesto--short .jcs-manifesto__seed strong { font-weight: 600; }
