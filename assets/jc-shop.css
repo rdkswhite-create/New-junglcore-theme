@@ -998,3 +998,11 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 .jcs-next__display { font-size: min(clamp(34px, 5.4vw, 76px), 7.1vw); }
 .jcs-next__display span { display: block; white-space: nowrap; }
+
+/* Ch.04 mission heading on three lines; ch.05 heading wraps naturally */
+#jc-manifesto-title { font-size: min(clamp(34px, 5.4vw, 76px), 7.1vw); }
+#jc-manifesto-title span { display: block; white-space: nowrap; }
+.jcs-next__display { font-size: clamp(34px, 5.4vw, 76px); }
+.jcs-next__lead { max-width: 760px; }
+.jcs-next__lead + .jcs-next__lead { margin-top: -12px; }
+.jcs-next__lab strong { color: var(--ink); font-weight: 600; }
