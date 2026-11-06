@@ -17,12 +17,37 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
     <p class="jcs-wait__tag">Primera tanda</p>
     <p class="jcs-wait__date">{{ launch }}</p>
   </div>
-  <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Aparta tu bolsa y te escribimos el {{ contact_day }}, antes que a nadie. No pagas nada ahora: pagas cuando tu pedido esté listo, y tienes 24 horas para hacerlo.</p>
+  <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Entregamos en Bogotá desde el {{ launch }}.</p>
   {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</p>{% endif %}
   {% if settings.jc_waitlist_count > 0 %}<p class="jcs-wait__count"><strong>{{ settings.jc_waitlist_count }}</strong> {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa.{% else %}personas ya apartaron su bolsa.{% endif %}</p>{% endif %}
   {% if perk != blank %}<p class="jcs-wait__perk"><span>Para la lista</span>{{ perk }}</p>{% endif %}
 
-  <a class="jcs-btn jcs-btn--full" href="https://wa.me/573011571039?text={{ wa_text | url_encode }}" target="_blank" rel="noopener"><span>Apártame una bolsa por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+  {%- if v and v.available -%}
+  <div class="jcs-prepay" data-variant="{{ v.id }}">
+    <p class="jcs-prepay__k">Págala ya <span>· asegurada en la primera tanda</span></p>
+    <div class="jcs-prepay__row">
+      <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
+      <select id="{{ form_id }}-qty" class="jcs-prepay__qty">
+        <option value="1">1 bolsa · 30 vasos</option>
+        <option value="2">2 bolsas · 60 vasos</option>
+        <option value="3">3 bolsas · 90 vasos</option>
+      </select>
+      <a class="jcs-btn jcs-prepay__btn" href="{{ routes.root_url }}cart/{{ v.id }}:1"><span>Págala ya</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+    <p class="jcs-prepay__small">Pago seguro con Bold. Envío en Bogotá $20.000; gratis desde $100.000.</p>
+  </div>
+  <script>
+    (function () {
+      var box = document.currentScript.previousElementSibling; if (!box) return;
+      var sel = box.querySelector('.jcs-prepay__qty'), btn = box.querySelector('.jcs-prepay__btn'), id = box.dataset.variant;
+      sel.addEventListener('change', function () { btn.href = '{{ routes.root_url }}cart/' + id + ':' + sel.value; });
+    })();
+  </script>
+  <p class="jcs-wait__or">O apártala gratis y pagas cuando esté lista. Te escribimos el {{ contact_day }}; tienes 24 horas para pagar.</p>
+  {%- else -%}
+  <p class="jcs-wait__or">Aparta tu bolsa y te escribimos el {{ contact_day }}, antes que a nadie. No pagas nada ahora: pagas cuando tu pedido esté listo, y tienes 24 horas para hacerlo.</p>
+  {%- endif -%}
+  <a class="jcs-btn jcs-btn--full jcs-btn--line" href="https://wa.me/573011571039?text={{ wa_text | url_encode }}" target="_blank" rel="noopener"><span>Apártame una bolsa por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}
