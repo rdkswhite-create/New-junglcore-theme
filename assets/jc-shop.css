@@ -1077,3 +1077,20 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-thinking__t span:nth-child(2) { animation-delay: .2s; } .jcs-thinking__t span:nth-child(3) { animation-delay: .4s; }
 @keyframes jcsDot { 0%, 20% { opacity: 0; } 40%, 100% { opacity: 1; } }
 .jcs-btn--line { background: transparent !important; color: var(--ink) !important; border: 1px solid var(--ink) !important; }
+
+/* Para llevar folds on phone */
+.jcs-result__fold summary { list-style: none; cursor: pointer; }
+.jcs-result__fold summary::-webkit-details-marker { display: none; }
+.jcs-result__fold summary::after { content: ' +'; }
+.jcs-result__fold[open] summary::after { content: ' −'; }
+/* Weekly galleta opt-in */
+.jcs-weekly { margin-top: 22px; padding: 20px; background: #efe9df; max-width: 720px; }
+.jcs .jcs-weekly__t { margin: 0; font-size: clamp(20px, 2.2vw, 26px); font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+.jcs .jcs-weekly__s { margin: 6px 0 14px; font-size: 14px; color: var(--muted); }
+.jcs-weekly__row { display: grid; gap: 10px; }
+@media (min-width: 750px) { .jcs-weekly__row { grid-template-columns: auto 1fr; align-items: center; } }
+.jcs-weekly__form { margin: 0; }
+.jcs-weekly, .jcs-weekly * { box-sizing: border-box; }
+.jcs-weekly .jcs-wait__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+.jcs-weekly .jcs-wait__row input { min-width: 0; width: 100%; }
+@media (max-width: 749px) { .jcs-weekly .jcs-weekly__wa { width: 100%; justify-content: space-between; } .jcs-weekly .jcs-wait__row input::placeholder { font-size: 14px; } }

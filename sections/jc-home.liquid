@@ -87,8 +87,10 @@
           <p class="jcs-result__bot"></p>
           <p class="jcs-result__rule-k">Tu regla</p>
           <p class="jcs-result__rule"></p>
-          <p class="jcs-result__take-k">Para llevar</p>
-          <ul class="jcs-result__take"></ul>
+          <details class="jcs-result__fold" open>
+            <summary class="jcs-result__take-k">Para llevar</summary>
+            <ul class="jcs-result__take"></ul>
+          </details>
           <p class="jcs-result__fortune-k">Tu galleta de la fortuna <span>(sin azúcar)</span></p>
           <p class="jcs-result__fortune"></p>
           <p class="jcs-result__moment"></p>
@@ -99,6 +101,22 @@
           <button type="button" class="jcs-btn jcs-btn--line jcs-result__save"><span>Guardar mi tarjeta</span><span class="jcs-arrow" aria-hidden="true">&darr;</span></button>
           <button type="button" class="jcs-link jcs-result__share">Mándaselo a alguien &rarr;</button>
           <button type="button" class="jcs-link jcs-result__again">Juega por alguien más &rarr;</button>
+        </div>
+        <div class="jcs-weekly">
+          <p class="jcs-weekly__t">¿Una galleta de la fortuna cada lunes?</p>
+          <p class="jcs-weekly__s">Sin azúcar. Una frase, un dato útil y lo que anotaron los robots. Te sales cuando quieras.</p>
+          <div class="jcs-weekly__row">
+            <a class="jcs-btn jcs-weekly__wa" href="https://wa.me/573011571039" target="_blank" rel="noopener"><span>Por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+            {% form 'customer', id: 'jcs-weekly-form', class: 'jcs-weekly__form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter,galleta-lunes" class="jcs-weekly__tags">
+              <input type="hidden" name="return_to" value="/?galleta=1#jc-foryou">
+              <label class="visually-hidden" for="jcs-weekly-email">Tu correo</label>
+              <div class="jcs-wait__row">
+                <input type="email" id="jcs-weekly-email" name="contact[email]" placeholder="O por correo" autocomplete="email" required>
+                <button type="submit">Mándamela</button>
+              </div>
+            {% endform %}
+          </div>
         </div>
       </div>
       <script>
@@ -184,8 +202,13 @@
             var buy = res.querySelector('.jcs-result__buy');
             if (SALE) { buy.href = '#jc-buy'; buy.removeAttribute('target'); }
             else buy.href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, jugué ¿Cuántas te pasan? y me salió ' + r.title.toUpperCase() + ' (me pasan la ' + list + '). Quiero apartar NUBE.');
+            var slug = r.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            res.querySelector('.jcs-weekly__wa').href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, quiero mi galleta de la fortuna (sin azúcar) cada lunes. Me salió ' + r.title.toUpperCase() + '.');
+            var tg = res.querySelector('.jcs-weekly__tags'); if (tg) tg.value = 'newsletter,galleta-lunes,perfil-' + slug;
+            var fold = res.querySelector('.jcs-result__fold'); if (fold && window.matchMedia('(max-width: 899px)').matches) fold.open = false;
             res.hidden = false;
           }
+          if (/[?&]galleta=1/.test(location.search)) { m.textContent = 'Listo. El lunes te llega tu primera galleta.'; box.classList.add('is-live'); }
           function update() {
             var k = picked().length;
             n.textContent = k; box.classList.toggle('is-live', k > 0);
