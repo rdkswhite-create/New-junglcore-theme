@@ -29,6 +29,9 @@
         <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa · {{ settings.jc_launch_short | default: '20 nov' }}</span>{% else %}<span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-film">Cómo se prepara</a>
       </div>
+      {%- if v and v.price > 0 -%}{%- assign hero_pg = v.price | divided_by: 30 -%}
+      <p class="jcs-hero__price">{{ hero_pg | money_without_trailing_zeros }} por vaso · 30 vasos por bolsa</p>
+      {%- endif -%}
     </div>
     <div class="jcs-hero__bottom">
       <img class="jcs-hero__wordmark" src="{{ 'jc-wordmark-refined-white.svg' | asset_url }}" alt="junglcore" width="1329" height="313">
@@ -386,7 +389,7 @@
     <div class="jcs-frame">
       <p class="jcs-eyebrow">En video</p>
       <h2 class="jcs-title" id="jc-reels-title">Preguntas desde la nave.</h2>
-      <p class="jcs-lead">Tres robots vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta.</p>
+      <p class="jcs-lead">Lupa, Chispa y Dato: tres robots que vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta.</p>
       <p class="jcs-reels__links"><a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones#jc-bitacora">Ver las siete preguntas <span aria-hidden="true">&rarr;</span></a> <a class="jcs-link" href="{{ settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener">Síguelos en Instagram <span aria-hidden="true">&rarr;</span></a></p>
     </div>
     <ol class="jcs-reels__track">
