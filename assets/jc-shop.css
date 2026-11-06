@@ -1006,3 +1006,8 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-next__lead { max-width: 760px; }
 .jcs-next__lead + .jcs-next__lead { margin-top: -12px; }
 .jcs-next__lab strong { color: var(--ink); font-weight: 600; }
+
+/* Ch.04 and ch.05 headings at the same size as "Hicimos las cuentas"; copy runs as wide as the page text (like 02) */
+#jc-manifesto-title, .jcs-next__display { font-size: clamp(28px, 3.6vw, 48px) !important; line-height: 1.08; letter-spacing: -.03em; }
+.jcs-manifesto__wrap { width: auto; }
+.jcs-manifesto--short .jcs-manifesto__wrap .jcs-manifesto__lead, .jcs-next__lead { max-width: 1000px; contain: none; }
