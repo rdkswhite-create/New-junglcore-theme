@@ -902,3 +902,7 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs-hero__top, .jcs-hero__body, .jcs-hero__bottom { z-index: 2; }
 /* Belt and braces for iPhone: a dark band attached to the text block itself, so it always sits between video and words */
 .jcs-hero__body::before { content: ''; position: absolute; z-index: -1; pointer-events: none; top: -48px; bottom: -24px; left: calc((100% - 100vw) / 2); right: calc((100% - 100vw) / 2); background: linear-gradient(180deg, rgba(20,14,8,0) 0%, rgba(20,14,8,.31) 20%, rgba(20,14,8,.31) 80%, rgba(20,14,8,0) 100%); }
+.jcs .jcs-foryou__t { margin: 0; font: inherit; color: inherit; }
+.jcs-foryou__link { margin-top: auto; padding-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: inherit; opacity: .75; text-decoration: underline; text-underline-offset: 4px; }
+.jcs-foryou__cards li { display: flex; flex-direction: column; }
+@media (max-width: 899px) { .jcs-foryou__cards li { justify-content: flex-start; gap: 18px; } .jcs-foryou__cards li .jcs-foryou__t { margin-top: auto; } .jcs-foryou__link { margin-top: 0; padding-top: 0; } }
