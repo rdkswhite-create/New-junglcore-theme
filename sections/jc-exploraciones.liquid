@@ -68,7 +68,7 @@
         <div class="jcs-lab-next__item">
           <p class="jcs-eyebrow">NUBE · La bebida · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }}{% else %}A la venta{% endif %}</span></p>
           <h3>Una barra del congelador, agua y licuadora. 30 segundos.</h3>
-          <p>Sacha inchi, agua y goma gelana. 6,3 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
+          <p>Una semilla con 3.000 años de historia. 6,3 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
           {% if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_perk != blank %}<p class="jcs-lab-perk">{{ settings.jc_waitlist_perk }}</p>{% endif %}
           <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · {{ pg | money_without_trailing_zeros }} por vaso{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>No pagas nada ahora · Solo Bogotá{% endif %}</p>
