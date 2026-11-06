@@ -980,3 +980,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 /* Ch.04 copy runs as wide as "La jungla no se perdió." */
 .jcs-manifesto__wrap { width: fit-content; max-width: 100%; }
 .jcs-manifesto--short .jcs-manifesto__wrap .jcs-manifesto__lead { max-width: none; contain: inline-size; }
+
+/* Para ti: every card link on one line, bottom-aligned across the row; 3 columns between 900 and 1199px (12 = 4 rows of 3) */
+@media (min-width: 900px) { .jcs-foryou__link { white-space: nowrap; } }
+@media (min-width: 900px) and (max-width: 1199px) { .jcs-foryou__cards { grid-template-columns: repeat(3, 1fr); } }
