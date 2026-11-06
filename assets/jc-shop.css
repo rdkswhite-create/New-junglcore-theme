@@ -64,7 +64,7 @@
 .jcs-hero { position: relative; min-height: min(92vh, 880px); color: #fff; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; background: #1b1b1b; }
 .jcs-hero__media, .jcs-hero__media picture, .jcs-hero__media img, .jcs-hero__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .jcs-hero__media img, .jcs-hero__media video { filter: grayscale(1) sepia(.8) saturate(1.15) hue-rotate(-10deg) contrast(1.16) brightness(.72); }
-.jcs-hero__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,8,.72) 0%, rgba(20,14,8,.62) 40%, rgba(20,14,8,.4) 62%, rgba(20,14,8,.15) 78%, rgba(0,0,0,.45) 100%); }
+.jcs-hero__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,8,.63) 0%, rgba(20,14,8,.48) 40%, rgba(20,14,8,.3) 62%, rgba(20,14,8,.15) 78%, rgba(0,0,0,.45) 100%); }
 .jcs-hero__top, .jcs-hero__body, .jcs-hero__bottom { position: relative; width: var(--frame); margin-inline: auto; }
 .jcs-hero__top { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
 .jcs-hero__body { padding: 40px 0; }
@@ -901,4 +901,4 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs-hero__shade { z-index: 1; pointer-events: none; -webkit-transform: translateZ(0); transform: translateZ(0); }
 .jcs-hero__top, .jcs-hero__body, .jcs-hero__bottom { z-index: 2; }
 /* Belt and braces for iPhone: a dark band attached to the text block itself, so it always sits between video and words */
-.jcs-hero__body::before { content: ''; position: absolute; z-index: -1; pointer-events: none; top: -48px; bottom: -24px; left: calc((100% - 100vw) / 2); right: calc((100% - 100vw) / 2); background: linear-gradient(180deg, rgba(20,14,8,0) 0%, rgba(20,14,8,.62) 20%, rgba(20,14,8,.62) 80%, rgba(20,14,8,0) 100%); }
+.jcs-hero__body::before { content: ''; position: absolute; z-index: -1; pointer-events: none; top: -48px; bottom: -24px; left: calc((100% - 100vw) / 2); right: calc((100% - 100vw) / 2); background: linear-gradient(180deg, rgba(20,14,8,0) 0%, rgba(20,14,8,.31) 20%, rgba(20,14,8,.31) 80%, rgba(20,14,8,0) 100%); }
