@@ -947,3 +947,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 /* ONE and OIL in light grey boxes */
 .jcs-lab-make .jcs-lab-next__item--soon { background: #efe9df; padding: 24px 22px; border: 0; margin-top: 12px; }
 @media (min-width: 900px) { .jcs-lab-make .jcs-lab-next__item--soon { margin-top: 0; } }
+/* Plain and simple: one paper, one beige, black for GLP-1 only */
+.jcs-lab-study, .jcs-pausa { background: var(--paper); }
+.jcs-loop__box { background: #efe9df; }
