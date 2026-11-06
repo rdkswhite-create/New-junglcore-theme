@@ -85,6 +85,8 @@
           <p class="jcs-result__rule"></p>
           <p class="jcs-result__take-k">Para llevar</p>
           <ul class="jcs-result__take"></ul>
+          <p class="jcs-result__fortune-k">Tu galleta de la fortuna <span>(sin azúcar)</span></p>
+          <p class="jcs-result__fortune"></p>
           <p class="jcs-result__moment"></p>
           <p class="jcs-result__sig">junglcore.com · ¿Cuántas te pasan?</p>
         </div>
@@ -101,18 +103,18 @@
           var SALE = {% if settings.jc_sale_mode == 'a_la_venta' %}true{% else %}false{% endif %};
           /* Every card: its profile, the fact to take away, and one robot line. Edit freely. */
           var CARDS = {
-            '01': { p: 'bolsillo', take: 'Busca el % de almendra en la etiqueta. Si no lo dice, sospecha.', bot: 'lupa', line: 'Conté las almendras. Me sobró paciencia.' },
-            '02': { p: 'barriga', take: 'Cerca de 6 de cada 10 colombianos digieren mal la lactosa. No eres raro.', bot: 'chispa', line: 'Yo no tengo estómago. Igual te entiendo.' },
-            '03': { p: 'etiqueta', take: 'El sello negro avisa exceso de azúcar, sodio o grasa. El que no lo tiene no es santo, pero empieza bien.', bot: 'dato', line: 'Hoy devolvieron 47. Los anoté.' },
-            '04': { p: 'ruido', take: 'Un antojo dura minutos. En un estudio del Reino Unido, tres minutos de Tetris lo debilitaron cerca de un 24 %.', bot: 'dato', line: 'Probé lo del Tetris. Perdí. El antojo también.' },
+            '01': { p: 'bolsillo', take: 'Compara por vaso, no por caja. El precio grande engaña.', bot: 'lupa', line: 'Conté las almendras. Me sobró paciencia.' },
+            '02': { p: 'barriga', take: 'Si la leche te cae mal, prueba el yogur o el queso maduro: suelen traer mucha menos lactosa.', bot: 'chispa', line: 'Yo no tengo estómago. Igual te entiendo.' },
+            '03': { p: 'etiqueta', take: 'Mira el primer ingrediente de la lista: es del que más hay.', bot: 'dato', line: 'Hoy devolvieron 47. Los anoté.' },
+            '04': { p: 'ruido', take: 'Pregúntate: ¿hambre o aburrimiento? En una encuesta del Reino Unido, el aburrimiento fue el detonante número uno.', bot: 'dato', line: 'Probé lo del Tetris. Perdí. El antojo también.' },
             '05': { p: 'ruido', take: 'Sírvete en un plato y guarda el paquete. Del paquete no se come una.', bot: 'lupa', line: '¿Por qué los venden de a 20 si se come una?' },
-            '06': { p: 'bolsillo', take: 'Una caja abierta dura de 7 a 10 días en la nevera. Escríbele la fecha con marcador.', bot: 'lupa', line: 'Pagaron 10 vasos. Se tomaron 6.' },
-            '07': { p: 'ruido', take: 'Un desayuno solo de harina se va rápido. Súmale proteína.', bot: 'chispa', line: 'A las 9 desayunan. A las 11 vuelven a buscar.' },
-            '08': { p: 'barriga', take: 'No necesitas gimnasio para la proteína: un huevo, un vaso de leche o uno de NUBE traen unos 6 g cada uno.', bot: 'chispa', line: 'La proteína no pide carné de gimnasio.' },
-            '09': { p: 'barriga', take: 'Si tu polvo es concentrado de suero, trae lactosa. Ahí puede estar lo pesado.', bot: 'chispa', line: 'Leí la etiqueta. Decía «suero». Me asusté.' },
+            '06': { p: 'bolsillo', take: 'Una caja abierta dura de 7 a 10 días. Escríbele la fecha con marcador.', bot: 'lupa', line: 'Pagaron 10 vasos. Se tomaron 6.' },
+            '07': { p: 'ruido', take: 'Cambia lo dulce por algo con proteína: huevo, queso, frijol. Aguanta más que pan dulce y jugo.', bot: 'chispa', line: 'A las 9 desayunan. A las 11 vuelven a buscar.' },
+            '08': { p: 'barriga', take: 'Reparte la proteína en el día: un poco en cada comida, no todo en la cena.', bot: 'chispa', line: 'La proteína no pide carné de gimnasio.' },
+            '09': { p: 'barriga', take: 'Si es concentrado de suero, trae lactosa. El aislado trae mucho menos.', bot: 'chispa', line: 'Leí la etiqueta. Decía «suero». Me asusté.' },
             '10': { p: 'etiqueta', take: 'Si ves eritritol o maltitol, son edulcorantes que a algunas personas les caen pesado.', bot: 'dato', line: 'Conté 23 ingredientes. Me cansé antes que el batido.' },
             '11': { p: 'etiqueta', take: 'Regla de la mano: si no los cuentas con una mano, devuélvelo.', bot: 'dato', line: 'Conté los de NUBE. Me sobraron dos dedos.' },
-            '12': { p: 'bolsillo', take: 'Una bebida vegetal es casi toda agua. Un litro pesa un kilo, y lo cargas tú.', bot: 'lupa', line: 'Cargan agua del súper. Tienen agua en la casa.' }
+            '12': { p: 'bolsillo', take: 'Haz el mercado con lista. Cargas menos peso y menos antojos.', bot: 'lupa', line: 'Cargan agua del súper. Tienen agua en la casa.' }
           };
           var PROFILES = {
             ruido:    { title: 'El ruido', roast: 'Tu nevera te conoce mejor que tu mamá.', rule: 'El antojo grita. Tú decides si contestas.', moment: 'Tu momento NUBE: caliente, a las 11 p. m., con el celular boca abajo.' },
@@ -128,6 +130,8 @@
             'bolsillo+etiqueta': ['El auditor', 'Revisas precio y etiqueta. El súper te tiene miedo.'],
             'barriga+etiqueta': ['El cuerpo exigente', 'Tu cuerpo pide poco, pero lo pide bien.']
           };
+          /* Tu galleta de la fortuna (sin azúcar): one at random per result. Add or remove lines freely. */
+          var FORTUNES = ["No eres débil. El paquete lo diseñó un equipo de 200 personas. Tú estás solo.", "Si algo necesita 23 ingredientes para saber a algo, sospecha.", "La máquina no te quiere flaco ni gordo. Te quiere comprando.", "El paquete dice «porción: 3 galletas». El paquete sabe que mientes.", "Cuando la caja grita «saludable», lee la parte de atrás.", "Ninguna fruta ha necesitado un comercial.", "La comida de verdad se daña. Eso es buena señal.", "Si dura dos años en la alacena, pregúntate qué le hicieron.", "Menos paquetes. Más platos.", "Lo que no compras no te lo comes a las 11 p. m.", "Tu abuela no contaba macros. Tampoco tenía paquetes de 20.", "Nadie se ha arrepentido de una arepa con huevo.", "Caldo, arepa y café. Tu abuela ya sabía de saciedad.", "La abuela servía en plato hondo. El paquete no tiene fondo.", "Tu abuela no tenía antojo a las 11. Tenía sueño a las 9.", "Si viene de una mata, ya vas bien.", "Dato observa: compran agua en caja y tienen agua en la llave.", "Lupa anotó: «solo una» significa, en promedio, todas.", "Chispa no entiende por qué le hablan a la nevera a medianoche.", "Dato calculó que un antojo dura menos que una canción. Ponte una.", "Lupa vio a un humano leer la etiqueta y devolverlo. Lo aplaudió.", "En el planeta de los robots no hay paquetes familiares para una persona.", "Dato encontró miles de plantas en Colombia y cinco en el pasillo. Sigue buscando.", "Los robots vinieron buscando la jungla. Encontraron un pasillo. Tú encuentra la jungla.", "El hambre de verdad acepta cualquier cosa. El antojo solo acepta galletas.", "Un antojo dura minutos. Tú duras más.", "El aburrimiento se disfraza de hambre. Quítale el disfraz.", "Dormir poco da más hambre al día siguiente. Acostarte temprano también es comer bien.", "Lo que tienes a la vista es lo que te comes. Guarda el paquete.", "Un desayuno con proteína aguanta más que uno de puro azúcar.", "El antojo de la noche empieza en el almuerzo que no comiste.", "A buen hambre no hay pan duro. Al antojo, sí.", "Camarón que se duerme temprano no abre la nevera.", "Ojos que no ven el paquete, corazón que no lo abre.", "Más vale arepa en mano que paquete volando.", "Del dicho al hecho hay un paquete de galletas.", "El que come despacio, come una vez.", "La disciplina es aburrida. Por eso funciona.", "Primero la comida. Después la fuerza de voluntad.", "Comer bien no es castigo. Castigo es el pan dulce de las 11.", "El antojo es como un vendedor ambulante: si no le compras, se va.", "La nevera no se va a ir a ninguna parte. Espera cinco minutos.", "Las plantas llevan millones de años sin hacer dieta. Hazles caso.", "Un tinto no es desayuno. Es un adelanto.", "Las onces son sagradas. Las de las 11 p. m., no.", "El domicilio tarda más que el antojo. Espera y verás.", "En la ciudad de los domicilios, cocinar es un acto rebelde.", "Llueve en Bogotá. No es excusa para el paquete. Es excusa para algo caliente.", "La changua nunca pidió permiso para ser buen desayuno.", "Lo barato que se bota sale caro.", "Pagar por agua con sabor es la forma más cara de tomar agua.", "El 3x2 es buena oferta si te ibas a comer tres.", "El mercado con lista cuesta menos. El mercado con hambre, más.", "El empaque bonito también lo pagas tú.", "«Sin azúcar añadida» no es lo mismo que «sin azúcar».", "La foto del frente vende. La lista de atrás informa.", "«Sabor a fresa» y «fresa» no son la misma cosa.", "La porción de la etiqueta casi nunca es la que te comes.", "Una planta se cuida cuando se usa.", "La biodiversidad no es un museo. Es una despensa.", "El futuro de la comida puede estar en una mata que nadie ha mirado.", "La jungla no se perdió. Se dejó de mirar.", "Chispa descubrió el «ya que estoy aquí». Es el antojo más común del planeta.", "Dato anotó cuántas veces dicen «mañana empiezo». Se le acabó la libreta.", "Chispa aprendió que «solo un pedacito» es una unidad de medida humana.", "Dato vio a alguien comer frente a la nevera abierta. Lo anotó como deporte.", "No tienes que ganarle al antojo. Solo tienes que no comprarlo.", "El antojo pregunta. No tienes que contestar ya.", "No es la galleta. Es el paquete entero.", "El cuerpo avisa. La máquina grita. Escucha al que habla bajito.", "Lo más fuerte que puedes hacer a las 11 p. m. es irte a dormir."];
           var ORDER = ['ruido', 'bolsillo', 'barriga', 'etiqueta'];
           var track = document.querySelector('.jcs-foryou__cards');
           var box = document.querySelector('.jcs-foryou__score');
@@ -137,7 +141,8 @@
           var n = box.querySelector('b'), m = box.querySelector('.jcs-foryou__score-m'), reveal = box.querySelector('.jcs-foryou__reveal');
           box.querySelector('i').textContent = cards.length;
           cards.forEach(function (li) { li.setAttribute('role', 'button'); li.setAttribute('tabindex', '0'); li.setAttribute('aria-pressed', 'false'); });
-          var shown = false, last = null;
+          var shown = false, last = null, fortune = null;
+          function newFortune() { var f; do { f = FORTUNES[Math.floor(Math.random() * FORTUNES.length)]; } while (FORTUNES.length > 1 && f === fortune); fortune = f; }
           function picked() { return [].slice.call(track.querySelectorAll('li.is-on')).map(function (li) { return li.dataset.k; }).sort(); }
           function compute(keys) {
             var c = { ruido: 0, bolsillo: 0, barriga: 0, etiqueta: 0 };
@@ -166,6 +171,8 @@
             res.querySelector('.jcs-result__rule').textContent = r.rule;
             var ul = res.querySelector('.jcs-result__take'); ul.innerHTML = '';
             r.take.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+            if (!fortune) newFortune();
+            res.querySelector('.jcs-result__fortune').textContent = fortune;
             res.querySelector('.jcs-result__moment').textContent = r.moment;
             var nums = keys.map(function (k) { return String(Number(k)); });
             var list = nums.length > 1 ? nums.slice(0, -1).join(', ') + ' y ' + nums[nums.length - 1] : nums[0];
@@ -187,7 +194,7 @@
           function toggle(li) { var on = li.classList.toggle('is-on'); li.setAttribute('aria-pressed', on ? 'true' : 'false'); update(); }
           track.addEventListener('click', function (e) { if (e.target.closest('a')) return; var li = e.target.closest('li'); if (li) toggle(li); });
           track.addEventListener('keydown', function (e) { if (e.key !== 'Enter' && e.key !== ' ') return; var li = e.target.closest('li'); if (li && e.target === li) { e.preventDefault(); toggle(li); } });
-          reveal.addEventListener('click', function () { shown = true; reveal.hidden = true; render(); res.classList.remove('is-in'); void res.offsetWidth; res.classList.add('is-in'); res.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+          reveal.addEventListener('click', function () { shown = true; newFortune(); reveal.hidden = true; render(); res.classList.remove('is-in'); void res.offsetWidth; res.classList.add('is-in'); res.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
           res.querySelector('.jcs-result__share').addEventListener('click', function () {
             if (!last) return;
             var text = 'Me salió ' + last.r.title.toUpperCase() + ' en ¿Cuántas te pasan? ¿Y a ti?';
@@ -197,7 +204,7 @@
           });
           res.querySelector('.jcs-result__again').addEventListener('click', function () {
             cards.forEach(function (li) { li.classList.remove('is-on'); li.setAttribute('aria-pressed', 'false'); });
-            shown = false; res.hidden = true; update(); track.scrollLeft = 0;
+            shown = false; fortune = null; res.hidden = true; update(); track.scrollLeft = 0;
             document.getElementById('jc-foryou').scrollIntoView({ behavior: 'smooth', block: 'start' });
           });
         })();
