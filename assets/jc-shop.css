@@ -984,3 +984,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 /* Para ti: every card link on one line, bottom-aligned across the row; 3 columns between 900 and 1199px (12 = 4 rows of 3) */
 @media (min-width: 900px) { .jcs-foryou__link { white-space: nowrap; } }
 @media (min-width: 900px) and (max-width: 1199px) { .jcs-foryou__cards { grid-template-columns: repeat(3, 1fr); } }
+
+/* Origen headline: exactly three lines */
+#jc-about-title { max-width: none; font-size: min(clamp(34px, 5.4vw, 76px), 7.1vw); }
+#jc-about-title span { display: block; white-space: nowrap; }
