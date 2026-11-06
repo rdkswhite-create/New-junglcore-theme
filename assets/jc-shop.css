@@ -1066,3 +1066,14 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs .jcs-result__fortune-k { margin: 22px 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #e8a598; }
 .jcs .jcs-result__fortune-k span { opacity: .7; }
 .jcs .jcs-result__fortune { margin: 0; font-size: 18px; line-height: 1.4; font-style: italic; }
+
+/* "Dato está revisando tu caso…" */
+.jcs-thinking { display: flex; align-items: center; gap: 14px; margin-top: 18px; padding: 18px 20px; background: #111; color: #f4f3ef; max-width: 720px; }
+.jcs-thinking[hidden] { display: none !important; }
+.jcs-thinking__face { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid #f4f3ef; animation: jcsBlink 1.6s ease-in-out infinite; }
+@keyframes jcsBlink { 0%, 40%, 100% { transform: scaleY(1); } 45% { transform: scaleY(.88); } 50% { transform: scaleY(1); } }
+.jcs .jcs-thinking__t { margin: 0; font-size: 16px; font-weight: 500; }
+.jcs-thinking__t span { animation: jcsDot 1.2s infinite; opacity: 0; }
+.jcs-thinking__t span:nth-child(2) { animation-delay: .2s; } .jcs-thinking__t span:nth-child(3) { animation-delay: .4s; }
+@keyframes jcsDot { 0%, 20% { opacity: 0; } 40%, 100% { opacity: 1; } }
+.jcs-btn--line { background: transparent !important; color: var(--ink) !important; border: 1px solid var(--ink) !important; }
