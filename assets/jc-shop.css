@@ -1024,3 +1024,18 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 /* Planta 001 photo: same grade as the hero (colour through the sepia), without the hero's darkening */
 .jcs-manifesto figure.jcs-manifesto__photo img { filter: grayscale(.3) sepia(.34) saturate(1.08) hue-rotate(-4deg) contrast(1.06); }
+
+/* Para ti as a game: tap the ones that happen to you */
+.jcs .jcs-foryou__ask { margin: 8px 0 0; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.jcs-foryou__cards li { cursor: pointer; position: relative; transition: background .2s, color .2s; -webkit-tap-highlight-color: transparent; user-select: none; }
+.jcs-foryou__cards li::after { content: '✓'; position: absolute; top: 14px; right: 16px; width: 26px; height: 26px; border: 1px solid currentColor; border-radius: 50%; display: grid; place-items: center; font-size: 14px; opacity: .25; }
+.jcs-foryou__cards li.is-on { background: #111 !important; color: #f4f3ef !important; }
+.jcs-foryou__cards li.is-on::after { opacity: 1; background: #f4f3ef; color: #111; border-color: #f4f3ef; }
+.jcs-foryou__cards li.is-on span { color: #e8a598; }
+@media (max-width: 899px) { .jcs-foryou__cards li:nth-child(odd) { background: #efe9df; color: var(--ink); } }
+.jcs-foryou__score { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-top: 18px; padding: 16px 20px; border: 1px solid var(--ink); }
+.jcs .jcs-foryou__score-t { margin: 0; font-size: clamp(28px, 3vw, 40px); font-weight: 500; letter-spacing: -.02em; line-height: 1; }
+.jcs-foryou__score-t i { font-style: normal; }
+.jcs .jcs-foryou__score-m { margin: 0; flex: 1 1 200px; font-size: 16px; color: var(--muted); }
+.jcs-foryou__score.is-live .jcs-foryou__score-m { color: var(--ink); font-weight: 500; }
+.jcs-foryou__score-btn[hidden] { display: none !important; }

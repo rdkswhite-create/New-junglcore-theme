@@ -48,7 +48,8 @@
 
   <section class="jcs-foryou" aria-labelledby="jc-foryou-title">
     <div class="jcs-frame">
-      <h2 class="jcs-title" id="jc-foryou-title">NUBE es para ti si…</h2>
+      <h2 class="jcs-title" id="jc-foryou-title">¿Cuántas te pasan?</h2>
+      <p class="jcs-foryou__ask">Toca las que te pasan.</p>
       <ol class="jcs-foryou__cards">
         <li><span>01</span><p class="jcs-foryou__t">Te cobran carísimo por agua con un poquito de almendra.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver el precio por vaso &rarr;</a></li>
         <li><span>02</span><p class="jcs-foryou__t">La leche te cae mal.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin lácteos · Ver ingredientes &rarr;</a></li>
@@ -68,6 +69,34 @@
         <span class="jcs-foryou__count" aria-live="polite"><b>1</b> / <i>7</i></span>
         <button type="button" class="jcs-foryou__btn" data-dir="1" aria-label="Siguiente">&rarr;</button>
       </div>
+      <div class="jcs-foryou__score" aria-live="polite">
+        <p class="jcs-foryou__score-t"><b>0</b> de <i>12</i></p>
+        <p class="jcs-foryou__score-m">Toca las que te pasan.</p>
+        <a class="jcs-btn jcs-foryou__score-btn" href="#jc-buy" hidden><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+      <script>
+        (function () {
+          var track = document.querySelector('.jcs-foryou__cards');
+          var box = document.querySelector('.jcs-foryou__score');
+          if (!track || !box) return;
+          var cards = [].slice.call(track.children), n = box.querySelector('b'), m = box.querySelector('.jcs-foryou__score-m'), btn = box.querySelector('.jcs-foryou__score-btn');
+          box.querySelector('i').textContent = cards.length;
+          cards.forEach(function (li) { li.setAttribute('role', 'button'); li.setAttribute('tabindex', '0'); li.setAttribute('aria-pressed', 'false'); });
+          function update() {
+            var k = track.querySelectorAll('li.is-on').length;
+            n.textContent = k;
+            box.classList.toggle('is-live', k > 0);
+            if (k === 0) m.textContent = 'Toca las que te pasan.';
+            else if (k === 1) m.textContent = 'Te pasa una. Sigue.';
+            else if (k < cards.length) m.textContent = 'Te pasan ' + k + '. NUBE es para ti.';
+            else m.textContent = 'Te pasan todas. Te estábamos esperando.';
+            btn.hidden = k < 2;
+          }
+          function toggle(li) { var on = li.classList.toggle('is-on'); li.setAttribute('aria-pressed', on ? 'true' : 'false'); update(); }
+          track.addEventListener('click', function (e) { if (e.target.closest('a')) return; var li = e.target.closest('li'); if (li) toggle(li); });
+          track.addEventListener('keydown', function (e) { if (e.key !== 'Enter' && e.key !== ' ') return; var li = e.target.closest('li'); if (li && e.target === li) { e.preventDefault(); toggle(li); } });
+        })();
+      </script>
       <script>
         (function () {
           var track = document.querySelector('.jcs-foryou__cards');
