@@ -35,7 +35,14 @@
           <p class="jcs-lab-hero-nube"><a href="{{ routes.root_url }}products/nube#jc-buy">Y de ahí sale NUBE, una bebida de sacha inchi. {% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda, {{ settings.jc_launch_label | default: '20 de noviembre' }}{% else %}A la venta en Bogotá{% endif %} <span aria-hidden="true">&rarr;</span></a></p>
         </div>
         <div class="jcs-lab-top__video">
-          <figure class="jcs-lab-top__photo"><img src="{{ 'jc-planta-001.jpg' | asset_url }}" width="941" height="1176" alt="Una mano de robot junto a una semilla de sacha inchi"></figure>
+          <div class="jcs-lab-top__film">
+          <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
+          {% unless latest_title == 'Vinieron buscando la jungla' %}<h2 class="jcs-lab-film__title">{{ latest_title }}</h2>{% endunless %}
+          <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
+          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
+          <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
+          <p class="jcs-lab-budget">Misión: encontrar la jungla <span aria-hidden="true">·</span> Presupuesto: <span class="jcs-file__stamp">Agotado</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -45,7 +52,10 @@
   <section class="jcs-lab-next jcs-lab-make" id="jc-viene" aria-labelledby="jc-hacemos-title">
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>01</span>Lo que hacemos</p>
-      <h2 class="jcs-title jcs-lab-make__title" id="jc-hacemos-title">Una semilla. Tres formas.</h2>
+      <div class="jcs-lab-make__head">
+        <h2 class="jcs-title jcs-lab-make__title" id="jc-hacemos-title">Una semilla. Tres formas.</h2>
+        <figure class="jcs-lab-top__photo jcs-lab-make__photo"><img src="{{ 'jc-planta-001.jpg' | asset_url }}" width="941" height="1176" loading="lazy" alt="Una mano de robot junto a una semilla de sacha inchi"></figure>
+      </div>
       <div class="jcs-lab-next__grid jcs-lab-make__grid">
         <div class="jcs-lab-next__item">
           <p class="jcs-eyebrow">NUBE · La bebida · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }}{% else %}A la venta{% endif %}</span></p>
@@ -196,18 +206,11 @@
       <div class="jcs-lab-head">
         <h2 class="jcs-title" id="jc-bitacora-title">Preguntas desde la nave.</h2>
         <div>
-          <p class="jcs-lead">Lupa, Chispa y Dato: tres robots que vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta. Empieza por las películas, o toca una pregunta.</p>
+          <p class="jcs-lead">Lupa, Chispa y Dato: tres robots que vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta. Mira La misión, o toca una pregunta.</p>
           <p class="jcs-lab-rule jcs-lab-rule--dark">Los robots son ficción. Las cifras, no.</p>
         </div>
       </div>
-      <div class="jcs-lab-films">
-        <div class="jcs-lab-films__item">
-          <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
-          {% unless latest_title == 'Vinieron buscando la jungla' %}<h3 class="jcs-lab-film__title">{{ latest_title }}</h3>{% endunless %}
-          <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
-          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
-          <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
-        </div>
+      <div class="jcs-lab-films jcs-lab-films--one">
         <div class="jcs-lab-films__item">
           <p class="jcs-lab-film__kicker">Película 2 · 2 min · La misión completa</p>
           <p class="jcs-lab-film__what">Por qué vinieron: menos plantas, menos empresas, la tierra cansada. Y una semilla de la selva.</p>

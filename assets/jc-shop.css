@@ -1128,3 +1128,11 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 @media (max-width: 899px) { .jcs-wa-float__label { display: none; } }
 .jcs-lab-follow__row { grid-template-columns: minmax(0, 1fr) auto; }
 .jcs-lab-follow__row input { min-width: 0; width: 100%; }
+
+/* Lab: Película 1 back on top, photo with ch.01 */
+.jcs-lab-top__film .jcs-lab-budget { margin-top: 14px; }
+.jcs-lab-films--one { max-width: 420px; }
+@media (min-width: 750px) { .jcs-lab-films--one { grid-template-columns: minmax(0, 1fr); } }
+.jcs-lab-make__head { display: grid; gap: 20px; align-items: end; }
+.jcs-lab-make__photo { max-width: 240px; }
+@media (min-width: 900px) { .jcs-lab-make__head { grid-template-columns: minmax(0, 1fr) 190px; } .jcs-lab-make__photo { max-width: none; } }
