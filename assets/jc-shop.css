@@ -973,3 +973,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-reels__links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px 22px; }
 .jcs-next__grid .jcs-next__item:only-child { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
 .jcs-next .jcs-invest--short { margin-bottom: 0; padding-bottom: clamp(28px, 3.5vw, 44px); }
+
+/* Band behind hero text removed: text-shadow + full shade carry legibility */
+.jcs-hero__body::before { display: none; }
