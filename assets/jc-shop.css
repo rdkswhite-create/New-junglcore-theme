@@ -896,3 +896,7 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs .jcs-buy__without { margin: 12px 0 0; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); line-height: 1.6; }
 
 .jcs-hero__title, .jcs-hero__sub, .jcs-hero__top { text-shadow: 0 1px 2px rgba(0,0,0,.35), 0 2px 18px rgba(0,0,0,.45); }
+/* Hero layers: Safari paints filtered video on its own layer, so stack explicitly */
+.jcs-hero__media { z-index: 0; }
+.jcs-hero__shade { z-index: 1; pointer-events: none; -webkit-transform: translateZ(0); transform: translateZ(0); }
+.jcs-hero__top, .jcs-hero__body, .jcs-hero__bottom { z-index: 2; }
