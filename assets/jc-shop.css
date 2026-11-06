@@ -1011,3 +1011,13 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 #jc-manifesto-title, .jcs-next__display { font-size: clamp(28px, 3.6vw, 48px) !important; line-height: 1.08; letter-spacing: -.03em; }
 .jcs-manifesto__wrap { width: auto; }
 .jcs-manifesto--short .jcs-manifesto__wrap .jcs-manifesto__lead, .jcs-next__lead { max-width: 1000px; contain: none; }
+
+/* Ch.04: text left, Planta 001 photo right */
+.jcs-manifesto__photo { margin: 24px 0 0; }
+.jcs-manifesto__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+@media (min-width: 900px) {
+  .jcs-manifesto__cols { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; margin-top: clamp(20px, 3vw, 32px); }
+  .jcs-manifesto__cols #jc-manifesto-title { margin-top: 0; }
+  .jcs-manifesto__photo { margin: 0; }
+}
+.jcs-manifesto figure.jcs-manifesto__photo img { aspect-ratio: 4 / 5; object-fit: cover; object-position: center 60%; }
