@@ -906,3 +906,12 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs-foryou__link { margin-top: auto; padding-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: inherit; opacity: .75; text-decoration: underline; text-underline-offset: 4px; }
 .jcs-foryou__cards li { display: flex; flex-direction: column; }
 @media (max-width: 899px) { .jcs-foryou__cards li { justify-content: flex-start; gap: 18px; } .jcs-foryou__cards li .jcs-foryou__t { margin-top: auto; } .jcs-foryou__link { margin-top: 0; padding-top: 0; } }
+/* Lab products tidy */
+.jcs-lab-make .jcs-lab-next__item { gap: 12px; padding: 28px 0; }
+.jcs .jcs-lab-make .jcs-lab-next__item h3 { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.15; }
+.jcs .jcs-lab-make .jcs-lab-next__item p.jcs-lab-perk { margin: 4px 0 0; padding: 12px 14px; font-size: 13px; line-height: 1.45; color: var(--ink); }
+.jcs-lab-make .jcs-btn { align-self: stretch; justify-content: space-between; margin-top: 6px; }
+@media (min-width: 900px) { .jcs-lab-make .jcs-btn { align-self: flex-start; } }
+.jcs .jcs-lab-make .jcs-lab-next__item p.jcs-lab-price { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; line-height: 1.6; color: var(--muted); }
+.jcs-lab-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 2px; }
+.jcs-lab-links a { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
