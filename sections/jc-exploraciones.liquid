@@ -27,21 +27,23 @@
   {%- comment -%} 1 · Who we are: one sentence and the film. {%- endcomment -%}
   <section class="jcs-log-intro" aria-labelledby="jc-log-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>LAB</span>Ciencia abierta · Bitácora de la nave</p>
+      <p class="jcs-chapter"><span>LAB</span>Ciencia abierta</p>
       <div class="jcs-lab-top">
         <div class="jcs-lab-top__copy">
-          <a class="jcs-lab-hero-thumb" href="#jcs-lab-latest" aria-label="Ver la película"><img src="{{ latest_poster }}" width="96" height="170" alt=""><span aria-hidden="true">&#9654;</span></a>
+          <a class="jcs-lab-hero-thumb" href="#jcs-lab-latest" aria-label="Ver la película" data-open-p1><img src="{{ latest_poster }}" width="96" height="170" alt=""><span aria-hidden="true">&#9654;</span></a>
           <h1 class="jcs-log-intro__title" id="jc-log-title">Vinieron buscando la jungla.</h1>
           <p class="jcs-log-intro__frame"><strong>JUNGLCORE LAB estudia lo que la biodiversidad puede hacer por tu salud.</strong> Empezamos por una semilla colombiana: la sacha inchi.</p>
           <p class="jcs-lab-hero-nube"><a href="{{ routes.root_url }}products/nube#jc-buy">Y de ahí sale NUBE, una bebida de sacha inchi. {% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda, {{ settings.jc_launch_label | default: '20 de noviembre' }}{% else %}A la venta en Bogotá{% endif %} <span aria-hidden="true">&rarr;</span></a></p>
           <p class="jcs-lab-budget">Misión: encontrar la jungla <span aria-hidden="true">·</span> Presupuesto: <span class="jcs-file__stamp">Agotado</span></p>
         </div>
         <div class="jcs-lab-top__video">
+          <div class="jcs-lab-p1">
           <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
           {% unless latest_title == 'Vinieron buscando la jungla' %}<h2 class="jcs-lab-film__title">{{ latest_title }}</h2>{% endunless %}
           <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
           {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
           <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
+          </div>
           <details class="jcs-lab-more-film">
             <summary>
               <span class="jcs-lab-more-film__text"><span class="jcs-lab-film__kicker">Película 2 · 2 min</span><span class="jcs-lab-more-film__q">¿Quieres entender la misión completa?</span></span>
@@ -96,7 +98,7 @@
   <section class="jcs-lab-study jcs-pausa" id="jc-pausa" aria-labelledby="jc-pausa-title">
     <span id="jc-estudio" class="jcs-anchor" aria-hidden="true"></span>
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>02</span>Lo que investigamos · 01 Saciedad · Abierto</p>
+      <p class="jcs-chapter"><span>02</span>Saciedad · Abierto</p>
       <p class="jcs-invest__q jcs-invest__q--lab">¿Puede la biodiversidad bajarle el volumen al ruido de la comida?</p>
       <div class="jcs-loop">
         <div class="jcs-loop__box">
@@ -117,15 +119,10 @@
       </div>
       <div class="jcs-lab-study__grid">
         <div>
-          <h2 class="jcs-display jcs-pausa__title" id="jc-pausa-title">Lo que encontramos.</h2>
-          <p class="jcs-lead">Fue lo que más nos dijeron quienes la probaron: se sentían llenos por más tiempo. El antojo de media tarde llegaba más tarde.</p>
-          <p class="jcs-pausa__belief">Un antojo dura minutos. Si llega más tarde, ganas tú.</p>
-          <p class="jcs-pausa__route-k jcs-pausa__ours">Lo que hacemos nosotros</p>
-          <p class="jcs-pausa__text">Creemos que es la semilla. Todavía no lo hemos demostrado: lo estamos probando con gente de verdad, cada día.</p>
+          <h2 class="jcs-title jcs-pausa__h" id="jc-pausa-title">Lo que encontramos.</h2>
+          <p class="jcs-pausa__text">Lo que más nos dijeron en nuestras pruebas: se sentían llenos por más tiempo y el antojo de media tarde llegaba más tarde. Creemos que es la semilla. Lo estamos probando con gente de verdad, cada día.</p>
           <p class="jcs-pausa__open">Está abierto.</p>
-          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-entry__price">{{ price_line }}</p>
-          <p class="jcs-log-small">No hemos demostrado que NUBE cambie los antojos. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
+          <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %} &rarr;</a></div>
         </div>
         <div class="jcs-log-check">
           <details class="jcs-lab-fold">
@@ -161,17 +158,13 @@
   {%- comment -%} 3b · Investigation 02: the oil and the heart. A question, never a claim. {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa jcs-aceite" id="jc-aceite" aria-labelledby="jc-aceite-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>02</span>Lo que investigamos · 02 Corazón · Abierto</p>
+      <p class="jcs-chapter"><span>03</span>Corazón · Abierto</p>
       <p class="jcs-invest__q jcs-invest__q--lab">¿Puede una grasa cuidar tu corazón?</p>
       <div class="jcs-lab-study__grid">
         <div>
-          <h2 class="jcs-display jcs-pausa__title" id="jc-aceite-title">El aceite.</h2>
-          <p class="jcs-pausa__belief">Extra virgen. Prensado en frío.</p>
-          <p class="jcs-lead">Hecho con la mejor semilla que encontramos en Colombia. Lo único que le hacemos es apretarla.</p>
-          <p class="jcs-pausa__route-k jcs-pausa__ours">Lo que hacemos nosotros</p>
-          <p class="jcs-pausa__text">Queremos saber qué puede hacer con el colesterol, en la cocina y en la piel. Mientras lo medimos, no prometemos nada.</p>
-          <a class="jcs-btn" href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener"><span>Avísame cuando salga OIL</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-log-small">No hemos demostrado que OIL cambie tu colesterol. Es una pregunta abierta, no una promesa. No es un tratamiento ni sustituye la ayuda de un profesional.</p>
+          <h2 class="jcs-title jcs-pausa__h" id="jc-aceite-title">El aceite.</h2>
+          <p class="jcs-pausa__text">Cerca de la mitad de su grasa es omega-3 vegetal. Queremos saber qué puede hacer con el colesterol, en la cocina y en la piel.</p>
+          <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame cuando salga OIL &rarr;</a></div>
         </div>
         <div class="jcs-log-check">
           <details class="jcs-lab-fold">
@@ -192,13 +185,14 @@
           </details>
         </div>
       </div>
+      <p class="jcs-log-small jcs-lab-disclaimer">Preguntas abiertas, no promesas. Lo que encontraron otros no son estudios de NUBE ni de OIL. Son alimentos, no tratamientos, y no sustituyen la ayuda de un profesional.</p>
     </div>
   </section>
 
   {%- comment -%} 4 · Questions from the ship: the robots ask, we check. Newest first. {%- endcomment -%}
   <section class="jcs-lab-log" id="jc-bitacora" aria-labelledby="jc-bitacora-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>03</span>Bitácora</p>
+      <p class="jcs-chapter"><span>04</span>Bitácora</p>
       <div class="jcs-lab-head">
         <h2 class="jcs-title" id="jc-bitacora-title">Preguntas desde la nave.</h2>
         <div>
@@ -428,7 +422,7 @@
   {%- comment -%} 6 · The punchline, then NUBE in one line. {%- endcomment -%}
   <section class="jcs-lab-end" id="jc-nube" aria-labelledby="jc-lab-end-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>Cierre</span>Conclusión provisional · Firmado: L · C · D</p>
+      <p class="jcs-chapter"><span>Cierre</span>Firmado: L · C · D</p>
       <h2 class="jcs-display" id="jc-lab-end-title">La jungla no se perdió. Se dejó de mirar.</h2>
       <p class="jcs-lead jcs-lab-end__lead">Guardar semillas en una bóveda sirve de poco si nadie las usa. Una planta se cuida cuando se usa.</p>
       {% if v and v.price > 0 %}
@@ -438,7 +432,7 @@
           <div class="jcs-lab-strip__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>Lo que salió de la bitácora, por ahora. 30 vasos por bolsa · solo Bogotá.{% if settings.jc_sale_mode != 'a_la_venta' %} Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }}.{% endif %}</span></div>
         </div>
         {% if settings.jc_sale_mode != 'a_la_venta' %}
-          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>Primera tanda · {{ settings.jc_launch_label | default: '20 de noviembre' }}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>Apártame una bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         {% else %}
         {% form 'product', nube, id: 'jcs-lab-strip-form', class: 'jcs-lab-strip__form' %}
           <input type="hidden" name="id" value="{{ v.id }}">
@@ -467,6 +461,14 @@
       if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ block: 'start' }); }
     }
     openFromHash(); window.addEventListener('hashchange', openFromHash);
+    var t = document.querySelector('[data-open-p1]');
+    if (t) t.addEventListener('click', function (e) {
+      e.preventDefault();
+      var top = document.querySelector('.jcs-lab-top'); top.classList.add('is-p1');
+      var b = document.querySelector('#jcs-lab-latest .jcs-tapvid__play');
+      document.getElementById('jcs-lab-latest').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (b) b.click();
+    });
     document.querySelectorAll('.jcs-entries .jcs-entry').forEach(function (d) {
       d.addEventListener('toggle', function () {
         if (!d.open) { d.querySelectorAll('video').forEach(function (v) { v.pause(); }); return; }

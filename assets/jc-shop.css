@@ -756,7 +756,7 @@
 .jcs-entry summary:has(.jcs-entry__thumb) { grid-template-columns: 30px 56px minmax(0, 1fr) auto; gap: 12px; padding: 14px 0; }
 .jcs-entry__thumb { width: 56px; height: 72px; object-fit: cover; display: block; }
 .jcs-entry__buy { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 6px; }
-.jcs .jcs-entry__price { margin: 6px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jcs .jcs-entry__price { margin: 6px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: none; line-height: 1.6; color: var(--muted); }
 .jcs-entry__buy .jcs-entry__price { margin: 0; }
 .jcs .jcs-entry__share { margin-top: 22px; display: inline-flex; }
 @media (min-width: 900px) { .jcs-entry__body { padding-left: 98px; } }
@@ -926,3 +926,12 @@ a.jcs-invest__box:hover { background: #ebe9e2; }
 .jcs .jcs-loop__glp { margin: 0; }
 .jcs .jcs-loop__glp p + p { margin-top: 10px; }
 .jcs-loop + .jcs-lab-study__grid { margin-top: clamp(32px, 4vw, 48px); }
+/* LAB tidy v2 */
+@media (max-width: 899px) { .jcs-lab-p1 { display: none; } .jcs-lab-top.is-p1 .jcs-lab-p1 { display: block; } .jcs-lab-top__video .jcs-lab-more-film { margin-top: 0; } }
+.jcs .jcs-pausa__h { margin: 0; font-size: clamp(26px, 3vw, 36px); }
+.jcs-pausa .jcs-pausa__text { margin-top: 12px; }
+.jcs-pausa .jcs-pausa__open { margin-top: 18px; }
+.jcs-pausa .jcs-lab-links { margin-top: 10px; }
+.jcs-aceite { background: var(--paper); border-top: 1px solid var(--ink); }
+.jcs .jcs-lab-disclaimer { margin-top: clamp(28px, 4vw, 40px); max-width: 640px; }
+
