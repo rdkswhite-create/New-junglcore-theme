@@ -7,6 +7,7 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
   assign v = product.selected_or_first_available_variant
   assign launch = settings.jc_launch_label | default: '20 de noviembre'
   assign perk = settings.jc_waitlist_perk
+  assign contact_day = settings.jc_contact_label | default: '19 de noviembre'
   assign per_glass = v.price | divided_by: 30
   assign wa_text = 'Hola, quiero NUBE de la primera tanda (' | append: launch | append: '). Estoy en el barrio: '
   assign email_id = form_id | append: '-email'
@@ -16,7 +17,7 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
     <p class="jcs-wait__tag">Primera tanda</p>
     <p class="jcs-wait__date">{{ launch }}</p>
   </div>
-  <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Aparta tu bolsa y te escribimos el día que sale, antes que a nadie. No pagas nada ahora.</p>
+  <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Aparta tu bolsa y te escribimos el {{ contact_day }}, antes que a nadie. No pagas nada ahora: pagas cuando tu pedido esté listo, y tienes 24 horas para hacerlo.</p>
   {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</p>{% endif %}
   {% if settings.jc_waitlist_count > 0 %}<p class="jcs-wait__count"><strong>{{ settings.jc_waitlist_count }}</strong> {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa.{% else %}personas ya apartaron su bolsa.{% endif %}</p>{% endif %}
   {% if perk != blank %}<p class="jcs-wait__perk"><span>Para la lista</span>{{ perk }}</p>{% endif %}
@@ -25,7 +26,7 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}
-      <p class="jcs-wait__ok" role="status"><strong>Estás en la lista.</strong> Te escribimos el {{ launch }}.</p>
+      <p class="jcs-wait__ok" role="status"><strong>Estás en la lista.</strong> Te escribimos el {{ contact_day }}.</p>
     {% else %}
       <input type="hidden" name="contact[tags]" value="newsletter,primera-tanda">
       <label class="jcs-wait__label" for="{{ email_id }}-input">O por correo</label>

@@ -954,3 +954,8 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 /* Enemy line → the seed */
 .jcs-manifesto--short .jcs-manifesto__seed { margin-top: 18px; max-width: 640px; font-size: 17px; line-height: 1.45; color: var(--ink); }
 .jcs-manifesto--short .jcs-manifesto__seed strong { font-weight: 600; }
+
+/* Robot faces next to their lines */
+.jcs-face { display: inline-block; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; vertical-align: -7px; margin-right: 7px; }
+.jcs-log-note footer { display: flex; align-items: center; gap: 0; }
+.jcs-log-note footer .jcs-face { width: 40px; height: 40px; vertical-align: middle; }

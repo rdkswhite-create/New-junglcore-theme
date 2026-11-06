@@ -1524,6 +1524,13 @@
       },
       {
         "type": "text",
+        "id": "jc_contact_label",
+        "label": "Día en que escribimos a la lista",
+        "default": "19 de noviembre",
+        "info": "«Aparta tu bolsa y te escribimos el 19 de noviembre…»"
+      },
+      {
+        "type": "text",
         "id": "jc_launch_short",
         "label": "Fecha corta",
         "default": "20 nov",
