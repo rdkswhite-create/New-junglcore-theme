@@ -24,7 +24,7 @@
     <div class="jcs-hero__top"><span>Colombia / Biodiversidad</span><span>6,3 g de proteína por vaso</span></div>
     <div class="jcs-hero__body">
       <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
-      <p class="jcs-hero__sub">NUBE es una barra congelada de sacha inchi para preparar una bebida vegetal. Agua, 30 segundos de licuadora, y tienes un vaso con más de seis veces la proteína de una bebida de almendra.</p>
+      <p class="jcs-hero__sub">NUBE: una barra congelada que se vuelve bebida vegetal proteica.</p>
       <div class="jcs-hero__actions">
         <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa · {{ settings.jc_launch_short | default: '20 nov' }}</span>{% else %}<span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-film">Cómo se prepara</a>
@@ -110,22 +110,6 @@
 
   {% render 'jc-versus', number: '02', sources_href: '/products/nube#jc-nutrition' %}
 
-  <section class="jcs-reels" aria-labelledby="jc-reels-title">
-    <div class="jcs-frame">
-      <p class="jcs-eyebrow">JUNGLCORE LAB · En video</p>
-      <h2 class="jcs-title" id="jc-reels-title">Preguntas desde la nave.</h2>
-      <p class="jcs-lead">Tres robots vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta.</p>
-    </div>
-    <ol class="jcs-reels__track">
-        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-001"><img src="{{ 'jc-lab-almendras-reel.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">001</span><span class="jcs-reel__q">¿Cuántas almendras lleva un vaso de bebida de almendra?</span></a></li>
-        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-002"><img src="{{ 'jc-lab-sin-caja-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">002</span><span class="jcs-reel__q">¿Quién dijo que la bebida vegetal tiene que venir en caja?</span></a></li>
-        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-003"><img src="{{ 'jc-lab-cartones-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">003</span><span class="jcs-reel__q">¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE?</span></a></li>
-        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-004"><img src="{{ 'jc-lab-soya-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">004</span><span class="jcs-reel__q">¿Para qué se inventó la proteína de soya?</span></a></li>
-        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-005"><img src="{{ 'jc-lab-barco-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">005</span><span class="jcs-reel__q">¿31.000 plantas y la proteína llega en barco?</span></a></li>
-        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-006"><img src="{{ 'jc-lab-fondo-cali-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">006</span><span class="jcs-reel__q">¿A quién le importa la jungla?</span></a></li>
-        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-007"><img src="{{ 'jc-lab-sacha-afuera-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">007</span><span class="jcs-reel__q">¿Por qué lo de aquí vale más cuando viene de afuera?</span></a></li>
-    </ol>
-  </section>
 
   {% render 'jc-moments', number: '03', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
 
@@ -160,17 +144,26 @@
         </div>
         <p class="jcs-invest__small">Preguntas abiertas, no promesas. NUBE es un alimento, no un tratamiento.</p>
       </div>
+    </div>
+  <div class="jcs-reels jcs-reels--lab" role="region" aria-labelledby="jc-reels-title">
+    <div class="jcs-frame">
+      <p class="jcs-eyebrow">En video</p>
+      <h2 class="jcs-title" id="jc-reels-title">Preguntas desde la nave.</h2>
+      <p class="jcs-lead">Tres robots vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta.</p>
+      <p class="jcs-reels__links"><a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones#jc-bitacora">Ver las siete preguntas <span aria-hidden="true">&rarr;</span></a> <a class="jcs-link" href="{{ settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener">Síguelos en Instagram <span aria-hidden="true">&rarr;</span></a></p>
+    </div>
+    <ol class="jcs-reels__track">
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-001"><img src="{{ 'jc-lab-almendras-reel.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">001</span><span class="jcs-reel__q">¿Cuántas almendras lleva un vaso de bebida de almendra?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-002"><img src="{{ 'jc-lab-sin-caja-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">002</span><span class="jcs-reel__q">¿Quién dijo que la bebida vegetal tiene que venir en caja?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-003"><img src="{{ 'jc-lab-cartones-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">003</span><span class="jcs-reel__q">¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-004"><img src="{{ 'jc-lab-soya-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">004</span><span class="jcs-reel__q">¿Para qué se inventó la proteína de soya?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-005"><img src="{{ 'jc-lab-barco-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">005</span><span class="jcs-reel__q">¿31.000 plantas y la proteína llega en barco?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-006"><img src="{{ 'jc-lab-fondo-cali-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">006</span><span class="jcs-reel__q">¿A quién le importa la jungla?</span></a></li>
+        <li><a href="{{ routes.root_url }}pages/exploraciones#jc-log-007"><img src="{{ 'jc-lab-sacha-afuera-poster.jpg' | asset_url }}" width="360" height="640" loading="lazy" alt=""><span class="jcs-reel__play" aria-hidden="true">&#9654;</span><span class="jcs-reel__n">007</span><span class="jcs-reel__q">¿Por qué lo de aquí vale más cuando viene de afuera?</span></a></li>
+    </ol>
+  </div>
+    <div class="jcs-frame">
       <div class="jcs-next__grid">
-        <div class="jcs-next__item jcs-next__item--lab">
-          <a class="jcs-next__thumb" href="{{ routes.root_url }}pages/exploraciones#jc-bitacora" aria-hidden="true" tabindex="-1"><img src="{{ 'jc-lab-almendras-poster.jpg' | asset_url }}" width="486" height="864" loading="lazy" alt=""></a>
-          <div>
-            <p class="jcs-eyebrow">JUNGLCORE LAB</p>
-            <h3>Siete preguntas que tu caja de almendra no quiere contestar.</h3>
-            <p>Tres robots vinieron buscando la jungla. Encontraron un pasillo. Sus preguntas, en video, y lo que comprobamos de cada una.</p>
-            <a class="jcs-link" href="{{ routes.root_url }}pages/exploraciones#jc-bitacora">Ver las preguntas <span aria-hidden="true">&rarr;</span></a>
-            <a class="jcs-link" href="{{ settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore' }}" target="_blank" rel="noopener">Sigue su viaje en Instagram <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
         <div class="jcs-next__item">
           <p class="jcs-eyebrow">Próximamente · ONE</p>
           <h3>La misma semilla, en polvo. Para llevar.</h3>

@@ -965,3 +965,11 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-manifesto--short .jcs-manifesto__lead { margin-top: 18px; max-width: 600px; }
 .jcs-manifesto--short .jcs-manifesto__lead + .jcs-manifesto__lead { margin-top: 12px; }
 .jcs-manifesto--short .jcs-manifesto__lead strong { color: var(--ink); font-weight: 600; }
+
+/* Reels live inside ch.05; tighter gap after ch.04 */
+.jcs-manifesto--short { padding-bottom: clamp(36px, 4.5vw, 60px); }
+.jcs-manifesto--short + .jcs-next { padding-top: clamp(24px, 3vw, 40px); }
+.jcs-reels--lab { padding: clamp(8px, 1.5vw, 20px) 0 clamp(28px, 4vw, 48px); }
+.jcs-reels__links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.jcs-next__grid .jcs-next__item:only-child { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
+.jcs-next .jcs-invest--short { margin-bottom: 0; padding-bottom: clamp(28px, 3.5vw, 44px); }
