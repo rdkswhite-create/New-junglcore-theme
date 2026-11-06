@@ -1039,3 +1039,26 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs .jcs-foryou__score-m { margin: 0; flex: 1 1 200px; font-size: 16px; color: var(--muted); }
 .jcs-foryou__score.is-live .jcs-foryou__score-m { color: var(--ink); font-weight: 500; }
 .jcs-foryou__score-btn[hidden] { display: none !important; }
+
+/* Game result */
+.jcs-foryou__reveal[hidden] { display: none !important; }
+.jcs-result { margin-top: 18px; }
+.jcs-result[hidden] { display: none !important; }
+.jcs-result.is-in .jcs-result__card { animation: jcsResultIn .45s ease-out both; }
+@keyframes jcsResultIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+.jcs-result__card { background: #111; color: #f4f3ef; padding: clamp(22px, 3vw, 36px); max-width: 720px; }
+.jcs-result__head { display: flex; gap: 16px; align-items: center; }
+.jcs-result__face { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid #f4f3ef; }
+.jcs .jcs-result__kicker { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; opacity: .6; }
+.jcs .jcs-result__title { margin: 2px 0 0; font-size: clamp(30px, 4vw, 48px); font-weight: 500; line-height: 1; letter-spacing: -.03em; text-transform: uppercase; }
+.jcs .jcs-result__roast { margin: 8px 0 0; font-size: 16px; opacity: .85; }
+.jcs .jcs-result__bot { margin: 18px 0 0; font-size: 15px; opacity: .8; }
+.jcs .jcs-result__rule-k, .jcs .jcs-result__take-k { margin: 22px 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #e8a598; }
+.jcs .jcs-result__rule { margin: 0; font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; line-height: 1.2; letter-spacing: -.02em; }
+.jcs-result__take { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.jcs-result__take li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.45; }
+.jcs-result__take li::before { content: '→'; position: absolute; left: 0; opacity: .6; }
+.jcs .jcs-result__moment { margin: 20px 0 0; padding-top: 14px; border-top: 1px solid rgba(244,243,239,.25); font-size: 15px; font-weight: 600; }
+.jcs .jcs-result__sig { margin: 16px 0 0; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .45; }
+.jcs-result__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 16px; max-width: 720px; }
+.jcs-result__actions button.jcs-link { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: var(--ink); }

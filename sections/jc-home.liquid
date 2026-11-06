@@ -46,23 +46,23 @@
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
 
-  <section class="jcs-foryou" aria-labelledby="jc-foryou-title">
+  <section class="jcs-foryou" id="jc-foryou" aria-labelledby="jc-foryou-title">
     <div class="jcs-frame">
       <h2 class="jcs-title" id="jc-foryou-title">¿Cuántas te pasan?</h2>
       <p class="jcs-foryou__ask">Toca las que te pasan.</p>
       <ol class="jcs-foryou__cards">
-        <li><span>01</span><p class="jcs-foryou__t">Te cobran carísimo por agua con un poquito de almendra.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver el precio por vaso &rarr;</a></li>
-        <li><span>02</span><p class="jcs-foryou__t">La leche te cae mal.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin lácteos · Ver ingredientes &rarr;</a></li>
-        <li><span>03</span><p class="jcs-foryou__t">Ves un sello negro y lo devuelves de una.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin sellos · Ver la etiqueta &rarr;</a></li>
-        <li><span>04</span><p class="jcs-foryou__t">Abres la nevera a las 11&nbsp;p.&nbsp;m. sin saber qué buscas.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
-        <li><span>05</span><p class="jcs-foryou__t">Ibas por una galleta y te comiste el paquete.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
-        <li><span>06</span><p class="jcs-foryou__t">Abres la bolsa o la caja y a la semana la botas.</p><a class="jcs-foryou__link" href="#jc-buy">Solo pagas lo que tomas &rarr;</a></li>
-        <li><span>07</span><p class="jcs-foryou__t">Desayunas y a las dos horas ya tienes hambre.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
-        <li><span>08</span><p class="jcs-foryou__t">Quieres proteína para tu día, no solo para el gimnasio.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">6,3 g proteína · 0 g azúcar &rarr;</a></li>
-        <li><span>09</span><p class="jcs-foryou__t">La proteína en polvo te cae pesada.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin lácteos · Ver ingredientes &rarr;</a></li>
-        <li><span>10</span><p class="jcs-foryou__t">Tu proteína en polvo tiene más ingredientes que tu almuerzo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
-        <li><span>11</span><p class="jcs-foryou__t">Quieres una bebida vegetal con pocos ingredientes.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
-        <li><span>12</span><p class="jcs-foryou__t">Cargas cajas de bebida del súper hasta la casa.</p><a class="jcs-foryou__link" href="#jc-buy">Una bolsa, 30 vasos &rarr;</a></li>
+        <li data-k="01"><span>01</span><p class="jcs-foryou__t">Te cobran carísimo por agua con un poquito de almendra.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver el precio por vaso &rarr;</a></li>
+        <li data-k="02"><span>02</span><p class="jcs-foryou__t">La leche te cae mal.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin lácteos · Ver ingredientes &rarr;</a></li>
+        <li data-k="03"><span>03</span><p class="jcs-foryou__t">Ves un sello negro y lo devuelves de una.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin sellos · Ver la etiqueta &rarr;</a></li>
+        <li data-k="04"><span>04</span><p class="jcs-foryou__t">Abres la nevera a las 11&nbsp;p.&nbsp;m. sin saber qué buscas.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
+        <li data-k="05"><span>05</span><p class="jcs-foryou__t">Ibas por una galleta y te comiste el paquete.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
+        <li data-k="06"><span>06</span><p class="jcs-foryou__t">Abres la bolsa o la caja y a la semana la botas.</p><a class="jcs-foryou__link" href="#jc-buy">Solo pagas lo que tomas &rarr;</a></li>
+        <li data-k="07"><span>07</span><p class="jcs-foryou__t">Desayunas y a las dos horas ya tienes hambre.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
+        <li data-k="08"><span>08</span><p class="jcs-foryou__t">Quieres proteína para tu día, no solo para el gimnasio.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">6,3 g proteína · 0 g azúcar &rarr;</a></li>
+        <li data-k="09"><span>09</span><p class="jcs-foryou__t">La proteína en polvo te cae pesada.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin lácteos · Ver ingredientes &rarr;</a></li>
+        <li data-k="10"><span>10</span><p class="jcs-foryou__t">Tu proteína en polvo tiene más ingredientes que tu almuerzo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
+        <li data-k="11"><span>11</span><p class="jcs-foryou__t">Quieres una bebida vegetal con pocos ingredientes.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
+        <li data-k="12"><span>12</span><p class="jcs-foryou__t">Cargas cajas de bebida del súper hasta la casa.</p><a class="jcs-foryou__link" href="#jc-buy">Una bolsa, 30 vasos &rarr;</a></li>
       </ol>
       <div class="jcs-foryou__nav">
         <button type="button" class="jcs-foryou__btn" data-dir="-1" aria-label="Anterior">&larr;</button>
@@ -72,29 +72,134 @@
       <div class="jcs-foryou__score" aria-live="polite">
         <p class="jcs-foryou__score-t"><b>0</b> de <i>12</i></p>
         <p class="jcs-foryou__score-m">Toca las que te pasan.</p>
-        <a class="jcs-btn jcs-foryou__score-btn" href="#jc-buy" hidden><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <button type="button" class="jcs-btn jcs-foryou__reveal" hidden><span>Ver mi resultado</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></button>
+      </div>
+      <div class="jcs-result" hidden aria-live="polite">
+        <div class="jcs-result__card">
+          <div class="jcs-result__head">
+            <img class="jcs-result__face" src="" width="80" height="80" alt="">
+            <div><p class="jcs-result__kicker">Te salió</p><p class="jcs-result__title"></p><p class="jcs-result__roast"></p></div>
+          </div>
+          <p class="jcs-result__bot"></p>
+          <p class="jcs-result__rule-k">Tu regla</p>
+          <p class="jcs-result__rule"></p>
+          <p class="jcs-result__take-k">Para llevar</p>
+          <ul class="jcs-result__take"></ul>
+          <p class="jcs-result__moment"></p>
+          <p class="jcs-result__sig">junglcore.com · ¿Cuántas te pasan?</p>
+        </div>
+        <div class="jcs-result__actions">
+          <a class="jcs-btn jcs-result__buy" href="#jc-buy" target="_blank" rel="noopener"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártala por WhatsApp{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <button type="button" class="jcs-link jcs-result__share">Mándaselo a alguien &rarr;</button>
+          <button type="button" class="jcs-link jcs-result__again">Juega por alguien más &rarr;</button>
+        </div>
       </div>
       <script>
         (function () {
+          var FACES = { dato: "{{ 'jc-face-dato.jpg' | asset_url }}", lupa: "{{ 'jc-face-lupa.jpg' | asset_url }}", chispa: "{{ 'jc-face-chispa.jpg' | asset_url }}" };
+          var NAMES = { dato: 'Dato', lupa: 'Lupa', chispa: 'Chispa' };
+          var SALE = {% if settings.jc_sale_mode == 'a_la_venta' %}true{% else %}false{% endif %};
+          /* Every card: its profile, the fact to take away, and one robot line. Edit freely. */
+          var CARDS = {
+            '01': { p: 'bolsillo', take: 'Busca el % de almendra en la etiqueta. Si no lo dice, sospecha.', bot: 'lupa', line: 'Conté las almendras. Me sobró paciencia.' },
+            '02': { p: 'barriga', take: 'Cerca de 6 de cada 10 colombianos digieren mal la lactosa. No eres raro.', bot: 'chispa', line: 'Yo no tengo estómago. Igual te entiendo.' },
+            '03': { p: 'etiqueta', take: 'El sello negro avisa exceso de azúcar, sodio o grasa. El que no lo tiene no es santo, pero empieza bien.', bot: 'dato', line: 'Hoy devolvieron 47. Los anoté.' },
+            '04': { p: 'ruido', take: 'Un antojo dura minutos. En un estudio del Reino Unido, tres minutos de Tetris lo debilitaron cerca de un 24 %.', bot: 'dato', line: 'Probé lo del Tetris. Perdí. El antojo también.' },
+            '05': { p: 'ruido', take: 'Sírvete en un plato y guarda el paquete. Del paquete no se come una.', bot: 'lupa', line: '¿Por qué los venden de a 20 si se come una?' },
+            '06': { p: 'bolsillo', take: 'Una caja abierta dura de 7 a 10 días en la nevera. Escríbele la fecha con marcador.', bot: 'lupa', line: 'Pagaron 10 vasos. Se tomaron 6.' },
+            '07': { p: 'ruido', take: 'Un desayuno solo de harina se va rápido. Súmale proteína.', bot: 'chispa', line: 'A las 9 desayunan. A las 11 vuelven a buscar.' },
+            '08': { p: 'barriga', take: 'No necesitas gimnasio para la proteína: un huevo, un vaso de leche o uno de NUBE traen unos 6 g cada uno.', bot: 'chispa', line: 'La proteína no pide carné de gimnasio.' },
+            '09': { p: 'barriga', take: 'Si tu polvo es concentrado de suero, trae lactosa. Ahí puede estar lo pesado.', bot: 'chispa', line: 'Leí la etiqueta. Decía «suero». Me asusté.' },
+            '10': { p: 'etiqueta', take: 'Si ves eritritol o maltitol, son edulcorantes que a algunas personas les caen pesado.', bot: 'dato', line: 'Conté 23 ingredientes. Me cansé antes que el batido.' },
+            '11': { p: 'etiqueta', take: 'Regla de la mano: si no los cuentas con una mano, devuélvelo.', bot: 'dato', line: 'Conté los de NUBE. Me sobraron dos dedos.' },
+            '12': { p: 'bolsillo', take: 'Una bebida vegetal es casi toda agua. Un litro pesa un kilo, y lo cargas tú.', bot: 'lupa', line: 'Cargan agua del súper. Tienen agua en la casa.' }
+          };
+          var PROFILES = {
+            ruido:    { title: 'El ruido', roast: 'Tu nevera te conoce mejor que tu mamá.', rule: 'El antojo grita. Tú decides si contestas.', moment: 'Tu momento NUBE: caliente, a las 11 p. m., con el celular boca abajo.' },
+            bolsillo: { title: 'El bolsillo', roast: 'Pagas agua, botas cajas y cargas peso.', rule: 'Paga lo que te tomas, no lo que botas.', moment: 'Tu momento NUBE: una barra, un vaso. Las otras 29 esperan en el congelador.' },
+            barriga:  { title: 'La barriga', roast: 'Tu cuerpo pide proteína y tu estómago pide paz.', rule: 'Comer bien no debería doler.', moment: 'Tu momento NUBE: fría, en el desayuno. Sin lácteos, 6,3 g de proteína.' },
+            etiqueta: { title: 'La etiqueta', roast: 'Lees etiquetas como otros leen el horóscopo.', rule: 'Si no cabe en una mano, no entra a tu casa.', moment: 'Tu momento NUBE: lee la nuestra. Sacha inchi, agua, goma gelana. Ya.' }
+          };
+          var PAIRS = {
+            'ruido+bolsillo': ['El antojo caro', 'Pagas de más y comes de más.'],
+            'ruido+barriga': ['El estómago inquieto', 'Tienes hambre de lo que no te cae bien.'],
+            'ruido+etiqueta': ['Lo leíste y te lo comiste', 'Sabías lo que decía la etiqueta. Te lo comiste igual.'],
+            'bolsillo+barriga': ['Pagas por sufrir', 'Caro, y encima te cae pesado.'],
+            'bolsillo+etiqueta': ['El auditor', 'Revisas precio y etiqueta. El súper te tiene miedo.'],
+            'barriga+etiqueta': ['El cuerpo exigente', 'Tu cuerpo pide poco, pero lo pide bien.']
+          };
+          var ORDER = ['ruido', 'bolsillo', 'barriga', 'etiqueta'];
           var track = document.querySelector('.jcs-foryou__cards');
           var box = document.querySelector('.jcs-foryou__score');
-          if (!track || !box) return;
-          var cards = [].slice.call(track.children), n = box.querySelector('b'), m = box.querySelector('.jcs-foryou__score-m'), btn = box.querySelector('.jcs-foryou__score-btn');
+          var res = document.querySelector('.jcs-result');
+          if (!track || !box || !res) return;
+          var cards = [].slice.call(track.children);
+          var n = box.querySelector('b'), m = box.querySelector('.jcs-foryou__score-m'), reveal = box.querySelector('.jcs-foryou__reveal');
           box.querySelector('i').textContent = cards.length;
           cards.forEach(function (li) { li.setAttribute('role', 'button'); li.setAttribute('tabindex', '0'); li.setAttribute('aria-pressed', 'false'); });
+          var shown = false, last = null;
+          function picked() { return [].slice.call(track.querySelectorAll('li.is-on')).map(function (li) { return li.dataset.k; }).sort(); }
+          function compute(keys) {
+            var c = { ruido: 0, bolsillo: 0, barriga: 0, etiqueta: 0 };
+            keys.forEach(function (k) { if (CARDS[k]) c[CARDS[k].p]++; });
+            var firstIdx = {}; keys.forEach(function (k, i) { var pp = CARDS[k] && CARDS[k].p; if (pp && firstIdx[pp] === undefined) firstIdx[pp] = i; });
+            var rankOf = function (x) { return firstIdx[x] === undefined ? 99 : firstIdx[x]; };
+            var ranked = ORDER.slice().sort(function (a, b) { return c[b] - c[a] || rankOf(a) - rankOf(b); });
+            var top = ranked[0], second = ranked[1], prof = PROFILES[top], title = prof.title, roast = prof.roast;
+            var rule = prof.rule, moment = prof.moment;
+            if (keys.length >= 9) { title = 'El caso completo'; roast = 'No eres un desastre. Eras el cliente perfecto de la máquina. Hasta hoy.'; rule = 'No te falta fuerza de voluntad. Te falta comida que no te pelee.'; moment = 'Tu momento NUBE: todos. Por eso son 30 barras.'; }
+            else if (c[second] === c[top] && c[top] > 0) {
+              var pair = PAIRS[top + '+' + second] || PAIRS[second + '+' + top];
+              if (pair) { title = pair[0]; roast = pair[1]; }
+            }
+            var lead = keys.filter(function (k) { return CARDS[k].p === top; })[0] || keys[0]; var first = CARDS[lead];
+            return { title: title, roast: roast, rule: rule, moment: moment, bot: first.bot, line: first.line, take: keys.filter(function (k) { return CARDS[k].p === top; }).concat(keys.filter(function (k) { return CARDS[k].p !== top; })).slice(0, 3).map(function (k) { return CARDS[k].take; }) };
+          }
+          function render() {
+            var keys = picked(); if (keys.length < 2) { res.hidden = true; return; }
+            var r = compute(keys); last = { r: r, keys: keys };
+            res.querySelector('.jcs-result__face').src = FACES[r.bot];
+            res.querySelector('.jcs-result__face').alt = NAMES[r.bot];
+            res.querySelector('.jcs-result__title').textContent = r.title;
+            res.querySelector('.jcs-result__roast').textContent = r.roast;
+            res.querySelector('.jcs-result__bot').innerHTML = '<b>' + NAMES[r.bot] + ':</b> «' + r.line + '»';
+            res.querySelector('.jcs-result__rule').textContent = r.rule;
+            var ul = res.querySelector('.jcs-result__take'); ul.innerHTML = '';
+            r.take.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+            res.querySelector('.jcs-result__moment').textContent = r.moment;
+            var nums = keys.map(function (k) { return String(Number(k)); });
+            var list = nums.length > 1 ? nums.slice(0, -1).join(', ') + ' y ' + nums[nums.length - 1] : nums[0];
+            var buy = res.querySelector('.jcs-result__buy');
+            if (SALE) { buy.href = '#jc-buy'; buy.removeAttribute('target'); }
+            else buy.href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, jugué ¿Cuántas te pasan? y me salió ' + r.title.toUpperCase() + ' (me pasan la ' + list + '). Quiero apartar NUBE.');
+            res.hidden = false;
+          }
           function update() {
-            var k = track.querySelectorAll('li.is-on').length;
-            n.textContent = k;
-            box.classList.toggle('is-live', k > 0);
+            var k = picked().length;
+            n.textContent = k; box.classList.toggle('is-live', k > 0);
             if (k === 0) m.textContent = 'Toca las que te pasan.';
             else if (k === 1) m.textContent = 'Te pasa una. Sigue.';
-            else if (k < cards.length) m.textContent = 'Te pasan ' + k + '. NUBE es para ti.';
-            else m.textContent = 'Te pasan todas. Te estábamos esperando.';
-            btn.hidden = k < 2;
+            else if (k < cards.length) m.textContent = 'Te pasan ' + k + '.';
+            else m.textContent = 'Te pasan todas.';
+            reveal.hidden = k < 2 || shown;
+            if (shown) render();
           }
           function toggle(li) { var on = li.classList.toggle('is-on'); li.setAttribute('aria-pressed', on ? 'true' : 'false'); update(); }
           track.addEventListener('click', function (e) { if (e.target.closest('a')) return; var li = e.target.closest('li'); if (li) toggle(li); });
           track.addEventListener('keydown', function (e) { if (e.key !== 'Enter' && e.key !== ' ') return; var li = e.target.closest('li'); if (li && e.target === li) { e.preventDefault(); toggle(li); } });
+          reveal.addEventListener('click', function () { shown = true; reveal.hidden = true; render(); res.classList.remove('is-in'); void res.offsetWidth; res.classList.add('is-in'); res.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+          res.querySelector('.jcs-result__share').addEventListener('click', function () {
+            if (!last) return;
+            var text = 'Me salió ' + last.r.title.toUpperCase() + ' en ¿Cuántas te pasan? ¿Y a ti?';
+            var url = location.origin + '/#jc-foryou';
+            if (navigator.share) { navigator.share({ text: text, url: url }).catch(function () {}); }
+            else window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
+          });
+          res.querySelector('.jcs-result__again').addEventListener('click', function () {
+            cards.forEach(function (li) { li.classList.remove('is-on'); li.setAttribute('aria-pressed', 'false'); });
+            shown = false; res.hidden = true; update(); track.scrollLeft = 0;
+            document.getElementById('jc-foryou').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
         })();
       </script>
       <script>
