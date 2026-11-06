@@ -1136,3 +1136,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-lab-make__head { display: grid; gap: 20px; align-items: end; }
 .jcs-lab-make__photo { max-width: 240px; }
 @media (min-width: 900px) { .jcs-lab-make__head { grid-template-columns: minmax(0, 1fr) 190px; } .jcs-lab-make__photo { max-width: none; } }
+
+.jcs .jcs-lab-top__film .jcs-lab-budget { display: grid; justify-items: start; gap: 16px; margin-top: 18px; }
+.jcs-lab-budget__l { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
