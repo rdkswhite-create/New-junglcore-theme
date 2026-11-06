@@ -995,3 +995,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 /* 02 intro: one paragraph across the page on desktop */
 @media (min-width: 750px) { .jcs-versus__intro { grid-template-columns: 1fr; } .jcs-versus__intro .jcs-lead { max-width: 1000px; } }
+
+.jcs-next__display { font-size: min(clamp(34px, 5.4vw, 76px), 7.1vw); }
+.jcs-next__display span { display: block; white-space: nowrap; }
