@@ -20,7 +20,7 @@
   assign latest_title = section.settings.latest_title | default: 'Vinieron buscando la jungla'
   assign latest_line = section.settings.latest_line | default: 'Cuatro mil días de viaje… para esto.'
 -%}
-{%- capture price_line -%}{% if v and v.price > 0 %}{%- assign per_glass = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso · solo Bogotá{% if settings.jc_sale_mode != 'a_la_venta' %}<span class="jcs-entry__nopay">No pagas nada ahora.</span>{% endif %}{% endif %}{%- endcapture -%}
+{%- capture price_line -%}{% if v and v.price > 0 %}{%- assign per_glass = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso · solo Bogotá{% if settings.jc_sale_mode != 'a_la_venta' %}<span class="jcs-entry__nopay">Págala ya o apártala gratis.</span>{% endif %}{% endif %}{%- endcapture -%}
 <div class="jcs jcs-log" id="top">
   {% render 'jc-header', buy_href: '#jc-nube' %}
 
@@ -63,20 +63,25 @@
           <p>Una semilla con 3.000 años de historia. 6,3 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
           {% if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_perk != blank %}<p class="jcs-lab-perk">{{ settings.jc_waitlist_perk }}</p>{% endif %}
           <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártame una bolsa{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · {{ pg | money_without_trailing_zeros }} por vaso{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>No pagas nada ahora · Solo Bogotá{% endif %}</p>
+          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · {{ pg | money_without_trailing_zeros }} por vaso{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Págala ya o apártala gratis · Solo Bogotá{% endif %}</p>
           <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa &rarr;</a></div>
         </div>
-        <div class="jcs-lab-next__item jcs-lab-next__item--soon">
-          <p class="jcs-eyebrow">ONE · La proteína · <span class="jcs-lab-status">Pronto</span></p>
-          <h3>Una proteína hecha de la misma semilla.</h3>
-          <p>Un solo ingrediente, para lo que ya comes.</p>
-          <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></div>
-        </div>
-        <div class="jcs-lab-next__item jcs-lab-next__item--soon">
-          <p class="jcs-eyebrow">OIL · El aceite · <span class="jcs-lab-status">Pronto</span></p>
-          <h3>Extra virgen, prensado en frío.</h3>
-          <p>De la mejor semilla que encontramos en Colombia. Lo estudiamos para el corazón y la piel.</p>
-          <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a><a href="#jc-aceite">La investigación &darr;</a></div>
+        <div class="jcs-lab-soon">
+          <p class="jcs-lab-soon__k">Lo que viene</p>
+          <div class="jcs-lab-soon__grid">
+          <div class="jcs-lab-next__item jcs-lab-next__item--soon">
+            <p class="jcs-eyebrow">ONE · La proteína · <span class="jcs-lab-status">Pronto</span></p>
+            <h3>Una proteína hecha de la misma semilla.</h3>
+            <p>Un solo ingrediente, para lo que ya comes.</p>
+            <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></div>
+          </div>
+          <div class="jcs-lab-next__item jcs-lab-next__item--soon">
+            <p class="jcs-eyebrow">OIL · El aceite · <span class="jcs-lab-status">Pronto</span></p>
+            <h3>Extra virgen, prensado en frío.</h3>
+            <p>De la mejor semilla que encontramos en Colombia. Lo estudiamos para el corazón y la piel.</p>
+            <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a><a href="#jc-aceite">La investigación &darr;</a></div>
+          </div>
+          </div>
         </div>
       </div>
       <ul class="jcs-lab-also">
@@ -110,6 +115,7 @@
             <li>No pensar en comida hasta la próxima.</li>
             <li>Que los antojos de noche no te ganen.</li>
             <li>Comer porque quieres, no porque algo te empuja.</li>
+            <li>Estar de mejor ánimo cuando baja el ruido de la comida.</li>
           </ol>
           <p class="jcs-def__end">No es dejar de disfrutar la comida. Es dejar de pensar en ella todo el tiempo.</p>
         </div>

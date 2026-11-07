@@ -1139,3 +1139,12 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 .jcs .jcs-lab-top__film .jcs-lab-budget { display: grid; justify-items: start; gap: 16px; margin-top: 18px; }
 .jcs-lab-budget__l { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+
+/* Lab ch.01: NUBE now, ONE + OIL under "Lo que viene" */
+.jcs-lab-soon { display: grid; gap: 14px; align-content: start; }
+.jcs-lab-soon__k { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.jcs-lab-soon__grid { display: grid; gap: 20px; }
+@media (min-width: 900px) {
+  .jcs-lab-make__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; }
+  .jcs-lab-soon__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+}
