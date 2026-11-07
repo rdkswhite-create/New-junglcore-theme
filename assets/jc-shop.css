@@ -1152,3 +1152,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-wait__alt { margin: 14px 0 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
 .jcs-wait__alt a, .jcs-result__when a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .jcs-result .jcs-result__when a { color: inherit; }
+
+/* LAB 03 · Proteína y fibra: same rule as Corazón, a line between investigations */
+.jcs-matriz { background: var(--paper); border-top: 1px solid var(--ink); }
