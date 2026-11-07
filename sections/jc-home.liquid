@@ -26,7 +26,7 @@
       <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
       <p class="jcs-hero__sub">NUBE: una barra congelada que se vuelve bebida vegetal proteica.</p>
       <div class="jcs-hero__actions">
-        <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa · {{ settings.jc_launch_short | default: '20 nov' }}</span>{% else %}<span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Pide tu bolsa · {{ settings.jc_launch_short | default: '20 nov' }}</span>{% else %}<span>Comprar · {% if v %}{{ v.price | money_without_trailing_zeros }}{% else %}$39.900{% endif %}</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-film">Cómo se prepara</a>
       </div>
       {%- if v and v.price > 0 -%}{%- assign hero_pg = v.price | divided_by: 30 -%}
@@ -462,7 +462,7 @@
     <div class="jcs-frame">
       <h2 id="jc-final-title">Rinde más.</h2>
       <p>Proteína y fibra de una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
-      <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Apártame una bolsa</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Pide tu bolsa</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 

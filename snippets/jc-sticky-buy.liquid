@@ -10,7 +10,7 @@ Mobile buy bar. Appears once the main buy box has scrolled out of view.
   {% if pre %}
   <div class="jcs-sticky__pre">
     <div class="jcs-sticky__info"><strong>NUBE{% if v and v.price > 0 %} · {{ v.price | money_without_trailing_zeros }}{% endif %}</strong><span>Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }} · Bogotá</span></div>
-    <a class="jcs-btn" href="#jc-buy" tabindex="-1"><span>Apártala</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+    <a class="jcs-btn" href="#jc-buy" tabindex="-1"><span>Pídela</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
   {% else %}
   {% form 'product', product, id: 'jcs-sticky-form' %}
