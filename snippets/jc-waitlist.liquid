@@ -47,7 +47,7 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
   {%- else -%}
   <p class="jcs-wait__or">Aparta tu bolsa y te escribimos el {{ contact_day }}, antes que a nadie. No pagas nada ahora: pagas cuando tu pedido esté listo, y tienes 24 horas para hacerlo.</p>
   {%- endif -%}
-  <a class="jcs-btn jcs-btn--full jcs-btn--line" href="https://wa.me/573011571039?text={{ wa_text | url_encode }}" target="_blank" rel="noopener"><span>Apártame una bolsa por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+  <a class="jcs-btn jcs-btn--full jcs-btn--line" href="https://wa.me/573011571039?text={{ wa_text | url_encode }}" target="_blank" rel="noopener"><span>Apártala por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}
