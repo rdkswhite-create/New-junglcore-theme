@@ -1153,5 +1153,13 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-wait__alt a, .jcs-result__when a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .jcs-result .jcs-result__when a { color: inherit; }
 
+/* Lab: protein + fibre investigation; homepage 3 boxes; NUBE page note */
+.jcs .jcs-matriz__line { margin: 22px 0 0; font-size: clamp(18px, 2vw, 22px); line-height: 1.35; color: var(--ink); font-style: italic; }
+@media (min-width: 900px) { .jcs-invest__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; } }
+.jcs-matrix-note { margin: 22px 0 0; padding: 18px 20px; background: var(--beige, #efe9df); max-width: 760px; }
+.jcs .jcs-matrix-note p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink); }
+.jcs .jcs-matrix-note__k { font-weight: 600; margin-bottom: 6px !important; }
+.jcs .jcs-matrix-note a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+
 /* LAB 03 · Proteína y fibra: same rule as Corazón, a line between investigations */
 .jcs-matriz { background: var(--paper); border-top: 1px solid var(--ink); }
