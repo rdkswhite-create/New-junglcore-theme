@@ -105,9 +105,10 @@
           {%- if res_prepay -%}
           <a class="jcs-btn jcs-result__pay" href="{{ routes.root_url }}cart/{{ v.id }}:1"><span>Págala ya · {{ v.price | money_without_trailing_zeros }}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           {%- endif -%}
-          <a class="jcs-btn{% if res_prepay %} jcs-btn--line{% endif %} jcs-result__buy" href="#jc-buy" target="_blank" rel="noopener"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártala por WhatsApp{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           {%- if res_prepay -%}
-          <p class="jcs-result__when">Pagas hoy. Te llega con la primera tanda: en Bogotá, desde el {{ settings.jc_launch_label | default: '20 de noviembre' }}. ¿Prefieres pagar cuando esté lista? Apártala gratis por WhatsApp.</p>
+          <p class="jcs-result__when">Pagas hoy. Te llega con la primera tanda: en Bogotá, desde el {{ settings.jc_launch_label | default: '20 de noviembre' }}. ¿Prefieres pagar cuando esté lista? <a class="jcs-result__buy" href="#jc-buy" target="_blank" rel="noopener">Apártala gratis por WhatsApp &rarr;</a></p>
+          {%- else -%}
+          <a class="jcs-btn jcs-result__buy" href="#jc-buy" target="_blank" rel="noopener"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártala por WhatsApp{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           {%- endif -%}
           <button type="button" class="jcs-btn jcs-btn--line jcs-result__save"><span>Guardar mi tarjeta</span><span class="jcs-arrow" aria-hidden="true">&darr;</span></button>
           <button type="button" class="jcs-link jcs-result__share">Mándaselo a alguien &rarr;</button>
@@ -357,7 +358,7 @@
       <div class="jcs-invest jcs-invest--short">
         <p class="jcs-chapter"><span>05</span>JUNGLCORE LAB · Ciencia abierta</p>
         <h2 class="jcs-display jcs-next__display">Bájale al ruido de la comida.</h2>
-        <p class="jcs-lead jcs-next__lead">El sistema alimentario partió la comida en pedazos y la volvió a coser con aditivos. ¿Y quedaste satisfecho? Ni por fuera ni por dentro. Ahora te vende aparte, en la droguería, lo que el plato podía darte. La sacha inchi es una semilla que nunca pasó por ahí.</p>
+        <p class="jcs-lead jcs-next__lead"><strong>¿Acabas de comer y sigues pensando en comida?</strong> Eso es el ruido de la comida. El sistema alimentario partió la comida en pedazos y la volvió a coser con aditivos. ¿Y quedaste satisfecho? Ni por fuera ni por dentro. Ahora te vende aparte, en la droguería, lo que el plato podía darte. La sacha inchi es una semilla que nunca pasó por ahí.</p>
         <p class="jcs-lead jcs-next__lead jcs-next__lab"><strong>Nuestro Lab no fabrica comida. Estudia la que ya existe.</strong> Esto es lo que investigamos ahora:</p>
         <div class="jcs-invest__grid">
           <a class="jcs-invest__item jcs-invest__box" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">

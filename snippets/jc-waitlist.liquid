@@ -1,5 +1,5 @@
 {% doc %}
-Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lands in Shopify Customers with the tag primera-tanda.
+Primera tanda. With stock: Págala ya plus a quiet WhatsApp line for free reservation. Without stock: reserve by WhatsApp or email. Email lands in Shopify Customers with the tag primera-tanda.
 @param {object} product - The NUBE product.
 @param {string} form_id - Unique id.
 {% enddoc %}
@@ -20,7 +20,7 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
   <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Entregamos en Bogotá desde el {{ launch }}.</p>
   {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</p>{% endif %}
   {% if settings.jc_waitlist_count > 0 %}<p class="jcs-wait__count"><strong>{{ settings.jc_waitlist_count }}</strong> {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa.{% else %}personas ya apartaron su bolsa.{% endif %}</p>{% endif %}
-  {% if perk != blank %}<p class="jcs-wait__perk"><span>Para la lista</span>{{ perk }}</p>{% endif %}
+  {% if perk != blank %}<p class="jcs-wait__perk"><span>De regalo</span>{{ perk }}</p>{% endif %}
 
   {%- if v and v.available -%}
   <div class="jcs-prepay" data-variant="{{ v.id }}">
@@ -43,10 +43,10 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
       sel.addEventListener('change', function () { btn.href = '{{ routes.root_url }}cart/' + id + ':' + sel.value; });
     })();
   </script>
-  <p class="jcs-wait__or">O apártala gratis y pagas cuando esté lista. Te escribimos el {{ contact_day }}; tienes 24 horas para pagar.</p>
+  {%- assign wa_free = 'Hola, quiero apartar NUBE de la primera tanda y pagar cuando esté lista. Estoy en el barrio: ' -%}
+  <p class="jcs-wait__alt">¿Prefieres pagar cuando esté lista? <a href="https://wa.me/573011571039?text={{ wa_free | url_encode }}" target="_blank" rel="noopener">Escríbenos por WhatsApp &rarr;</a></p>
   {%- else -%}
   <p class="jcs-wait__or">Aparta tu bolsa y te escribimos el {{ contact_day }}, antes que a nadie. No pagas nada ahora: pagas cuando tu pedido esté listo, y tienes 24 horas para hacerlo.</p>
-  {%- endif -%}
   <a class="jcs-btn jcs-btn--full jcs-btn--line" href="https://wa.me/573011571039?text={{ wa_text | url_encode }}" target="_blank" rel="noopener"><span>Apártala por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
@@ -63,4 +63,5 @@ Primera tanda: no stock yet, so no payment. Join by WhatsApp or email. Email lan
       <p class="jcs-wait__legal">Solo te escribimos sobre NUBE y JUNGLCORE. Puedes salirte cuando quieras.{% if shop.privacy_policy != blank %} <a href="{{ shop.privacy_policy.url }}">Política de datos</a>.{% endif %}</p>
     {% endif %}
   {% endform %}
+  {%- endif -%}
 </div>
