@@ -1167,3 +1167,14 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs .jcs-buy__together { margin: 12px 0 0; font-size: 14px; line-height: 1.45; font-weight: 600; color: var(--ink); }
 
 .jcs .jcs-matriz__k { margin: 0 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* Lab opening: the three questions instead of the film (8 nov) */
+.jcs-log-intro .jcs-invest__box { color: var(--ink); }
+.jcs-lab-top__qs .jcs-invest__grid { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+.jcs-lab-top__qs .jcs-invest__q { font-size: clamp(20px, 2vw, 24px); }
+@media (min-width: 900px) {
+  .jcs-lab-top:has(.jcs-lab-top__qs) { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); grid-template-areas: "copy video"; }
+  .jcs-lab-top:has(.jcs-lab-top__qs) .jcs-lab-top__copy { padding-top: 0; }
+  .jcs-lab-top__qs { max-width: 440px; }
+}
+.jcs .jcs-lab-films .jcs-lab-budget { color: var(--muted); }

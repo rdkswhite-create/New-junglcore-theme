@@ -34,14 +34,13 @@
           <p class="jcs-log-intro__frame"><strong>JUNGLCORE LAB estudia lo que la biodiversidad puede hacer por tu salud.</strong> Empezamos por una semilla colombiana: la sacha inchi.</p>
           <p class="jcs-lab-hero-nube"><a href="{{ routes.root_url }}products/nube#jc-buy">Y de ahí sale NUBE, una bebida de sacha inchi. {% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda, {{ settings.jc_launch_label | default: '20 de noviembre' }}{% else %}A la venta en Bogotá{% endif %} <span aria-hidden="true">&rarr;</span></a></p>
         </div>
-        <div class="jcs-lab-top__video">
-          <div class="jcs-lab-top__film">
-          <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
-          {% unless latest_title == 'Vinieron buscando la jungla' %}<h2 class="jcs-lab-film__title">{{ latest_title }}</h2>{% endunless %}
-          <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
-          {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
-          <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
-          <p class="jcs-lab-budget"><span class="jcs-lab-budget__l">Misión: encontrar la jungla</span><span class="jcs-lab-budget__l">Presupuesto: <span class="jcs-file__stamp">Agotado</span></span></p>
+        <div class="jcs-lab-top__video jcs-lab-top__qs">
+          <div class="jcs-invest jcs-invest--short">
+            <div class="jcs-invest__grid">
+              <a class="jcs-invest__item jcs-invest__box" href="#jc-pausa"><span class="jcs-invest__n">Saciedad</span><span class="jcs-invest__q">¿Puede la biodiversidad bajarle el volumen al ruido de la comida?</span><span class="jcs-invest__go">Ver la investigación &rarr;</span></a>
+              <a class="jcs-invest__item jcs-invest__box" href="#jc-matriz"><span class="jcs-invest__n">Proteína + fibra</span><span class="jcs-invest__q">¿Juntas o separadas: le importa a tu cuerpo?</span><span class="jcs-invest__go">Ver la investigación &rarr;</span></a>
+              <a class="jcs-invest__item jcs-invest__box" href="#jc-aceite"><span class="jcs-invest__n">Corazón</span><span class="jcs-invest__q">¿Puede una grasa cuidar tu corazón?</span><span class="jcs-invest__go">Ver la investigación &rarr;</span></a>
+            </div>
           </div>
         </div>
       </div>
@@ -181,7 +180,7 @@
           <p class="jcs-matriz__k">Nuestra teoría</p>
           <h2 class="jcs-title jcs-pausa__h" id="jc-matriz-title">Tu cuerpo no lee la etiqueta.</h2>
           <p class="jcs-pausa__text">No somos fans de contar macros. La comida nunca vino en macros: la proteína y la fibra venían juntas, en la misma planta. Hoy las separan, te las venden por aparte en tarros y sobres, y tú las vuelves a juntar.</p>
-          <p class="jcs-pausa__text">En la comida hay más de 26.000 compuestos; las tablas de nutrición siguen unos 150. Es la materia oscura de la nutrición. Cuando desarmas un alimento para sacarle la proteína o la fibra, el resto se queda en el camino.</p>
+          <p class="jcs-pausa__text">En la comida hay miles de compuestos que las tablas de nutrición no siguen. Es la materia oscura de la nutrición. Cuando desarmas un alimento para sacarle la proteína o la fibra, el resto se queda en el camino.</p>
           <p class="jcs-pausa__text"><strong>Creemos que, para la mayoría de la gente, la mejor forma de comer proteína y fibra es como vienen: juntas, en el mismo alimento.</strong> Por eso hicimos NUBE así: la proteína y la fibra salen juntas de la misma semilla. Nunca las separamos.</p>
           <p class="jcs-pausa__text">Es una teoría. La estamos investigando.</p>
           <p class="jcs-matriz__line">El intestino es un ecosistema, no una categoría de marketing.</p>
@@ -191,10 +190,10 @@
           <details class="jcs-lab-fold">
             <summary><span class="jcs-lab-fold__q">Lo que encontraron otros</span><span class="jcs-lab-fold__plus" aria-hidden="true"></span></summary>
             <div class="jcs-pausa__route">
-              <p class="jcs-pausa__route-k">Estados Unidos · 2019</p>
+              <p class="jcs-pausa__route-k">Estados Unidos · 2020</p>
               <h3>La materia oscura de la nutrición.</h3>
               <p>Barabási y colegas contaron más de 26.000 compuestos en los alimentos. Las bases de datos de nutrición siguen unos 150.</p>
-              <p class="jcs-pausa__route-src"><a href="https://doi.org/10.1038/s43016-019-0005-1" target="_blank" rel="noopener noreferrer">Barabási, Menichetti y Loscalzo, 2019 &rarr;</a></p>
+              <p class="jcs-pausa__route-src"><a href="https://doi.org/10.1038/s43016-019-0005-1" target="_blank" rel="noopener noreferrer">Barabási, Menichetti y Loscalzo, 2020 &rarr;</a></p>
             </div>
             <div class="jcs-pausa__route">
               <p class="jcs-pausa__route-k">Reino Unido · 2025</p>
@@ -272,7 +271,15 @@
           <p class="jcs-lab-rule jcs-lab-rule--dark">Los robots son ficción. Las cifras, no.</p>
         </div>
       </div>
-      <div class="jcs-lab-films jcs-lab-films--one">
+      <div class="jcs-lab-films">
+      <div class="jcs-lab-films__item jcs-lab-top__film">
+        <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
+        {% unless latest_title == 'Vinieron buscando la jungla' %}<h2 class="jcs-lab-film__title">{{ latest_title }}</h2>{% endunless %}
+        <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
+        {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
+        <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
+        <p class="jcs-lab-budget"><span class="jcs-lab-budget__l">Misión: encontrar la jungla</span><span class="jcs-lab-budget__l">Presupuesto: <span class="jcs-file__stamp">Agotado</span></span></p>
+        </div>
         <div class="jcs-lab-films__item">
           <p class="jcs-lab-film__kicker">Película 2 · 2 min · La misión completa</p>
           <p class="jcs-lab-film__what">Por qué vinieron: menos plantas, menos empresas, la tierra cansada. Y una semilla de la selva.</p>
