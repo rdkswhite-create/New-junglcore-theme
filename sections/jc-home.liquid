@@ -44,7 +44,7 @@
     <li><strong>0 g de azúcar</strong><span>Ni añadida ni escondida</span></li>
     <li><strong>3 ingredientes</strong><span>De una semilla con 3.000 años de historia</span></li>
     <li><strong>Hecho en Colombia</strong><span>De la semilla a la barra, todo aquí</span></li>
-    {% if settings.jc_backed_by != blank %}<li><strong>Con el apoyo de</strong><span>{{ settings.jc_backed_by }}</span></li>{% else %}<li><strong>Sin aislar</strong><span>Como viene en la semilla</span></li>{% endif %}
+    {% if settings.jc_backed_by != blank %}<li><strong>Con el apoyo de</strong><span>{{ settings.jc_backed_by }}</span></li>{% else %}<li><strong>Comida, no suplemento</strong><span>Nunca las separamos</span></li>{% endif %}
   </ul>
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
@@ -366,8 +366,8 @@
             <span class="jcs-invest__go">Ver la investigación &rarr;</span>
           </a>
           <a class="jcs-invest__item jcs-invest__box" href="{{ routes.root_url }}pages/exploraciones#jc-matriz">
-            <span class="jcs-invest__n">02 · Proteína y fibra</span>
-            <span class="jcs-invest__q">¿Importa que la proteína llegue con su fibra?</span>
+            <span class="jcs-invest__n">02 · Proteína + fibra</span>
+            <span class="jcs-invest__q">¿Juntas o separadas: le importa a tu cuerpo?</span>
             <span class="jcs-invest__go">Ver la investigación &rarr;</span>
           </a>
           <a class="jcs-invest__item jcs-invest__box" href="{{ routes.root_url }}pages/exploraciones#jc-aceite">
@@ -438,7 +438,7 @@
   <section class="jcs-final" aria-labelledby="jc-final-title">
     <div class="jcs-frame">
       <h2 id="jc-final-title">Rinde más.</h2>
-      <p>Proteína y fibra de una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
+      <p>Comida, no suplemento. De una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
       <a class="jcs-btn jcs-btn--light" href="#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Pide tu bolsa</span>{% else %}<span>Comprar NUBE</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
