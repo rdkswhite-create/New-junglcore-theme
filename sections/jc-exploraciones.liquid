@@ -3,7 +3,7 @@
   assign nube = all_products['nube']
   assign v = nube.selected_or_first_available_variant
   assign wa = 'https://wa.me/573011571039?text='
-  assign ig = settings.jc_instagram_url | default: 'https://www.instagram.com/tryjunglcore'
+  assign ig = settings.jc_instagram_url | default: 'https://www.instagram.com/junglcorelab'
   assign latest_src = 'jc-lab-vinieron.mp4' | asset_url
   assign latest_poster = 'jc-lab-vinieron-poster.jpg' | asset_url
   if section.settings.latest_video != blank
@@ -487,7 +487,7 @@
   <section class="jcs-lab-follow" aria-labelledby="jc-follow-title">
     <div class="jcs-frame">
       <h2 class="jcs-lab-follow__line" id="jc-follow-title">Sigue lo que vamos encontrando.</h2>
-      <p class="jcs-lab-follow__small">Lo que nos cuenta el grupo, lo que anotan los robots y la próxima planta. Primero aquí.</p>
+      <p class="jcs-lab-follow__small">Lo que anotan los robots y la próxima planta. Primero aquí.</p>
       <div class="jcs-lab-follow__actions">
         <a class="jcs-btn jcs-btn--light" href="{{ ig }}" target="_blank" rel="noopener"><span>Síguelos en Instagram</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         {% form 'customer', id: 'jcs-lab-follow-form', class: 'jcs-lab-follow__form' %}

@@ -1497,7 +1497,7 @@
         "type": "text",
         "id": "jc_instagram_url",
         "label": "Instagram",
-        "default": "https://www.instagram.com/tryjunglcore",
+        "default": "https://www.instagram.com/junglcorelab",
         "info": "La cuenta donde se sigue el viaje de los robots. Cambia el enlace aquí y se actualiza en toda la web."
       },
       {
