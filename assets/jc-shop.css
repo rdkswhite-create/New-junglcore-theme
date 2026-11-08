@@ -1178,3 +1178,10 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
   .jcs-lab-top__qs { max-width: 440px; }
 }
 .jcs .jcs-lab-films .jcs-lab-budget { color: var(--muted); }
+
+/* Tráela a tu ciudad: always open, end of the buy box (8 nov) */
+.jcs-city--open { padding-top: 16px; }
+.jcs .jcs-city__head { margin: 0 0 6px; font-size: 16px; line-height: 1.35; }
+.jcs-city__t { font-weight: 600; }
+.jcs .jcs-city__wa { margin: 12px 0 0; font-size: 14px; }
+.jcs-city__wa a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

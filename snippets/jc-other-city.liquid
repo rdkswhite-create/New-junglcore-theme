@@ -1,14 +1,14 @@
 {% doc %}
-"¿No estás en Bogotá?" — email sign-up with the city, tagged fuera-bogota and ciudad-<name>, so the customer list shows which city asks most.
+"¿No estás en Bogotá? Tráela a tu ciudad." — always visible; email or WhatsApp sign-up with the city, tagged fuera-bogota and ciudad-<name>, so the customer list shows which city asks most.
 @param {string} id - Unique form id.
 @param {boolean} [dark] - Light text, for dark bands.
 {% enddoc %}
-<details class="jcs-city{% if dark %} jcs-city--dark{% endif %}" id="{{ id }}-wrap">
-  <summary><span class="jcs-city__q">¿No estás en Bogotá?</span><span class="jcs-city__go">Dinos tu ciudad</span></summary>
-  <p class="jcs-city__lead">Las ciudades que más lo pidan, van primero. Te escribimos cuando lleguemos.</p>
+<div class="jcs-city jcs-city--open{% if dark %} jcs-city--dark{% endif %}" id="{{ id }}-wrap">
+  <p class="jcs-city__head"><span class="jcs-city__q">¿No estás en Bogotá?</span> <span class="jcs-city__t">Tráela a tu ciudad.</span></p>
+  <p class="jcs-city__lead">Si se apunta suficiente gente en tu ciudad, llegamos en 4 semanas. Te avisamos primero.</p>
   {% form 'customer', id: id, class: 'jcs-city__form' %}
     {% if form.posted_successfully? %}
-      <p class="jcs-city__ok">Anotado. Si tu ciudad sube en la lista, eres de los primeros en saberlo.</p>
+      <p class="jcs-city__ok">Anotado. Cuando tu ciudad llegue, eres de los primeros en saberlo.</p>
     {% else %}
       <input type="hidden" name="contact[tags]" value="newsletter,fuera-bogota" data-city-tags>
       <label class="visually-hidden" for="{{ id }}-city">Tu ciudad</label>
@@ -35,18 +35,20 @@
       <p class="jcs-wait__legal">Solo te escribimos sobre NUBE y JUNGLCORE. Puedes salirte cuando quieras.</p>
     {% endif %}
   {% endform %}
-</details>
+  <p class="jcs-city__wa"><a href="https://wa.me/573011571039?text={{ 'Hola, quiero NUBE en mi ciudad.' | url_encode }}" target="_blank" rel="noopener" data-city-wa>O escríbenos por WhatsApp <span aria-hidden="true">&rarr;</span></a></p>
+</div>
 <script>
   (function () {
     var wrap = document.getElementById({{ id | append: '-wrap' | json }});
     if (!wrap) return;
-    if (/customer_posted=true/.test(location.search) && location.hash === '#' + {{ id | json }}) wrap.open = true;
     var sel = wrap.querySelector('[data-city-select]');
     var tags = wrap.querySelector('[data-city-tags]');
     if (!sel || !tags) return;
     sel.addEventListener('change', function () {
       var slug = sel.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
       tags.value = 'newsletter,fuera-bogota' + (slug ? ',ciudad-' + slug : '');
+      var wa = wrap.querySelector('[data-city-wa]');
+      if (wa) wa.href = 'https://wa.me/573011571039?text=' + encodeURIComponent(sel.value && sel.value !== 'Otra' ? 'Hola, quiero NUBE en ' + sel.value + '.' : 'Hola, quiero NUBE en mi ciudad.');
     });
   })();
 </script>
