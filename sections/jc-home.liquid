@@ -57,23 +57,19 @@
         <li data-k="01"><span>01</span><p class="jcs-foryou__t">Te cobran carísimo por agua con un poquito de almendra.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver el precio por vaso &rarr;</a></li>
         <li data-k="04"><span>02</span><p class="jcs-foryou__t">Abres la nevera a las 11&nbsp;p.&nbsp;m. sin saber qué buscas.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
         <li data-k="02"><span>03</span><p class="jcs-foryou__t">La leche te cae mal.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ligera. Sin lácteos &rarr;</a></li>
-        <li data-k="03"><span>04</span><p class="jcs-foryou__t">Ves un sello negro y lo devuelves de una.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin sellos · Ver la etiqueta &rarr;</a></li>
+        <li data-k="11"><span>04</span><p class="jcs-foryou__t">Le quitan el azúcar y le meten edulcorante.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">0 g de azúcar · Sin edulcorantes &rarr;</a></li>
         <li data-k="06"><span>05</span><p class="jcs-foryou__t">Abres la bolsa o la caja y a la semana la botas.</p><a class="jcs-foryou__link" href="#jc-buy">Solo pagas lo que tomas &rarr;</a></li>
-        <li data-k="05"><span>06</span><p class="jcs-foryou__t">Ibas por una galleta y te comiste el paquete.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
+        <li data-k="07"><span>06</span><p class="jcs-foryou__t">Desayunas y a las dos horas ya tienes hambre.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
         <li data-k="09"><span>07</span><p class="jcs-foryou__t">El batido de proteína te deja inflado como un globo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ligera. Sin lácteos &rarr;</a></li>
-        <li data-k="11"><span>08</span><p class="jcs-foryou__t">Le quitan el azúcar y le meten edulcorante.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">0 g de azúcar · Sin edulcorantes &rarr;</a></li>
-        <li data-k="07"><span>09</span><p class="jcs-foryou__t">Desayunas y a las dos horas ya tienes hambre.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
-        <li data-k="08"><span>10</span><p class="jcs-foryou__t">Proteína de un tarro, fibra de un sobre. Tu barriga no entiende nada.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-matriz">Juntas, de la misma semilla &rarr;</a></li>
-        <li data-k="12"><span>11</span><p class="jcs-foryou__t">Cargas cajas de bebida del súper hasta la casa.</p><a class="jcs-foryou__link" href="#jc-buy">Una bolsa, 30 vasos &rarr;</a></li>
-        <li data-k="10"><span>12</span><p class="jcs-foryou__t">Tu proteína en polvo tiene más ingredientes que tu almuerzo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
+        <li data-k="10"><span>08</span><p class="jcs-foryou__t">Tu proteína en polvo tiene más ingredientes que tu almuerzo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
       </ol>
       <div class="jcs-foryou__nav">
         <button type="button" class="jcs-foryou__btn" data-dir="-1" aria-label="Anterior">&larr;</button>
-        <span class="jcs-foryou__count" aria-live="polite"><b>1</b> / <i>7</i></span>
+        <span class="jcs-foryou__count" aria-live="polite"><b>1</b> / <i>8</i></span>
         <button type="button" class="jcs-foryou__btn" data-dir="1" aria-label="Siguiente">&rarr;</button>
       </div>
       <div class="jcs-foryou__score" aria-live="polite">
-        <p class="jcs-foryou__score-t"><b>0</b> de <i>12</i></p>
+        <p class="jcs-foryou__score-t"><b>0</b> de <i>8</i></p>
         <p class="jcs-foryou__score-m">Toca las que te pasan.</p>
         <button type="button" class="jcs-btn jcs-foryou__reveal" hidden><span>Ver mi resultado</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></button>
       </div>
@@ -171,7 +167,7 @@
             var ranked = ORDER.slice().sort(function (a, b) { return c[b] - c[a] || rankOf(a) - rankOf(b); });
             var top = ranked[0], second = ranked[1], prof = PROFILES[top], title = prof.title, roast = prof.roast;
             var rule = prof.rule, moment = prof.moment;
-            if (keys.length >= 9) { title = 'El combo completo'; roast = 'No eres un desastre. Eras el cliente perfecto del sistema. Hasta hoy.'; rule = 'No te falta fuerza de voluntad. Te falta comida que no te pelee.'; moment = 'Tu momento NUBE: todos. Por eso son 30 barras.'; }
+            if (keys.length >= 6) { title = 'El combo completo'; roast = 'No eres un desastre. Eras el cliente perfecto del sistema. Hasta hoy.'; rule = 'No te falta fuerza de voluntad. Te falta comida que no te pelee.'; moment = 'Tu momento NUBE: todos. Por eso son 30 barras.'; }
             else if (c[second] === c[top] && c[top] > 0) {
               var pair = PAIRS[top + '+' + second] || PAIRS[second + '+' + top];
               if (pair) { title = pair[0]; roast = pair[1]; }
