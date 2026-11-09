@@ -1252,3 +1252,19 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-crew li { display: flex; align-items: center; gap: 12px; font-size: 15px; }
 .jcs-crew__face { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
 @media (min-width: 900px) { .jcs-crew { grid-template-columns: repeat(3, auto); justify-content: start; gap: 28px; } }
+
+/* Desktop (9 nov, v2): strip on its own and bigger; attributes with notes, inside the margins. Mobile unchanged. */
+@media (max-width: 899px) { .jcs-badges__note { display: none; } }
+@media (min-width: 900px) {
+  .jcs-badges__m { display: none; }
+  .jcs-strip { max-width: 1240px; gap: 44px; padding: 110px 40px 90px; background: transparent; }
+  .jcs-strip__item img { background: transparent; filter: brightness(1.04); -webkit-mask-image: radial-gradient(closest-side, #000 45%, transparent 100%); mask-image: radial-gradient(closest-side, #000 45%, transparent 100%); }
+  .jcs-strip__item figcaption { margin-top: 18px; font-size: 16px; }
+  .jcs-strip__item figcaption strong { font-size: 19px; }
+  .jcs-strip__arrow { font-size: 30px; }
+  .jcs-badges { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; width: min(1240px, calc(100% - 112px)); margin: 0 auto 80px; overflow: visible; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: transparent; }
+  .jcs-badges li, .jcs-badges--quiet li { max-width: none; min-width: 0; padding: 22px 18px; }
+  .jcs-badges li:last-child { border-right: 0; }
+  .jcs-badges--quiet strong { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .jcs-badges span { font-size: 12px; color: var(--muted); }
+}

@@ -49,13 +49,13 @@
   </div>
 
   <ul class="jcs-badges jcs-badges--quiet" aria-label="Lo que puedes confiar">
-    <li><strong>6,3 g de proteína por vaso</strong></li>
-    <li><strong>3 ingredientes</strong></li>
-    <li><strong>0 g de azúcar</strong></li>
-    <li><strong>Sin conservantes: la conserva el frío</strong></li>
-    <li><strong>Sin sellos de advertencia</strong></li>
+    <li><strong>6,3 g de proteína<span class="jcs-badges__m"> por vaso</span></strong><span class="jcs-badges__note">Por vaso de 200 ml</span></li>
+    <li><strong>3 ingredientes</strong><span class="jcs-badges__note">Sacha inchi, agua y goma gelana</span></li>
+    <li><strong>0 g de azúcar</strong><span class="jcs-badges__note">Ni añadida ni escondida</span></li>
+    <li><strong>Sin conservantes<span class="jcs-badges__m">: la conserva el frío</span></strong><span class="jcs-badges__note">La conserva el frío</span></li>
+    <li><strong>Sin sellos de advertencia</strong><span class="jcs-badges__note">Ni uno en la etiqueta</span></li>
     {% if settings.jc_invima_number != blank %}<li><strong>Registro sanitario INVIMA</strong><span>{{ settings.jc_invima_number }}</span></li>{% endif %}
-    <li><strong>Hecha en Colombia</strong></li>
+    <li><strong>Hecha en Colombia</strong><span class="jcs-badges__note">De la semilla a la barra, todo aquí</span></li>
   </ul>
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
