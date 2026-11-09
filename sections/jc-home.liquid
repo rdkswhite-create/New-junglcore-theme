@@ -42,16 +42,33 @@
 
   <div class="jcs-steps-band">
   <div class="jcs-strip jcs-steps" aria-label="Del congelador al vaso">
-    <figure class="jcs-strip__item"><span class="jcs-steps__t">0 s</span><img src="{{ 'jc-nube-congelador.jpg' | asset_url }}" width="941" height="1671" loading="eager" alt="Una mano saca una barra de la bolsa de NUBE en el congelador"><figcaption><strong>La barra</strong><span>Del congelador</span></figcaption></figure>
-    <figure class="jcs-strip__item"><span class="jcs-steps__t">10 s</span><img src="{{ 'jc-nube-barra-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Una mano deja caer una barra de NUBE en la licuadora con agua"><figcaption><strong>Licúa</strong><span>Con agua</span></figcaption></figure>
-    <figure class="jcs-strip__item"><span class="jcs-steps__t">27 s</span><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Un vaso de NUBE en una mesa de cocina con luz de mañana"><figcaption><strong>Listo</strong><span>Tu bebida vegetal</span></figcaption></figure>
+    <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="0">0 s</span><img src="{{ 'jc-nube-congelador.jpg' | asset_url }}" width="941" height="1671" loading="eager" alt="Una mano saca una barra de la bolsa de NUBE en el congelador"><figcaption><strong>La barra</strong><span>Del congelador</span></figcaption></figure>
+    <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="10">10 s</span><img src="{{ 'jc-nube-barra-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Una mano deja caer una barra de NUBE en la licuadora con agua"><figcaption><strong>Licúa</strong><span>Con agua</span></figcaption></figure>
+    <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="40">40 s</span><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Un vaso de NUBE en una mesa de cocina con luz de mañana"><figcaption><strong>Listo</strong><span>Tu bebida vegetal</span><em class="jcs-steps__joke">Menos de lo que tardas en encontrar la caja en el supermercado.</em></figcaption></figure>
   </div>
   </div>
 
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.jcs-steps__t[data-count]');
+      if (!els.length || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      els.forEach(function (el) { if (+el.dataset.count > 0) el.textContent = '0 s'; });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return; io.unobserve(en.target);
+          var el = en.target, to = +el.dataset.count, t0 = null, dur = 900 + to * 15;
+          if (!to) return;
+          function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + ' s'; if (k < 1) requestAnimationFrame(step); }
+          requestAnimationFrame(step);
+        });
+      }, { threshold: 0.6 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
   <div class="jcs-facts-line" aria-label="En cada vaso">
     <div class="jcs-facts-line__in">
       <p class="jcs-facts-line__k">En cada vaso:</p>
-      <p class="jcs-facts-line__big">6,3 g de proteína · 3 ingredientes · 0 g de azúcar</p>
+      <p class="jcs-facts-line__big"><b>6,3 g</b> <span>de proteína · 3 ingredientes · 0 g de azúcar</span></p>
       <div class="jcs-facts-line__boxes">
         <p><strong>Sin sellos de advertencia</strong><span>Ni uno en la etiqueta</span></p>
         <p><strong>Sin conservantes</strong><span>La conserva el frío</span></p>
