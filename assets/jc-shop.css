@@ -1306,3 +1306,14 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
   .jcs .jcs-facts-line__in .jcs-facts-line__big b { display: inline; font-size: 120px; }
   .jcs .jcs-facts-line__in .jcs-facts-line__big span { display: inline; margin: 0; font-size: 28px; }
 }
+/* Steps v5: they grow as the drink gets made */
+.jcs-steps.jcs-strip { grid-template-columns: 0.8fr 1fr 1.25fr; align-items: end; }
+.jcs .jcs-steps .jcs-strip__item:nth-child(1) .jcs-steps__t { font-size: 32px; }
+.jcs .jcs-steps .jcs-strip__item:nth-child(2) .jcs-steps__t { font-size: 40px; }
+.jcs .jcs-steps .jcs-strip__item:nth-child(3) .jcs-steps__t { font-size: 50px; }
+@media (min-width: 900px) {
+  .jcs-steps.jcs-strip { grid-template-columns: 0.75fr 1fr 1.35fr; gap: 40px; }
+  .jcs .jcs-steps .jcs-strip__item:nth-child(1) .jcs-steps__t { font-size: 72px; }
+  .jcs .jcs-steps .jcs-strip__item:nth-child(2) .jcs-steps__t { font-size: 104px; }
+  .jcs .jcs-steps .jcs-strip__item:nth-child(3) .jcs-steps__t { font-size: 150px; }
+}
