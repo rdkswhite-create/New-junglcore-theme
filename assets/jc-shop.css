@@ -1317,3 +1317,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
   .jcs .jcs-steps .jcs-strip__item:nth-child(2) .jcs-steps__t { font-size: 104px; }
   .jcs .jcs-steps .jcs-strip__item:nth-child(3) .jcs-steps__t { font-size: 150px; }
 }
+/* Steps v6: same starting line — numbers share a baseline, photos start at the same height and grow downwards */
+.jcs-steps.jcs-strip { align-items: start; }
+.jcs .jcs-steps .jcs-steps__t { display: flex; align-items: flex-end; height: 50px; }
+@media (min-width: 900px) { .jcs .jcs-steps .jcs-steps__t { height: 145px; } }
