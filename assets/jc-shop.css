@@ -1332,3 +1332,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 }
 /* Steps + facts: site off-white, not pure white */
 .jcs-steps-band, .jcs-facts-line { background: var(--paper); }
+/* Facts card: warm light grey box, white inner boxes without borders */
+.jcs-facts-line__in { background: #F1EFEA; border-top: 0; border-radius: 14px; padding: 22px 18px 20px; }
+.jcs .jcs-facts-line__boxes p { background: #fff; border: 0; }
+@media (min-width: 900px) { .jcs-facts-line__in { padding: 40px 44px 36px; border-radius: 18px; } }
