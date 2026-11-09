@@ -19,11 +19,14 @@
     <div class="jcs-frame">
       <header class="jcs-log-entry__meta"><span>01</span><h2 id="jc-about-001">La misión</h2><em>En curso</em></header>
       <div class="jcs-about__body">
-        <p>Colombia es uno de los países más biodiversos del planeta. Aun así, las bebidas vegetales del supermercado salen de las mismas plantas que en Nueva York, Londres o Dubái. Lo que llamamos elegir es una ilusión de elección.</p>
+        <p>Colombia es uno de los países más biodiversos del planeta. Aun así, las bebidas vegetales del supermercado salen de las mismas plantas que en Nueva York, Londres o Dubái.</p>
         <p>Hoy te venden la semilla por partes y te cobran por volver a armarla. Nosotros no la separamos.</p>
         <p>JUNGLCORE busca las plantas que el sistema alimentario pasó por alto y las convierte en algo que la gente quiera comer todos los días. Empezamos por una. Vienen más.</p>
           <p class="jcs-about__big">Comida primero.</p>
-          
+        <div class="jcs-founder">
+          <img src="{{ 'jc-russell.jpg' | asset_url }}" width="320" height="320" loading="lazy" alt="Russell White, fundador de JUNGLCORE">
+          <p>Trabajé diez años en alimentos vegetales en el Reino Unido. Todo salía de las mismas pocas plantas. Colombia tiene miles.<span>— Russell White, fundador</span></p>
+        </div>
       </div>
     </div>
   </article>
@@ -34,10 +37,11 @@
       <div class="jcs-about__body jcs-about__body--fig">
         <div>
           <p>Pequeños agricultores de Santander, Norte de Santander y Valle del Cauca. Siembran una enredadera que tarda unos siete meses en dar su primer fruto.</p>
-          <p>Con ellos ayudamos a crear la Asociación de Sachaincheros del Nororiente Colombiano (ASIN): para vender juntos y con un precio acordado antes de cosechar, no el que diga el comprador el día de la cosecha.</p>
-          <p class="jcs-about__big">Saber el precio antes de cosechar cambia lo que una familia puede planear. Por eso empezamos por ahí, y no por el empaque.</p>
+          <p>Ayudamos a crear la Asociación de Sachaincheros del Nororiente Colombiano, para que los agricultores vendan juntos.</p>
+          <p class="jcs-about__quote">El precio se acuerda antes de cosechar.</p>
+          <p class="jcs-about__quote-sub">Así una familia puede planear su año. Por eso empezamos por ahí, y no por el empaque.</p>
         </div>
-        <figure class="jcs-about__figure">
+        <figure class="jcs-about__figure jcs-about__figure--bleed">
           <img src="{{ 'jc-emilio-asin.jpg' | asset_url }}" width="1280" height="854" loading="lazy" alt="Emilio, agricultor de sacha inchi en Santander, muestra frutos secos de cuatro puntas en las manos, con el cultivo detrás">
           <figcaption>Emilio · Agricultor de sacha inchi · Santander</figcaption>
         </figure>
@@ -95,6 +99,32 @@
         <p class="jcs-about__big">Una semilla, de miles.</p>
         <p>La planta 001 ya cabe en tu congelador. La 002 todavía no tiene nombre. Si conoces una que comía tu abuela y ya no aparece en ningún pasillo, cuéntanos.</p>
         <a class="jcs-link" href="https://wa.me/573011571039?text={{ 'Hola, les propongo una planta:' | url_encode }}" target="_blank" rel="noopener">Proponer una planta <span aria-hidden="true">&rarr;</span></a>
+        {%- liquid
+          assign pp_lines = settings.jc_plant_proposals | newline_to_br | split: '<br />'
+          assign pp_keys = ''
+          for l in pp_lines
+            assign parts = l | strip | split: '|'
+            if parts.size == 2
+              assign n = parts[1] | strip | plus: 0
+              if n > 0
+                assign padded = n | plus: 100000 | append: ''
+                assign pp_keys = pp_keys | append: padded | append: '|' | append: parts[0] | strip | append: ';;'
+              endif
+            endif
+          endfor
+          assign pp_sorted = pp_keys | split: ';;' | sort
+          assign pp = pp_sorted | reverse
+        -%}
+        {%- if pp_sorted.size >= 5 -%}
+        <div class="jcs-proposals">
+          <p class="jcs-proposals__t">Las plantas que ustedes propusieron</p>
+          <ol>
+            {%- for k in pp -%}{%- assign kv = k | split: '|' -%}{%- assign cnt = kv[0] | minus: 100000 -%}
+            <li><span>{{ kv[1] | strip | escape }}</span><b>{{ cnt }}</b></li>
+            {%- endfor -%}
+          </ol>
+        </div>
+        {%- endif -%}
         <p class="jcs-about__human">Escríbenos a <a href="mailto:hola@junglcore.com">hola@junglcore.com</a> o por <a href="https://wa.me/573011571039" target="_blank" rel="noopener">WhatsApp</a>. Contestamos nosotros.</p>
       </div>
     </div>
@@ -103,7 +133,7 @@
   <section class="jcs-final" aria-labelledby="jc-about-final">
     <div class="jcs-frame">
       <h2 id="jc-about-final">Rinde más.</h2>
-      <p>Comida, no suplemento. De una semilla colombiana. 30 vasos por bolsa.</p>
+      <p>De una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
       <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Pide tu bolsa</span>{% else %}<span>Pide tu bolsa</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>

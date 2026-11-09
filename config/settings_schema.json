@@ -1566,6 +1566,12 @@
         "info": "Por ejemplo: ProColombia. Solo si tienes su permiso para usar el nombre. Si está vacío, el sello no aparece."
       },
       {
+        "type": "textarea",
+        "id": "jc_plant_proposals",
+        "label": "Plantas propuestas (Origen)",
+        "info": "Una por línea: nombre | cuántas personas la propusieron. Ejemplo: Chachafruto | 4. Solo propuestas reales. La lista aparece en Origen cuando hay al menos 5 plantas, ordenada de más a menos."
+      },
+      {
         "type": "header",
         "content": "Entregas en Bogotá"
       },
