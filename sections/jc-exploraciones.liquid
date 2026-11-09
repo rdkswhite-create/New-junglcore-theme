@@ -4,23 +4,7 @@
   assign v = nube.selected_or_first_available_variant
   assign wa = 'https://wa.me/573011571039?text='
   assign ig = settings.jc_instagram_url | default: 'https://www.instagram.com/junglcorelab'
-  assign latest_src = 'jc-lab-vinieron.mp4' | asset_url
-  assign latest_poster = 'jc-lab-vinieron-poster.jpg' | asset_url
-  if section.settings.latest_video != blank
-    assign best_w = 0
-    for source in section.settings.latest_video.sources
-      if source.mime_type == 'video/mp4' and source.width <= 1080 and source.width > best_w
-        assign latest_src = source.url
-        assign best_w = source.width
-      endif
-    endfor
-    assign latest_poster = section.settings.latest_video.preview_image | image_url: width: 900
-  endif
-  assign latest_number = section.settings.latest_number | default: '000'
-  assign latest_title = section.settings.latest_title | default: 'Vinieron buscando la jungla'
-  assign latest_line = section.settings.latest_line | default: 'Cuatro mil días de viaje… para esto.'
 -%}
-{%- capture price_line -%}{% if v and v.price > 0 %}{%- assign per_glass = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ per_glass | money_without_trailing_zeros }} por vaso con 3 bolsas · solo Bogotá{% if settings.jc_sale_mode != 'a_la_venta' %}<span class="jcs-entry__nopay">Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }}.</span>{% endif %}{% endif %}{%- endcapture -%}
 <div class="jcs jcs-log" id="top">
   {% render 'jc-header', buy_href: '#jc-nube' %}
 
@@ -32,7 +16,6 @@
         <div class="jcs-lab-top__copy">
           <h1 class="jcs-log-intro__title" id="jc-log-title">Estudiamos la comida que ya existe.</h1>
           <p class="jcs-log-intro__frame"><strong>JUNGLCORE LAB estudia lo que la biodiversidad puede hacer por tu salud.</strong> Empezamos por una semilla colombiana: la sacha inchi.</p>
-          <p class="jcs-lab-hero-nube"><a href="{{ routes.root_url }}products/nube#jc-buy">Y de ahí sale NUBE, una bebida de sacha inchi. {% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda, {{ settings.jc_launch_label | default: '20 de noviembre' }}{% else %}A la venta en Bogotá{% endif %} <span aria-hidden="true">&rarr;</span></a></p>
         </div>
         <div class="jcs-lab-top__video jcs-lab-top__qs">
           <div class="jcs-invest jcs-invest--short">
@@ -47,54 +30,11 @@
     </div>
   </section>
 
-  {%- comment -%} 2 · What we make. Satiety comes out of it, next. {%- endcomment -%}
-  <section class="jcs-lab-next jcs-lab-make" id="jc-viene" aria-labelledby="jc-hacemos-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>01</span>Lo que hacemos</p>
-      <div class="jcs-lab-make__head">
-        <h2 class="jcs-title jcs-lab-make__title" id="jc-hacemos-title">Una semilla. Tres formas.</h2>
-        <figure class="jcs-lab-top__photo jcs-lab-make__photo"><img src="{{ 'jc-planta-001.jpg' | asset_url }}" width="941" height="1176" loading="lazy" alt="Una mano de robot junto a una semilla de sacha inchi"></figure>
-      </div>
-      <div class="jcs-lab-next__grid jcs-lab-make__grid">
-        <div class="jcs-lab-next__item">
-          <p class="jcs-eyebrow">NUBE · La bebida · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }}{% else %}A la venta{% endif %}</span></p>
-          <h3>Una barra del congelador, agua y licuadora. 30 segundos.</h3>
-          <p>Una semilla con 3.000 años de historia. 6,3 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
-          {% if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_perk != blank %}<p class="jcs-lab-perk">{{ settings.jc_waitlist_perk }}</p>{% endif %}
-          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ pg | money_without_trailing_zeros }} por vaso con 3 bolsas{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo Bogotá{% endif %}</p>
-          <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa &rarr;</a></div>
-        </div>
-        <div class="jcs-lab-soon">
-          <p class="jcs-lab-soon__k">Lo que viene</p>
-          <div class="jcs-lab-soon__grid">
-          <div class="jcs-lab-next__item jcs-lab-next__item--soon">
-            <p class="jcs-eyebrow">ONE · La proteína · <span class="jcs-lab-status">Pronto</span></p>
-            <h3>Una proteína hecha de la misma semilla.</h3>
-            <p>Un solo ingrediente, para lo que ya comes.</p>
-            <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></div>
-          </div>
-          <div class="jcs-lab-next__item jcs-lab-next__item--soon">
-            <p class="jcs-eyebrow">OIL · El aceite · <span class="jcs-lab-status">Pronto</span></p>
-            <h3>Extra virgen, prensado en frío.</h3>
-            <p>De la mejor semilla que encontramos en Colombia. Lo estudiamos para el corazón y la piel.</p>
-            <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a><a href="#jc-aceite">La investigación &darr;</a></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      <ul class="jcs-lab-also">
-        <li><strong>Planta 002.</strong> ¿Conoces una planta que nadie mira, una que comía tu abuela? <a href="{{ wa }}{{ 'Hola, les propongo una planta para la bitácora:' | url_encode }}" target="_blank" rel="noopener">Cuéntanos &rarr;</a></li>
-      </ul>
-      <p class="jcs-lab-bridge"><a href="#jc-pausa">Y en las pruebas con gente encontramos algo que no buscábamos. <span aria-hidden="true">&darr;</span></a></p>
-    </div>
-  </section>
-
   {%- comment -%} 3 · What we found: satiety. A belief we are testing, never a promise. Evidence folded. {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa" id="jc-pausa" aria-labelledby="jc-pausa-title">
     <span id="jc-estudio" class="jcs-anchor" aria-hidden="true"></span>
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>02</span>Saciedad · Abierto</p>
+      <p class="jcs-chapter"><span>01</span>Saciedad · Abierto</p>
       <p class="jcs-invest__q jcs-invest__q--lab">¿Puede una semilla bajarle al ruido de la comida?</p>
       <div class="jcs-loop">
         <div class="jcs-loop__box">
@@ -173,7 +113,7 @@
   {%- comment -%} 3a · Investigation: protein and fibre together, in the seed's own matrix. A question, never a claim. {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa jcs-matriz" id="jc-matriz" aria-labelledby="jc-matriz-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>03</span>Proteína + fibra · Abierto</p>
+      <p class="jcs-chapter"><span>02</span>Proteína + fibra · Abierto</p>
       <p class="jcs-invest__q jcs-invest__q--lab">Proteína y fibra: ¿juntas o separadas? ¿Le importa a tu cuerpo?</p>
       <div class="jcs-lab-study__grid">
         <div>
@@ -229,7 +169,7 @@
   {%- comment -%} 3b · Investigation 02: the oil and the heart. A question, never a claim. {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa jcs-aceite" id="jc-aceite" aria-labelledby="jc-aceite-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>04</span>Corazón · Abierto</p>
+      <p class="jcs-chapter"><span>03</span>Corazón · Abierto</p>
       <p class="jcs-invest__q jcs-invest__q--lab">¿Puede una grasa cuidar tu corazón?</p>
       <div class="jcs-lab-study__grid">
         <div>
@@ -260,236 +200,68 @@
     </div>
   </section>
 
-  {%- comment -%} 4 · Questions from the ship: the robots ask, we check. Newest first. {%- endcomment -%}
-  <section class="jcs-lab-log" id="jc-bitacora" aria-labelledby="jc-bitacora-title">
+  {%- comment -%} 4 · Bitácora: one card, the robots live on their own page. {%- endcomment -%}
+  <section class="jcs-lab-card" id="jc-bitacora" aria-labelledby="jc-bitacora-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>05</span>Bitácora</p>
-      <div class="jcs-lab-head">
-        <h2 class="jcs-title" id="jc-bitacora-title">Preguntas desde la nave.</h2>
-        <div>
-          <p class="jcs-lead">Lupa, Chispa y Dato: tres robots que vinieron buscando la jungla. Preguntan; nosotros comprobamos la respuesta. Mira La misión, o toca una pregunta.</p>
-          <p class="jcs-lab-rule jcs-lab-rule--dark">Los robots son ficción. Las cifras, no.</p>
-        </div>
-      </div>
-      <div class="jcs-lab-films">
-      <div class="jcs-lab-films__item jcs-lab-top__film">
-        <p class="jcs-lab-film__kicker">Película 1 · 1 min · Empieza aquí</p>
-        {% unless latest_title == 'Vinieron buscando la jungla' %}<h2 class="jcs-lab-film__title">{{ latest_title }}</h2>{% endunless %}
-        <p class="jcs-lab-film__what">Bajan a la Tierra a buscar la jungla. Encuentran un pasillo.</p>
-        {% render 'jc-tap-video', id: 'jcs-lab-latest', src: latest_src, poster: latest_poster, label: 'Ver la película' %}
-        <p class="jcs-lab-latest__line">«{{ latest_line }}»</p>
-        <p class="jcs-lab-budget"><span class="jcs-lab-budget__l">Misión: encontrar la jungla</span><span class="jcs-lab-budget__l">Presupuesto: <span class="jcs-file__stamp">Agotado</span></span></p>
-        </div>
-        <div class="jcs-lab-films__item">
-          <p class="jcs-lab-film__kicker">Película 2 · 2 min · La misión completa</p>
-          <p class="jcs-lab-film__what">Por qué vinieron: menos plantas, menos empresas, la tierra cansada. Y una semilla de la selva.</p>
-          {%- capture vm -%}{{ 'jc-lab-la-mision.mp4' | asset_url }}{%- endcapture -%}
-          {%- capture pm -%}{{ 'jc-lab-la-mision-poster.jpg' | asset_url }}{%- endcapture -%}
-          {% render 'jc-tap-video', id: 'jcs-lab-mision', src: vm, poster: pm, label: 'Ver La misión' %}
-        </div>
-      </div>
-      <div class="jcs-entries">
-
-        <details class="jcs-entry" id="jc-log-001">
-          <summary><span class="jcs-entry__num">001</span><img class="jcs-entry__thumb" src="{{ 'jc-lab-almendras-thumb.jpg' | asset_url }}" width="56" height="72" alt=""><span class="jcs-entry__main"><span class="jcs-entry__title">¿Cuántas almendras lleva un vaso de bebida de almendra?</span><span class="jcs-entry__status jcs-entry__status--m">Comprobado</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v001 -%}{{ 'jc-lab-almendras.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p001 -%}{{ 'jc-lab-almendras-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-001', src: v001, poster: p001, label: 'Ver el hallazgo' %}
-            </div>
-            <div class="jcs-entry__text">
-              <div class="jcs-log-check">
-                <h3>Lo que comprobamos</h3>
-                <ul>
-                  <li><strong>Almendras por vaso.</strong> <img class="jcs-face" src="{{ 'jc-face-lupa.jpg' | asset_url }}" width="80" height="80" loading="lazy" alt="Lupa">Lupa, nuestro robot rojo, contó tres. Revisamos: unas cuatro. La única etiqueta de nuestra tabla que declara el porcentaje trae un 2,75 % de almendras, unos 5,5 g por vaso de 200 ml. Corregido. Sigue siendo poco. <a href="https://www.aecoctrade.es/es/producto/ksafuXFUolgkFCUMeJ9p77" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Ingredientes.</strong> Las bebidas de almendra de nuestra tabla traen de 10 a 15. NUBE: 3.</li>
-                  <li><strong>Las gomitas.</strong> Un puñado de ositos de goma, 13 piezas, trae unos 2 g de proteína. Un vaso de bebida de almendra, entre 0,8 y 1,4 g. <a href="https://www.fatsecret.com.mx/calor%C3%ADas-nutrici%C3%B3n/haribo/goldbears/13-piezas" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                </ul>
-                <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">La tabla completa, marca por marca <span aria-hidden="true">&rarr;</span></a>
-              </div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Lea la etiqueta. Después hablamos.</p>
-              <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-                <p class="jcs-entry__price">{{ price_line }}</p>
-              </div>
-              <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Cuántas almendras lleva un vaso de bebida de almendra? ' | append: shop.url | append: '/pages/exploraciones#jc-log-001' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-002">
-          <summary><span class="jcs-entry__num">002</span><img class="jcs-entry__thumb" src="{{ 'jc-lab-sin-caja-thumb.jpg' | asset_url }}" width="56" height="72" alt=""><span class="jcs-entry__main"><span class="jcs-entry__title">¿Quién dijo que la bebida vegetal tiene que venir en caja?</span><span class="jcs-entry__status jcs-entry__status--m">Comprobado</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v002 -%}{{ 'jc-lab-sin-caja.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p002 -%}{{ 'jc-lab-sin-caja-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-002', src: v002, poster: p002, label: 'Ver el hallazgo' %}
-            </div>
-            <div class="jcs-entry__text">
-              <div class="jcs-log-check">
-                <h3>Lo que comprobamos</h3>
-                <ul>
-                  <li><strong>Una barra, agua y la licuadora.</strong> La barra sale del congelador; el vaso, en 30 segundos.</li>
-                  <li><strong>Tres ingredientes.</strong> NUBE: sacha inchi, agua y goma gelana. Una bebida de almendra de supermercado: trece. <a href="https://d1tiendas.vtexassets.com/arquivos/ids/201817-1200-1200?aspect=true&amp;height=1200&amp;width=1200" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                </ul>
-              </div>
-              <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-                <p class="jcs-entry__price">{{ price_line }}</p>
-              </div>
-              <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Quién dijo que la bebida vegetal tiene que venir en caja? ' | append: shop.url | append: '/pages/exploraciones#jc-log-002' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-003">
-          <summary><span class="jcs-entry__num">003</span><img class="jcs-entry__thumb" src="{{ 'jc-lab-cartones-thumb.jpg' | asset_url }}" width="56" height="72" alt=""><span class="jcs-entry__main"><span class="jcs-entry__title">¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE?</span><span class="jcs-entry__status jcs-entry__status--m">Comprobado</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v003 -%}{{ 'jc-lab-cartones.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p003 -%}{{ 'jc-lab-cartones-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-003', src: v003, poster: p003, label: 'Ver el hallazgo' %}
-            </div>
-            <div class="jcs-entry__text">
-              <div class="jcs-log-check">
-                <h3>Lo que comprobamos</h3>
-                <ul>
-                  <li><strong>Una bolsa de NUBE:</strong> 30 vasos de 6,3 g. 189 g de proteína.</li>
-                  <li><strong>Una bebida de almendra:</strong> entre 0,8 y 1,4 g por vaso, según la marca. Para llegar a 189 g hacen falta entre 27 y 47 cartones de un litro. Con la de 1,0 g, 38.</li>
-                </ul>
-                <a class="jcs-link" href="{{ routes.root_url }}products/nube#jc-nutrition">Las cuentas, marca por marca <span aria-hidden="true">&rarr;</span></a>
-              </div>
-              <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-                <p class="jcs-entry__price">{{ price_line }}</p>
-              </div>
-              <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Cuántos cartones de bebida de almendra hacen una bolsa de NUBE? ' | append: shop.url | append: '/pages/exploraciones#jc-log-003' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-004">
-          <summary><span class="jcs-entry__num">004</span><img class="jcs-entry__thumb" src="{{ 'jc-lab-soya-thumb.jpg' | asset_url }}" width="56" height="72" alt=""><span class="jcs-entry__main"><span class="jcs-entry__title">¿Para qué se inventó la proteína de soya?</span><span class="jcs-entry__status jcs-entry__status--m">Comprobado</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v004 -%}{{ 'jc-lab-soya.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p004 -%}{{ 'jc-lab-soya-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-004', src: v004, poster: p004, label: 'Ver el hallazgo' %}
-            </div>
-            <div class="jcs-entry__text">
-              <div class="jcs-log-check">
-                <h3>Lo que comprobamos</h3>
-                <ul>
-                  <li><strong>1936: papel, pegamento y pintura.</strong> La primera planta de proteína de soya aislada se construyó en Chicago para la industria: recubrir papel, pegar madera, hacer pintura. <a href="https://www.pbs.org/wgbh/nova/julian/time-nf.html" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>La guerra: apagar incendios.</strong> En la Segunda Guerra Mundial, la Marina de Estados Unidos la usó como espuma contra el fuego en sus barcos. Los marineros la llamaban «sopa de frijol». <a href="https://www.pbs.org/wgbh/nova/julian/time-nf.html" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>1959: llega a la comida.</strong> La primera proteína de soya aislada para alimentos salió más de veinte años después. <a href="https://en.wikipedia.org/wiki/Soy_protein" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Seis mil plantas, nueve cultivos.</strong> Los humanos cultivan más de 6.000 plantas para comer. Nueve dan casi dos tercios de toda la cosecha del mundo. <a href="https://www.downtoearth.org.in/agriculture/report-flags-growing-threat-of-monoculture-in-crop-production-63332" target="_blank" rel="noopener noreferrer">FAO, 2019 &rarr;</a></li>
-                </ul>
-              </div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>No faltan plantas. Falta hacerles sitio.</p>
-              <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-                <p class="jcs-entry__price">{{ price_line }}</p>
-              </div>
-              <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Para qué se inventó la proteína de soya? ' | append: shop.url | append: '/pages/exploraciones#jc-log-004' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-005">
-          <summary><span class="jcs-entry__num">005</span><img class="jcs-entry__thumb" src="{{ 'jc-lab-barco-thumb.jpg' | asset_url }}" width="56" height="72" alt=""><span class="jcs-entry__main"><span class="jcs-entry__title">¿31.000 plantas y la proteína llega en barco?</span><span class="jcs-entry__status jcs-entry__status--m">Comprobado</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v005 -%}{{ 'jc-lab-barco.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p005 -%}{{ 'jc-lab-barco-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-005', src: v005, poster: p005, label: 'Ver el hallazgo' %}
-            </div>
-            <div class="jcs-entry__text">
-              <div class="jcs-log-check">
-                <h3>Lo que comprobamos</h3>
-                <ul>
-                  <li><strong>El segundo país más biodiverso del mundo,</strong> después de Brasil. <a href="https://www.larepublica.co/responsabilidad-social/dia-de-la-tierra-colombia-y-su-papel-clave-en-la-conservacion-global-de-la-biodiversidad-4115432" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Más de 31.000 plantas</strong> catalogadas en Colombia. Unas 6.000 se consideran útiles. <a href="https://radionacional.co/actualidad/medio-ambiente/biodiversidad-colombia-especies-datos-y-retos" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Y en 2025 llegaron en barco</strong> más de 2 millones de toneladas de torta de soya y 595.000 de soya en grano, casi todo de Estados Unidos. <a href="https://occidente.co/empresario/record-fenalce-importacion-de-granos-en-colombia-2025/" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>¿Para qué?</strong> Sobre todo para alimentar pollos y cerdos. La proteína que comes empieza en un barco. <a href="https://www.las2orillas.co/?p=697268" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                </ul>
-              </div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>La selva siempre estuvo aquí. Nadie la miró.</p>
-              <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-                <p class="jcs-entry__price">{{ price_line }}</p>
-              </div>
-              <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿31.000 plantas y la proteína llega en barco? ' | append: shop.url | append: '/pages/exploraciones#jc-log-005' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-006">
-          <summary><span class="jcs-entry__num">006</span><img class="jcs-entry__thumb" src="{{ 'jc-lab-fondo-cali-thumb.jpg' | asset_url }}" width="56" height="72" alt=""><span class="jcs-entry__main"><span class="jcs-entry__title">¿A quién le importa la jungla?</span><span class="jcs-entry__status jcs-entry__status--m">Comprobado</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Comprobado</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v006 -%}{{ 'jc-lab-fondo-cali.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p006 -%}{{ 'jc-lab-fondo-cali-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-006', src: v006, poster: p006, label: 'Ver el hallazgo' %}
-            </div>
-            <div class="jcs-entry__text">
-              <div class="jcs-log-check">
-                <h3>Lo que comprobamos</h3>
-                <ul>
-                  <li><strong>El Fondo de Cali.</strong> Nació en la cumbre de biodiversidad de la ONU en Cali, en 2024. Las empresas que ganan dinero con la información genética de la naturaleza aportarían. Meta: unos US$1.000 millones al año.</li>
-                  <li><strong>Recibido: US$7.085.</strong> Es lo que había cuando empezó la siguiente cumbre, en octubre de 2026. Tres empresas pequeñas. Ninguna farmacéutica grande. <a href="https://dawn.com/news/2038697" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Al cierre de esa cumbre,</strong> poco más de US$10.000. <a href="https://news.mongabay.com/2026/10/leaders-grapple-with-finance-and-harmful-subsidies-at-uns-cop17-biodiversity-conference/" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Ningún gobierno</strong> ha aprobado una ley que obligue a las empresas a aportar. <a href="https://www.carbonbrief.org/cop17-developed-countries-fall-far-short-of-un-targets-for-nature-finance" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                </ul>
-              </div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Una planta se cuida cuando se usa. Nosotros empezamos por una.</p>
-              <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-                <p class="jcs-entry__price">{{ price_line }}</p>
-              </div>
-              <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿A quién le importa la jungla? ' | append: shop.url | append: '/pages/exploraciones#jc-log-006' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="jcs-entry" id="jc-log-007">
-          <summary><span class="jcs-entry__num">007</span><img class="jcs-entry__thumb" src="{{ 'jc-lab-sacha-afuera-thumb.jpg' | asset_url }}" width="56" height="72" alt=""><span class="jcs-entry__main"><span class="jcs-entry__title">¿Por qué lo de aquí vale más cuando viene de afuera?</span><span class="jcs-entry__status jcs-entry__status--m">Abierto</span></span><span class="jcs-entry__tags"><span class="jcs-entry__status">Abierto</span></span></summary>
-          <div class="jcs-entry__body">
-            <div class="jcs-entry__media">
-              {%- capture v007 -%}{{ 'jc-lab-sacha-afuera.mp4' | asset_url }}{%- endcapture -%}
-              {%- capture p007 -%}{{ 'jc-lab-sacha-afuera-poster.jpg' | asset_url }}{%- endcapture -%}
-              {% render 'jc-tap-video', id: 'jcs-lab-007', src: v007, poster: p007, label: 'Ver el hallazgo' %}
-            </div>
-            <div class="jcs-entry__text">
-              <div class="jcs-log-check">
-                <h3>Lo que comprobamos</h3>
-                <ul>
-                  <li><strong>Es de aquí.</strong> La sacha inchi crece en la Amazonía, Colombia incluida. También se la conoce como maní estrella o maní del monte. <a href="https://scalar.usc.edu/works/plants-and-people/vegetative-morphology-5" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                  <li><strong>Afuera, otro nombre.</strong> En inglés la venden como «Inca peanut», un «superalimento ancestral». <a href="https://sowexotic.com/products/inca-peanut-plukenetia-volubilis" target="_blank" rel="noopener noreferrer">Fuente &rarr;</a></li>
-                </ul>
-              </div>
-              <p class="jcs-log-open"><span>Sigue abierto</span>Por qué lo de aquí vale más cuando vuelve de afuera. Repita conmigo: sa-cha in-chi.</p>
-              <div class="jcs-entry__buy">
-                <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-                <p class="jcs-entry__price">{{ price_line }}</p>
-              </div>
-              <a class="jcs-link jcs-entry__share" href="https://wa.me/?text={{ '¿Por qué lo de aquí vale más cuando viene de afuera? ' | append: shop.url | append: '/pages/exploraciones#jc-log-007' | url_encode }}" target="_blank" rel="noopener">Mándalo por WhatsApp <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-        </details>
-
-      </div>
+      <p class="jcs-chapter"><span>04</span>Bitácora</p>
+      <a class="jcs-lab-card__box" href="{{ routes.root_url }}pages/bitacora">
+        <img src="{{ 'jc-robots-mesa.jpg' | asset_url }}" width="1000" height="1777" loading="lazy" alt="Lupa, Chispa y Dato en la mesa de la nave, con tres almendras y un vaso de agua">
+        <span class="jcs-lab-card__text">
+          <span class="jcs-lab-card__t" id="jc-bitacora-title">Bitácora · Preguntas desde la nave</span>
+          <span class="jcs-lab-card__l">Los robots preguntan. Nosotros comprobamos.</span>
+          <span class="jcs-lab-card__s">Los robots son ficción. Las cifras, no.</span>
+          <span class="jcs-btn"><span>Ver la bitácora</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></span>
+        </span>
+      </a>
     </div>
   </section>
 
-  {%- comment -%} 5 · Follow what we find. {%- endcomment -%}
+  {%- comment -%} 5 · Lo que viene: the only product area on the page. {%- endcomment -%}
+  <section class="jcs-lab-next jcs-lab-make" id="jc-viene" aria-labelledby="jc-hacemos-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>05</span>Lo que viene</p>
+      <div class="jcs-lab-make__head">
+        <h2 class="jcs-title jcs-lab-make__title" id="jc-hacemos-title">Una semilla. Tres formas.</h2>
+      </div>
+      <div class="jcs-lab-next__grid jcs-lab-make__grid">
+        <div class="jcs-lab-next__item" id="jc-nube">
+          <p class="jcs-eyebrow">NUBE · La bebida · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }}{% else %}A la venta{% endif %}</span></p>
+          <h3>Una barra del congelador, agua y licuadora. 30 segundos.</h3>
+          <p>6,3 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
+          {% if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_perk != blank %}<p class="jcs-lab-perk">{{ settings.jc_waitlist_perk }}</p>{% endif %}
+          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ pg | money_without_trailing_zeros }} por vaso con 3 bolsas{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo Bogotá{% endif %}</p>
+          <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa &rarr;</a></div>
+        </div>
+        <div class="jcs-lab-soon">
+          <p class="jcs-lab-soon__k">Pronto</p>
+          <div class="jcs-lab-soon__grid">
+          <div class="jcs-lab-next__item jcs-lab-next__item--soon">
+            <p class="jcs-eyebrow">ONE · La proteína · <span class="jcs-lab-status">Pronto</span></p>
+            <h3>Una proteína hecha de la misma semilla.</h3>
+            <p>Un solo ingrediente, para lo que ya comes.</p>
+            <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.one_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a></div>
+          </div>
+          <div class="jcs-lab-next__item jcs-lab-next__item--soon">
+            <p class="jcs-eyebrow">OIL · El aceite · <span class="jcs-lab-status">Pronto</span></p>
+            <h3>Extra virgen, prensado en frío.</h3>
+            <p>De la mejor semilla que encontramos en Colombia. Lo estudiamos para el corazón y la piel.</p>
+            <div class="jcs-lab-links"><a href="{{ wa }}{{ 'jc_lab.oil_message' | t | url_encode }}" target="_blank" rel="noopener">Avísame &rarr;</a><a href="#jc-aceite">La investigación &darr;</a></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <p class="jcs-lab-bridge"><a href="{{ routes.root_url }}pages/nosotros#jc-about-end">¿Qué planta sigue? Propón la planta 002 <span aria-hidden="true">&rarr;</span></a></p>
+    </div>
+  </section>
+
+  {%- comment -%} Cierre: signed, the email net, institutions. {%- endcomment -%}
   <section class="jcs-lab-follow" aria-labelledby="jc-follow-title">
     <div class="jcs-frame">
+      <p class="jcs-chapter jcs-lab-follow__sign"><span>Cierre</span>Firmado: JUNGLCORE LAB</p>
       <h2 class="jcs-lab-follow__line" id="jc-follow-title">Sigue lo que vamos encontrando.</h2>
-      <p class="jcs-lab-follow__small">Lo que anotan los robots y la próxima planta. Primero aquí.</p>
+      <p class="jcs-lab-follow__small">La próxima pregunta y la próxima planta. Primero aquí.</p>
       <div class="jcs-lab-follow__actions">
-        <a class="jcs-btn jcs-btn--light" href="{{ ig }}" target="_blank" rel="noopener"><span>Síguelos en Instagram</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         {% form 'customer', id: 'jcs-lab-follow-form', class: 'jcs-lab-follow__form' %}
           {% if form.posted_successfully? %}
             <p class="jcs-lab-follow__ok">Listo. Te escribimos cuando haya algo que contar.</p>
@@ -498,44 +270,12 @@
             <label class="visually-hidden" for="jcs-lab-follow-email">Tu correo</label>
             <div class="jcs-wait__row jcs-lab-follow__row">
               <input type="email" id="jcs-lab-follow-email" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" required>
-              <button type="submit">Por correo</button>
+              <button type="submit">Avísame</button>
             </div>
           {% endif %}
         {% endform %}
-        {% render 'jc-other-city', id: 'jcs-lab-city', dark: true %}
       </div>
-    </div>
-  </section>
-
-  {%- comment -%} 6 · The punchline, then NUBE in one line. {%- endcomment -%}
-  <section class="jcs-lab-end" id="jc-nube" aria-labelledby="jc-lab-end-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>Cierre</span>Firmado: JUNGLCORE LAB</p>
-      <h2 class="jcs-display" id="jc-lab-end-title">La jungla no se perdió. Se dejó de mirar.</h2>
-      <p class="jcs-lead jcs-lab-end__lead">Guardar semillas en una bóveda sirve de poco si nadie las usa. Una planta se cuida cuando se usa.</p>
-      {% if v and v.price > 0 %}
-      <div class="jcs-lab-strip">
-        <div class="jcs-lab-strip__top">
-          {% if nube.featured_image %}<img src="{{ nube.featured_image | image_url: width: 240 }}" width="120" height="120" loading="lazy" alt="Bolsa JUNGLCORE NUBE">{% endif %}
-          <div class="jcs-lab-strip__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>Lo que salió de la bitácora, por ahora. 30 vasos por bolsa · solo Bogotá.{% if settings.jc_sale_mode != 'a_la_venta' %} Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }}.{% endif %}</span></div>
-        </div>
-        {% if settings.jc_sale_mode != 'a_la_venta' %}
-          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-        {% else %}
-        {% form 'product', nube, id: 'jcs-lab-strip-form', class: 'jcs-lab-strip__form' %}
-          <input type="hidden" name="id" value="{{ v.id }}">
-          <input type="hidden" name="quantity" value="1">
-          <input type="hidden" name="return_to" value="/checkout">
-          <button type="submit" class="jcs-btn" {% unless v.available %}disabled{% endunless %}>{% if v.available %}<span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada</span>{% endif %}</button>
-        {% endform %}
-        {% endif %}
-        <a class="jcs-link" href="{{ routes.root_url }}products/nube">Ver NUBE <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      {% endif %}
-      <div class="jcs-lab-small">
-        <p class="jcs-lab-inst">Planta 001: sacha inchi, cultivada por pequeños agricultores colombianos. <a href="{{ routes.root_url }}pages/nosotros">Conoce a quienes la cultivan &rarr;</a></p>
-        <p class="jcs-lab-inst">¿ONG, universidad, institución? Las plantas olvidadas y la saciedad son preguntas grandes. <a href="{{ wa }}{{ 'Hola, les escribo desde una organización sobre JUNGLCORE LAB:' | url_encode }}" target="_blank" rel="noopener">Escríbenos &rarr;</a></p>
-      </div>
+      <p class="jcs-lab-inst jcs-lab-follow__inst">¿ONG, universidad o institución? Escríbenos: <a href="mailto:hola@junglcore.com">hola@junglcore.com</a></p>
     </div>
   </section>
 
@@ -543,26 +283,8 @@
 </div>
 <script>
   (function () {
-    function openFromHash() {
-      var id = location.hash.slice(1); if (!id) return;
-      var el = document.getElementById(id);
-      if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ block: 'start' }); }
-    }
-    openFromHash(); window.addEventListener('hashchange', openFromHash);
-    var t = document.querySelector('[data-open-p1]');
-    if (t) t.addEventListener('click', function (e) {
-      e.preventDefault();
-      var top = document.querySelector('.jcs-lab-top'); top.classList.add('is-p1');
-      var b = document.querySelector('#jcs-lab-latest .jcs-tapvid__play');
-      document.getElementById('jcs-lab-latest').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      if (b) b.click();
-    });
-    document.querySelectorAll('.jcs-entries .jcs-entry').forEach(function (d) {
-      d.addEventListener('toggle', function () {
-        if (!d.open) { d.querySelectorAll('video').forEach(function (v) { v.pause(); }); return; }
-        document.querySelectorAll('.jcs-entries .jcs-entry[open]').forEach(function (o) { if (o !== d) o.open = false; });
-      });
-    });
+    var id = location.hash.slice(1);
+    if (/^jc-log-\d+$/.test(id) && !document.getElementById(id)) location.replace('{{ routes.root_url }}pages/bitacora#' + id);
   })();
 </script>
 
@@ -571,13 +293,7 @@
   "name": "JUNGLCORE LAB",
   "tag": "section",
   "class": "jc-exploraciones-section",
-  "settings": [
-    { "type": "header", "content": "Última entrada" },
-    { "type": "video", "id": "latest_video", "label": "Vídeo", "info": "Opcional. Sin vídeo, se muestra la película de entrada: Vinieron buscando la jungla." },
-    { "type": "text", "id": "latest_number", "label": "Número de entrada", "default": "000" },
-    { "type": "text", "id": "latest_title", "label": "Título", "default": "Vinieron buscando la jungla" },
-    { "type": "textarea", "id": "latest_line", "label": "Frase del robot", "default": "Cuatro mil días de viaje… para esto." }
-  ],
+  "settings": [],
   "presets": [{ "name": "JUNGLCORE LAB" }]
 }
 {% endschema %}

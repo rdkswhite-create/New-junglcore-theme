@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "jc_bitacora": {
+      "type": "jc-bitacora",
+      "settings": {}
+    }
+  },
+  "order": [
+    "jc_bitacora"
+  ]
+}

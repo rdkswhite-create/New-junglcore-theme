@@ -1234,3 +1234,21 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs .jcs-proposals__t { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .jcs-proposals ol { list-style: none; margin: 10px 0 0; padding: 0; border-top: 1px solid var(--rule); }
 .jcs-proposals li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
+/* Lab: bitácora card, signed close (9 nov) */
+.jcs-lab-card { padding: clamp(48px, 7vw, 90px) 0; border-top: 1px solid var(--rule); }
+.jcs-lab-card__box { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; margin-top: 18px; padding: 16px; background: #f1efe9; color: var(--ink); text-decoration: none; }
+.jcs-lab-card__box img { width: 120px; height: 160px; object-fit: cover; object-position: center 40%; }
+.jcs-lab-card__text { display: grid; gap: 8px; justify-items: start; }
+.jcs-lab-card__t { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.jcs-lab-card__l { font-size: clamp(20px, 2.4vw, 30px); font-weight: 500; line-height: 1.15; letter-spacing: -.02em; }
+.jcs-lab-card__s { font-size: 13px; color: var(--muted); }
+.jcs-lab-card__text .jcs-btn { margin-top: 6px; }
+@media (min-width: 900px) { .jcs-lab-card__box { grid-template-columns: 260px 1fr; gap: 40px; padding: 24px; } .jcs-lab-card__box img { width: 260px; height: 340px; } }
+.jcs-lab-follow .jcs-lab-follow__sign { justify-content: center; color: rgba(255,255,255,.6); margin-bottom: 22px; }
+.jcs-lab-follow .jcs-lab-follow__inst { color: rgba(255,255,255,.6); font-size: 14px; }
+.jcs-lab-follow .jcs-lab-follow__inst a { color: #f4f3ef; }
+.jcs-lab-follow .jcs-lab-strip { margin: 34px auto 0; max-width: 520px; text-align: left; }
+.jcs-crew { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+.jcs-crew li { display: flex; align-items: center; gap: 12px; font-size: 15px; }
+.jcs-crew__face { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
+@media (min-width: 900px) { .jcs-crew { grid-template-columns: repeat(3, auto); justify-content: start; gap: 28px; } }
