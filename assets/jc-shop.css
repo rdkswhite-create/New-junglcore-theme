@@ -1330,3 +1330,5 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
   .jcs-facts-line__boxes strong { font-size: 26px; letter-spacing: -.01em; }
   .jcs-facts-line__boxes span { font-size: 19px; }
 }
+/* Steps + facts: site off-white, not pure white */
+.jcs-steps-band, .jcs-facts-line { background: var(--paper); }
