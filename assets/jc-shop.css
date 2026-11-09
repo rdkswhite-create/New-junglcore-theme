@@ -1252,3 +1252,20 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-crew li { display: flex; align-items: center; gap: 12px; font-size: 15px; }
 .jcs-crew__face { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
 @media (min-width: 900px) { .jcs-crew { grid-template-columns: repeat(3, auto); justify-content: start; gap: 28px; } }
+
+/* Desktop (9 nov): hero video at its real size beside the headline; smaller strip on a band; attributes inside the frame */
+@media (min-width: 900px) {
+  .jcs-hero { min-height: min(88vh, 820px); background: #16120e; }
+  .jcs-hero__media { left: auto; right: max(calc((100vw - var(--frame)) / 2), 24px); width: auto; height: 100%; aspect-ratio: 480 / 854; }
+  .jcs-hero__media picture, .jcs-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .jcs-hero__media img { filter: grayscale(.3) sepia(.34) saturate(1.08) hue-rotate(-4deg) contrast(1.06) brightness(.92); }
+  .jcs-hero__shade { background: linear-gradient(90deg, rgba(22,18,14,1) 0%, rgba(22,18,14,.0) 0%), linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,.45) 100%); }
+  .jcs-hero__body { padding-right: calc(min(88vh, 820px) * 480 / 854 + 48px); }
+  .jcs-hero__title, .jcs-hero__answer { max-width: 640px; }
+  .jcs-strip { max-width: 860px; gap: 28px; padding: 52px 40px 36px; background: #f3f2ee; box-shadow: 0 0 0 100vmax #f3f2ee; clip-path: inset(0 -100vmax); }
+  .jcs-strip__item figcaption { font-size: 14px; }
+  .jcs-strip__item figcaption strong { font-size: 16px; }
+  .jcs-strip__arrow { font-size: 24px; }
+  .jcs-badges { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; width: var(--frame); margin: 0 auto; overflow: visible; border-left: 1px solid var(--rule); }
+  .jcs-badges li, .jcs-badges--quiet li { max-width: none; min-width: 0; }
+}
