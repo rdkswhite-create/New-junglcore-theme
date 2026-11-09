@@ -16,7 +16,7 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
 <div class="jcs-buy">
   <p class="jcs-eyebrow">NUBE · Barras congeladas de sacha inchi</p>
   {% if show_title %}<h2 class="jcs-buy__title">Tu bebida vegetal.<br>El agua la pones tú.</h2>{% endif %}
-  <p class="jcs-buy__versus"><strong>Más de seis veces la proteína.</strong> Y por vaso, menos que una bebida de almendra.</p>
+  <p class="jcs-buy__versus"><strong>Más de seis veces la proteína.</strong> Con 3 bolsas y envío gratis, {{ per_glass | money_without_trailing_zeros }} el vaso: menos que la almendra más barata del súper.</p>
   <ul class="jcs-facts">
     <li><strong>6,3 g</strong><span>Proteína por vaso</span></li>
     <li><strong>1,4 g</strong><span>Fibra</span></li>
@@ -34,13 +34,13 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
         <legend class="visually-hidden">Elige cuántas bolsas</legend>
         <label class="jcs-option">
           <input type="radio" name="quantity" value="1" checked>
-          <span><span class="jcs-option__name">1 bolsa</span><span class="jcs-option__meta">30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</span></span>
+          <span><span class="jcs-option__name">1 bolsa</span><span class="jcs-option__meta">30 vasos · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso con envío</span></span>
           <span class="jcs-option__price">{{ v.price | money_without_trailing_zeros }}</span>
         </label>
         <label class="jcs-option">
           <span class="jcs-option__tag">Envío gratis</span>
           <input type="radio" name="quantity" value="3">
-          <span><span class="jcs-option__name">3 bolsas</span><span class="jcs-option__meta">90 vasos · un trimestre de mañanas</span></span>
+          <span><span class="jcs-option__name">3 bolsas</span><span class="jcs-option__meta">90 vasos · envío gratis · {% render 'jc-glass-price', variant: v, qty: 3 %} por vaso</span></span>
           <span class="jcs-option__price">{{ three | money_without_trailing_zeros }}</span>
         </label>
       </fieldset>

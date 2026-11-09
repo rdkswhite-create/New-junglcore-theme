@@ -1203,3 +1203,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
   .jcs-strip__item figcaption strong { font-size: 17px; }
   .jcs-strip__arrow { font-size: 28px; }
 }
+
+/* Delivered price note under the versus rows (9 nov) */
+.jcs .jcs-versus__ship { margin: 10px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted); }

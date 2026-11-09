@@ -18,7 +18,7 @@ Primera tanda. With stock: Págala ya plus a quiet WhatsApp line for free reserv
     <p class="jcs-wait__date">{{ launch }}</p>
   </div>
   <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Entregamos en Bogotá desde el {{ launch }}.</p>
-  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · {{ per_glass | money_without_trailing_zeros }} por vaso</p>{% endif %}
+  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · desde {{ per_glass | money_without_trailing_zeros }} por vaso con 3 bolsas y envío gratis</p>{% endif %}
   {% if settings.jc_waitlist_count > 0 %}<p class="jcs-wait__count"><strong>{{ settings.jc_waitlist_count }}</strong> {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa.{% else %}personas ya apartaron su bolsa.{% endif %}</p>{% endif %}
   {% if perk != blank %}<p class="jcs-wait__perk"><span>De regalo</span>{{ perk }}</p>{% endif %}
 
@@ -28,9 +28,9 @@ Primera tanda. With stock: Págala ya plus a quiet WhatsApp line for free reserv
     <div class="jcs-prepay__row">
       <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
       <select id="{{ form_id }}-qty" class="jcs-prepay__qty">
-        <option value="1">1 bolsa</option>
-        <option value="2">2 bolsas</option>
-        <option value="3">3 bolsas</option>
+        <option value="1">1 bolsa · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso entregado</option>
+        <option value="2">2 bolsas · {% render 'jc-glass-price', variant: v, qty: 2 %} por vaso entregado</option>
+        <option value="3">3 bolsas · envío gratis · {% render 'jc-glass-price', variant: v, qty: 3 %} por vaso</option>
       </select>
       <a class="jcs-btn jcs-prepay__btn" href="{{ routes.root_url }}cart/{{ v.id }}:1"><span>Págala ya</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
