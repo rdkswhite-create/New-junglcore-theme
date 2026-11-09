@@ -1336,3 +1336,9 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-facts-line__in { background: #F1EFEA; border-top: 0; border-radius: 14px; padding: 22px 18px 20px; }
 .jcs .jcs-facts-line__boxes p { background: #fff; border: 0; }
 @media (min-width: 900px) { .jcs-facts-line__in { padding: 40px 44px 36px; border-radius: 18px; } }
+/* Film on mobile: always the whole 9:16 frame (captions were cut off when the browser's viewport height was short); sound button top-right, away from the captions */
+@media (max-width: 899px) {
+  .jcs-film__frame { height: auto; width: 100%; aspect-ratio: 9 / 16; }
+  .jcs-film__video { object-fit: contain; }
+}
+.jcs-film__sound { top: 14px; bottom: auto; }
