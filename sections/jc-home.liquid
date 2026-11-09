@@ -89,7 +89,7 @@
             {% if section.settings.nube_image != blank %}
               {{ section.settings.nube_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: 'Bolsa JUNGLCORE NUBE' }}
             {% else %}
-              {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'home-buy-pack', description: 'Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi' %}
+              <img class="jcs-pack-photo" src="{{ 'jc-nube-bolsa.jpg' | asset_url }}" width="1254" height="1254" loading="lazy" alt="Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi">
             {% endif %}
           </div>
         </div>

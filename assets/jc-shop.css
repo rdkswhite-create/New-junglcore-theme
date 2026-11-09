@@ -1342,3 +1342,5 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
   .jcs-film__video { object-fit: contain; }
 }
 .jcs-film__sound { top: 14px; bottom: auto; }
+.jcs-shop__visual img.jcs-pack-photo { width: 100%; height: 100%; object-fit: cover; }
+.jcs-shop__visual:has(.jcs-pack-photo) { background: #fbf8f6; }
