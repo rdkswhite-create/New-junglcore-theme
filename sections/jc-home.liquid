@@ -138,9 +138,9 @@
           <a class="jcs-btn jcs-result__pay" href="{{ routes.root_url }}cart/{{ v.id }}:1?attributes%5Borigen%5D=juego"><span>Págala ya · {{ v.price | money_without_trailing_zeros }}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           {%- endif -%}
           {%- if res_prepay -%}
-          <p class="jcs-result__when">Pagas hoy. Te llega con la primera tanda: en Bogotá, desde el {{ settings.jc_launch_label | default: '20 de noviembre' }}. ¿Prefieres pagar cuando esté lista? <a class="jcs-result__buy" href="#jc-buy" target="_blank" rel="noopener">Apártala gratis por WhatsApp &rarr;</a></p>
+          <p class="jcs-result__when">Pagas hoy. Te llega con la primera tanda: en Bogotá, desde el {{ settings.jc_launch_label | default: '20 de noviembre' }}.</p>
           {%- else -%}
-          <a class="jcs-btn jcs-result__buy" href="#jc-buy" target="_blank" rel="noopener"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Apártala por WhatsApp{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-btn jcs-result__buy" href="#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Ver la primera tanda{% else %}Comprar NUBE{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           {%- endif -%}
           <button type="button" class="jcs-btn jcs-btn--line jcs-result__save"><span>Guardar mi tarjeta</span><span class="jcs-arrow" aria-hidden="true">&darr;</span></button>
           <button type="button" class="jcs-link jcs-result__share">Mándaselo a alguien &rarr;</button>
@@ -228,8 +228,7 @@
             var nums = keys.map(function (k) { var sp = track.querySelector('li[data-k="' + k + '"] span'); return Number(sp ? sp.textContent : k); }).sort(function (x, y) { return x - y; }).map(String);
             var list = nums.length > 1 ? nums.slice(0, -1).join(', ') + ' y ' + nums[nums.length - 1] : nums[0];
             var buy = res.querySelector('.jcs-result__buy');
-            if (SALE) { buy.href = '#jc-buy'; buy.removeAttribute('target'); }
-            else buy.href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, jugué ¿Cuántas te pasan? y me salió ' + r.title.toUpperCase() + ' (me pasan la ' + list + '). Quiero apartar NUBE.');
+            if (buy) { buy.href = '#jc-buy'; buy.removeAttribute('target'); }
             var slug = r.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
             var fold = res.querySelector('.jcs-result__fold'); if (fold && window.matchMedia('(max-width: 899px)').matches) fold.open = false;
             res.hidden = false;

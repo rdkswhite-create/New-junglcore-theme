@@ -1,5 +1,5 @@
 {% doc %}
-Primera tanda. With stock: Págala ya plus a quiet WhatsApp line for free reservation. Without stock: reserve by WhatsApp or email. Email lands in Shopify Customers with the tag primera-tanda.
+Primera tanda. With stock: Págala ya (paid only, 1–10 bags). Without stock: email list only, no free reservation. Email lands in Shopify Customers with the tag primera-tanda.
 @param {object} product - The NUBE product.
 @param {string} form_id - Unique id.
 {% enddoc %}
@@ -28,9 +28,9 @@ Primera tanda. With stock: Págala ya plus a quiet WhatsApp line for free reserv
     <div class="jcs-prepay__row">
       <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
       <select id="{{ form_id }}-qty" class="jcs-prepay__qty">
-        <option value="1" data-total="{% render 'jc-delivered-total', variant: v, qty: 1 %}" data-ship="con envío" data-glass="{% render 'jc-glass-price', variant: v, qty: 1 %}">1 bolsa</option>
-        <option value="2" data-total="{% render 'jc-delivered-total', variant: v, qty: 2 %}" data-ship="con envío" data-glass="{% render 'jc-glass-price', variant: v, qty: 2 %}">2 bolsas</option>
-        <option value="3" data-total="{% render 'jc-delivered-total', variant: v, qty: 3 %}" data-ship="envío gratis" data-glass="{% render 'jc-glass-price', variant: v, qty: 3 %}">3 bolsas · envío gratis</option>
+        {%- for q in (1..10) -%}
+          <option value="{{ q }}" data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 3 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 3 %} · envío gratis{% endif %}</option>
+        {%- endfor -%}
       </select>
       <a class="jcs-btn jcs-prepay__btn" href="{{ routes.root_url }}cart/{{ v.id }}:1"><span>Págala ya</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
@@ -49,18 +49,15 @@ Primera tanda. With stock: Págala ya plus a quiet WhatsApp line for free reserv
       });
     })();
   </script>
-  {%- assign wa_free = 'Hola, quiero apartar NUBE de la primera tanda y pagar cuando esté lista. Estoy en el barrio: ' -%}
-  <p class="jcs-wait__alt">¿Prefieres pagar cuando esté lista? <a href="https://wa.me/573011571039?text={{ wa_free | url_encode }}" target="_blank" rel="noopener">Escríbenos por WhatsApp &rarr;</a></p>
   {%- else -%}
-  <p class="jcs-wait__or">Aparta tu bolsa y te escribimos el {{ contact_day }}, antes que a nadie. No pagas nada ahora: pagas cuando tu pedido esté listo, y tienes 24 horas para hacerlo.</p>
-  <a class="jcs-btn jcs-btn--full jcs-btn--line" href="https://wa.me/573011571039?text={{ wa_text | url_encode }}" target="_blank" rel="noopener"><span>Apártala por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+  <p class="jcs-wait__or">Esta tanda se agotó. Déjanos tu correo y te avisamos cuando salga la siguiente, antes que a nadie.</p>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}
-      <p class="jcs-wait__ok" role="status"><strong>Estás en la lista.</strong> Te escribimos el {{ contact_day }}.</p>
+      <p class="jcs-wait__ok" role="status"><strong>Estás en la lista.</strong> Te avisamos primero.</p>
     {% else %}
       <input type="hidden" name="contact[tags]" value="newsletter,primera-tanda">
-      <label class="jcs-wait__label" for="{{ email_id }}-input">O por correo</label>
+      <label class="jcs-wait__label" for="{{ email_id }}-input">Tu correo</label>
       <div class="jcs-wait__row">
         <input type="email" id="{{ email_id }}-input" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" autocorrect="off" autocapitalize="off" required>
         <button type="submit">Apártamela</button>

@@ -1,5 +1,5 @@
 {% doc %}
-The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, or the same order over WhatsApp.
+The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout, or the same order over WhatsApp.
 @param {object} product - The NUBE product.
 @param {string} form_id - Unique form id.
 @param {boolean} [show_title] - Show the big headline.
@@ -30,20 +30,15 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
     {% form 'product', product, id: form_id, class: 'jcs-buy__form' %}
       <input type="hidden" name="id" value="{{ v.id }}">
       <input type="hidden" name="return_to" value="/checkout">
-      <fieldset class="jcs-options">
-        <legend class="visually-hidden">Elige cuántas bolsas</legend>
-        <label class="jcs-option">
-          <input type="radio" name="quantity" value="1" checked>
-          <span><span class="jcs-option__name">1 bolsa</span><span class="jcs-option__meta">30 vasos · {% render 'jc-delivered-total', variant: v, qty: 1 %} con envío · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso</span></span>
-          <span class="jcs-option__price">{{ v.price | money_without_trailing_zeros }}</span>
-        </label>
-        <label class="jcs-option">
-          <span class="jcs-option__tag">Envío gratis</span>
-          <input type="radio" name="quantity" value="3">
-          <span><span class="jcs-option__name">3 bolsas</span><span class="jcs-option__meta">90 vasos · envío gratis · {% render 'jc-glass-price', variant: v, qty: 3 %} por vaso</span></span>
-          <span class="jcs-option__price">{{ three | money_without_trailing_zeros }}</span>
-        </label>
-      </fieldset>
+      <div class="jcs-prepay__row" style="grid-template-columns:1fr">
+        <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
+        <select id="{{ form_id }}-qty" name="quantity" class="jcs-prepay__qty">
+        {%- for q in (1..10) -%}
+          <option value="{{ q }}" data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 3 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 3 %} · envío gratis{% endif %}</option>
+        {%- endfor -%}
+        </select>
+      </div>
+      <p class="jcs-prepay__total" data-buy-total style="margin:10px 0 14px"><strong>{% render 'jc-delivered-total', variant: v, qty: 1 %}</strong> con envío · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso</p>
       {% render 'jc-eta' %}
       <button type="submit" class="jcs-btn jcs-btn--full" {% unless v.available %}disabled{% endunless %}>
         {% if v.available %}<span>Comprar</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada. Volvemos pronto.</span>{% endif %}
@@ -57,7 +52,11 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
         if (!form || !wa) return;
         form.addEventListener('change', function (e) {
           if (e.target.name !== 'quantity') return;
-          wa.href = wa.getAttribute('data-wa-' + e.target.value) || wa.href;
+          var o = e.target.options[e.target.selectedIndex], t = o.dataset.total.trim();
+          var tot = form.querySelector('[data-buy-total]');
+          if (tot) tot.innerHTML = '<strong>' + t + '</strong> ' + o.dataset.ship + ' · ' + o.dataset.glass.trim() + ' por vaso';
+          var n = e.target.value + (e.target.value === '1' ? ' bolsa' : ' bolsas');
+          wa.href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, quiero pedir NUBE: ' + n + ' (' + t + ', ' + o.dataset.ship + '). Estoy en Bogotá.');
         });
       })();
     </script>
