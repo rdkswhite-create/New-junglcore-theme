@@ -28,19 +28,25 @@ Primera tanda. With stock: Págala ya plus a quiet WhatsApp line for free reserv
     <div class="jcs-prepay__row">
       <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
       <select id="{{ form_id }}-qty" class="jcs-prepay__qty">
-        <option value="1">1 bolsa · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso entregado</option>
-        <option value="2">2 bolsas · {% render 'jc-glass-price', variant: v, qty: 2 %} por vaso entregado</option>
-        <option value="3">3 bolsas · envío gratis · {% render 'jc-glass-price', variant: v, qty: 3 %} por vaso</option>
+        <option value="1" data-total="{% render 'jc-delivered-total', variant: v, qty: 1 %}" data-ship="con envío" data-glass="{% render 'jc-glass-price', variant: v, qty: 1 %}">1 bolsa</option>
+        <option value="2" data-total="{% render 'jc-delivered-total', variant: v, qty: 2 %}" data-ship="con envío" data-glass="{% render 'jc-glass-price', variant: v, qty: 2 %}">2 bolsas</option>
+        <option value="3" data-total="{% render 'jc-delivered-total', variant: v, qty: 3 %}" data-ship="envío gratis" data-glass="{% render 'jc-glass-price', variant: v, qty: 3 %}">3 bolsas · envío gratis</option>
       </select>
       <a class="jcs-btn jcs-prepay__btn" href="{{ routes.root_url }}cart/{{ v.id }}:1"><span>Págala ya</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
+    <p class="jcs-prepay__total" data-prepay-total><strong>{% render 'jc-delivered-total', variant: v, qty: 1 %}</strong> con envío · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso</p>
     <p class="jcs-prepay__small">Pago seguro con Bold. Envío en Bogotá $20.000; gratis desde $100.000.</p>
   </div>
   <script>
     (function () {
       var box = document.currentScript.previousElementSibling; if (!box) return;
       var sel = box.querySelector('.jcs-prepay__qty'), btn = box.querySelector('.jcs-prepay__btn'), id = box.dataset.variant;
-      sel.addEventListener('change', function () { btn.href = '{{ routes.root_url }}cart/' + id + ':' + sel.value; });
+      var tot = box.querySelector('[data-prepay-total]');
+      sel.addEventListener('change', function () {
+        btn.href = '{{ routes.root_url }}cart/' + id + ':' + sel.value;
+        var o = sel.options[sel.selectedIndex];
+        if (tot && o.dataset.total) { tot.innerHTML = '<strong>' + o.dataset.total.trim() + '</strong> ' + o.dataset.ship + ' · ' + o.dataset.glass.trim() + ' por vaso'; }
+      });
     })();
   </script>
   {%- assign wa_free = 'Hola, quiero apartar NUBE de la primera tanda y pagar cuando esté lista. Estoy en el barrio: ' -%}

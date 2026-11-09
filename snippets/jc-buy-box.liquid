@@ -34,7 +34,7 @@ The NUBE buy box: the argument, the numbers, 1 or 3 bags, straight to checkout, 
         <legend class="visually-hidden">Elige cuántas bolsas</legend>
         <label class="jcs-option">
           <input type="radio" name="quantity" value="1" checked>
-          <span><span class="jcs-option__name">1 bolsa</span><span class="jcs-option__meta">30 vasos · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso con envío</span></span>
+          <span><span class="jcs-option__name">1 bolsa</span><span class="jcs-option__meta">30 vasos · {% render 'jc-delivered-total', variant: v, qty: 1 %} con envío · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso</span></span>
           <span class="jcs-option__price">{{ v.price | money_without_trailing_zeros }}</span>
         </label>
         <label class="jcs-option">

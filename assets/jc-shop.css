@@ -1206,3 +1206,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 /* Delivered price note under the versus rows (9 nov) */
 .jcs .jcs-versus__ship { margin: 10px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+/* Págala ya: delivered total under the selector (9 nov) */
+.jcs .jcs-prepay__total { margin: 10px 0 0; font-size: 15px; line-height: 1.4; }
+.jcs .jcs-prepay__total strong { font-weight: 600; }
