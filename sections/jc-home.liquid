@@ -39,6 +39,14 @@
     </div>
   </section>
 
+  <div class="jcs-strip" aria-label="Qué llega y qué haces con ella">
+    <figure class="jcs-strip__item"><img src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="eager" alt="La bolsa de NUBE"><figcaption><strong>La bolsa</strong><span>30 barras congeladas</span></figcaption></figure>
+    <span class="jcs-strip__arrow" aria-hidden="true">&rarr;</span>
+    <figure class="jcs-strip__item"><img src="{{ 'jc-strip-barra.jpg' | asset_url }}" width="800" height="800" loading="eager" alt="Una barra de NUBE congelada"><figcaption><strong>Una barra</strong><span>+ agua, a la licuadora</span></figcaption></figure>
+    <span class="jcs-strip__arrow" aria-hidden="true">&rarr;</span>
+    <figure class="jcs-strip__item"><img src="{{ 'jc-strip-vaso.jpg' | asset_url }}" width="800" height="800" loading="eager" alt="Un vaso de NUBE"><figcaption><strong>Tu bebida vegetal</strong><span>Un vaso, listo</span></figcaption></figure>
+  </div>
+
   <ul class="jcs-badges" aria-label="Lo que puedes confiar">
     {% if settings.jc_invima_number != blank %}<li><strong>Registro sanitario INVIMA</strong><span>{{ settings.jc_invima_number }}</span></li>{% endif %}
     <li><strong>Sin sellos de advertencia</strong><span>Ni uno en la etiqueta</span></li>
