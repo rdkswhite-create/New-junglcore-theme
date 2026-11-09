@@ -40,23 +40,18 @@
     </div>
   </section>
 
-  <div class="jcs-strip" aria-label="Qué llega y qué haces con ella">
-    <figure class="jcs-strip__item"><img src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="eager" alt="La bolsa de NUBE"><figcaption><strong>La bolsa</strong><span>30 barras congeladas</span></figcaption></figure>
-    <span class="jcs-strip__arrow" aria-hidden="true">&rarr;</span>
-    <figure class="jcs-strip__item"><img src="{{ 'jc-strip-barra.jpg' | asset_url }}" width="800" height="800" loading="eager" alt="Una barra de NUBE congelada"><figcaption><strong>Una barra</strong><span>+ agua, a la licuadora</span></figcaption></figure>
-    <span class="jcs-strip__arrow" aria-hidden="true">&rarr;</span>
-    <figure class="jcs-strip__item"><img src="{{ 'jc-strip-vaso.jpg' | asset_url }}" width="800" height="800" loading="eager" alt="Un vaso de NUBE"><figcaption><strong>Tu bebida vegetal</strong><span>Un vaso, listo</span></figcaption></figure>
+  <div class="jcs-steps-band">
+  <div class="jcs-strip jcs-steps" aria-label="Del congelador al vaso">
+    <figure class="jcs-strip__item"><span class="jcs-steps__t">0 s</span><img src="{{ 'jc-nube-congelador.jpg' | asset_url }}" width="941" height="1671" loading="eager" alt="Una mano saca una barra de la bolsa de NUBE en el congelador"><figcaption><strong>La barra</strong><span>Del congelador</span></figcaption></figure>
+    <figure class="jcs-strip__item"><span class="jcs-steps__t">10 s</span><img src="{{ 'jc-nube-barra-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Una mano deja caer una barra de NUBE en la licuadora con agua"><figcaption><strong>Licúa</strong><span>Con agua</span></figcaption></figure>
+    <figure class="jcs-strip__item"><span class="jcs-steps__t">27 s</span><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Un vaso de NUBE en una mesa de cocina con luz de mañana"><figcaption><strong>Listo</strong><span>Tu bebida vegetal</span></figcaption></figure>
+  </div>
   </div>
 
-  <ul class="jcs-badges jcs-badges--quiet" aria-label="Lo que puedes confiar">
-    <li><strong>6,3 g de proteína<span class="jcs-badges__m"> por vaso</span></strong><span class="jcs-badges__note">Por vaso de 200 ml</span></li>
-    <li><strong>3 ingredientes</strong><span class="jcs-badges__note">Sacha inchi, agua y goma gelana</span></li>
-    <li><strong>0 g de azúcar</strong><span class="jcs-badges__note">Ni añadida ni escondida</span></li>
-    <li><strong>Sin conservantes<span class="jcs-badges__m">: la conserva el frío</span></strong><span class="jcs-badges__note">La conserva el frío</span></li>
-    <li><strong>Sin sellos de advertencia</strong><span class="jcs-badges__note">Ni uno en la etiqueta</span></li>
-    {% if settings.jc_invima_number != blank %}<li><strong>Registro sanitario INVIMA</strong><span>{{ settings.jc_invima_number }}</span></li>{% endif %}
-    <li><strong>Hecha en Colombia</strong><span class="jcs-badges__note">De la semilla a la barra, todo aquí</span></li>
-  </ul>
+  <div class="jcs-facts-line" aria-label="Lo que puedes confiar">
+    <p class="jcs-facts-line__big">6,3 g de proteína · 3 ingredientes · 0 g de azúcar</p>
+    <p class="jcs-facts-line__small">Sin conservantes: la conserva el frío · Sin sellos de advertencia{% if settings.jc_invima_number != blank %} · Registro INVIMA {{ settings.jc_invima_number }}{% endif %} · Hecha en Colombia</p>
+  </div>
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
 
