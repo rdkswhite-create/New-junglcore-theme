@@ -58,7 +58,32 @@
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
 
+
+  <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-buy-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>01</span>NUBE</p>
+      <div class="jcs-shop__grid">
+        <div>
+          <div class="jcs-shop__visual">
+            {% if section.settings.nube_image != blank %}
+              {{ section.settings.nube_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: 'Bolsa JUNGLCORE NUBE' }}
+            {% else %}
+              {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'home-buy-pack', description: 'Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi' %}
+            {% endif %}
+          </div>
+        </div>
+        <div>
+          <h2 class="visually-hidden" id="jc-buy-title">Comprar NUBE</h2>
+          {% if nube != blank %}
+            {% render 'jc-buy-box', product: nube, form_id: 'jcs-home-buy', show_title: true %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="jcs-foryou" id="jc-foryou" aria-labelledby="jc-foryou-title">
+    <span id="juego" class="jcs-anchor" aria-hidden="true"></span>
     <div class="jcs-frame">
       <h2 class="jcs-title" id="jc-foryou-title">¿Cuántas te pasan?</h2>
       <p class="jcs-foryou__ask">Toca las que te pasan.</p>
@@ -108,7 +133,7 @@
           {%- assign res_prepay = false -%}
           {%- if settings.jc_sale_mode != 'a_la_venta' and v and v.available -%}{%- assign res_prepay = true -%}{%- endif -%}
           {%- if res_prepay -%}
-          <a class="jcs-btn jcs-result__pay" href="{{ routes.root_url }}cart/{{ v.id }}:1"><span>Págala ya · {{ v.price | money_without_trailing_zeros }}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="jcs-btn jcs-result__pay" href="{{ routes.root_url }}cart/{{ v.id }}:1?attributes%5Borigen%5D=juego"><span>Págala ya · {{ v.price | money_without_trailing_zeros }}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           {%- endif -%}
           {%- if res_prepay -%}
           <p class="jcs-result__when">Pagas hoy. Te llega con la primera tanda: en Bogotá, desde el {{ settings.jc_launch_label | default: '20 de noviembre' }}. ¿Prefieres pagar cuando esté lista? <a class="jcs-result__buy" href="#jc-buy" target="_blank" rel="noopener">Apártala gratis por WhatsApp &rarr;</a></p>
@@ -222,7 +247,7 @@
           track.addEventListener('keydown', function (e) { if (e.key !== 'Enter' && e.key !== ' ') return; var li = e.target.closest('li'); if (li && e.target === li) { e.preventDefault(); toggle(li); } });
           var thinking = document.querySelector('.jcs-thinking');
           reveal.addEventListener('click', function () {
-            shown = true; newFortune(); reveal.hidden = true; res.hidden = true; document.getElementById('jc-foryou').classList.add('is-result');
+            shown = true; window.jcJuego = true; newFortune(); reveal.hidden = true; res.hidden = true; document.getElementById('jc-foryou').classList.add('is-result');
             thinking.hidden = false; thinking.scrollIntoView({ behavior: 'smooth', block: 'center' });
             setTimeout(function () {
               thinking.hidden = true; render(); res.classList.remove('is-in'); void res.offsetWidth; res.classList.add('is-in');
@@ -282,7 +307,7 @@
           res.querySelector('.jcs-result__share').addEventListener('click', function () {
             if (!last) return;
             var text = 'Me salió ' + last.r.title.toUpperCase() + ' en ¿Cuántas te pasan? ¿Y a ti?';
-            var url = location.origin + '/#jc-foryou';
+            var url = location.origin + '/#juego';
             if (navigator.share) { navigator.share({ text: text, url: url }).catch(function () {}); }
             else window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
           });
@@ -312,29 +337,21 @@
         })();
       </script>
     </div>
-  </section>
-
-  <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-buy-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>01</span>NUBE</p>
-      <div class="jcs-shop__grid">
-        <div>
-          <div class="jcs-shop__visual">
-            {% if section.settings.nube_image != blank %}
-              {{ section.settings.nube_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: 'Bolsa JUNGLCORE NUBE' }}
-            {% else %}
-              {% render 'jc-premium-pack', product_code: 'NUBE', instance_id: 'home-buy-pack', description: 'Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi' %}
-            {% endif %}
-          </div>
-        </div>
-        <div>
-          <h2 class="visually-hidden" id="jc-buy-title">Comprar NUBE</h2>
-          {% if nube != blank %}
-            {% render 'jc-buy-box', product: nube, form_id: 'jcs-home-buy', show_title: true %}
-          {% endif %}
-        </div>
-      </div>
-    </div>
+      <script>
+        (function () {
+          // Si alguien juega y luego compra en esta página, el pedido queda marcado origen=juego.
+          document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href*="/cart/"]');
+            if (!window.jcJuego || !a || !/\/cart\/\d+:\d+/.test(a.getAttribute('href')) || a.href.indexOf('origen') > -1) return;
+            a.href += (a.href.indexOf('?') > -1 ? '&' : '?') + 'attributes%5Borigen%5D=juego';
+          }, true);
+          document.addEventListener('submit', function (e) {
+            var f = e.target;
+            if (!window.jcJuego || !f.action || f.action.indexOf('/cart/add') < 0 || f.querySelector('[name="properties[_origen]"]')) return;
+            var i = document.createElement('input'); i.type = 'hidden'; i.name = 'properties[_origen]'; i.value = 'juego'; f.appendChild(i);
+          }, true);
+        })();
+      </script>
   </section>
 
   {% render 'jc-versus', number: '02', sources_href: '/products/nube#jc-nutrition' %}
