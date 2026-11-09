@@ -7,17 +7,7 @@ JUNGLCORE header with announcement and a buy button on every page.
     assign buy_href = routes.root_url | append: 'products/nube#jc-buy'
   endif
 -%}
-{%- liquid
-  assign mq_nube = all_products['nube']
-  assign mq_v = mq_nube.selected_or_first_available_variant
--%}
-{%- capture mq -%}
-  {%- if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_count > 0 -%}<span>{{ settings.jc_waitlist_count }} {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa{% else %}personas ya apartaron su bolsa{% endif %}</span>{%- endif -%}
-  {%- if settings.jc_sale_mode != 'a_la_venta' -%}<span>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }}</span>{%- else -%}<span>A la venta en Bogotá</span>{%- endif -%}
-  {%- if mq_v and mq_v.price > 0 -%}{%- assign mq_glass = mq_v.price | divided_by: 30 -%}<span>Desde {{ mq_glass | money_without_trailing_zeros }} por vaso con 3 bolsas</span>{%- endif -%}
-  <span>6,3 g de proteína por vaso</span><span>3 ingredientes</span><span>Sin sellos de advertencia</span><span>Solo en Bogotá</span><span>Envío gratis desde $100.000</span><span>Bájale al ruido de la comida</span>
-{%- endcapture -%}
-<div class="jcs-announce jcs-marquee" role="region" aria-label="Anuncios"><div class="jcs-marquee__track"><p class="jcs-marquee__set">{{ mq }}</p><p class="jcs-marquee__set" aria-hidden="true">{{ mq }}</p></div></div>
+<div class="jcs-announce" role="region" aria-label="Anuncio"><p class="jcs-announce__line">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Bogotá{% else %}A la venta en Bogotá{% endif %}</p></div>
 <header class="jcs-header">
   <div class="jcs-header__inner">
     <a class="jcs-header__logo" href="{{ routes.root_url }}" aria-label="JUNGLCORE inicio">
