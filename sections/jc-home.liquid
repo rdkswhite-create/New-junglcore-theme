@@ -48,9 +48,16 @@
   </div>
   </div>
 
-  <div class="jcs-facts-line" aria-label="Lo que puedes confiar">
-    <p class="jcs-facts-line__big">6,3 g de proteína · 3 ingredientes · 0 g de azúcar</p>
-    <p class="jcs-facts-line__small">Sin conservantes: la conserva el frío · Sin sellos de advertencia{% if settings.jc_invima_number != blank %} · Registro INVIMA {{ settings.jc_invima_number }}{% endif %} · Hecha en Colombia</p>
+  <div class="jcs-facts-line" aria-label="En cada vaso">
+    <div class="jcs-facts-line__in">
+      <p class="jcs-facts-line__k">En cada vaso:</p>
+      <p class="jcs-facts-line__big">6,3 g de proteína · 3 ingredientes · 0 g de azúcar</p>
+      <div class="jcs-facts-line__boxes">
+        <p><strong>Sin sellos de advertencia</strong><span>Ni uno en la etiqueta</span></p>
+        <p><strong>Sin conservantes</strong><span>La conserva el frío</span></p>
+      </div>
+      <p class="jcs-facts-line__small">Vaso de 200 ml{% if settings.jc_invima_number != blank %} · Registro INVIMA {{ settings.jc_invima_number }}{% endif %} · Hecha en Colombia</p>
+    </div>
   </div>
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
