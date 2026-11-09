@@ -13,13 +13,10 @@ Mobile buy bar. Appears once the main buy box has scrolled out of view.
     <a class="jcs-btn" href="#jc-buy" tabindex="-1"><span>Pídela</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
   {% else %}
-  {% form 'product', product, id: 'jcs-sticky-form' %}
-    <input type="hidden" name="id" value="{{ v.id }}">
-    <input type="hidden" name="quantity" value="1">
-    <input type="hidden" name="return_to" value="/checkout">
+  <div class="jcs-sticky__pre">
     <div class="jcs-sticky__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>30 vasos · Bogotá · <span data-jc-eta-short>llega hoy</span></span></div>
-    <button type="submit" class="jcs-btn" tabindex="-1"><span>Comprar</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></button>
-  {% endform %}
+    <a class="jcs-btn" href="#jc-buy" tabindex="-1"><span>Pídela</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+  </div>
   {% endif %}
 </div>
 <script>

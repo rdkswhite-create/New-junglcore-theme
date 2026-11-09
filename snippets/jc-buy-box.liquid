@@ -34,17 +34,19 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
         <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
         <select id="{{ form_id }}-qty" name="quantity" class="jcs-prepay__qty">
         {%- for q in (1..10) -%}
-          <option value="{{ q }}" data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 3 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 3 %} · envío gratis{% endif %}</option>
+          <option value="{{ q }}"{% if q == 3 %} selected{% endif %} data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 3 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 3 %} · envío gratis{% endif %}</option>
         {%- endfor -%}
         </select>
       </div>
-      <p class="jcs-prepay__total" data-buy-total style="margin:10px 0 14px"><strong>{% render 'jc-delivered-total', variant: v, qty: 1 %}</strong> con envío · {% render 'jc-glass-price', variant: v, qty: 1 %} por vaso</p>
+      <div class="jcs-buy__totalrow" style="margin:10px 0 14px"><img class="jcs-buy__thumb" src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="lazy" alt="Bolsa de NUBE"><p class="jcs-prepay__total" data-buy-total style="margin:0"><strong>{% render 'jc-delivered-total', variant: v, qty: 3 %}</strong> envío gratis · {% render 'jc-glass-price', variant: v, qty: 3 %} por vaso</p></div>
+      <p class="jcs-buy__nudge" data-nudge hidden>Por {{ v.price | minus: 2000000 | money_without_trailing_zeros }} más, otra bolsa y el envío gratis.</p>
+      <p class="jcs-prepay__small">Llega congelada, por mensajero, en caja térmica. Las 3 bolsas caben en tu congelador.</p>
       {% render 'jc-eta' %}
       <button type="submit" class="jcs-btn jcs-btn--full" {% unless v.available %}disabled{% endunless %}>
-        {% if v.available %}<span>Comprar</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada. Volvemos pronto.</span>{% endif %}
+        {% if v.available %}<span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada. Volvemos pronto.</span>{% endif %}
       </button>
     {% endform %}
-    <a class="jcs-buy__wa" id="{{ form_id }}-wa" href="https://wa.me/573011571039?text={{ wa_one | url_encode }}" data-wa-1="https://wa.me/573011571039?text={{ wa_one | url_encode }}" data-wa-3="https://wa.me/573011571039?text={{ wa_three | url_encode }}" target="_blank" rel="noopener">¿Prefieres pedir por WhatsApp? <span aria-hidden="true">&rarr;</span></a>
+    <a class="jcs-buy__wa" id="{{ form_id }}-wa" href="https://wa.me/573011571039?text={{ wa_three | url_encode }}" data-wa-1="https://wa.me/573011571039?text={{ wa_one | url_encode }}" data-wa-3="https://wa.me/573011571039?text={{ wa_three | url_encode }}" target="_blank" rel="noopener">¿Prefieres pedir por WhatsApp? <span aria-hidden="true">&rarr;</span></a>
     <script>
       (function () {
         var form = document.getElementById({{ form_id | json }});
@@ -55,6 +57,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
           var o = e.target.options[e.target.selectedIndex], t = o.dataset.total.trim();
           var tot = form.querySelector('[data-buy-total]');
           if (tot) tot.innerHTML = '<strong>' + t + '</strong> ' + o.dataset.ship + ' · ' + o.dataset.glass.trim() + ' por vaso';
+          var nd = form.querySelector('[data-nudge]'); if (nd) nd.hidden = e.target.value !== '2';
           var n = e.target.value + (e.target.value === '1' ? ' bolsa' : ' bolsas');
           wa.href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, quiero pedir NUBE: ' + n + ' (' + t + ', ' + o.dataset.ship + '). Estoy en Bogotá.');
         });

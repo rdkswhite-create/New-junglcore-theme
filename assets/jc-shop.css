@@ -1218,3 +1218,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-announce__line { margin: 0; }
 .jcs .jcs-buy__star { margin: 6px 0 0; font-size: 12px; line-height: 1.4; color: var(--muted); }
 
+.jcs-buy__totalrow { display: flex; align-items: center; gap: 12px; }
+.jcs-buy__thumb { width: 56px; height: 56px; flex: none; object-fit: cover; background: #f3f2ee; }
+.jcs .jcs-buy__nudge { margin: 6px 0 0; font-size: 13px; font-weight: 600; color: var(--ink); }
+@media (min-width: 900px) { .jcs-buy__thumb { display: none; } }
