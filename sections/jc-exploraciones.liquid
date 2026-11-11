@@ -78,7 +78,7 @@
               <p class="jcs-pausa__route-k">Camino 1 · Varios estudios</p>
               <h3>Proteína y fibra.</h3>
               <p>Son los nutrientes que más llenan. Otros investigadores, en estudios con personas, vieron que dosis altas subieron el GLP-1: unos 35 g de proteína, o 10 g de una fibra fermentable preparada para el estudio.</p>
-              <p>Un vaso de NUBE trae 6,3 g de proteína y 1,4 g de fibra: menos que en esos estudios. Por eso medimos lo que hace un vaso en la vida real.</p>
+              <p>Un vaso de NUBE trae 6,2 g de proteína y 1,4 g de fibra: menos que en esos estudios. Por eso medimos lo que hace un vaso en la vida real.</p>
               <p class="jcs-pausa__route-src"><a href="https://pubmed.ncbi.nlm.nih.gov/32768415/" target="_blank" rel="noopener noreferrer">Kohanmoo y col., 2020 &rarr;</a> <a href="https://doi.org/10.1136/gutjnl-2014-307913" target="_blank" rel="noopener noreferrer">Chambers y col., 2015 &rarr;</a></p>
             </div>
             <div class="jcs-pausa__route">
@@ -227,7 +227,7 @@
         <div class="jcs-lab-next__item" id="jc-nube">
           <p class="jcs-eyebrow">NUBE · La bebida · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }}{% else %}A la venta{% endif %}</span></p>
           <h3>Una barra del congelador, agua y licuadora. 30 segundos.</h3>
-          <p>6,3 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
+          <p>6,2 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
           {% if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_perk != blank %}<p class="jcs-lab-perk">{{ settings.jc_waitlist_perk }}</p>{% endif %}
           <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
           <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ pg | money_without_trailing_zeros }} por vaso con 2 bolsas{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo Bogotá{% endif %}</p>
