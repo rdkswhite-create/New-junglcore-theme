@@ -1361,7 +1361,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-buy__wa.jcs-buy__wa--quiet { display: inline-block; border: 0; padding: 0; min-height: 0; margin-top: 10px; background: none; font-size: 13px; font-weight: 400; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }
 .jcs-buy__wa.jcs-buy__wa--quiet:hover { background: none; color: var(--ink); opacity: .7; }
 /* Bolsa que flota (todas) y que se queda fija hasta «¿Cuántas te pasan?» (solo escritorio) */
-@keyframes jcs-pack-float { 0%, 100% { transform: translateX(-7px) rotate(-1.2deg); } 50% { transform: translateX(7px) rotate(1.2deg); } }
-.jcs-shop__visual img.jcs-pack-photo { animation: jcs-pack-float 6.5s ease-in-out infinite; transform-origin: 50% 30%; will-change: transform; }
+@keyframes jcs-pack-float { 0%, 100% { transform: translateX(-9px) rotate(-1.5deg); } 50% { transform: translateX(9px) rotate(1.5deg); } }
+.jcs-shop__visual img.jcs-pack-photo { animation: jcs-pack-float 4.2s ease-in-out infinite; transform-origin: 50% 50%; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .jcs-shop__visual img.jcs-pack-photo { animation: none; } }
 @media (min-width: 900px) { #jc-buy .jcs-shop__grid > div:first-child { align-self: stretch; } #jc-buy .jcs-shop__visual { position: sticky; top: 96px; } }
