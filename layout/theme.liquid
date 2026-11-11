@@ -349,7 +349,7 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% unless template.name == 'index' or template.suffix == 'exploraciones' or template.suffix == 'jc-nube' or template.suffix == 'jc-nosotros' or template.suffix == 'bitacora' %}
+    {% unless template.name == 'index' or template.suffix == 'exploraciones' or template.suffix == 'jc-nube' or template.suffix == 'jc-nosotros' or template.suffix == 'bitacora' or template.suffix == 'mas-alla-del-vaso' %}
       {% sections 'header-group' %}
     {% endunless %}
 
@@ -363,7 +363,7 @@
       {{ content_for_layout }}
     </main>
 
-    {% unless template.name == 'index' or template.suffix == 'exploraciones' or template.suffix == 'jc-nube' or template.suffix == 'jc-nosotros' or template.suffix == 'bitacora' %}
+    {% unless template.name == 'index' or template.suffix == 'exploraciones' or template.suffix == 'jc-nube' or template.suffix == 'jc-nosotros' or template.suffix == 'bitacora' or template.suffix == 'mas-alla-del-vaso' %}
       {% sections 'footer-group' %}
     {% endunless %}
 

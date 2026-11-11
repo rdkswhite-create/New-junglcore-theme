@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "jc_mas_alla": {
+      "type": "jc-mas-alla",
+      "settings": {}
+    }
+  },
+  "order": [
+    "jc_mas_alla"
+  ]
+}

@@ -1,0 +1,44 @@
+{%- comment -%} MÁS ALLÁ DEL VASO · destination of the QR printed on the NUBE bag. Four links. {%- endcomment -%}
+{{ 'jc-shop.css' | asset_url | stylesheet_tag }}
+<div class="jcs" id="top">
+  {% render 'jc-header' %}
+  <main class="jcs-beyond">
+    <div class="jcs-frame">
+      <p class="jcs-beyond__kicker">JUNGLCORE · NUBE</p>
+      <h1 class="jcs-display jcs-beyond__title">Más allá del vaso.</h1>
+      <p class="jcs-lead">Una planta de Colombia. Una bebida que preparas a tu manera. Lo que hay detrás.</p>
+      <nav class="jcs-beyond__list" aria-label="Más allá del vaso">
+        <a class="jcs-beyond__item" href="/pages/nosotros#jc-about-002">
+          <span class="jcs-beyond__n">01</span>
+          <span class="jcs-beyond__body"><strong>Origen</strong><span>Quiénes cultivan la sacha inchi y dónde. Emilio, en Santander, y la asociación de agricultores.</span></span>
+          <span class="jcs-beyond__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="jcs-beyond__item" href="/products/nube#jc-textura">
+          <span class="jcs-beyond__n">02</span>
+          <span class="jcs-beyond__body"><strong>Tu bebida, a tu gusto</strong><span>150 ml de agua, más cremosa. 200 ml, más ligera. Fría o caliente.</span></span>
+          <span class="jcs-beyond__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="jcs-beyond__item" href="/pages/exploraciones">
+          <span class="jcs-beyond__n">03</span>
+          <span class="jcs-beyond__body"><strong>JUNGLCORE LAB</strong><span>Lo que investigamos sobre la comida que ya existe.</span></span>
+          <span class="jcs-beyond__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="jcs-beyond__item" href="/products/nube#jc-buy">
+          <span class="jcs-beyond__n">04</span>
+          <span class="jcs-beyond__body"><strong>NUBE</strong><span>¿Se te acabó? Pide otra bolsa. Envío gratis desde 2.</span></span>
+          <span class="jcs-beyond__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </nav>
+    </div>
+  </main>
+  {% render 'jc-footer' %}
+</div>
+
+{% schema %}
+{
+  "name": "JUNGLCORE Más allá",
+  "tag": "section",
+  "class": "jc-mas-alla-section",
+  "settings": []
+}
+{% endschema %}

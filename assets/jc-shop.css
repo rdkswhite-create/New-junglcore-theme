@@ -1365,3 +1365,35 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-shop__visual img.jcs-pack-photo { animation: jcs-pack-float 4.2s ease-in-out infinite; transform-origin: 50% 50%; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .jcs-shop__visual img.jcs-pack-photo { animation: none; } }
 @media (min-width: 900px) { #jc-buy .jcs-shop__grid > div:first-child { align-self: stretch; } #jc-buy .jcs-shop__visual { position: sticky; top: 96px; } }
+
+/* Textura · Procedencia · línea de origen · Más allá del vaso */
+.jcs-textlink { display: inline-flex; gap: 8px; align-items: baseline; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 3px; }
+.jcs-textlink:hover { opacity: .65; }
+.jcs-texture, .jcs-prov { padding: clamp(56px, 8vw, 110px) 0 0; }
+.jcs-texture__head { display: grid; gap: 12px; margin: clamp(22px, 3vw, 36px) 0 clamp(26px, 4vw, 44px); }
+.jcs-texture__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.jcs-texture__opt { background: var(--paper); padding: clamp(22px, 3vw, 40px); }
+.jcs-texture__ml { font-size: clamp(48px, 8vw, 104px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+.jcs-texture__ml span { font-size: .32em; letter-spacing: .02em; margin-left: 4px; }
+.jcs-texture__name { margin-top: 14px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+.jcs-texture__desc { margin-top: 8px; font-size: 15px; line-height: 1.5; color: var(--muted); max-width: 30ch; }
+.jcs-texture__how { margin-top: 16px; font-size: 13px; color: var(--muted); }
+.jcs-prov__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 72px); align-items: center; margin-top: clamp(22px, 3vw, 36px); }
+.jcs-prov__figure img { width: 100%; height: auto; display: block; }
+.jcs-prov__figure figcaption { margin-top: 8px; font-size: 12px; color: var(--muted); }
+.jcs-prov__copy { display: grid; gap: 16px; justify-items: start; }
+@media (max-width: 749px) { .jcs-prov__grid { grid-template-columns: 1fr; } .jcs-texture__grid { grid-template-columns: 1fr; } }
+.jcs-origin-line { padding: clamp(28px, 4vw, 44px) 0 0; }
+.jcs-origin-line p { font-size: 15px; line-height: 1.6; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+.jcs-origin-line strong { color: var(--ink); font-weight: 600; }
+.jcs-beyond { padding: clamp(40px, 7vw, 96px) 0 clamp(56px, 8vw, 120px); }
+.jcs-beyond__kicker { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.jcs-beyond__title { margin: 18px 0 18px; }
+.jcs-beyond__list { margin-top: clamp(32px, 5vw, 60px); border-top: 1px solid var(--ink); max-width: 900px; }
+.jcs-beyond__item { display: grid; grid-template-columns: 48px 1fr 24px; gap: 14px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+.jcs-beyond__item:hover .jcs-beyond__arrow { transform: translateX(4px); }
+.jcs-beyond__n { font-size: 11px; font-weight: 600; letter-spacing: .16em; padding-top: 6px; color: var(--muted); }
+.jcs-beyond__body { display: grid; gap: 6px; }
+.jcs-beyond__body strong { font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; letter-spacing: -.02em; text-transform: uppercase; }
+.jcs-beyond__body span { font-size: 15px; line-height: 1.5; color: var(--muted); }
+.jcs-beyond__arrow { padding-top: 6px; transition: transform .2s ease; }
