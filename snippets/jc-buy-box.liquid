@@ -24,6 +24,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
     <li><strong>3</strong><span>Ingredientes</span></li>
   </ul>
   <p class="jcs-buy__without">Ligera · Sin azúcares añadidos · Sin lácteos · Sin aceites añadidos</p>
+  <figure class="jcs-buy__demo"><video src="{{ 'jc-nube-demo.mp4' | asset_url }}" poster="{{ 'jc-nube-demo-poster.jpg' | asset_url }}" width="720" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Una barra de NUBE sale del congelador, entra en la licuadora con agua y se sirve en un vaso"></video><figcaption>Una barra, agua, 30 segundos de licuadora. Un vaso.</figcaption></figure>
   {% if settings.jc_sale_mode != 'a_la_venta' %}
     {% render 'jc-waitlist', product: product, form_id: form_id %}
   {% elsif v and v.price > 0 %}
@@ -41,12 +42,13 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
       <div class="jcs-buy__totalrow" style="margin:10px 0 14px"><img class="jcs-buy__thumb" src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="lazy" alt="Bolsa de NUBE"><p class="jcs-prepay__total" data-buy-total style="margin:0"><strong>{% render 'jc-delivered-total', variant: v, qty: 2 %}</strong> envío gratis · {% render 'jc-glass-price', variant: v, qty: 2 %} por vaso</p></div>
       <p class="jcs-buy__nudge" data-nudge hidden>Por {{ v.price | minus: 2000000 | money_without_trailing_zeros }} más, otra bolsa y el envío gratis.</p>
       <p class="jcs-prepay__small">Llega congelada, por mensajero, en caja térmica. Las 2 bolsas caben en tu congelador.</p>
+      <p class="jcs-prepay__small"><strong>¿Llegó descongelada? Te la reponemos.</strong></p>
       {% render 'jc-eta' %}
       <button type="submit" class="jcs-btn jcs-btn--full" {% unless v.available %}disabled{% endunless %}>
         {% if v.available %}<span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada. Volvemos pronto.</span>{% endif %}
       </button>
     {% endform %}
-    <a class="jcs-buy__wa" id="{{ form_id }}-wa" href="https://wa.me/573011571039?text={{ wa_two | url_encode }}" data-wa-1="https://wa.me/573011571039?text={{ wa_one | url_encode }}" data-wa-2="https://wa.me/573011571039?text={{ wa_two | url_encode }}" target="_blank" rel="noopener">¿Prefieres pedir por WhatsApp? <span aria-hidden="true">&rarr;</span></a>
+    <a class="jcs-buy__wa jcs-buy__wa--quiet" id="{{ form_id }}-wa" href="https://wa.me/573011571039?text={{ 'Hola, tengo una duda sobre NUBE: ' | url_encode }}" data-wa-1="https://wa.me/573011571039?text={{ wa_one | url_encode }}" data-wa-2="https://wa.me/573011571039?text={{ wa_two | url_encode }}" target="_blank" rel="noopener">¿Dudas sobre el sabor, la preparación o la entrega? Escríbenos <span aria-hidden="true">&rarr;</span></a>
     <script>
       (function () {
         var form = document.getElementById({{ form_id | json }});
@@ -58,8 +60,6 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
           var tot = form.querySelector('[data-buy-total]');
           if (tot) tot.innerHTML = '<strong>' + t + '</strong> ' + o.dataset.ship + ' · ' + o.dataset.glass.trim() + ' por vaso';
           var nd = form.querySelector('[data-nudge]'); if (nd) nd.hidden = e.target.value !== '1';
-          var n = e.target.value + (e.target.value === '1' ? ' bolsa' : ' bolsas');
-          wa.href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, quiero pedir NUBE: ' + n + ' (' + t + ', ' + o.dataset.ship + '). Estoy en Bogotá.');
         });
       })();
     </script>

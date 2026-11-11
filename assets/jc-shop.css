@@ -1350,3 +1350,13 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 @media (max-width: 749px){ .jcs-header__logo img { width: 150px; } }
 .jcs-footer__brand img { width: min(260px, 80%); }
 .jcs-hero__wordmark { opacity: .92; }
+
+/* Demo junto a la compra · formulario de aviso apilado */
+.jcs-buy__demo { margin: 18px 0 6px; }
+.jcs-buy__demo video { display: block; width: 100%; max-width: 420px; aspect-ratio: 1 / 1; height: auto; object-fit: cover; background: #1a1714; }
+.jcs-buy__demo figcaption { margin-top: 8px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.jcs-wait__row--stack { flex-direction: column; }
+.jcs-wait__row--stack input { min-height: 52px; }
+.jcs-wait__row--stack button { border-left: 0; border-top: 1px solid var(--rule); min-height: 52px; }
+.jcs-buy__wa.jcs-buy__wa--quiet { display: inline-block; border: 0; padding: 0; min-height: 0; margin-top: 10px; background: none; font-size: 13px; font-weight: 400; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }
+.jcs-buy__wa.jcs-buy__wa--quiet:hover { background: none; color: var(--ink); opacity: .7; }
