@@ -230,7 +230,7 @@
           <p>6,3 g de proteína por vaso. Sabe suave, un poco a nuez.</p>
           {% if settings.jc_sale_mode != 'a_la_venta' and settings.jc_waitlist_perk != blank %}<p class="jcs-lab-perk">{{ settings.jc_waitlist_perk }}</p>{% endif %}
           <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ pg | money_without_trailing_zeros }} por vaso con 3 bolsas{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo Bogotá{% endif %}</p>
+          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ pg | money_without_trailing_zeros }} por vaso con 2 bolsas{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo Bogotá{% endif %}</p>
           <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa &rarr;</a></div>
         </div>
         <div class="jcs-lab-soon">

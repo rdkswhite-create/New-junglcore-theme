@@ -7,17 +7,17 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
 {%- liquid
   assign v = product.selected_or_first_available_variant
   assign per_glass = v.price | divided_by: 30
-  assign three = v.price | times: 3
+  assign two = v.price | times: 2
   assign price_one = v.price | money_without_trailing_zeros
-  assign price_three = three | money_without_trailing_zeros
+  assign price_two = two | money_without_trailing_zeros
   assign wa_one = 'Hola, quiero pedir NUBE: 1 bolsa (' | append: price_one | append: '). Estoy en Bogotá.'
-  assign wa_three = 'Hola, quiero pedir NUBE: 3 bolsas (' | append: price_three | append: '). Estoy en Bogotá.'
+  assign wa_two = 'Hola, quiero pedir NUBE: 2 bolsas (' | append: price_two | append: '). Estoy en Bogotá.'
 -%}
 <div class="jcs-buy">
   <p class="jcs-eyebrow">NUBE · Barras congeladas de sacha inchi</p>
   {% if show_title %}<h2 class="jcs-buy__title">Tu bebida vegetal.<br>El agua la pones tú.</h2>{% endif %}
   <p class="jcs-buy__versus"><strong>Seis veces la proteína de una bebida de almendra:</strong> 6,3 g frente a 1 g o menos, por vaso de 200 ml. <strong>Y el vaso cuesta menos que la almendra más barata del supermercado*:</strong> {{ per_glass | money_without_trailing_zeros }} frente a $1.650.</p>
-  <p class="jcs-buy__star" style="margin:6px 0 0;font-size:12px;line-height:1.4;color:var(--muted);">* Comprando 3 bolsas o más.</p>
+  <p class="jcs-buy__star" style="margin:6px 0 0;font-size:12px;line-height:1.4;color:var(--muted);">* Comprando 2 bolsas o más.</p>
   <ul class="jcs-facts">
     <li><strong>6,3 g</strong><span>Proteína por vaso</span></li>
     <li><strong>1,4 g</strong><span>Fibra</span></li>
@@ -34,19 +34,19 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
         <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
         <select id="{{ form_id }}-qty" name="quantity" class="jcs-prepay__qty">
         {%- for q in (1..10) -%}
-          <option value="{{ q }}"{% if q == 3 %} selected{% endif %} data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 3 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 3 %} · envío gratis{% endif %}</option>
+          <option value="{{ q }}"{% if q == 2 %} selected{% endif %} data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 2 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 2 %} · envío gratis{% endif %}</option>
         {%- endfor -%}
         </select>
       </div>
-      <div class="jcs-buy__totalrow" style="margin:10px 0 14px"><img class="jcs-buy__thumb" src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="lazy" alt="Bolsa de NUBE"><p class="jcs-prepay__total" data-buy-total style="margin:0"><strong>{% render 'jc-delivered-total', variant: v, qty: 3 %}</strong> envío gratis · {% render 'jc-glass-price', variant: v, qty: 3 %} por vaso</p></div>
+      <div class="jcs-buy__totalrow" style="margin:10px 0 14px"><img class="jcs-buy__thumb" src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="lazy" alt="Bolsa de NUBE"><p class="jcs-prepay__total" data-buy-total style="margin:0"><strong>{% render 'jc-delivered-total', variant: v, qty: 2 %}</strong> envío gratis · {% render 'jc-glass-price', variant: v, qty: 2 %} por vaso</p></div>
       <p class="jcs-buy__nudge" data-nudge hidden>Por {{ v.price | minus: 2000000 | money_without_trailing_zeros }} más, otra bolsa y el envío gratis.</p>
-      <p class="jcs-prepay__small">Llega congelada, por mensajero, en caja térmica. Las 3 bolsas caben en tu congelador.</p>
+      <p class="jcs-prepay__small">Llega congelada, por mensajero, en caja térmica. Las 2 bolsas caben en tu congelador.</p>
       {% render 'jc-eta' %}
       <button type="submit" class="jcs-btn jcs-btn--full" {% unless v.available %}disabled{% endunless %}>
         {% if v.available %}<span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span>{% else %}<span>Agotada. Volvemos pronto.</span>{% endif %}
       </button>
     {% endform %}
-    <a class="jcs-buy__wa" id="{{ form_id }}-wa" href="https://wa.me/573011571039?text={{ wa_three | url_encode }}" data-wa-1="https://wa.me/573011571039?text={{ wa_one | url_encode }}" data-wa-3="https://wa.me/573011571039?text={{ wa_three | url_encode }}" target="_blank" rel="noopener">¿Prefieres pedir por WhatsApp? <span aria-hidden="true">&rarr;</span></a>
+    <a class="jcs-buy__wa" id="{{ form_id }}-wa" href="https://wa.me/573011571039?text={{ wa_two | url_encode }}" data-wa-1="https://wa.me/573011571039?text={{ wa_one | url_encode }}" data-wa-2="https://wa.me/573011571039?text={{ wa_two | url_encode }}" target="_blank" rel="noopener">¿Prefieres pedir por WhatsApp? <span aria-hidden="true">&rarr;</span></a>
     <script>
       (function () {
         var form = document.getElementById({{ form_id | json }});
@@ -57,7 +57,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
           var o = e.target.options[e.target.selectedIndex], t = o.dataset.total.trim();
           var tot = form.querySelector('[data-buy-total]');
           if (tot) tot.innerHTML = '<strong>' + t + '</strong> ' + o.dataset.ship + ' · ' + o.dataset.glass.trim() + ' por vaso';
-          var nd = form.querySelector('[data-nudge]'); if (nd) nd.hidden = e.target.value !== '2';
+          var nd = form.querySelector('[data-nudge]'); if (nd) nd.hidden = e.target.value !== '1';
           var n = e.target.value + (e.target.value === '1' ? ' bolsa' : ' bolsas');
           wa.href = 'https://wa.me/573011571039?text=' + encodeURIComponent('Hola, quiero pedir NUBE: ' + n + ' (' + t + ', ' + o.dataset.ship + '). Estoy en Bogotá.');
         });
@@ -67,7 +67,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
   {%- assign check_id = form_id | append: '-check' -%}
   {% render 'jc-delivery-check', id: check_id %}
   <div class="jcs-buy__notes">
-    <p><strong>Solo en Bogotá, por ahora.</strong> Lunes a sábado, sin festivos. Envío $20.000 · gratis desde $100.000.</p>
+    <p><strong>Solo en Bogotá, por ahora.</strong> Lunes a sábado, sin festivos. Envío $20.000 · gratis desde 2 bolsas.</p>
     <p><strong>Sacha inchi, agua y goma gelana.</strong> Los contamos con una mano y nos sobraron dos dedos.</p>
     <p><strong>¿A qué sabe?</strong> Suave, un poco a nuez, sin dulce añadido. ¿La quieres más espesa? Menos agua.</p>
   </div>

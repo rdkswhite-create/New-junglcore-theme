@@ -18,7 +18,7 @@ Primera tanda. With stock: Págala ya (paid only, 1–10 bags). Without stock: e
     <p class="jcs-wait__date">{{ launch }}</p>
   </div>
   <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Entregamos en Bogotá desde el {{ launch }}.</p>
-  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · desde {{ per_glass | money_without_trailing_zeros }} por vaso con 3 bolsas y envío gratis</p>{% endif %}
+  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · desde {{ per_glass | money_without_trailing_zeros }} por vaso con 2 bolsas y envío gratis</p>{% endif %}
   {% if settings.jc_waitlist_count > 0 %}<p class="jcs-wait__count"><strong>{{ settings.jc_waitlist_count }}</strong> {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa.{% else %}personas ya apartaron su bolsa.{% endif %}</p>{% endif %}
   {% if perk != blank %}<p class="jcs-wait__perk"><span>De regalo</span>{{ perk }}</p>{% endif %}
 
@@ -29,15 +29,15 @@ Primera tanda. With stock: Págala ya (paid only, 1–10 bags). Without stock: e
       <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
       <select id="{{ form_id }}-qty" class="jcs-prepay__qty">
         {%- for q in (1..10) -%}
-          <option value="{{ q }}"{% if q == 3 %} selected{% endif %} data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 3 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 3 %} · envío gratis{% endif %}</option>
+          <option value="{{ q }}"{% if q == 2 %} selected{% endif %} data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 2 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 2 %} · envío gratis{% endif %}</option>
         {%- endfor -%}
       </select>
-      <a class="jcs-btn jcs-prepay__btn" href="{{ routes.root_url }}cart/{{ v.id }}:3"><span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jcs-btn jcs-prepay__btn" href="{{ routes.root_url }}cart/{{ v.id }}:2"><span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
-    <div class="jcs-buy__totalrow"><img class="jcs-buy__thumb" src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="lazy" alt="Bolsa de NUBE"><p class="jcs-prepay__total" data-prepay-total><strong>{% render 'jc-delivered-total', variant: v, qty: 3 %}</strong> envío gratis · {% render 'jc-glass-price', variant: v, qty: 3 %} por vaso</p></div>
+    <div class="jcs-buy__totalrow"><img class="jcs-buy__thumb" src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="lazy" alt="Bolsa de NUBE"><p class="jcs-prepay__total" data-prepay-total><strong>{% render 'jc-delivered-total', variant: v, qty: 2 %}</strong> envío gratis · {% render 'jc-glass-price', variant: v, qty: 2 %} por vaso</p></div>
     <p class="jcs-buy__nudge" data-nudge hidden>Por {{ v.price | minus: 2000000 | money_without_trailing_zeros }} más, otra bolsa y el envío gratis.</p>
-    <p class="jcs-prepay__small">Pago seguro con Bold. Envío en Bogotá $20.000; gratis desde $100.000.</p>
-    <p class="jcs-prepay__small">Llega congelada, por mensajero, en caja térmica. Las 3 bolsas caben en tu congelador.</p>
+    <p class="jcs-prepay__small">Pago seguro con Bold. Envío en Bogotá $20.000; gratis desde 2 bolsas.</p>
+    <p class="jcs-prepay__small">Llega congelada, por mensajero, en caja térmica. Las 2 bolsas caben en tu congelador.</p>
   </div>
   <script>
     (function () {
@@ -48,7 +48,7 @@ Primera tanda. With stock: Págala ya (paid only, 1–10 bags). Without stock: e
         btn.href = '{{ routes.root_url }}cart/' + id + ':' + sel.value;
         var o = sel.options[sel.selectedIndex];
         if (tot && o.dataset.total) { tot.innerHTML = '<strong>' + o.dataset.total.trim() + '</strong> ' + o.dataset.ship + ' · ' + o.dataset.glass.trim() + ' por vaso'; }
-        var nd = box.querySelector('[data-nudge]'); if (nd) nd.hidden = sel.value !== '2';
+        var nd = box.querySelector('[data-nudge]'); if (nd) nd.hidden = sel.value !== '1';
       });
     })();
   </script>

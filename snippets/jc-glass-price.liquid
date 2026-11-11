@@ -1,12 +1,12 @@
 {% doc %}
-Price per glass delivered for a number of bags: bag price plus Bogotá delivery ($20.000, free from $100.000), divided by 30 glasses per bag, rounded to the nearest $1. Outputs the formatted money.
+Price per glass delivered for a number of bags: bag price plus Bogotá delivery ($20.000, free from 2 bags ($79.800)), divided by 30 glasses per bag, rounded to the nearest $1. Outputs the formatted money.
 @param {object} variant - The NUBE variant.
 @param {number} qty - Number of bags.
 {% enddoc %}
 {%- liquid
   assign gp_sub = variant.price | times: qty
   assign gp_ship = 0
-  if gp_sub < 10000000
+  if gp_sub < 7980000
     assign gp_ship = 2000000
   endif
   assign gp_glasses = qty | times: 30

@@ -1,12 +1,12 @@
 {% doc %}
-Total paid for a number of bags, delivered in Bogotá: bag price times quantity plus $20.000 delivery, free from $100.000. Outputs the formatted money.
+Total paid for a number of bags, delivered in Bogotá: bag price times quantity plus $20.000 delivery, free from 2 bags ($79.800). Outputs the formatted money.
 @param {object} variant - The NUBE variant.
 @param {number} qty - Number of bags.
 {% enddoc %}
 {%- liquid
   assign dt_sub = variant.price | times: qty
   assign dt_ship = 0
-  if dt_sub < 10000000
+  if dt_sub < 7980000
     assign dt_ship = 2000000
   endif
   assign dt_total = dt_sub | plus: dt_ship
