@@ -15,6 +15,7 @@
           <div class="jcs-gal" id="jcs-gal">
             <div class="jcs-gal__track" tabindex="0" aria-label="Fotos de NUBE">
               <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-barra-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="eager" fetchpriority="high" style="object-position: center 48%" alt="Una mujer deja caer una barra congelada de NUBE en la licuadora con agua; la bolsa está sobre la mesa"><figcaption>Una barra, agua.</figcaption></figure>
+              <figure class="jcs-gal__slide jcs-gal__slide--video"><video src="{{ 'jc-preparacion.mp4' | asset_url }}" poster="{{ 'jc-preparacion-poster.jpg' | asset_url }}" width="1280" height="720" muted loop playsinline preload="metadata" aria-label="Una barra de NUBE entra en la licuadora, se le agrega agua, se licúa y se sirve en un vaso"></video><figcaption>Así se prepara.</figcaption></figure>
               <figure class="jcs-gal__slide"><img src="{{ 'jc-paso-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 48%" alt="Una mujer deja caer una barra de NUBE en la licuadora con agua, junto a la ventana"><figcaption>Licúa 30 segundos.</figcaption></figure>
               <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 55%" alt="Un vaso alto de bebida de NUBE recién servida junto a la ventana, con la mano de una mujer al lado"><figcaption>6,2 g de proteína por vaso.</figcaption></figure>
               <figure class="jcs-gal__slide jcs-gal__slide--pack"><img src="{{ 'jc-nube-bolsa.jpg' | asset_url }}" width="1254" height="1254" loading="lazy" alt="Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi, 600 g"><figcaption>30 barras · 600 g · 30 vasos.</figcaption></figure>
@@ -22,16 +23,16 @@
               <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-taza.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 50%" alt="Dos manos sostienen una taza de agua caliente donde se deshace una barra de NUBE"><figcaption>De noche, en agua caliente.</figcaption></figure>
             </div>
             <div class="jcs-gal__dots" role="tablist" aria-label="Elegir foto">
-              {%- for i in (1..6) -%}<button type="button" class="jcs-gal__dot{% if i == 1 %} is-active{% endif %}" aria-label="Foto {{ i }}"></button>{%- endfor -%}
+              {%- for i in (1..7) -%}<button type="button" class="jcs-gal__dot{% if i == 1 %} is-active{% endif %}" aria-label="Foto {{ i }}"></button>{%- endfor -%}
             </div>
           </div>
           <script>
             (function () {
               var g = document.getElementById('jcs-gal'); if (!g) return;
-              var t = g.querySelector('.jcs-gal__track'), dots = g.querySelectorAll('.jcs-gal__dot');
+              var t = g.querySelector('.jcs-gal__track'), dots = g.querySelectorAll('.jcs-gal__dot'), vid = g.querySelector('video');
               dots.forEach(function (d, i) { d.addEventListener('click', function () { t.scrollTo({ left: i * t.clientWidth, behavior: 'smooth' }); }); });
               var raf; t.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(function () {
-                var i = Math.round(t.scrollLeft / t.clientWidth); dots.forEach(function (d, j) { d.classList.toggle('is-active', i === j); }); }); }, { passive: true });
+                var i = Math.round(t.scrollLeft / t.clientWidth); dots.forEach(function (d, j) { d.classList.toggle('is-active', i === j); }); if (vid) { if (i === 1) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); } else { vid.pause(); } } }); }, { passive: true });
             })();
           </script>
         </div>
@@ -45,7 +46,7 @@
             {% if settings.jc_sale_mode != 'a_la_venta' %}<li><strong>Lote 001</strong><span>{{ settings.jc_launch_label | default: 'diciembre' }} · Bogotá</span></li>{% else %}<li><strong>Bogotá</strong><span data-jc-eta-short>llega hoy</span></li>{% endif %}
           </ul>
           <p class="jcs-lead jcs-pdp-lead">Sacha inchi de Santander, Norte de Santander y Valle del Cauca. Una barra congelada, agua y 30 segundos. Vive en tu congelador.</p>
-          <div style="margin-top:28px">{% render 'jc-buy-box', product: product, form_id: 'jcs-product-buy', show_title: false %}</div>
+          <div style="margin-top:28px">{% render 'jc-buy-box', product: product, form_id: 'jcs-product-buy', show_title: false, calm: true %}</div>
         </div>
       </div>
     </div>

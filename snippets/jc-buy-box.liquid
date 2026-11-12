@@ -3,6 +3,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
 @param {object} product - The NUBE product.
 @param {string} form_id - Unique form id.
 @param {boolean} [show_title] - Show the big headline.
+@param {boolean} [calm] - Only the list (or the buy form) and the delivery check: no eyebrow, comparison paragraph, tags or notes (the NUBE page has its own sections for those).
 @param {boolean} [list_separate] - Before the sale opens, leave the list and the delivery check out (the page renders them in their own section).
 {% enddoc %}
 {%- liquid
@@ -15,6 +16,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
   assign wa_two = 'Hola, quiero pedir NUBE: 2 bolsas (' | append: price_two | append: '). Estoy en Bogotá.'
 -%}
 <div class="jcs-buy">
+  {%- unless calm -%}
   <p class="jcs-eyebrow">NUBE · Barras congeladas de sacha inchi</p>
   {% if show_title %}<h2 class="jcs-buy__title">Tu bebida vegetal.<br>El agua la pones tú.</h2>{% endif %}
   <p class="jcs-buy__versus"><strong>Seis veces la proteína de una bebida de almendra:</strong> 6,2 g frente a 1 g o menos, por vaso de 200 ml. <strong>Y el vaso cuesta menos que la bebida de almendra más barata que encontramos en el supermercado*:</strong> {{ per_glass | money_without_trailing_zeros }} frente a $1.650.</p>
@@ -25,6 +27,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
     <li><strong>3</strong><span>Ingredientes</span></li>
   </ul>
   <p class="jcs-buy__without">Ligera · Sin azúcares añadidos · Sin lácteos · Sin aceites añadidos</p>
+  {%- endunless -%}
   {% if settings.jc_sale_mode != 'a_la_venta' %}
     {% unless list_separate %}{% render 'jc-waitlist', product: product, form_id: form_id %}{% endunless %}
   {% elsif v and v.price > 0 %}
@@ -66,9 +69,11 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
   {% endif %}
   {%- assign check_id = form_id | append: '-check' -%}
   {% unless list_separate and settings.jc_sale_mode != 'a_la_venta' %}{% render 'jc-delivery-check', id: check_id %}{% endunless %}
+  {%- unless calm -%}
   <div class="jcs-buy__notes">
     <p><strong>Solo en Bogotá, por ahora.</strong> Con 2 bolsas, el envío va incluido.</p>
     <p><strong>Sacha inchi, agua y goma gelana.</strong> Los contamos con una mano y nos sobraron dos dedos.</p>
     <p><strong>¿A qué sabe?</strong> Nota a avena tostada, final a nuez, sin dulce añadido. Cremosa con 150 ml de agua; Ligera con 200.</p>
   </div>
+  {%- endunless -%}
 </div>

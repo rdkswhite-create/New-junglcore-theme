@@ -1525,3 +1525,6 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-versus--drop .jcs-versus__rows { margin-top: 0; }
 .jcs-versus--drop .jcs-versus__ship { margin-top: 12px; }
 .jcs-versus--drop .jcs-nube__more { margin-top: 14px; }
+
+/* NUBE page gallery: slide 2 is the real footage */
+.jcs-gal__slide video { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(.3) sepia(.34) saturate(1.08) hue-rotate(-4deg) contrast(1.06); }
