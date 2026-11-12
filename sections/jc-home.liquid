@@ -130,6 +130,7 @@
     <div class="jcs-frame jcs-biz__in">
       <h2 class="jcs-title" id="jc-biz-title">¿Tienes un café, restaurante u oficina?</h2>
       <p class="jcs-lead">Pruébala antes que nadie. Te llevamos NUBE y la preparamos contigo.</p>
+      {%- if v and v.price > 0 -%}{%- assign biz_pg = v.price | divided_by: 30 -%}<p class="jcs-biz__price"><strong>{{ biz_pg | money_without_trailing_zeros }} por bebida.</strong> Sin cajas abiertas que se dañan.</p>{%- endif -%}
       <a class="jcs-btn" href="https://wa.me/573011571039?text={{ 'Hola, tengo un café / restaurante / oficina en Bogotá y quiero probar NUBE.' | url_encode }}" target="_blank" rel="noopener"><span>Escríbenos por WhatsApp</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>

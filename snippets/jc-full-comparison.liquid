@@ -19,18 +19,21 @@ Brand names live only in the sources. Bold = best in the row, whoever it is.
     <div class="jcs-full__table" role="table" aria-label="NUBE frente a bebidas vegetales de marca comercial, por vaso de 200 ml">
       <div class="jcs-full__row jcs-full__row--head" role="row">
         <span role="columnheader" class="jcs-full__label">Por vaso de 200 ml</span>
-        <span role="columnheader" class="jcs-full__cell is-nube">NUBE</span>
-        <span role="columnheader" class="jcs-full__cell">Almendra</span>
         <span role="columnheader" class="jcs-full__cell">Avena</span>
-        <span role="columnheader" class="jcs-full__cell">Arroz</span>
         <span role="columnheader" class="jcs-full__cell">Soya</span>
+        <span role="columnheader" class="jcs-full__cell">Arroz</span>
+        <span role="columnheader" class="jcs-full__cell">Almendra</span>
+        <span role="columnheader" class="jcs-full__cell is-nube">NUBE</span>
       </div>
       {%- for r in rows -%}
         {%- assign c = r | split: '|' -%}
         {%- assign best = c[7] | default: '' -%}
         <div class="jcs-full__row" role="row">
           <span role="rowheader" class="jcs-full__label">{{ c[0] }}<em>{{ c[1] }}</em></span>
-          {%- for i in (2..6) -%}
+          {%- comment -%}Columns from dearest to cheapest per glass, NUBE last: oat, soy, rice, almond, NUBE{%- endcomment -%}
+          {%- assign order = '4,6,5,3,2' | split: ',' -%}
+          {%- for o in order -%}
+            {%- assign i = o | plus: 0 -%}
             {%- assign pos = i | minus: 1 | append: '' -%}
             <span role="cell" class="jcs-full__cell{% if i == 2 %} is-nube{% endif %}{% if best contains pos %} is-best{% endif %}">{{ c[i] }}</span>
           {%- endfor -%}

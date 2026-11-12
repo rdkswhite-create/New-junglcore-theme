@@ -1462,3 +1462,8 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 /* Step 2 is real footage: same crop and tone as the stills */
 .jcs-steps .jcs-strip__item video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 60%; filter: grayscale(.3) sepia(.34) saturate(1.08) hue-rotate(-4deg) contrast(1.06); }
+
+.jcs-wait__single { margin-top: -8px; }
+.jcs-shop:has(.jcs-pdp-price) .jcs-wait__single { display: none; }
+.jcs-biz__price { margin: 0 0 18px; font-size: 15px; color: var(--muted); }
+.jcs-biz__price strong { color: var(--ink); font-weight: 600; }
