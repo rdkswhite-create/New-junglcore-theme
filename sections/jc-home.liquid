@@ -39,7 +39,7 @@
   <div class="jcs-strip jcs-steps" aria-label="Del congelador al vaso">
     <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="0">0 s</span><img src="{{ 'jc-nube-congelador.jpg' | asset_url }}" width="941" height="1671" loading="eager" alt="Una mano saca una barra de la bolsa de NUBE en el congelador"><figcaption><strong>La barra</strong><span>Del congelador</span></figcaption></figure>
     <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="10">10 s</span><video src="{{ 'jc-paso-licuadora.mp4' | asset_url }}" poster="{{ 'jc-paso-licuadora-poster.jpg' | asset_url }}" width="480" height="854" autoplay muted loop playsinline preload="metadata" aria-label="Una barra de NUBE cae en la licuadora, se le agrega agua, se licúa y se sirve en un vaso"></video><figcaption><strong>Licúa</strong><span>30 segundos, con agua</span></figcaption></figure>
-    <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="40">40 s</span><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Un vaso de NUBE en una mesa de cocina con luz de mañana"><figcaption><strong>Listo</strong><span>Tu bebida vegetal</span><em class="jcs-steps__joke">Menos de lo que tardas en encontrar la caja en el supermercado.</em></figcaption></figure>
+    <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="40">40 s</span><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Un vaso de NUBE en una mesa de cocina con luz de mañana"><figcaption><strong>Listo</strong><span>Tu bebida vegetal</span><em class="jcs-steps__joke">30 segundos. La haces tú.</em></figcaption></figure>
   </div>
   </div>
 
@@ -72,41 +72,9 @@
       els.forEach(function (el) { io.observe(el); });
     })();
   </script>
-  <div class="jcs-facts-line" aria-label="En cada vaso">
-    <div class="jcs-facts-line__in">
-      <p class="jcs-facts-line__k">En cada vaso:</p>
-      <p class="jcs-facts-line__big"><b>6,2 g</b> <span>de proteína · 3 ingredientes · sin azúcares añadidos</span></p>
-      <div class="jcs-facts-line__boxes">
-        <p><strong>Sin sellos de advertencia</strong><span>Ni uno en la etiqueta</span></p>
-        <p><strong>Congelada</strong><span>Porque no lleva nada que la haga durar</span></p>
-      </div>
-      <p class="jcs-facts-line__small">Vaso de 200 ml{% if settings.jc_invima_number != blank %} · Registro INVIMA {{ settings.jc_invima_number }}{% endif %} · Hecha en Colombia</p>
-    </div>
-
-  {% render 'jc-noes', number: '01' %}
-
-  <section class="jcs-origin-block" id="jc-origen" aria-labelledby="jc-origin-title">
+  <section class="jcs-shop" id="{% if settings.jc_sale_mode == 'a_la_venta' %}jc-buy{% else %}jc-nube{% endif %}" aria-labelledby="jc-buy-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>02</span>Tu bebida tiene origen</p>
-      <div class="jcs-origin-block__grid">
-        <figure><img src="{{ 'jc-emilio-asin.jpg' | asset_url }}" width="1280" height="854" loading="lazy" alt="Emilio, agricultor de sacha inchi en Santander, con frutos secos de cuatro puntas en las manos"><figcaption>Emilio · Agricultor de sacha inchi · Santander</figcaption></figure>
-        <div class="jcs-origin-block__copy">
-          <h2 class="jcs-title" id="jc-origin-title">Le preguntas al barista de dónde viene el café. Nadie pregunta de dónde viene la bebida vegetal.</h2>
-          <p class="jcs-lead"><strong>La nuestra tiene respuesta.</strong> Sacha inchi de Santander, Norte de Santander y Valle del Cauca.</p>
-          <p class="jcs-lead">Ayudamos a crear la Asociación de Sachaincheros del Nororiente Colombiano, para que los agricultores vendan juntos, a un precio acordado antes de la cosecha.</p>
-          <p class="jcs-origin-block__lot"><strong>Cada lote dice de dónde viene.</strong> Lote 001: Santander.</p>
-          <a class="jcs-btn" href="{{ routes.root_url }}pages/nosotros#jc-about-002"><span>Conoce su origen</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-  </div>
-
-
-
-  <section class="jcs-shop" id="jc-buy" aria-labelledby="jc-buy-title">
-    <div class="jcs-frame">
-      <p class="jcs-chapter"><span>03</span>NUBE · Lote 001</p>
+      <p class="jcs-chapter"><span>01</span>NUBE · Lote 001</p>
       <div class="jcs-shop__grid">
         <div>
           <div class="jcs-shop__visual">
@@ -120,12 +88,44 @@
         <div>
           <h2 class="visually-hidden" id="jc-buy-title">Comprar NUBE</h2>
           {% if nube != blank %}
-            {% render 'jc-buy-box', product: nube, form_id: 'jcs-home-buy', show_title: true %}
+            {% render 'jc-buy-box', product: nube, form_id: 'jcs-home-buy', show_title: true, list_separate: true %}
           {% endif %}
         </div>
       </div>
     </div>
   </section>
+
+  {% render 'jc-noes', number: '02' %}
+
+  <section class="jcs-origin-block" id="jc-origen" aria-labelledby="jc-origin-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>03</span>Tu bebida tiene origen</p>
+      <div class="jcs-origin-block__grid">
+        <figure><img src="{{ 'jc-emilio-asin.jpg' | asset_url }}" width="1280" height="854" loading="lazy" alt="Emilio, agricultor de sacha inchi en Santander, con frutos secos de cuatro puntas en las manos"><figcaption>Emilio · Agricultor de sacha inchi · Santander</figcaption></figure>
+        <div class="jcs-origin-block__copy">
+          <h2 class="jcs-title" id="jc-origin-title">Le preguntas al barista de dónde viene el café. Nadie pregunta de dónde viene la bebida vegetal.</h2>
+          <p class="jcs-lead"><strong>La nuestra tiene respuesta.</strong> Sacha inchi de Santander, Norte de Santander y Valle del Cauca.</p>
+          <p class="jcs-lead">Ayudamos a crear la Asociación de Sachaincheros del Nororiente Colombiano, para que los agricultores vendan juntos, a un precio acordado antes de la cosecha.</p>
+          <p class="jcs-origin-block__lot"><strong>Cada lote dice de dónde viene.</strong> Lote 001: Santander.</p>
+          <a class="jcs-btn" href="{{ routes.root_url }}pages/nosotros#jc-about-002"><span>Conoce su origen</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- if nube != blank and settings.jc_sale_mode != 'a_la_venta' -%}
+  <section class="jcs-listsec" id="jc-buy" aria-labelledby="jc-lista-title">
+    <div class="jcs-frame">
+      <p class="jcs-chapter"><span>04</span>La lista</p>
+      <h2 class="visually-hidden" id="jc-lista-title">Apúntate a la lista del Lote 001</h2>
+      <div class="jcs-listsec__box">
+        {% render 'jc-waitlist', product: nube, form_id: 'jcs-home-list' %}
+        {% render 'jc-delivery-check', id: 'jcs-home-list-check' %}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
   <section class="jcs-biz" aria-labelledby="jc-biz-title">
     <div class="jcs-frame jcs-biz__in">
       <h2 class="jcs-title" id="jc-biz-title">¿Tienes un café, restaurante u oficina?</h2>
@@ -399,14 +399,14 @@
       </script>
   </section>
 
-  {% render 'jc-versus', number: '04', sources_href: '/products/nube#jc-nutrition' %}
+  {% render 'jc-versus', number: '05', sources_href: '/products/nube#jc-nutrition' %}
 
 
-  {% render 'jc-moments', number: '05', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
+  {% render 'jc-moments', number: '06', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
 
   <section class="jcs-manifesto jcs-manifesto--short" id="jc-manifesto" aria-labelledby="jc-manifesto-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>06</span>Por qué existimos</p>
+      <p class="jcs-chapter"><span>07</span>Por qué existimos</p>
       <div class="jcs-manifesto__cols">
       <div class="jcs-manifesto__wrap">
       <h2 class="jcs-display" id="jc-manifesto-title"><span>Miles de plantas que se pueden comer.</span> <span>En el supermercado, cinco.</span></h2>
@@ -424,7 +424,7 @@
   {%- if section.blocks.size > 0 -%}
   <section class="jcs-reviews" id="jc-resenas" aria-labelledby="jc-reviews-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>07</span>Lo que dijeron los humanos</p>
+      <p class="jcs-chapter"><span>08</span>Lo que dijeron los humanos</p>
       <div class="jcs-reviews__head">
         <h2 class="jcs-title" id="jc-reviews-title">Lo que dijeron los humanos.</h2>
         <p class="jcs-lead">Personas reales, palabras reales. Los robots no se lo terminan de creer. Lo anotan igual.</p>
@@ -442,9 +442,9 @@
   {%- endif -%}
 
   {%- liquid
-    assign faq_number = '07'
+    assign faq_number = '08'
     if section.blocks.size > 0
-      assign faq_number = '08'
+      assign faq_number = '09'
     endif
   -%}
   {% render 'jc-faq', number: faq_number %}

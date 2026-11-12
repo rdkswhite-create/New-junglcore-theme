@@ -3,6 +3,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
 @param {object} product - The NUBE product.
 @param {string} form_id - Unique form id.
 @param {boolean} [show_title] - Show the big headline.
+@param {boolean} [list_separate] - Before the sale opens, leave the list and the delivery check out (the page renders them in their own section).
 {% enddoc %}
 {%- liquid
   assign v = product.selected_or_first_available_variant
@@ -25,7 +26,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
   </ul>
   <p class="jcs-buy__without">Ligera · Sin azúcares añadidos · Sin lácteos · Sin aceites añadidos</p>
   {% if settings.jc_sale_mode != 'a_la_venta' %}
-    {% render 'jc-waitlist', product: product, form_id: form_id %}
+    {% unless list_separate %}{% render 'jc-waitlist', product: product, form_id: form_id %}{% endunless %}
   {% elsif v and v.price > 0 %}
     {% form 'product', product, id: form_id, class: 'jcs-buy__form' %}
       <input type="hidden" name="id" value="{{ v.id }}">
@@ -64,7 +65,7 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
     </script>
   {% endif %}
   {%- assign check_id = form_id | append: '-check' -%}
-  {% render 'jc-delivery-check', id: check_id %}
+  {% unless list_separate and settings.jc_sale_mode != 'a_la_venta' %}{% render 'jc-delivery-check', id: check_id %}{% endunless %}
   <div class="jcs-buy__notes">
     <p><strong>Solo en Bogotá, por ahora.</strong> Con 2 bolsas, el envío va incluido.</p>
     <p><strong>Sacha inchi, agua y goma gelana.</strong> Los contamos con una mano y nos sobraron dos dedos.</p>
