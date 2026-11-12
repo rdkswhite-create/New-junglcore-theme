@@ -1,0 +1,23 @@
+{% doc %}
+Qué es NUBE: the product description, in plain words, with the facts from the pack.
+@param {string} [number] - Chapter number.
+{% enddoc %}
+<section class="jcs-about-nube" id="jc-que-es" aria-labelledby="jc-que-es-title">
+  <div class="jcs-frame">
+    <p class="jcs-chapter"><span>{{ number }}</span>Qué es NUBE</p>
+    <div class="jcs-about-nube__grid">
+      <div>
+        <h2 class="jcs-title" id="jc-que-es-title">Una base congelada de sacha inchi para preparar tu bebida vegetal en casa.</h2>
+        <p class="jcs-lead">Cada bolsa trae 30 barras. Sacas una del congelador, le pones agua y la licúas 30 segundos: un vaso. Hasta 150 ml sale espesa; hasta 200 ml, fresca. De noche, una barra en una taza de agua bien caliente: revuelve hasta que se deshaga.</p>
+        <p class="jcs-lead">Sin azúcares añadidos. Sin lácteos. Congelada, porque no lleva nada que la haga durar.</p>
+      </div>
+      <dl class="jcs-about-nube__facts">
+        <div><dt>Contenido</dt><dd>600 g · 30 barras · 30 vasos de 200 ml</dd></div>
+        <div><dt>Ingredientes</dt><dd>Sacha inchi, agua, goma gelana (estabilizante)</dd></div>
+        <div><dt>Conservación</dt><dd>Congelada a −18 °C. No recongelar una vez descongelada.</dd></div>
+        <div><dt>Origen</dt><dd>Sacha inchi de Santander, Norte de Santander y Valle del Cauca. Hecho en Colombia.</dd></div>
+        {%- if settings.jc_invima_number != blank -%}<div><dt>Registro sanitario</dt><dd>{{ settings.jc_invima_number }}</dd></div>{%- endif -%}
+      </dl>
+    </div>
+  </div>
+</section>

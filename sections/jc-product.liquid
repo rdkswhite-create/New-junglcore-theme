@@ -14,16 +14,17 @@
           -%}
           <div class="jcs-gal" id="jcs-gal">
             <div class="jcs-gal__track" tabindex="0" aria-label="Fotos de NUBE">
-              <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-barra-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="eager" fetchpriority="high" style="object-position: center 48%" alt="Una mujer deja caer una barra congelada de NUBE en la licuadora con agua; la bolsa está sobre la mesa"><figcaption>Una barra, agua.</figcaption></figure>
+              <figure class="jcs-gal__slide jcs-gal__slide--pack"><img src="{{ 'jc-nube-bolsa-panel.jpg' | asset_url }}" width="1254" height="1254" loading="eager" fetchpriority="high" alt="Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi, 600 g"><figcaption>30 barras · 600 g · 30 vasos.</figcaption></figure>
               <figure class="jcs-gal__slide jcs-gal__slide--video"><video src="{{ 'jc-preparacion.mp4' | asset_url }}" poster="{{ 'jc-preparacion-poster.jpg' | asset_url }}" width="1280" height="720" muted loop playsinline preload="metadata" aria-label="Una barra de NUBE entra en la licuadora, se le agrega agua, se licúa y se sirve en un vaso"></video><figcaption>Así se prepara.</figcaption></figure>
+              <figure class="jcs-gal__slide jcs-gal__slide--pack"><img src="{{ 'jc-nube-bolsa-reverso.jpg' | asset_url }}" width="1024" height="1536" loading="lazy" alt="El reverso de la bolsa de NUBE: preparación, información nutricional e ingredientes"><figcaption>El reverso</figcaption></figure>
+              <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-barra-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 48%" alt="Una mujer deja caer una barra congelada de NUBE en la licuadora con agua; la bolsa está sobre la mesa"><figcaption>Una barra, agua.</figcaption></figure>
               <figure class="jcs-gal__slide"><img src="{{ 'jc-paso-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 48%" alt="Una mujer deja caer una barra de NUBE en la licuadora con agua, junto a la ventana"><figcaption>Licúa 30 segundos.</figcaption></figure>
               <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 55%" alt="Un vaso alto de bebida de NUBE recién servida junto a la ventana, con la mano de una mujer al lado"><figcaption>6,2 g de proteína por vaso.</figcaption></figure>
-              <figure class="jcs-gal__slide jcs-gal__slide--pack"><img src="{{ 'jc-nube-bolsa.jpg' | asset_url }}" width="1254" height="1254" loading="lazy" alt="Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi, 600 g"><figcaption>30 barras · 600 g · 30 vasos.</figcaption></figure>
               <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-congelador.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 42%" alt="Una mano saca una barra de NUBE de la bolsa en la puerta del congelador"><figcaption>Del congelador, una a una.</figcaption></figure>
               <figure class="jcs-gal__slide"><img src="{{ 'jc-nube-taza.jpg' | asset_url }}" width="941" height="1672" loading="lazy" style="object-position: center 50%" alt="Dos manos sostienen una taza de agua caliente donde se deshace una barra de NUBE"><figcaption>De noche, en agua caliente.</figcaption></figure>
             </div>
             <div class="jcs-gal__dots" role="tablist" aria-label="Elegir foto">
-              {%- for i in (1..7) -%}<button type="button" class="jcs-gal__dot{% if i == 1 %} is-active{% endif %}" aria-label="Foto {{ i }}"></button>{%- endfor -%}
+              {%- for i in (1..8) -%}<button type="button" class="jcs-gal__dot{% if i == 1 %} is-active{% endif %}" aria-label="Foto {{ i }}"></button>{%- endfor -%}
             </div>
           </div>
           <script>
@@ -52,21 +53,25 @@
     </div>
   </section>
 
-  {% render 'jc-texture', number: '01' %}
+  {% render 'jc-nube-about', number: '01' %}
 
-  {% render 'jc-ingredients', number: '02' %}
+  {% render 'jc-texture', number: '02' %}
 
-  {% render 'jc-noes', number: '03', short: true %}
+  {% render 'jc-ingredients', number: '03' %}
 
-  {% render 'jc-provenance', number: '04' %}
+  {% render 'jc-nutrition-label', number: '04' %}
 
-  {% render 'jc-full-comparison', number: '05' %}
+  {% render 'jc-noes', number: '05', short: true %}
 
-  {% render 'jc-moments', number: '06' %}
+  {% render 'jc-provenance', number: '06' %}
+
+  {% render 'jc-full-comparison', number: '07' %}
+
+  {% render 'jc-moments', number: '08' %}
 
   <section class="jcs-uses" aria-labelledby="jc-uses-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>07</span>Formas de tomarla</p>
+      <p class="jcs-chapter"><span>09</span>Formas de tomarla</p>
       <div class="jcs-versus__head">
         <h2 class="jcs-title" id="jc-uses-title">En el vaso. En la avena. En el batido.</h2>
         <p class="jcs-lead">Es una bebida, no un experimento. Si la pones en el café, eso ya es cosa tuya.</p>
@@ -80,7 +85,7 @@
   </section>
 
 
-  {% render 'jc-faq', number: '08' %}
+  {% render 'jc-faq', number: '10' %}
 
   <section class="jcs-final" aria-labelledby="jc-final-title">
     <div class="jcs-frame">

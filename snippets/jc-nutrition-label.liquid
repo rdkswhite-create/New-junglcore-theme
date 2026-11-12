@@ -1,0 +1,36 @@
+{% doc %}
+Información nutricional, exactly as printed on the back of the pack, with the photo of the back.
+@param {string} [number] - Chapter number.
+{% enddoc %}
+<section class="jcs-label" id="jc-tabla-nutricional" aria-labelledby="jc-label-title">
+  <div class="jcs-frame">
+    <p class="jcs-chapter"><span>{{ number }}</span>Información nutricional</p>
+    <h2 class="jcs-title" id="jc-label-title">Lo que dice la etiqueta.</h2>
+    <div class="jcs-label__grid">
+      <div>
+        <table class="jcs-label__table">
+          <caption>Tamaño de porción: 1 vaso (200 ml). Porciones por envase: 30.</caption>
+          <thead><tr><th scope="col"></th><th scope="col">Por 100 ml</th><th scope="col">Por porción (200 ml)</th></tr></thead>
+          <tbody>
+            <tr class="is-strong"><th scope="row">Calorías (kcal)</th><td>17,6</td><td>35,2</td></tr>
+            <tr><th scope="row">Grasa total (g)</th><td>0,4</td><td>0,7</td></tr>
+            <tr class="is-strong is-sub"><th scope="row">Grasa saturada (g)</th><td>0,0</td><td>0,1</td></tr>
+            <tr class="is-sub2"><th scope="row">Grasa poliinsaturada (g)</th><td>0,3</td><td>0,6</td></tr>
+            <tr class="is-sub2"><th scope="row">Omega-3 (ALA) (g)</th><td>0,2</td><td>0,3</td></tr>
+            <tr class="is-strong is-sub"><th scope="row">Grasa trans (mg)</th><td>0,0</td><td>0,0</td></tr>
+            <tr><th scope="row">Carbohidratos totales (g)</th><td>0,8</td><td>1,7</td></tr>
+            <tr class="is-sub"><th scope="row">Fibra dietaria (g)</th><td>0,7</td><td>1,4</td></tr>
+            <tr class="is-sub"><th scope="row">Azúcares totales (g)</th><td>0,1</td><td>0,3</td></tr>
+            <tr class="is-strong is-sub"><th scope="row">Azúcares añadidos (g)</th><td>0,0</td><td>0,0</td></tr>
+            <tr><th scope="row">Proteína (g)</th><td>3,1</td><td>6,2</td></tr>
+            <tr class="is-strong"><th scope="row">Sodio (mg)</th><td>&lt;0,3</td><td>&lt;0,5</td></tr>
+            <tr><th scope="row">Calcio (mg)</th><td>20,5</td><td>41,0</td></tr>
+          </tbody>
+        </table>
+        <p class="jcs-label__note">Valores teóricos estimados. Una barra preparada a 200 ml finales. Cuando llegue el panel de laboratorio, lo publicamos aquí.</p>
+        <p class="jcs-label__ingr"><strong>Ingredientes:</strong> sacha inchi, agua, goma gelana (estabilizante).</p>
+      </div>
+      <figure class="jcs-label__photo"><img src="{{ 'jc-nube-bolsa-reverso.jpg' | asset_url }}" width="1024" height="1536" loading="lazy" alt="El reverso de la bolsa de NUBE: preparación, información nutricional, ingredientes, conservación y registro sanitario"><figcaption>El reverso de la bolsa.</figcaption></figure>
+    </div>
+  </div>
+</section>
