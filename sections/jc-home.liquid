@@ -136,12 +136,14 @@
     </div>
   </section>
 
-  {% render 'jc-noes', number: '02' %}
+  {% render 'jc-moments', number: '02', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
+
+  {% render 'jc-noes', number: '03' %}
 
 
   <section class="jcs-origin-block" id="jc-origen" aria-labelledby="jc-origin-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>03</span>Tu bebida tiene origen</p>
+      <p class="jcs-chapter"><span>04</span>Tu bebida tiene origen</p>
       <div class="jcs-origin-block__grid">
         <figure><img src="{{ 'jc-emilio-asin.jpg' | asset_url }}" width="1280" height="854" loading="lazy" alt="Emilio, agricultor de sacha inchi en Santander, con frutos secos de cuatro puntas en las manos"><figcaption>Emilio · Agricultor de sacha inchi · Santander</figcaption></figure>
         <div class="jcs-origin-block__copy">
@@ -158,7 +160,7 @@
   {%- if nube != blank and settings.jc_sale_mode != 'a_la_venta' -%}
   <section class="jcs-listsec" id="jc-buy" aria-labelledby="jc-lista-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>04</span>La lista</p>
+      <p class="jcs-chapter"><span>05</span>La lista</p>
       <h2 class="visually-hidden" id="jc-lista-title">Apúntate a la lista del Lote 001</h2>
       <div class="jcs-listsec__box">
         {% render 'jc-waitlist', product: nube, form_id: 'jcs-home-list' %}
@@ -443,7 +445,6 @@
 
 
 
-  {% render 'jc-moments', number: '05', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
 
   <section class="jcs-manifesto jcs-manifesto--short" id="jc-manifesto" aria-labelledby="jc-manifesto-title">
     <div class="jcs-frame">
