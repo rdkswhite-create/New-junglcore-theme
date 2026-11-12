@@ -1617,3 +1617,4 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-pdp-spec li:last-child { border-bottom: 0; }
 .jcs-pdp-spec strong { font-size: 26px; font-weight: 400; letter-spacing: -.03em; line-height: 1; }
 .jcs-pdp-spec span { font-size: 15px; line-height: 1.35; color: var(--muted); }
+.jcs-label__grid { grid-template-columns: 1fr !important; }
