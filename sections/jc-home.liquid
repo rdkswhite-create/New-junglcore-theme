@@ -113,7 +113,10 @@
               {%- if nv and nv.price > 0 -%}{%- assign npg = nv.price | divided_by: 30 -%}
               <div class="jcs-nube__price"><p><strong>{{ npg | money_without_trailing_zeros }}</strong> <span>el vaso</span></p><span class="jcs-nube__when">{{ settings.jc_launch_label | default: 'diciembre' }}</span></div>
               {%- endif -%}
-              <a class="jcs-nube__more" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa <span aria-hidden="true">&rarr;</span></a>
+              <details class="jcs-nube__cuentas">
+                <summary><span class="jcs-nube__plus" aria-hidden="true">+</span> Hicimos las cuentas</summary>
+                {% render 'jc-versus', rows_only: true %}
+              </details>
             </div>
           {% endif %}
         </div>
@@ -133,14 +136,12 @@
     </div>
   </section>
 
-  {% render 'jc-versus', number: '02', sources_href: '/products/nube#jc-nutrition' %}
-
-  {% render 'jc-noes', number: '03' %}
+  {% render 'jc-noes', number: '02' %}
 
 
   <section class="jcs-origin-block" id="jc-origen" aria-labelledby="jc-origin-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>04</span>Tu bebida tiene origen</p>
+      <p class="jcs-chapter"><span>03</span>Tu bebida tiene origen</p>
       <div class="jcs-origin-block__grid">
         <figure><img src="{{ 'jc-emilio-asin.jpg' | asset_url }}" width="1280" height="854" loading="lazy" alt="Emilio, agricultor de sacha inchi en Santander, con frutos secos de cuatro puntas en las manos"><figcaption>Emilio · Agricultor de sacha inchi · Santander</figcaption></figure>
         <div class="jcs-origin-block__copy">
@@ -157,7 +158,7 @@
   {%- if nube != blank and settings.jc_sale_mode != 'a_la_venta' -%}
   <section class="jcs-listsec" id="jc-buy" aria-labelledby="jc-lista-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>05</span>La lista</p>
+      <p class="jcs-chapter"><span>04</span>La lista</p>
       <h2 class="visually-hidden" id="jc-lista-title">Apúntate a la lista del Lote 001</h2>
       <div class="jcs-listsec__box">
         {% render 'jc-waitlist', product: nube, form_id: 'jcs-home-list' %}
@@ -442,11 +443,11 @@
 
 
 
-  {% render 'jc-moments', number: '06', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
+  {% render 'jc-moments', number: '05', morning_image: section.settings.morning_image, night_image: section.settings.night_image %}
 
   <section class="jcs-manifesto jcs-manifesto--short" id="jc-manifesto" aria-labelledby="jc-manifesto-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>07</span>Por qué existimos</p>
+      <p class="jcs-chapter"><span>06</span>Por qué existimos</p>
       <div class="jcs-manifesto__cols">
       <div class="jcs-manifesto__wrap">
       <h2 class="jcs-display" id="jc-manifesto-title"><span>Miles de plantas que se pueden comer.</span> <span>En el supermercado, cinco.</span></h2>
@@ -464,7 +465,7 @@
   {%- if section.blocks.size > 0 -%}
   <section class="jcs-reviews" id="jc-resenas" aria-labelledby="jc-reviews-title">
     <div class="jcs-frame">
-      <p class="jcs-chapter"><span>08</span>Lo que dijeron los humanos</p>
+      <p class="jcs-chapter"><span>07</span>Lo que dijeron los humanos</p>
       <div class="jcs-reviews__head">
         <h2 class="jcs-title" id="jc-reviews-title">Lo que dijeron los humanos.</h2>
         <p class="jcs-lead">Personas reales, palabras reales. Los robots no se lo terminan de creer. Lo anotan igual.</p>
@@ -482,9 +483,9 @@
   {%- endif -%}
 
   {%- liquid
-    assign faq_number = '08'
+    assign faq_number = '07'
     if section.blocks.size > 0
-      assign faq_number = '09'
+      assign faq_number = '08'
     endif
   -%}
   {% render 'jc-faq', number: faq_number %}

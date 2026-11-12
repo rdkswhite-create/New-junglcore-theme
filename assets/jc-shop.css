@@ -1511,6 +1511,17 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 @media (max-width: 899px) { .jcs-nube { margin-top: 28px; } }
 
 /* Spacing between the stacked chapters: versus and the "no es" list each get their own breathing room */
-.jcs-versus:not(.jcs-versus--compact) { padding-top: clamp(56px, 8vw, 110px); }
+.jcs-versus:not(.jcs-versus--compact):not(.jcs-versus--drop) { padding-top: clamp(56px, 8vw, 110px); }
 .jcs-noes { padding-bottom: clamp(56px, 8vw, 110px); }
 .jcs-versus + .jcs-noes { padding-top: 8px; }
+
+/* "+ Hicimos las cuentas": closed under the price, opens the five rows */
+.jcs-nube__cuentas { margin-top: 18px; border-top: 1px solid var(--rule); }
+.jcs-nube__cuentas > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 16px 0; font-size: 15px; font-weight: 600; color: var(--ink); }
+.jcs-nube__cuentas > summary::-webkit-details-marker { display: none; }
+.jcs-nube__plus { display: inline-block; width: 14px; font-weight: 400; font-size: 20px; line-height: 1; transition: transform .2s; }
+.jcs-nube__cuentas[open] .jcs-nube__plus { transform: rotate(45deg); }
+.jcs-versus--drop { padding: 0 0 6px; }
+.jcs-versus--drop .jcs-versus__rows { margin-top: 0; }
+.jcs-versus--drop .jcs-versus__ship { margin-top: 12px; }
+.jcs-versus--drop .jcs-nube__more { margin-top: 14px; }
