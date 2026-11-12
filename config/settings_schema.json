@@ -1540,7 +1540,7 @@
         "type": "text",
         "id": "jc_waitlist_perk",
         "label": "Lo que recibe la lista",
-        "default": "Con tu primer pedido, un sobre de ONE: la misma semilla, en polvo, antes de que salga."
+        "default": ""
       },
       {
         "type": "number",

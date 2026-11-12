@@ -20,7 +20,6 @@ Primera tanda. With stock: Págala ya (paid only, 1–10 bags). Without stock: e
   <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Entregamos en Bogotá desde el {{ launch }}.</p>
   {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · desde {{ per_glass | money_without_trailing_zeros }} por vaso con 2 bolsas y envío gratis</p>{% endif %}
   {% if settings.jc_waitlist_count > 0 %}<p class="jcs-wait__count"><strong>{{ settings.jc_waitlist_count }}</strong> {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa.{% else %}personas ya apartaron su bolsa.{% endif %}</p>{% endif %}
-  {% if perk != blank %}<p class="jcs-wait__perk"><span>De regalo</span>{{ perk }}</p>{% endif %}
 
   {%- if v and v.available -%}
   <div class="jcs-prepay" data-variant="{{ v.id }}">

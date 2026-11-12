@@ -48,6 +48,17 @@
   </div>
   </div>
 
+  <section class="jcs-mine" aria-labelledby="jc-mine-title">
+    <div class="jcs-frame">
+      <h2 class="jcs-title" id="jc-mine-title">Tu bebida vegetal. A tu manera.</h2>
+      <p class="jcs-lead">Tú eliges la textura y cuántas barras preparar. Prepara lo que vas a tomar y conserva las demás congeladas.</p>
+      <div class="jcs-mine__row">
+        <a class="jcs-mine__opt" href="{{ routes.root_url }}products/nube#jc-textura"><strong>Más ligera.</strong><span>Una barra + 200 ml de agua</span></a>
+        <a class="jcs-mine__opt" href="{{ routes.root_url }}products/nube#jc-textura"><strong>Más espesa.</strong><span>Una barra + 150 ml de agua</span></a>
+      </div>
+    </div>
+  </section>
+
   <script>
     (function () {
       var els = document.querySelectorAll('.jcs-steps__t[data-count]');
@@ -102,9 +113,16 @@
       </div>
     </div>
   </section>
-  <div class="jcs-origin-line"><div class="jcs-frame">
-    <p><strong>De una semilla colombiana.</strong> Conoce a quienes la cultivan. <a class="jcs-textlink" href="/pages/nosotros#jc-about-002">Descubrir su origen <span aria-hidden="true">&rarr;</span></a></p>
-  </div></div>
+  <section class="jcs-origin-block" aria-labelledby="jc-origin-title">
+    <div class="jcs-frame jcs-origin-block__grid">
+      <figure><img src="{{ 'jc-emilio-asin.jpg' | asset_url }}" width="1280" height="854" loading="lazy" alt="Emilio, agricultor de sacha inchi en Santander, con frutos secos de cuatro puntas en las manos"><figcaption>Emilio · Agricultor de sacha inchi · Santander</figcaption></figure>
+      <div class="jcs-origin-block__copy">
+        <h2 class="jcs-title" id="jc-origin-title">Tu bebida tiene origen.</h2>
+        <p class="jcs-lead">Conoce a las personas y los lugares detrás de la sacha inchi con la que hacemos NUBE.</p>
+        <a class="jcs-btn" href="{{ routes.root_url }}pages/nosotros#jc-about-002"><span>Conoce su origen</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
 
   <section class="jcs-foryou" id="jc-foryou" aria-labelledby="jc-foryou-title">
     <span id="juego" class="jcs-anchor" aria-hidden="true"></span>
@@ -118,8 +136,8 @@
         <li data-k="11"><span>04</span><p class="jcs-foryou__t">Le quitan el azúcar y le meten edulcorante.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin azúcares añadidos · Sin edulcorantes &rarr;</a></li>
         <li data-k="06"><span>05</span><p class="jcs-foryou__t">Abres la bolsa o la caja y a la semana la botas.</p><a class="jcs-foryou__link" href="#jc-buy">Solo pagas lo que tomas &rarr;</a></li>
         <li data-k="07"><span>06</span><p class="jcs-foryou__t">Desayunas y a las dos horas ya tienes hambre.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
-        <li data-k="09"><span>07</span><p class="jcs-foryou__t">El batido de proteína te deja inflado como un globo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ligera. Sin lácteos &rarr;</a></li>
-        <li data-k="10"><span>08</span><p class="jcs-foryou__t">Tu proteína en polvo tiene más ingredientes que tu almuerzo.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">3 ingredientes · Ver la etiqueta &rarr;</a></li>
+        <li data-k="09"><span>07</span><p class="jcs-foryou__t">La bebida vegetal viene con la textura decidida.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-textura">Tú decides la textura &rarr;</a></li>
+        <li data-k="10"><span>08</span><p class="jcs-foryou__t">Conoces la marca de tu bebida, pero no a quien cultivó la planta.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/nosotros#jc-about-002">Conoce su origen &rarr;</a></li>
       </ol>
       <div class="jcs-foryou__nav">
         <button type="button" class="jcs-foryou__btn" data-dir="-1" aria-label="Anterior">&larr;</button>
@@ -184,8 +202,8 @@
             '06': { p: 'bolsillo', take: 'Una caja abierta dura de 7 a 10 días. Escríbele la fecha con marcador.', bot: 'lupa', line: 'Pagaron 10 vasos. Se tomaron 6.' },
             '07': { p: 'ruido', take: 'Cambia lo dulce por algo con proteína: huevo, queso, frijol. Aguanta más que pan dulce y jugo.', bot: 'chispa', line: 'A las 9 desayunan. A las 11 vuelven a buscar.' },
             '08': { p: 'barriga', take: 'La fibra viene mejor en la comida: fríjol, lenteja, avena, fruta con cáscara. Súbela poco a poco y con agua.', bot: 'dato', line: 'La fibra venía en la planta. La sacaron, la metieron en un sobre y te la vendieron de vuelta.' },
-            '09': { p: 'barriga', take: 'Si es concentrado de suero, trae lactosa. El aislado trae mucho menos.', bot: 'chispa', line: 'Leí la etiqueta. Decía «suero». Me asusté.' },
-            '10': { p: 'etiqueta', take: 'Si ves eritritol o maltitol, son edulcorantes que a algunas personas les caen pesado.', bot: 'dato', line: 'Conté 23 ingredientes. Me cansé antes que el batido.' },
+            '09': { p: 'etiqueta', take: 'Con 150 ml de agua queda más cremosa; con 200 ml, más ligera. La textura la decides tú, no la fábrica.', bot: 'chispa', line: '¿Quién decidió que todas tenían que ser igual de aguadas? Nadie me supo responder.' },
+            '10': { p: 'etiqueta', take: 'Pregunta de dónde viene. Si la marca no sabe quién cultivó la planta, tú tampoco.', bot: 'lupa', line: 'Busqué al agricultor en la caja. Encontré un código de barras.' },
             '11': { p: 'etiqueta', take: 'Busca en la lista: sucralosa, acesulfame, stevia, eritritol. Si le quitaron el azúcar, mira qué le pusieron.', bot: 'dato', line: 'Le quitaron el azúcar. Le pusieron tres cosas que no sé pronunciar.' },
             '12': { p: 'bolsillo', take: 'Haz el mercado con lista. Cargas menos peso y menos antojos.', bot: 'lupa', line: 'Cargan agua del supermercado. Tienen agua en la casa.' }
           };
@@ -405,7 +423,7 @@
         <h2 class="jcs-display jcs-next__display">Bájale al ruido de la comida.</h2>
         <p class="jcs-lead jcs-next__lead">El sistema partió la comida en pedazos y ahora te vende aparte, en la droguería, lo que el plato podía darte.</p>
         <p class="jcs-lead jcs-next__lead"><strong>Comida, no suplemento.</strong> Nuestro Lab no fabrica comida: estudia la que ya existe. Esto es lo que investigamos ahora:</p>
-        <div class="jcs-invest__grid jcs-invest__grid--3">
+        <div class="jcs-invest__grid">
           <a class="jcs-invest__item jcs-invest__box" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">
             <span class="jcs-invest__n">01 · Saciedad</span>
             <span class="jcs-invest__q">¿Por qué piensas en comida todo el tiempo?</span>
@@ -416,13 +434,8 @@
             <span class="jcs-invest__q">¿Juntas o separadas: le importa a tu cuerpo?</span>
             <span class="jcs-invest__go">Ver la investigación &rarr;</span>
           </a>
-          <a class="jcs-invest__item jcs-invest__box" href="{{ routes.root_url }}pages/exploraciones#jc-aceite">
-            <span class="jcs-invest__n">03 · Corazón</span>
-            <span class="jcs-invest__q">¿Puede una grasa cuidar tu corazón?</span>
-            <span class="jcs-invest__go">Ver la investigación &rarr;</span>
-          </a>
         </div>
-        <p class="jcs-invest__small">Preguntas abiertas, no promesas. NUBE es un alimento, no un tratamiento.</p>
+        <p class="jcs-invest__small">Investigamos la saciedad, la proteína y la fibra. Los estudios citados no demuestran por sí solos los efectos de NUBE.</p>
       </div>
     </div>
   </section>
@@ -431,10 +444,10 @@
     <div class="jcs-frame">
       {% if settings.jc_sale_mode != 'a_la_venta' %}
         <h2 class="jcs-lab-follow__line" id="jc-home-follow-title">¿Todavía no? Te escribimos.</h2>
-        <p class="jcs-lab-follow__small">El día que sale la primera tanda, antes que a nadie. Y cuando llegue ONE, la misma semilla en polvo.</p>
+        <p class="jcs-lab-follow__small">Entérate de las próximas entregas de NUBE y descubre nuevas formas de prepararla.</p>
       {% else %}
-        <h2 class="jcs-lab-follow__line" id="jc-home-follow-title">Sigue lo que vamos encontrando.</h2>
-        <p class="jcs-lab-follow__small">La próxima planta, y ONE, la misma semilla en polvo. Primero aquí.</p>
+        <h2 class="jcs-lab-follow__line" id="jc-home-follow-title">¿Todavía no? Te escribimos.</h2>
+        <p class="jcs-lab-follow__small">Entérate de las próximas entregas de NUBE y descubre nuevas formas de prepararla.</p>
       {% endif %}
       <div class="jcs-lab-follow__actions">
         {% form 'customer', id: 'jcs-home-follow-form', class: 'jcs-lab-follow__form' %}
@@ -445,7 +458,7 @@
             <label class="visually-hidden" for="jcs-home-follow-email">Tu correo</label>
             <div class="jcs-wait__row jcs-lab-follow__row">
               <input type="email" id="jcs-home-follow-email" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" required>
-              <button type="submit">{% if settings.jc_sale_mode != 'a_la_venta' %}Apártamela{% else %}Síguenos{% endif %}</button>
+              <button type="submit">Avísame</button>
             </div>
           {% endif %}
         {% endform %}

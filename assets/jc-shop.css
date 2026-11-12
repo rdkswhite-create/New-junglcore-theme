@@ -1397,3 +1397,19 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-beyond__body strong { font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; letter-spacing: -.02em; text-transform: uppercase; }
 .jcs-beyond__body span { font-size: 15px; line-height: 1.5; color: var(--muted); }
 .jcs-beyond__arrow { padding-top: 6px; transition: transform .2s ease; }
+
+/* A tu manera (portada) · bloque de origen · subtítulo en Origen */
+.jcs-mine { padding: clamp(48px, 7vw, 96px) 0 0; }
+.jcs-mine .jcs-lead { margin-top: 12px; }
+.jcs-mine__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: clamp(22px, 3vw, 36px); background: var(--rule); border: 1px solid var(--rule); }
+.jcs-mine__opt { display: grid; gap: 8px; padding: clamp(20px, 3vw, 36px); background: var(--paper); color: var(--ink); text-decoration: none; }
+.jcs-mine__opt strong { font-size: clamp(24px, 3.4vw, 44px); font-weight: 500; letter-spacing: -.03em; text-transform: uppercase; line-height: 1.05; }
+.jcs-mine__opt span { font-size: 14px; color: var(--muted); }
+.jcs-origin-block { padding: clamp(56px, 8vw, 110px) 0 0; }
+.jcs-origin-block__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.jcs-origin-block figure img { width: 100%; height: auto; display: block; }
+.jcs-origin-block figcaption { margin-top: 8px; font-size: 12px; color: var(--muted); }
+.jcs-origin-block__copy { display: grid; gap: 16px; justify-items: start; }
+@media (max-width: 749px) { .jcs-origin-block__grid { grid-template-columns: 1fr; } }
+.jcs-about__sub { margin-top: clamp(28px, 4vw, 44px); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+.jcs-about__sub + p { margin-top: 12px; }
