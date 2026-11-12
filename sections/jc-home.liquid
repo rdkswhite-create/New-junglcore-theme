@@ -28,7 +28,7 @@
         <a class="jcs-link" href="#jc-preparar">Cómo se prepara</a>
       </div>
       {%- if v and v.price > 0 -%}{%- assign hero_pg = v.price | divided_by: 30 -%}
-      <p class="jcs-hero__price">{{ hero_pg | money_without_trailing_zeros }} el vaso · 1 bolsa = hasta 6 litros</p>
+      <p class="jcs-hero__price">{{ hero_pg | money_without_trailing_zeros }} el vaso · 1 bolsa = hasta 6 cajas de 1 litro</p>
       {%- endif -%}
     </div>
     <div class="jcs-hero__bottom">
@@ -116,9 +116,9 @@
               {%- if nv and nv.price > 0 -%}{%- assign npg = nv.price | divided_by: 30 -%}
               <div class="jcs-nube__price"><p><strong>{{ npg | money_without_trailing_zeros }}</strong> <span>el vaso</span></p></div>
               {%- endif -%}
-              <p class="jcs-nube__litros"><strong>1 bolsa = hasta 6 litros de bebida vegetal.</strong> Lo de 6 cajas de 1 litro.</p>
+              <p class="jcs-nube__litros"><strong>1 bolsa = hasta 6 cajas de 1 litro de bebida vegetal.</strong></p>
               <p class="jcs-nube__when jcs-nube__when--line">Lote 001 llega en {{ settings.jc_launch_label | default: 'diciembre' }}</p>
-              <a class="jcs-nube__more jcs-nube__go" href="{{ routes.root_url }}products/nube">Conoce NUBE <span aria-hidden="true">&rarr;</span></a>
+              <a class="jcs-btn jcs-btn--line jcs-btn--full jcs-nube__go" href="{{ routes.root_url }}products/nube"><span>Conoce NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
               <div class="jcs-nube__cuentas">
                 <p class="jcs-nube__cuentas-t">Hicimos las cuentas</p>
                 <p class="jcs-nube__cuentas-s">Por vaso de 200 ml</p>
@@ -170,6 +170,31 @@
       <p class="jcs-chapter"><span>05</span>La lista</p>
       <h2 class="visually-hidden" id="jc-lista-title">Apúntate a la lista del Lote 001</h2>
       <div class="jcs-listsec__box">
+        <div class="jcs-pains" id="jc-pains">
+          <h3 class="jcs-pains__title">¿Cuáles te pasan?</h3>
+          <p class="jcs-pains__ask">Toca las tuyas.</p>
+          <ul class="jcs-pains__list">
+            <li><button type="button" aria-pressed="false" data-tag="dolor-etiqueta">Lees la etiqueta y no entiendes la mitad.</button></li>
+            <li><button type="button" aria-pressed="false" data-tag="dolor-proteina">Buscas proteína y tu bebida vegetal casi no trae.</button></li>
+            <li><button type="button" aria-pressed="false" data-tag="dolor-dulce">Todo lo «saludable» sabe a postre.</button></li>
+            <li><button type="button" aria-pressed="false" data-tag="dolor-caja">Abres una caja y se te daña antes de terminarla.</button></li>
+            <li><button type="button" aria-pressed="false" data-tag="dolor-noche">A las 11 p.&nbsp;m. abres la nevera buscando algo.</button></li>
+          </ul>
+          <p class="jcs-pains__result" aria-live="polite" hidden><strong><b>0</b> de 5. Para eso hicimos NUBE.</strong> <span>Y además, sabes de dónde viene.</span></p>
+        </div>
+        <script>
+          (function () {
+            var box = document.getElementById('jc-pains'); if (!box) return;
+            var res = box.querySelector('.jcs-pains__result'), n = res.querySelector('b');
+            box.querySelectorAll('button[data-tag]').forEach(function (b) {
+              b.addEventListener('click', function () {
+                b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+                var k = box.querySelectorAll('button[aria-pressed="true"]').length;
+                n.textContent = k; res.hidden = k === 0;
+              });
+            });
+          })();
+        </script>
         {% render 'jc-waitlist', product: nube, form_id: 'jcs-home-list' %}
         {% render 'jc-delivery-check', id: 'jcs-home-list-check' %}
       </div>
@@ -188,267 +213,6 @@
 
   {% render 'jc-film', buy_href: '#jc-buy', desktop_video: section.settings.film_desktop %}
 
-  <section class="jcs-foryou" id="jc-foryou" aria-labelledby="jc-foryou-title">
-    <span id="juego" class="jcs-anchor" aria-hidden="true"></span>
-    <div class="jcs-frame">
-      <h2 class="jcs-title" id="jc-foryou-title">¿Cuántas te pasan?</h2>
-      <p class="jcs-foryou__ask">Toca las que te pasan.</p>
-      <ol class="jcs-foryou__cards">
-        <li data-k="01"><span>01</span><p class="jcs-foryou__t">Te cobran carísimo por agua con un poquito de almendra.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Ver el precio por vaso &rarr;</a></li>
-        <li data-k="04"><span>02</span><p class="jcs-foryou__t">Abres la nevera a las 11&nbsp;p.&nbsp;m. sin saber qué buscas.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
-        <li data-k="02"><span>03</span><p class="jcs-foryou__t">La leche te cae mal.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin lácteos &rarr;</a></li>
-        <li data-k="11"><span>04</span><p class="jcs-foryou__t">Le quitan el azúcar y le meten edulcorante.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-nutrition">Sin azúcares añadidos · Sin edulcorantes &rarr;</a></li>
-        <li data-k="06"><span>05</span><p class="jcs-foryou__t">Abres la bolsa o la caja y a la semana la botas.</p><a class="jcs-foryou__link" href="#jc-buy">Solo pagas lo que tomas &rarr;</a></li>
-        <li data-k="07"><span>06</span><p class="jcs-foryou__t">Desayunas y a las dos horas ya tienes hambre.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/exploraciones#jc-pausa">Lo que investigamos &rarr;</a></li>
-        <li data-k="09"><span>07</span><p class="jcs-foryou__t">La bebida vegetal viene con la textura decidida.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}products/nube#jc-textura">Tú decides la textura &rarr;</a></li>
-        <li data-k="10"><span>08</span><p class="jcs-foryou__t">Conoces la marca de tu bebida, pero no a quien cultivó la planta.</p><a class="jcs-foryou__link" href="{{ routes.root_url }}pages/nosotros#jc-about-002">Conoce su origen &rarr;</a></li>
-      </ol>
-      <div class="jcs-foryou__nav">
-        <button type="button" class="jcs-foryou__btn" data-dir="-1" aria-label="Anterior">&larr;</button>
-        <span class="jcs-foryou__count" aria-live="polite"><b>1</b> / <i>8</i></span>
-        <button type="button" class="jcs-foryou__btn" data-dir="1" aria-label="Siguiente">&rarr;</button>
-      </div>
-      <div class="jcs-foryou__score" aria-live="polite">
-        <p class="jcs-foryou__score-t"><b>0</b> de <i>8</i></p>
-        <p class="jcs-foryou__score-m">Toca las que te pasan.</p>
-        <button type="button" class="jcs-btn jcs-foryou__reveal" hidden><span>Ver mi resultado</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></button>
-      </div>
-      <div class="jcs-thinking" hidden aria-live="polite">
-        <img class="jcs-thinking__face" src="{{ 'jc-face-dato.jpg' | asset_url }}" width="80" height="80" alt="Dato">
-        <p class="jcs-thinking__t">Dato está revisando tu caso<span>.</span><span>.</span><span>.</span></p>
-      </div>
-      <div class="jcs-result" hidden aria-live="polite">
-        <div class="jcs-result__card">
-          <div class="jcs-result__head">
-            <img class="jcs-result__face" src="" width="80" height="80" alt="">
-            <div><p class="jcs-result__kicker">Te salió</p><p class="jcs-result__title"></p><p class="jcs-result__roast"></p></div>
-          </div>
-          <p class="jcs-result__bot"></p>
-          <p class="jcs-result__rule-k">Tu regla</p>
-          <p class="jcs-result__rule"></p>
-          <details class="jcs-result__fold" open>
-            <summary class="jcs-result__take-k">Para llevar</summary>
-            <ul class="jcs-result__take"></ul>
-          </details>
-          <p class="jcs-result__fortune-k">Tu galleta de la fortuna <span>(sin azúcar)</span></p>
-          <p class="jcs-result__fortune"></p>
-          <p class="jcs-result__moment"></p>
-          <p class="jcs-result__sig">junglcore.com · ¿Cuántas te pasan?</p>
-        </div>
-        <div class="jcs-result__actions">
-          <a class="jcs-btn jcs-result__buy" href="#jc-buy"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <button type="button" class="jcs-btn jcs-btn--line jcs-result__save"><span>Guardar mi tarjeta</span><span class="jcs-arrow" aria-hidden="true">&darr;</span></button>
-          <button type="button" class="jcs-link jcs-result__share">Mándaselo a alguien &rarr;</button>
-          <button type="button" class="jcs-link jcs-result__again">Juega por alguien más &rarr;</button>
-        </div>
-      </div>
-      <script>
-        (function () {
-          var FACES = { dato: "{{ 'jc-face-dato.jpg' | asset_url }}", lupa: "{{ 'jc-face-lupa.jpg' | asset_url }}", chispa: "{{ 'jc-face-chispa.jpg' | asset_url }}" };
-          var NAMES = { dato: 'Dato', lupa: 'Lupa', chispa: 'Chispa' };
-          var SALE = {% if settings.jc_sale_mode == 'a_la_venta' %}true{% else %}false{% endif %};
-          /* Every card: its profile, the fact to take away, and one robot line. Edit freely. */
-          var CARDS = {
-            '01': { p: 'bolsillo', take: 'Compara por vaso, no por caja. El precio grande engaña.', bot: 'lupa', line: 'Conté las almendras. Me sobró paciencia.' },
-            '02': { p: 'barriga', take: 'Si la leche te cae mal, prueba el yogur o el queso maduro: suelen traer mucha menos lactosa.', bot: 'chispa', line: 'Yo no tengo estómago. Igual te entiendo.' },
-            '03': { p: 'etiqueta', take: 'Mira el primer ingrediente de la lista: es del que más hay.', bot: 'dato', line: 'Hoy devolvieron 47. Los anoté.' },
-            '04': { p: 'ruido', take: 'Pregúntate: ¿hambre o aburrimiento? En una encuesta del Reino Unido, el aburrimiento fue el detonante número uno.', bot: 'dato', line: 'Probé lo del Tetris. Perdí. El antojo también.' },
-            '05': { p: 'ruido', take: 'Sírvete en un plato y guarda el paquete. Del paquete no se come una.', bot: 'lupa', line: '¿Por qué los venden de a 20 si se come una?' },
-            '06': { p: 'bolsillo', take: 'Una caja abierta dura de 7 a 10 días. Escríbele la fecha con marcador.', bot: 'lupa', line: 'Pagaron 10 vasos. Se tomaron 6.' },
-            '07': { p: 'ruido', take: 'Cambia lo dulce por algo con proteína: huevo, queso, frijol. Aguanta más que pan dulce y jugo.', bot: 'chispa', line: 'A las 9 desayunan. A las 11 vuelven a buscar.' },
-            '08': { p: 'barriga', take: 'La fibra viene mejor en la comida: fríjol, lenteja, avena, fruta con cáscara. Súbela poco a poco y con agua.', bot: 'dato', line: 'La fibra venía en la planta. La sacaron, la metieron en un sobre y te la vendieron de vuelta.' },
-            '09': { p: 'etiqueta', take: 'Con 150 ml de agua tiene más cuerpo; con 200 ml, es más refrescante. La textura la decides tú, no la fábrica.', bot: 'chispa', line: '¿Quién decidió que todas tenían que ser igual de aguadas? Nadie me supo responder.' },
-            '10': { p: 'etiqueta', take: 'Pregunta de dónde viene. Si la marca no sabe quién cultivó la planta, tú tampoco.', bot: 'lupa', line: 'Busqué al agricultor en la caja. Encontré un código de barras.' },
-            '11': { p: 'etiqueta', take: 'Busca en la lista: sucralosa, acesulfame, stevia, eritritol. Si le quitaron el azúcar, mira qué le pusieron.', bot: 'dato', line: 'Le quitaron el azúcar. Le pusieron tres cosas que no sé pronunciar.' },
-            '12': { p: 'bolsillo', take: 'Haz el mercado con lista. Cargas menos peso y menos antojos.', bot: 'lupa', line: 'Cargan agua del supermercado. Tienen agua en la casa.' }
-          };
-          var PROFILES = {
-            ruido:    { title: 'El visitante de la nevera', roast: 'A las 11 p. m. tu nevera tiene más visitas que tu Instagram.', rule: 'El antojo grita. Tú decides si contestas.', moment: 'Tu momento NUBE: caliente, a las 11 p. m., con el celular boca abajo.' },
-            bolsillo: { title: 'El que no da papaya', roast: 'La quincena se te va en agua con almendra.', rule: 'Paga lo que te tomas, no lo que botas.', moment: 'Tu momento NUBE: una barra, un vaso. Las otras 29 esperan en el congelador.' },
-            barriga:  { title: 'Barriga de porcelana', roast: 'Tú pides proteína y tu estómago pide incapacidad.', rule: 'Comer bien no debería doler.', moment: 'Tu momento NUBE: fría, en el desayuno. Sin lácteos, 6,2 g de proteína.' },
-            etiqueta: { title: 'El que no come cuento', roast: 'En el supermercado te demoras más leyendo que pagando.', rule: 'Si no cabe en una mano, no entra a tu casa.', moment: 'Tu momento NUBE: lee la nuestra. Sacha inchi, agua, goma gelana. Ya.' }
-          };
-          var PAIRS = {
-            'ruido+bolsillo': ['El antojo de lujo', 'Antojo de quincena, presupuesto de fin de mes.'],
-            'ruido+barriga': ['Come y se arrepiente', 'Te comes la empanada a las 11 y la pagas a las 12.'],
-            'ruido+etiqueta': ['Lo leíste y te lo comiste', 'Viste el sello negro. Lo miraste a los ojos. Te lo comiste igual.'],
-            'bolsillo+barriga': ['Paga caro y queda mal', 'Pagas precio de restaurante y te cae como corrientazo de terminal.'],
-            'bolsillo+etiqueta': ['El auditor del supermercado', 'Revisas precio y etiqueta. El supermercado te tiene miedo.'],
-            'barriga+etiqueta': ['Delicado pero informado', 'Estómago de cristal, ojo de contador.']
-          };
-          /* Tu galleta de la fortuna (sin azúcar): one at random per result. Add or remove lines freely. */
-          var FORTUNES = ["No eres débil. El paquete lo diseñó un equipo de 200 personas. Tú estás solo.", "Si algo necesita 23 ingredientes para saber a algo, sospecha.", "El sistema no te quiere flaco ni gordo. Te quiere comprando.", "El paquete dice «porción: 3 galletas». El paquete sabe que mientes.", "Cuando la caja grita «saludable», lee la parte de atrás.", "Ninguna fruta ha necesitado un comercial.", "La comida de verdad se daña. Eso es buena señal.", "Si dura dos años en la alacena, pregúntate qué le hicieron.", "Menos paquetes. Más platos.", "Lo que no compras no te lo comes a las 11 p. m.", "Tu abuela no contaba macros. Tampoco tenía paquetes de 20.", "Nadie se ha arrepentido de una arepa con huevo.", "Caldo, arepa y café. Tu abuela ya sabía de saciedad.", "La abuela servía en plato hondo. El paquete no tiene fondo.", "Tu abuela no tenía antojo a las 11. Tenía sueño a las 9.", "Si viene de una mata, ya vas bien.", "Dato observa: compran agua en caja y tienen agua en la llave.", "Lupa anotó: «solo una» significa, en promedio, todas.", "Chispa no entiende por qué le hablan a la nevera a medianoche.", "Dato calculó que un antojo dura menos que una canción. Ponte una.", "Lupa vio a un humano leer la etiqueta y devolverlo. Lo aplaudió.", "En el planeta de los robots no hay paquetes familiares para una persona.", "Dato encontró miles de plantas en Colombia y cinco en el pasillo. Sigue buscando.", "Los robots vinieron buscando la jungla. Encontraron un pasillo. Tú encuentra la jungla.", "El hambre de verdad acepta cualquier cosa. El antojo solo acepta galletas.", "Un antojo dura minutos. Tú duras más.", "El aburrimiento se disfraza de hambre. Quítale el disfraz.", "Dormir poco da más hambre al día siguiente. Acostarte temprano también es comer bien.", "Lo que tienes a la vista es lo que te comes. Guarda el paquete.", "Un desayuno con proteína aguanta más que uno de puro azúcar.", "El antojo de la noche empieza en el almuerzo que no comiste.", "A buen hambre no hay pan duro. Al antojo, sí.", "Camarón que se duerme temprano no abre la nevera.", "Ojos que no ven el paquete, corazón que no lo abre.", "Más vale arepa en mano que paquete volando.", "Del dicho al hecho hay un paquete de galletas.", "El que come despacio, come una vez.", "La disciplina es aburrida. Por eso funciona.", "Primero la comida. Después la fuerza de voluntad.", "Comer bien no es castigo. Castigo es el pan dulce de las 11.", "El antojo es como un vendedor ambulante: si no le compras, se va.", "La nevera no se va a ir a ninguna parte. Espera cinco minutos.", "Las plantas llevan millones de años sin hacer dieta. Hazles caso.", "Un tinto no es desayuno. Es un adelanto.", "Las onces son sagradas. Las de las 11 p. m., no.", "El domicilio tarda más que el antojo. Espera y verás.", "En la ciudad de los domicilios, cocinar es un acto rebelde.", "Llueve en Bogotá. No es excusa para el paquete. Es excusa para algo caliente.", "La changua nunca pidió permiso para ser buen desayuno.", "Lo barato que se bota sale caro.", "Pagar por agua con sabor es la forma más cara de tomar agua.", "El 3x2 es buena oferta si te ibas a comer tres.", "El mercado con lista cuesta menos. El mercado con hambre, más.", "El empaque bonito también lo pagas tú.", "«Sin azúcar añadida» no es lo mismo que «sin azúcar».", "La foto del frente vende. La lista de atrás informa.", "«Sabor a fresa» y «fresa» no son la misma cosa.", "La porción de la etiqueta casi nunca es la que te comes.", "Una planta se cuida cuando se usa.", "La biodiversidad no es un museo. Es una despensa.", "El futuro de la comida puede estar en una mata que nadie ha mirado.", "La jungla no se perdió. Se dejó de mirar.", "Chispa descubrió el «ya que estoy aquí». Es el antojo más común del planeta.", "Dato anotó cuántas veces dicen «mañana empiezo». Se le acabó la libreta.", "Chispa aprendió que «solo un pedacito» es una unidad de medida humana.", "Dato vio a alguien comer frente a la nevera abierta. Lo anotó como deporte.", "No tienes que ganarle al antojo. Solo tienes que no comprarlo.", "El antojo pregunta. No tienes que contestar ya.", "No es la galleta. Es el paquete entero.", "El cuerpo avisa. El paquete grita. Escucha al que habla bajito.", "Lo más fuerte que puedes hacer a las 11 p. m. es irte a dormir."];
-          var ORDER = ['ruido', 'bolsillo', 'barriga', 'etiqueta'];
-          var track = document.querySelector('.jcs-foryou__cards');
-          var box = document.querySelector('.jcs-foryou__score');
-          var res = document.querySelector('.jcs-result');
-          if (!track || !box || !res) return;
-          var cards = [].slice.call(track.children);
-          var n = box.querySelector('b'), m = box.querySelector('.jcs-foryou__score-m'), reveal = box.querySelector('.jcs-foryou__reveal');
-          box.querySelector('i').textContent = cards.length;
-          cards.forEach(function (li) { li.setAttribute('role', 'button'); li.setAttribute('tabindex', '0'); li.setAttribute('aria-pressed', 'false'); });
-          var shown = false, last = null, fortune = null;
-          function newFortune() { var f; do { f = FORTUNES[Math.floor(Math.random() * FORTUNES.length)]; } while (FORTUNES.length > 1 && f === fortune); fortune = f; }
-          function picked() { return [].slice.call(track.querySelectorAll('li.is-on')).map(function (li) { return li.dataset.k; }).sort(); }
-          function compute(keys) {
-            var c = { ruido: 0, bolsillo: 0, barriga: 0, etiqueta: 0 };
-            keys.forEach(function (k) { if (CARDS[k]) c[CARDS[k].p]++; });
-            var firstIdx = {}; keys.forEach(function (k, i) { var pp = CARDS[k] && CARDS[k].p; if (pp && firstIdx[pp] === undefined) firstIdx[pp] = i; });
-            var rankOf = function (x) { return firstIdx[x] === undefined ? 99 : firstIdx[x]; };
-            var ranked = ORDER.slice().sort(function (a, b) { return c[b] - c[a] || rankOf(a) - rankOf(b); });
-            var top = ranked[0], second = ranked[1], prof = PROFILES[top], title = prof.title, roast = prof.roast;
-            var rule = prof.rule, moment = prof.moment;
-            if (keys.length >= 6) { title = 'El combo completo'; roast = 'No eres un desastre. Eras el cliente perfecto del sistema. Hasta hoy.'; rule = 'No te falta fuerza de voluntad. Te falta comida que no te pelee.'; moment = 'Tu momento NUBE: todos. Por eso son 30 barras.'; }
-            else if (c[second] === c[top] && c[top] > 0) {
-              var pair = PAIRS[top + '+' + second] || PAIRS[second + '+' + top];
-              if (pair) { title = pair[0]; roast = pair[1]; }
-            }
-            var lead = keys.filter(function (k) { return CARDS[k].p === top; })[0] || keys[0]; var first = CARDS[lead];
-            return { title: title, roast: roast, rule: rule, moment: moment, bot: first.bot, line: first.line, take: keys.filter(function (k) { return CARDS[k].p === top; }).concat(keys.filter(function (k) { return CARDS[k].p !== top; })).slice(0, 3).map(function (k) { return CARDS[k].take; }) };
-          }
-          function render() {
-            var keys = picked(); if (keys.length < 2) { res.hidden = true; return; }
-            var r = compute(keys); last = { r: r, keys: keys };
-            res.querySelector('.jcs-result__face').src = FACES[r.bot];
-            res.querySelector('.jcs-result__face').alt = NAMES[r.bot];
-            res.querySelector('.jcs-result__title').textContent = r.title;
-            res.querySelector('.jcs-result__roast').textContent = r.roast;
-            res.querySelector('.jcs-result__bot').innerHTML = '<b>' + NAMES[r.bot] + ':</b> «' + r.line + '»';
-            res.querySelector('.jcs-result__rule').textContent = r.rule;
-            var ul = res.querySelector('.jcs-result__take'); ul.innerHTML = '';
-            r.take.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
-            if (!fortune) newFortune();
-            res.querySelector('.jcs-result__fortune').textContent = fortune;
-            res.querySelector('.jcs-result__moment').textContent = r.moment;
-            var nums = keys.map(function (k) { var sp = track.querySelector('li[data-k="' + k + '"] span'); return Number(sp ? sp.textContent : k); }).sort(function (x, y) { return x - y; }).map(String);
-            var list = nums.length > 1 ? nums.slice(0, -1).join(', ') + ' y ' + nums[nums.length - 1] : nums[0];
-            var buy = res.querySelector('.jcs-result__buy');
-            if (buy) { buy.href = '#jc-buy'; buy.removeAttribute('target'); }
-            var slug = r.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-            var fold = res.querySelector('.jcs-result__fold'); if (fold && window.matchMedia('(max-width: 899px)').matches) fold.open = false;
-            res.hidden = false;
-          }
-          function update() {
-            var k = picked().length;
-            n.textContent = k; box.classList.toggle('is-live', k > 0);
-            if (k === 0) m.textContent = 'Toca las que te pasan.';
-            else if (k === 1) m.textContent = 'Te pasa una. Sigue.';
-            else if (k < cards.length) m.textContent = 'Te pasan ' + k + '.';
-            else m.textContent = 'Te pasan todas.';
-            reveal.hidden = k < 2 || shown;
-            if (shown) render();
-          }
-          function toggle(li) { var on = li.classList.toggle('is-on'); li.setAttribute('aria-pressed', on ? 'true' : 'false'); update(); }
-          track.addEventListener('click', function (e) { if (e.target.closest('a')) return; var li = e.target.closest('li'); if (li) toggle(li); });
-          track.addEventListener('keydown', function (e) { if (e.key !== 'Enter' && e.key !== ' ') return; var li = e.target.closest('li'); if (li && e.target === li) { e.preventDefault(); toggle(li); } });
-          var thinking = document.querySelector('.jcs-thinking');
-          reveal.addEventListener('click', function () {
-            shown = true; window.jcJuego = true; newFortune(); reveal.hidden = true; res.hidden = true; document.getElementById('jc-foryou').classList.add('is-result');
-            thinking.hidden = false; thinking.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            setTimeout(function () {
-              thinking.hidden = true; render(); res.classList.remove('is-in'); void res.offsetWidth; res.classList.add('is-in');
-              res.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 1600);
-          });
-          /* Guardar mi tarjeta: a 1080x1920 image for stories */
-          function wrap(ctx, text, x, y, maxW, lh) {
-            var words = String(text).split(' '), line = '', lines = [];
-            words.forEach(function (w) { var t = line ? line + ' ' + w : w; if (ctx.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t; });
-            if (line) lines.push(line);
-            lines.forEach(function (l, i) { ctx.fillText(l, x, y + i * lh); });
-            return y + lines.length * lh;
-          }
-          function drawCard(face) {
-            var r = last.r, W = 1080, H = 1920, c = document.createElement('canvas'); c.width = W; c.height = H;
-            var ctx = c.getContext('2d'), F = getComputedStyle(document.querySelector('.jcs')).fontFamily || 'sans-serif';
-            var x = 96, maxW = W - 192;
-            function body(y, draw) {
-              ctx.fillStyle = '#f4f3ef'; ctx.textBaseline = 'top';
-              var fill = draw ? function (t, a, b) { ctx.fillText(t, a, b); } : function () {};
-              var w = function (t, yy, lh) { if (draw) return wrap(ctx, t, x, yy, maxW, lh); var words = String(t).split(' '), line = '', n = 0; words.forEach(function (wd) { var tt = line ? line + ' ' + wd : wd; if (ctx.measureText(tt).width > maxW && line) { n++; line = wd; } else line = tt; }); if (line) n++; return yy + n * lh; };
-              if (face) { if (draw) { ctx.save(); ctx.beginPath(); ctx.arc(x + 90, y + 90, 90, 0, Math.PI * 2); ctx.closePath(); ctx.clip(); ctx.drawImage(face, x, y, 180, 180); ctx.restore(); ctx.lineWidth = 6; ctx.strokeStyle = '#f4f3ef'; ctx.beginPath(); ctx.arc(x + 90, y + 90, 90, 0, Math.PI * 2); ctx.stroke(); } y += 230; }
-              ctx.globalAlpha = .6; ctx.font = '700 30px ' + F; fill('TE SALIÓ', x, y); ctx.globalAlpha = 1; y += 56;
-              ctx.font = '500 104px ' + F; y = w(r.title.toUpperCase(), y, 106) + 22;
-              ctx.globalAlpha = .85; ctx.font = '400 40px ' + F; y = w(r.roast, y, 52) + 30; ctx.globalAlpha = .7;
-              ctx.font = '400 34px ' + F; y = w(NAMES[r.bot] + ': «' + r.line + '»', y, 46) + 70; ctx.globalAlpha = 1;
-              ctx.fillStyle = '#e8a598'; ctx.font = '700 28px ' + F; fill('TU REGLA', x, y); y += 52;
-              ctx.fillStyle = '#f4f3ef'; ctx.font = '500 58px ' + F; y = w(r.rule, y, 70) + 70;
-              ctx.fillStyle = '#e8a598'; ctx.font = '700 28px ' + F; fill('TU GALLETA DE LA FORTUNA (SIN AZÚCAR)', x, y); y += 52;
-              ctx.fillStyle = '#f4f3ef'; ctx.font = 'italic 400 46px ' + F; y = w(fortune, y, 60);
-              return y;
-            }
-            var h = body(0, false);
-            ctx.fillStyle = '#111'; ctx.fillRect(0, 0, W, H);
-            ctx.fillStyle = '#f4f3ef'; ctx.textBaseline = 'top'; ctx.font = '800 54px ' + F; ctx.fillText('junglcore', x, 110);
-            body(Math.max(240, (H - h) / 2), true);
-            ctx.globalAlpha = .5; ctx.font = '700 28px ' + F; ctx.fillText('¿CUÁNTAS TE PASAN? · JUNGLCORE.COM', x, H - 140); ctx.globalAlpha = 1;
-            return c;
-          }
-          function deliver(c) {
-            var name = 'junglcore-' + last.r.title.toLowerCase().replace(/\s+/g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, '') + '.png';
-            c.toBlob(function (blob) {
-              if (!blob) return;
-              var file = new File([blob], name, { type: 'image/png' });
-              if (navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file] }).catch(function () {}); return; }
-              var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
-            }, 'image/png');
-          }
-          res.querySelector('.jcs-result__save').addEventListener('click', function () {
-            if (!last) return;
-            var img = new Image(); img.crossOrigin = 'anonymous';
-            img.onload = function () { var c = drawCard(img); try { c.toDataURL(); deliver(c); } catch (e) { deliver(drawCard(null)); } };
-            img.onerror = function () { deliver(drawCard(null)); };
-            img.src = FACES[last.r.bot];
-          });
-          res.querySelector('.jcs-result__share').addEventListener('click', function () {
-            if (!last) return;
-            var text = 'Me salió ' + last.r.title.toUpperCase() + ' en ¿Cuántas te pasan? ¿Y a ti?';
-            var url = location.origin + '/#juego';
-            if (navigator.share) { navigator.share({ text: text, url: url }).catch(function () {}); }
-            else window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
-          });
-          res.querySelector('.jcs-result__again').addEventListener('click', function () {
-            cards.forEach(function (li) { li.classList.remove('is-on'); li.setAttribute('aria-pressed', 'false'); });
-            shown = false; fortune = null; res.hidden = true; document.getElementById('jc-foryou').classList.remove('is-result'); update(); track.scrollLeft = 0;
-            document.getElementById('jc-foryou').scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
-        })();
-      </script>
-      <script>
-        (function () {
-          var track = document.querySelector('.jcs-foryou__cards');
-          var nav = document.querySelector('.jcs-foryou__nav');
-          if (!track || !nav) return;
-          var cards = track.children, count = nav.querySelector('b');
-          nav.querySelector('i').textContent = cards.length;
-          function step() { return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth; }
-          nav.addEventListener('click', function (e) {
-            var btn = e.target.closest('[data-dir]'); if (!btn) return;
-            track.scrollBy({ left: step() * Number(btn.dataset.dir), behavior: 'smooth' });
-          });
-          track.addEventListener('scroll', function () {
-            var i = Math.round(track.scrollLeft / step()) + 1;
-            count.textContent = Math.min(Math.max(i, 1), cards.length);
-          }, { passive: true });
-        })();
-      </script>
-    </div>
-      <script>
-        (function () {
-          // Si alguien juega y luego compra en esta página, el pedido queda marcado origen=juego.
-          document.addEventListener('click', function (e) {
-            var a = e.target.closest && e.target.closest('a[href*="/cart/"]');
-            if (!window.jcJuego || !a || !/\/cart\/\d+:\d+/.test(a.getAttribute('href')) || a.href.indexOf('origen') > -1) return;
-            a.href += (a.href.indexOf('?') > -1 ? '&' : '?') + 'attributes%5Borigen%5D=juego';
-          }, true);
-          document.addEventListener('submit', function (e) {
-            var f = e.target;
-            if (!window.jcJuego || !f.action || f.action.indexOf('/cart/add') < 0 || f.querySelector('[name="properties[_origen]"]')) return;
-            var i = document.createElement('input'); i.type = 'hidden'; i.name = 'properties[_origen]'; i.value = 'juego'; f.appendChild(i);
-          }, true);
-        })();
-      </script>
-  </section>
 
 
 

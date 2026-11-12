@@ -15,8 +15,8 @@ Lote 001 · la lista. No buying until the batch opens: email + city, tagged list
     <p class="jcs-wait__date">{{ launch }}</p>
   </div>
   <p class="jcs-wait__lead"><strong>Lote 001 llega en {{ launch }}.</strong> No apartamos bolsas sin pago. Pero los que están en la lista se enteran primero y compran primero.</p>
-  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ per_glass | money_without_trailing_zeros }} el vaso</strong> · 2 bolsas · 60 vasos · envío incluido</p><p class="jcs-wait__price jcs-wait__single">¿Solo una? {{ v.price | money_without_trailing_zeros }} la bolsa · hasta 6 litros, más envío.</p>{% endif %}
-  <p class="jcs-list__month"><strong>Una bolsa rinde hasta 6 litros de bebida vegetal:</strong> lo de 6 cajas de 1 litro. Pesa 600 gramos.</p>
+  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ per_glass | money_without_trailing_zeros }} el vaso</strong> · 2 bolsas · 60 vasos · envío incluido</p><p class="jcs-wait__price jcs-wait__single">¿Solo una? {{ v.price | money_without_trailing_zeros }} la bolsa, más envío.</p>{% endif %}
+  <p class="jcs-list__month"><strong>1 bolsa = hasta 6 cajas de 1 litro de bebida vegetal.</strong> Pesa 600 gramos.</p>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}
@@ -55,9 +55,13 @@ Lote 001 · la lista. No buying until the batch opens: email + city, tagged list
     var box = document.getElementById({{ form_id | json }}); if (!box) return;
     var sel = box.querySelector('[data-list-city]'), tags = box.querySelector('[data-list-tags]');
     if (!sel || !tags) return;
-    sel.addEventListener('change', function () {
-      var slug = sel.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
-      tags.value = 'newsletter,lista-lote-001,ciudad-' + slug + (slug !== 'bogota' ? ',fuera-bogota' : '');
-    });
+    /* Tags: the list, the city, and the pains tapped in "¿Cuáles te pasan?" (dolor-*), so December's email can speak to each one. */
+    function setTags() {
+      var slug = sel.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
+      var pains = [].slice.call(document.querySelectorAll('.jcs-pains button[aria-pressed="true"]')).map(function (b) { return b.dataset.tag; });
+      tags.value = ['newsletter', 'lista-lote-001', 'ciudad-' + slug].concat(slug !== 'bogota' ? ['fuera-bogota'] : []).concat(pains).join(',');
+    }
+    sel.addEventListener('change', setTags);
+    var form = tags.form; if (form) form.addEventListener('submit', setTags);
   })();
 </script>

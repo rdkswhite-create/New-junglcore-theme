@@ -1596,3 +1596,17 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-nube__litros strong { color: var(--ink); font-weight: 600; }
 .jcs-nube__go.jcs-nube__more { margin-top: 18px; }
 .jcs-nube__when--line { display: block; margin: 10px 0 0; text-align: left; }
+
+/* "¿Cuáles te pasan?": the front door of the list */
+.jcs-pains { margin-bottom: 22px; }
+.jcs .jcs-pains__title { margin: 0; font-size: clamp(26px, 2.6vw, 34px); font-weight: 500; letter-spacing: -.02em; line-height: 1.05; text-transform: uppercase; }
+.jcs-pains__ask { margin: 6px 0 14px; font-size: 15px; color: var(--muted); }
+.jcs-pains__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.jcs-pains__list button { position: relative; width: 100%; text-align: left; padding: 16px 52px 16px 18px; border: 1px solid var(--rule, #ddd); background: #efe9df; color: var(--ink); font: inherit; font-size: 16px; font-weight: 500; line-height: 1.3; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background .15s, color .15s; }
+.jcs-pains__list button::after { content: '✓'; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border: 1px solid currentColor; border-radius: 50%; display: grid; place-items: center; font-size: 13px; opacity: .3; }
+.jcs-pains__list button[aria-pressed="true"] { background: #111; color: #f4f3ef; border-color: #111; }
+.jcs-pains__list button[aria-pressed="true"]::after { opacity: 1; }
+.jcs-pains__result { margin: 16px 0 0; font-size: 17px; line-height: 1.4; }
+.jcs-pains__result span { color: var(--muted); }
+/* Conoce NUBE: outlined, full width, same height as Avísame */
+.jcs-nube__go.jcs-btn { margin-top: 20px; }
