@@ -16,7 +16,7 @@ Lote 001 · la lista. No buying until the batch opens: email + city, tagged list
   </div>
   <p class="jcs-wait__lead"><strong>Lote 001 llega en {{ launch }}.</strong> No apartamos bolsas sin pago. Pero los que están en la lista se enteran primero y compran primero.</p>
   {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ per_glass | money_without_trailing_zeros }} el vaso</strong> · {{ v.price | money_without_trailing_zeros }} la bolsa de 30 · envío gratis en Bogotá desde 2 bolsas</p>{% endif %}
-  <p class="jcs-list__month">Una bolsa = un mes de mañanas.</p>
+  <p class="jcs-list__month"><strong>Una bolsa reemplaza hasta 6 cajas de bebida vegetal.</strong> 600 gramos en vez de 6 kilos. Un mes de mañanas.</p>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}
