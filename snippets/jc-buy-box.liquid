@@ -24,7 +24,6 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
     <li><strong>3</strong><span>Ingredientes</span></li>
   </ul>
   <p class="jcs-buy__without">Ligera · Sin azúcares añadidos · Sin lácteos · Sin aceites añadidos</p>
-  <figure class="jcs-buy__demo"><video src="{{ 'jc-nube-demo.mp4' | asset_url }}" poster="{{ 'jc-nube-demo-poster.jpg' | asset_url }}" width="720" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Una barra de NUBE sale del congelador, entra en la licuadora con agua y se sirve en un vaso"></video><figcaption>Una barra, agua, 30 segundos de licuadora. Un vaso.</figcaption></figure>
   {% if settings.jc_sale_mode != 'a_la_venta' %}
     {% render 'jc-waitlist', product: product, form_id: form_id %}
   {% elsif v and v.price > 0 %}
