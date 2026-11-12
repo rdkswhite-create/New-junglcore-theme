@@ -1454,3 +1454,8 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-lab-more { margin-top: clamp(20px, 3vw, 32px); max-width: 900px; }
 .jcs-lab-more__in { display: grid; gap: 22px; padding-top: 18px; }
 .jcs-lab-more__k { margin-top: 10px; }
+/* Hero loop: on desktop the 720px portrait video sits on the right at native size (sharp), fading into the dark side where the headline sits */
+@media (min-width: 900px) {
+  .jcs-hero__media { left: auto; right: 0; width: min(50%, 720px); -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%); mask-image: linear-gradient(90deg, transparent 0%, #000 38%); }
+  .jcs-hero__media video { object-position: 50% 45%; }
+}

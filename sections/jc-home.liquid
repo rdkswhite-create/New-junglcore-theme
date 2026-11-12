@@ -14,18 +14,14 @@
       {% if section.settings.hero_video != blank %}
         {{ section.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
       {% else %}
-        <picture>
-          <source media="(max-width: 749px)" srcset="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-portrait-loop.webp?v=1793647878" type="image/webp">
-          <img src="https://cdn.shopify.com/s/files/1/0837/7185/0809/files/junglcore-nube-landscape-loop.webp?v=1793647871" alt="Una barra de NUBE cae en la licuadora con agua" width="910" height="512" loading="eager" fetchpriority="high">
-        </picture>
+        <video src="{{ 'jc-hero-loop.mp4' | asset_url }}" poster="{{ 'jc-hero-loop-poster.jpg' | asset_url }}" autoplay muted loop playsinline preload="auto" aria-label="Una barra de NUBE cae en la licuadora con agua, se licúa y se sirve"></video>
       {% endif %}
     </div>
     <div class="jcs-hero__shade" aria-hidden="true"></div>
-    <div class="jcs-hero__top"><span>Colombia / Biodiversidad</span></div>
+    <div class="jcs-hero__top"><span>Bebida vegetal de origen · Colombia</span></div>
     <div class="jcs-hero__body">
       <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
       <p class="jcs-hero__answer">Esta vive en tu congelador.</p>
-      <p class="jcs-hero__sub"><strong>Bebida vegetal de origen.</strong> Sacha inchi de Santander, Norte de Santander y Valle del Cauca.</p>
       <div class="jcs-hero__actions">
         <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-preparar">Cómo se prepara</a>
