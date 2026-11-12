@@ -1509,3 +1509,8 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-nube__when { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .jcs-nube__more { display: inline-block; margin-top: 22px; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
 @media (max-width: 899px) { .jcs-nube { margin-top: 28px; } }
+
+/* Spacing between the stacked chapters: versus and the "no es" list each get their own breathing room */
+.jcs-versus:not(.jcs-versus--compact) { padding-top: clamp(56px, 8vw, 110px); }
+.jcs-noes { padding-bottom: clamp(56px, 8vw, 110px); }
+.jcs-versus + .jcs-noes { padding-top: 8px; }
