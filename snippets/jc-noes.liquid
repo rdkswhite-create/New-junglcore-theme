@@ -1,0 +1,24 @@
+{% doc %}
+Lo que NUBE no es — the trade-offs, said first.
+@param {string} [number] - Chapter number.
+@param {boolean} [short] - Shorter version (NUBE page).
+{% enddoc %}
+<section class="jcs-noes" aria-labelledby="jc-noes-title-{{ number }}">
+  <div class="jcs-frame">
+    <p class="jcs-chapter"><span>{{ number }}</span>Lo que NUBE no es</p>
+    <h2 class="jcs-title" id="jc-noes-title-{{ number }}">NUBE no es para todo. Mejor te lo decimos antes.</h2>
+    {%- if short -%}
+    <p class="jcs-noes__is">No es leche. No es barista: no hace espuma. No es dulce. No dura en la alacena. Y la de soya tiene un poco más de proteína.</p>
+    {%- else -%}
+    <ul class="jcs-noes__list">
+      <li>No es leche.</li>
+      <li>No es barista: no hace espuma.</li>
+      <li>No es dulce.</li>
+      <li>No dura en la alacena.</li>
+      <li>Y no es la que más proteína tiene: la de soya tiene un poco más.</li>
+    </ul>
+    <p class="jcs-noes__is"><strong>Es una bebida vegetal de una semilla colombiana, con tres ingredientes, que vive en tu congelador.</strong></p>
+    {%- endif -%}
+    <p class="jcs-noes__why">Congelada, porque no lleva nada que la haga durar.</p>
+  </div>
+</section>

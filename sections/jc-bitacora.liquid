@@ -226,9 +226,9 @@
       <div class="jcs-lab-strip">
         <div class="jcs-lab-strip__top">
           <img src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="120" height="120" loading="lazy" alt="Bolsa JUNGLCORE NUBE">
-          <div class="jcs-lab-strip__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>Lo que salió de la bitácora, por ahora. 30 vasos por bolsa · solo Bogotá.{% if settings.jc_sale_mode != 'a_la_venta' %} Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }}.{% endif %}</span></div>
+          <div class="jcs-lab-strip__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>Lo que salió de la bitácora, por ahora. 30 vasos por bolsa · solo Bogotá.{% if settings.jc_sale_mode != 'a_la_venta' %} Lote 001: {{ settings.jc_launch_label | default: 'diciembre' }}.{% endif %}</span></div>
         </div>
-        <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube#jc-buy"><span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
       {% endif %}
       <p class="jcs-lab-inst jcs-lab-follow__inst"><a href="{{ routes.root_url }}pages/exploraciones">Ver cómo lo comprobamos en el Lab &rarr;</a></p>

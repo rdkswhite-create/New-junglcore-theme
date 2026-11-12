@@ -1,75 +1,63 @@
 {% doc %}
-Primera tanda. With stock: Págala ya (paid only, 1–10 bags). Without stock: email list only, no free reservation. Email lands in Shopify Customers with the tag primera-tanda.
+Lote 001 · la lista. No buying until the batch opens: email + city, tagged lista-lote-001 and ciudad-<name> (fuera-bogota when not Bogotá), so the customer list shows who asked and from where. No free reservations.
 @param {object} product - The NUBE product.
 @param {string} form_id - Unique id.
 {% enddoc %}
 {%- liquid
   assign v = product.selected_or_first_available_variant
-  assign launch = settings.jc_launch_label | default: '20 de noviembre'
-  assign perk = settings.jc_waitlist_perk
-  assign contact_day = settings.jc_contact_label | default: '19 de noviembre'
+  assign launch = settings.jc_launch_label | default: 'diciembre'
   assign per_glass = v.price | divided_by: 30
-  assign wa_text = 'Hola, quiero NUBE de la primera tanda (' | append: launch | append: '). Estoy en el barrio: '
   assign email_id = form_id | append: '-email'
 -%}
-<div class="jcs-wait" id="{{ form_id }}">
+<div class="jcs-wait jcs-list" id="{{ form_id }}">
   <div class="jcs-wait__head">
-    <p class="jcs-wait__tag">Primera tanda</p>
+    <p class="jcs-wait__tag">Lote 001</p>
     <p class="jcs-wait__date">{{ launch }}</p>
   </div>
-  <p class="jcs-wait__lead">Estamos produciendo la primera tanda. Entregamos en Bogotá desde el {{ launch }}.</p>
-  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ v.price | money_without_trailing_zeros }}</strong> · 30 vasos · desde {{ per_glass | money_without_trailing_zeros }} por vaso con 2 bolsas y envío gratis</p>{% endif %}
-  {% if settings.jc_waitlist_count > 0 %}<p class="jcs-wait__count"><strong>{{ settings.jc_waitlist_count }}</strong> {% if settings.jc_waitlist_count == 1 %}persona ya apartó su bolsa.{% else %}personas ya apartaron su bolsa.{% endif %}</p>{% endif %}
-
-  {%- if v and v.available -%}
-  <div class="jcs-prepay" data-variant="{{ v.id }}">
-    <p class="jcs-prepay__k">Pide tu bolsa <span>· asegurada en la primera tanda</span></p>
-    <div class="jcs-prepay__row">
-      <label class="visually-hidden" for="{{ form_id }}-qty">Bolsas</label>
-      <select id="{{ form_id }}-qty" class="jcs-prepay__qty">
-        {%- for q in (1..10) -%}
-          <option value="{{ q }}"{% if q == 2 %} selected{% endif %} data-total="{% render 'jc-delivered-total', variant: v, qty: q %}" data-ship="{% if q >= 2 %}envío gratis{% else %}con envío{% endif %}" data-glass="{% render 'jc-glass-price', variant: v, qty: q %}">{{ q }} {% if q == 1 %}bolsa{% else %}bolsas{% endif %}{% if q >= 2 %} · envío gratis{% endif %}</option>
-        {%- endfor -%}
-      </select>
-      <a class="jcs-btn jcs-prepay__btn" href="{{ routes.root_url }}cart/{{ v.id }}:2"><span>Pide tu bolsa</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-    </div>
-    <div class="jcs-buy__totalrow"><img class="jcs-buy__thumb" src="{{ 'jc-strip-bolsa.jpg' | asset_url }}" width="800" height="800" loading="lazy" alt="Bolsa de NUBE"><p class="jcs-prepay__total" data-prepay-total><strong>{% render 'jc-delivered-total', variant: v, qty: 2 %}</strong> envío gratis · {% render 'jc-glass-price', variant: v, qty: 2 %} por vaso</p></div>
-    <p class="jcs-buy__nudge" data-nudge hidden>Por {{ v.price | minus: 2000000 | money_without_trailing_zeros }} más, otra bolsa y el envío gratis.</p>
-    <p class="jcs-prepay__small">Pago seguro con Bold. Envío en Bogotá $20.000; gratis desde 2 bolsas.</p>
-    <p class="jcs-prepay__small">Llega congelada, por mensajero, en caja térmica. Las 2 bolsas caben en tu congelador.</p>
-    <p class="jcs-prepay__small"><strong>¿Llegó descongelada? Te la reponemos.</strong></p>
-    <a class="jcs-buy__wa jcs-buy__wa--quiet" href="https://wa.me/573011571039?text={{ 'Hola, tengo una duda sobre NUBE: ' | url_encode }}" target="_blank" rel="noopener">¿Dudas sobre el sabor, la preparación o la entrega? Escríbenos <span aria-hidden="true">&rarr;</span></a>
-  </div>
-  <script>
-    (function () {
-      var box = document.currentScript.previousElementSibling; if (!box) return;
-      var sel = box.querySelector('.jcs-prepay__qty'), btn = box.querySelector('.jcs-prepay__btn'), id = box.dataset.variant;
-      var tot = box.querySelector('[data-prepay-total]');
-      sel.addEventListener('change', function () {
-        btn.href = '{{ routes.root_url }}cart/' + id + ':' + sel.value;
-        var o = sel.options[sel.selectedIndex];
-        if (tot && o.dataset.total) { tot.innerHTML = '<strong>' + o.dataset.total.trim() + '</strong> ' + o.dataset.ship + ' · ' + o.dataset.glass.trim() + ' por vaso'; }
-        var nd = box.querySelector('[data-nudge]'); if (nd) nd.hidden = sel.value !== '1';
-      });
-    })();
-  </script>
-  {%- else -%}
-  <p class="jcs-wait__or">Esta tanda se agotó. Déjanos tu correo y te avisamos cuando salga la siguiente, antes que a nadie.</p>
+  <p class="jcs-wait__lead"><strong>Lote 001 llega en {{ launch }}.</strong> No apartamos bolsas sin pago. Pero los que están en la lista se enteran primero y compran primero.</p>
+  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ per_glass | money_without_trailing_zeros }} el vaso</strong> · {{ v.price | money_without_trailing_zeros }} la bolsa de 30 · envío gratis en Bogotá desde 2 bolsas</p>{% endif %}
+  <p class="jcs-list__month">Una bolsa = un mes de mañanas.</p>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}
-      <p class="jcs-wait__ok" role="status"><strong>Estás en la lista.</strong> Te avisamos primero.</p>
+      <p class="jcs-wait__ok" role="status"><strong>Estás en la lista.</strong> Te avisamos primero, un día antes que a nadie.</p>
     {% else %}
-      <input type="hidden" name="contact[tags]" value="newsletter,primera-tanda">
-      <label class="jcs-wait__label" for="{{ email_id }}-input">Tu correo</label>
-      <div class="jcs-wait__row jcs-wait__row--stack">
+      <input type="hidden" name="contact[tags]" value="newsletter,lista-lote-001,ciudad-bogota" data-list-tags>
+      <div class="jcs-list__fields">
+        <label class="visually-hidden" for="{{ email_id }}-input">Tu correo</label>
         <input type="email" id="{{ email_id }}-input" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" autocorrect="off" autocapitalize="off" required>
-        <button type="submit">Avísame cuando esté disponible</button>
+        <label class="visually-hidden" for="{{ email_id }}-city">Tu ciudad</label>
+        <select id="{{ email_id }}-city" data-list-city>
+          <option selected>Bogotá</option>
+          <option>Medellín</option>
+          <option>Cali</option>
+          <option>Barranquilla</option>
+          <option>Bucaramanga</option>
+          <option>Cartagena</option>
+          <option>Pereira</option>
+          <option>Manizales</option>
+          <option>Cúcuta</option>
+          <option>Ibagué</option>
+          <option>Villavicencio</option>
+          <option>Santa Marta</option>
+          <option>Otra</option>
+        </select>
+        <button type="submit" class="jcs-btn jcs-btn--full"><span>Avísame</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></button>
       </div>
       {% if form.errors %}<p class="jcs-wait__err" role="alert">Revisa el correo. {{ form.errors.messages['email'] }}</p>{% endif %}
-      <p class="jcs-wait__legal">Solo te escribimos sobre NUBE y JUNGLCORE. Puedes salirte cuando quieras.{% if shop.privacy_policy != blank %} <a href="{{ shop.privacy_policy.url }}">Política de datos</a>.{% endif %}</p>
+      <p class="jcs-wait__legal">Te avisamos del próximo lote y de cuándo llegamos a tu ciudad. Solo eso. Puedes salirte cuando quieras.{% if shop.privacy_policy != blank %} <a href="{{ shop.privacy_policy.url }}">Política de datos</a>.{% endif %}</p>
     {% endif %}
   {% endform %}
-  {%- endif -%}
+  <a class="jcs-buy__wa jcs-buy__wa--quiet" href="https://wa.me/573011571039?text={{ 'Hola, tengo una duda sobre NUBE: ' | url_encode }}" target="_blank" rel="noopener">¿Dudas sobre el sabor, la preparación o la entrega? Escríbenos <span aria-hidden="true">&rarr;</span></a>
 </div>
-
+<script>
+  (function () {
+    var box = document.getElementById({{ form_id | json }}); if (!box) return;
+    var sel = box.querySelector('[data-list-city]'), tags = box.querySelector('[data-list-tags]');
+    if (!sel || !tags) return;
+    sel.addEventListener('change', function () {
+      var slug = sel.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
+      tags.value = 'newsletter,lista-lote-001,ciudad-' + slug + (slug !== 'bogota' ? ',fuera-bogota' : '');
+    });
+  })();
+</script>

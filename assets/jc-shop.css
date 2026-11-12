@@ -1001,7 +1001,7 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 
 /* Ch.04 mission heading on three lines; ch.05 heading wraps naturally */
 #jc-manifesto-title { font-size: min(clamp(34px, 5.4vw, 76px), 7.1vw); }
-#jc-manifesto-title span { display: block; white-space: nowrap; }
+#jc-manifesto-title span { display: block; }
 .jcs-next__display { font-size: clamp(34px, 5.4vw, 76px); }
 .jcs-next__lead { max-width: 760px; }
 .jcs-next__lead + .jcs-next__lead { margin-top: -12px; }
@@ -1413,3 +1413,44 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 @media (max-width: 749px) { .jcs-origin-block__grid { grid-template-columns: 1fr; } }
 .jcs-about__sub { margin-top: clamp(28px, 4vw, 44px); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
 .jcs-about__sub + p { margin-top: 12px; }
+
+/* Lote 001 · la lista */
+.jcs-list__month { margin-top: 6px; font-size: 14px; color: var(--muted); }
+.jcs-list__fields { display: grid; gap: 8px; margin-top: 14px; }
+.jcs-list__fields input, .jcs-list__fields select { width: 100%; min-height: 52px; padding: 0 14px; border: 1px solid var(--ink); background: var(--paper); font: inherit; font-size: 16px; color: var(--ink); border-radius: 0; -webkit-appearance: none; appearance: none; }
+.jcs-list__fields select { background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+
+/* Elige tu NUBE · Lo que NUBE no es · origen · negocios · cierre */
+.jcs-mine__note { margin-top: 14px; font-size: 15px; font-style: italic; color: var(--muted); }
+.jcs-noes { padding: clamp(56px, 8vw, 110px) 0 0; }
+.jcs-noes .jcs-title { margin-top: clamp(22px, 3vw, 36px); max-width: 22ch; }
+.jcs-noes__list { list-style: none; margin: clamp(22px, 3vw, 34px) 0 0; padding: 0; border-top: 1px solid var(--rule); max-width: 760px; }
+.jcs-noes__list li { padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: clamp(17px, 1.8vw, 21px); line-height: 1.4; }
+.jcs-noes__is { margin-top: 22px; max-width: 760px; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.45; }
+.jcs-noes__why { margin-top: 8px; font-size: 15px; color: var(--muted); }
+.jcs-origin-block .jcs-chapter + .jcs-origin-block__grid { margin-top: clamp(22px, 3vw, 36px); }
+.jcs-origin-block__lot { font-size: 15px; line-height: 1.5; padding-top: 12px; border-top: 1px solid var(--rule); }
+.jcs-biz { padding: clamp(48px, 7vw, 96px) 0 clamp(8px, 2vw, 20px); }
+.jcs-biz__in { display: grid; gap: 14px; justify-items: start; padding: clamp(24px, 4vw, 48px); border: 1px solid var(--ink); }
+.jcs-biz .jcs-title { font-size: clamp(24px, 3vw, 38px); }
+.jcs-final__line { margin-top: 22px; font-size: 14px; letter-spacing: .02em; opacity: .8; }
+.jcs-manifesto__wrap .jcs-btn { margin-top: 22px; }
+
+.jcs-pdp-sub { margin-top: 6px; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+.jcs-ingr { padding: clamp(56px, 8vw, 110px) 0 0; }
+.jcs-ingr .jcs-title { margin: clamp(22px, 3vw, 36px) 0 12px; }
+.jcs-texture__how em { margin-left: 6px; }
+
+.jcs-lots { list-style: none; margin: 10px 0 0; padding: 0; border-top: 1px solid var(--rule); }
+.jcs-lots li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.jcs-lots li span { color: var(--muted); }
+/* Lab: definición primero · tres líneas · Ver más */
+.jcs-lab-defsec { padding: clamp(40px, 6vw, 80px) 0 0; }
+.jcs-lab-defsec .jcs-def { max-width: 640px; }
+.jcs-lab-pause { margin-top: 22px; max-width: 640px; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.45; padding-top: 16px; border-top: 1px solid var(--rule); }
+.jcs-lab-three { display: grid; gap: 14px; max-width: 760px; margin-top: clamp(18px, 2.4vw, 28px); }
+.jcs-lab-three__seen { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.5; }
+.jcs-lab-three__caveat { font-size: 15px; line-height: 1.5; color: var(--muted); }
+.jcs-lab-more { margin-top: clamp(20px, 3vw, 32px); max-width: 900px; }
+.jcs-lab-more__in { display: grid; gap: 22px; padding-top: 18px; }
+.jcs-lab-more__k { margin-top: 10px; }

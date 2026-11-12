@@ -67,10 +67,8 @@ The NUBE buy box: the argument, the numbers, 1 to 10 bags, straight to checkout,
   {%- assign check_id = form_id | append: '-check' -%}
   {% render 'jc-delivery-check', id: check_id %}
   <div class="jcs-buy__notes">
-    <p><strong>Solo en Bogotá, por ahora.</strong> Lunes a sábado, sin festivos. Envío $20.000 · gratis desde 2 bolsas.</p>
+    <p><strong>Solo en Bogotá, por ahora.</strong> Envío $20.000 · gratis desde 2 bolsas.</p>
     <p><strong>Sacha inchi, agua y goma gelana.</strong> Los contamos con una mano y nos sobraron dos dedos.</p>
-    <p><strong>¿A qué sabe?</strong> Suave, un poco a nuez, sin dulce añadido. ¿La quieres más cremosa? 150 ml de agua en vez de 200.</p>
+    <p><strong>¿A qué sabe?</strong> Nota a avena tostada, final a nuez, sin dulce añadido. Cremosa con 150 ml de agua; Ligera con 200.</p>
   </div>
-  {%- assign city_id = form_id | append: '-city' -%}
-  {% render 'jc-other-city', id: city_id %}
 </div>

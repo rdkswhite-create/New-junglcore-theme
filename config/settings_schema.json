@@ -1509,31 +1509,41 @@
         "id": "jc_sale_mode",
         "label": "Modo de la tienda",
         "options": [
-          { "value": "primera_tanda", "label": "Primera tanda (lista de espera, sin pago)" },
-          { "value": "a_la_venta", "label": "A la venta (botón Comprar y pago)" }
+          {
+            "value": "lista",
+            "label": "Lista (Lote 001, sin compra)"
+          },
+          {
+            "value": "primera_tanda",
+            "label": "Primera tanda (lista de espera, sin pago)"
+          },
+          {
+            "value": "a_la_venta",
+            "label": "A la venta (botón Comprar y pago)"
+          }
         ],
-        "default": "primera_tanda",
+        "default": "lista",
         "info": "El día que haya stock, cambia a «A la venta». Todos los botones vuelven a decir Comprar."
       },
       {
         "type": "text",
         "id": "jc_launch_label",
         "label": "Fecha de la primera tanda",
-        "default": "20 de noviembre",
+        "default": "diciembre",
         "info": "Como se lee en la web: «Primera tanda · 20 de noviembre»."
       },
       {
         "type": "text",
         "id": "jc_contact_label",
         "label": "Día en que escribimos a la lista",
-        "default": "19 de noviembre",
+        "default": "",
         "info": "«Aparta tu bolsa y te escribimos el 19 de noviembre…»"
       },
       {
         "type": "text",
         "id": "jc_launch_short",
         "label": "Fecha corta",
-        "default": "20 nov",
+        "default": "dic",
         "info": "Para la barra fija del móvil."
       },
       {

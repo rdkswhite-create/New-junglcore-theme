@@ -6,11 +6,12 @@
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>Origen</span>Hecho de aquí</p>
       <h1 class="jcs-display" id="jc-about-title"><span>Miles de plantas</span> <span>que se pueden comer.</span> <span>En el pasillo, cinco.</span></h1>
-      <dl class="jcs-file" aria-label="JUNGLCORE en cuatro datos">
-        <div><dt>Origen</dt><dd>Colombia</dd></div>
+      <dl class="jcs-file" aria-label="JUNGLCORE en cinco datos">
+        <div><dt>Origen</dt><dd>Santander · Norte de Santander · Valle del Cauca</dd></div>
         <div><dt>Planta 001</dt><dd>Sacha inchi</dd></div>
-        <div><dt>Agricultores</dt><dd>Pequeños productores del nororiente</dd></div>
-        <div><dt>Precio al agricultor</dt><dd>Acordado antes de cosechar</dd></div>
+        <div><dt>Productores</dt><dd>Pequeños agricultores</dd></div>
+        <div><dt>Precio al agricultor</dt><dd>Acordado antes de la cosecha</dd></div>
+        <div><dt>Lote actual</dt><dd>001 · Santander</dd></div>
       </dl>
     </div>
   </section>
@@ -39,8 +40,10 @@
       <div class="jcs-about__body jcs-about__body--fig">
         <div>
           <p>Pequeños agricultores de Santander, Norte de Santander y Valle del Cauca. Siembran una enredadera que tarda unos siete meses en dar su primer fruto.</p>
-          <p>Ayudamos a crear la asociación de los agricultores.</p>
+          <p>Ayudamos a crear la <strong>Asociación de Sachaincheros del Nororiente Colombiano</strong>, para que los agricultores vendan juntos, a un precio acordado antes de la cosecha. No es caridad. Es que el que siembra sepa cuánto va a ganar antes de cosechar.</p>
           <p class="jcs-about__quote">El precio se acuerda antes de cosechar.</p>
+          <p class="jcs-about__sub">Cada lote dice de dónde viene</p>
+          <ul class="jcs-lots"><li><strong>Lote 001</strong><span>Santander</span></li></ul>
         </div>
         <figure class="jcs-about__figure jcs-about__figure--bleed">
           <img src="{{ 'jc-emilio-asin.jpg' | asset_url }}" width="1280" height="854" loading="lazy" alt="Emilio, agricultor de sacha inchi en Santander, muestra frutos secos de cuatro puntas en las manos, con el cultivo detrás">
@@ -135,7 +138,7 @@
     <div class="jcs-frame">
       <h2 id="jc-about-final">Rinde más.</h2>
       <p>De una semilla colombiana. 30 vasos por bolsa. Lo demás lo pones tú.</p>
-      <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}<span>Pide tu bolsa</span>{% else %}<span>Pide tu bolsa</span>{% endif %}<span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 

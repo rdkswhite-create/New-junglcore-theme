@@ -29,13 +29,38 @@
     </div>
   </section>
 
-  {%- comment -%} 3 · What we found: satiety. A belief we are testing, never a promise. Evidence folded. {%- endcomment -%}
+  {%- comment -%} 2b · Our definition of satiety, first. {%- endcomment -%}
+  <section class="jcs-lab-defsec" id="jc-saciedad" aria-label="Qué es saciedad para nosotros">
+    <div class="jcs-frame">
+      <div class="jcs-def">
+        <p class="jcs-def__word">sa·cie·dad <em>(f.)</em></p>
+        <p class="jcs-def__for">Para nosotros:</p>
+        <ol class="jcs-def__list">
+          <li>Llenarte por más tiempo.</li>
+          <li>No pensar en comida todo el tiempo.</li>
+          <li>Comer porque lo elegiste.</li>
+        </ol>
+        <p class="jcs-def__end">No es dejar de disfrutar la comida.</p>
+      </div>
+      <p class="jcs-lab-pause"><strong>La pausa.</strong> El momento entre el antojo y ceder. Nadie habla de él, y es lo que estudiamos.</p>
+    </div>
+  </section>
+
+  {%- comment -%} 3 · Satiety. Three lines; everything else behind «Ver más». {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa" id="jc-pausa" aria-labelledby="jc-pausa-title">
     <span id="jc-estudio" class="jcs-anchor" aria-hidden="true"></span>
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>01</span>Saciedad · Abierto</p>
       <p class="jcs-invest__q jcs-invest__q--lab">¿Puede una semilla bajarle al ruido de la comida?</p>
-      <div class="jcs-loop">
+      <div class="jcs-lab-three">
+        <h2 class="jcs-title jcs-pausa__h" id="jc-pausa-title">Lo que hemos visto.</h2>
+        <p class="jcs-lab-three__seen">24 personas la tomaron en casa. Lo que más nos dijeron: se sentían llenos por más tiempo y el antojo de media tarde llegaba más tarde. <strong>No es un estudio.</strong> El estudio de verdad está en marcha.</p>
+        <p class="jcs-lab-three__caveat"><strong>Ojo:</strong> un vaso de NUBE trae menos proteína y fibra que los estudios publicados. Por eso medimos lo que hace un vaso en la vida real.</p>
+        <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %} &rarr;</a></div>
+      </div>
+      <details class="jcs-lab-fold jcs-lab-more">
+        <summary><span class="jcs-lab-fold__q">Ver más</span><span class="jcs-lab-fold__plus" aria-hidden="true"></span></summary>
+        <div class="jcs-lab-more__in">
         <div class="jcs-loop__box">
           <p class="jcs-loop__k">¿Te ha pasado?</p>
           <ul class="jcs-loop__list">
@@ -45,34 +70,12 @@
           </ul>
           <p class="jcs-loop__end">No es falta de voluntad. Es un ciclo: el hambre vuelve antes de tiempo y el antojo gana. Mucha de la comida empacada está hecha para que no pares.</p>
         </div>
-        <div class="jcs-def">
-          <p class="jcs-def__word">sa·cie·dad <em>(f.)</em></p>
-          <p class="jcs-def__for">Para nosotros:</p>
-          <ol class="jcs-def__list">
-            <li>Estar lleno de verdad, y que dure.</li>
-            <li>No pensar en comida hasta la próxima.</li>
-            <li>Que los antojos de noche no te ganen.</li>
-            <li>Comer porque quieres, no porque algo te empuja.</li>
-            <li>Estar de mejor ánimo cuando baja el ruido de la comida.</li>
-          </ol>
-          <p class="jcs-def__end">No es dejar de disfrutar la comida. Es dejar de pensar en ella todo el tiempo.</p>
-        </div>
         <div class="jcs-pausa__glp jcs-loop__glp">
           <p class="jcs-pausa__glp-title">¿Y el GLP-1?</p>
           <p>Hoy mucha gente toma medicamentos GLP-1, como Ozempic, para sentir eso. Imitan una hormona que tu intestino libera cuando comes.</p>
           <p>El medicamento tiene su lugar. Nosotros vamos por otro lado: <strong>comida primero.</strong> Estudiamos qué puede hacer una semilla con las señales que tu cuerpo ya tiene.</p>
         </div>
-      </div>
-      <div class="jcs-lab-study__grid">
-        <div>
-          <h2 class="jcs-title jcs-pausa__h" id="jc-pausa-title">Lo que encontramos.</h2>
-          <p class="jcs-pausa__text">Lo que más nos dijeron en nuestras pruebas: se sentían llenos por más tiempo, el antojo de media tarde llegaba más tarde y se sentían bien. Creemos que es la semilla. No es un estudio: fueron 24 personas probándola en casa. El estudio de verdad está en marcha.</p>
-          <p class="jcs-pausa__open">Está abierto.</p>
-          <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %} &rarr;</a></div>
-        </div>
-        <div class="jcs-log-check">
-          <details class="jcs-lab-fold">
-            <summary><span class="jcs-lab-fold__q">Lo que encontraron otros</span><span class="jcs-lab-fold__plus" aria-hidden="true"></span></summary>
+        <p class="jcs-pausa__route-k jcs-lab-more__k">Lo que encontraron otros</p>
             <div class="jcs-pausa__route">
               <p class="jcs-pausa__route-k">Camino 1 · Varios estudios</p>
               <h3>Proteína y fibra.</h3>
@@ -103,31 +106,30 @@
               </ul>
             </div>
             <blockquote class="jcs-log-note jcs-pausa__robot"><p>Me pidieron anotar a qué hora llega el antojo. Llevo tres días mirando el reloj. A mí no me llega ninguno.</p><footer><img class="jcs-face" src="{{ 'jc-face-dato.jpg' | asset_url }}" width="80" height="80" loading="lazy" alt="Dato"><span>Dato · nuestro robot azul</span></footer></blockquote>
-          </details>
+          
         </div>
-      </div>
+      </details>
     </div>
   </section>
 
-  {%- comment -%} 3a · Investigation: protein and fibre together, in the seed's own matrix. A question, never a claim. {%- endcomment -%}
+  {%- comment -%} 3a · Protein + fibre. Three lines; everything else behind «Ver más». {%- endcomment -%}
   <section class="jcs-lab-study jcs-pausa jcs-matriz" id="jc-matriz" aria-labelledby="jc-matriz-title">
     <div class="jcs-frame">
       <p class="jcs-chapter"><span>02</span>Proteína + fibra · Abierto</p>
       <p class="jcs-invest__q jcs-invest__q--lab">Proteína y fibra: ¿juntas o separadas? ¿Le importa a tu cuerpo?</p>
-      <div class="jcs-lab-study__grid">
-        <div>
-          <p class="jcs-matriz__k">Nuestra teoría</p>
-          <h2 class="jcs-title jcs-pausa__h" id="jc-matriz-title">Tu cuerpo no lee la etiqueta.</h2>
-          <p class="jcs-pausa__text">No somos fans de contar macros. La comida nunca vino en macros: la proteína y la fibra venían juntas, en la misma planta. Hoy las separan, te las venden por aparte en tarros y sobres, y tú las vuelves a juntar.</p>
-          <p class="jcs-pausa__text">En la comida hay miles de compuestos que las tablas de nutrición no siguen. Es la materia oscura de la nutrición. Cuando desarmas un alimento para sacarle la proteína o la fibra, el resto se queda en el camino.</p>
-          <p class="jcs-pausa__text"><strong>Creemos que, para la mayoría de la gente, la mejor forma de comer proteína y fibra es como vienen: juntas, en el mismo alimento.</strong> Por eso hicimos NUBE así: la proteína y la fibra salen juntas de la misma semilla. Nunca las separamos.</p>
-          <p class="jcs-pausa__text">Es una teoría. La estamos investigando.</p>
-          <p class="jcs-matriz__line">El intestino es un ecosistema, no una categoría de marketing.</p>
-          <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %} &rarr;</a></div>
-        </div>
-        <div class="jcs-log-check">
-          <details class="jcs-lab-fold">
-            <summary><span class="jcs-lab-fold__q">Lo que encontraron otros</span><span class="jcs-lab-fold__plus" aria-hidden="true"></span></summary>
+      <div class="jcs-lab-three">
+        <h2 class="jcs-title jcs-pausa__h" id="jc-matriz-title">Tu cuerpo no lee la etiqueta.</h2>
+        <p class="jcs-lab-three__seen">Creemos que, para la mayoría de la gente, la mejor forma de comer proteína y fibra es como vienen: juntas, en el mismo alimento. Es una teoría. La estamos investigando.</p>
+        <p class="jcs-lab-three__caveat"><strong>Ojo:</strong> los estudios publicados usan más proteína y fibra que un vaso de NUBE, y algunos no encontraron diferencia.</p>
+        <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-buy">{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %} &rarr;</a></div>
+      </div>
+      <details class="jcs-lab-fold jcs-lab-more">
+        <summary><span class="jcs-lab-fold__q">Ver más</span><span class="jcs-lab-fold__plus" aria-hidden="true"></span></summary>
+        <div class="jcs-lab-more__in">
+        <p class="jcs-pausa__text">No somos fans de contar macros. La comida nunca vino en macros: la proteína y la fibra venían juntas, en la misma planta. Hoy las separan, te las venden por aparte en tarros y sobres, y tú las vuelves a juntar.</p>
+        <p class="jcs-pausa__text">En la comida hay miles de compuestos que las tablas de nutrición no siguen. Es la materia oscura de la nutrición. Cuando desarmas un alimento para sacarle la proteína o la fibra, el resto se queda en el camino.</p>
+        <p class="jcs-matriz__line">El intestino es un ecosistema, no una categoría de marketing.</p>
+        <p class="jcs-pausa__route-k jcs-lab-more__k">Lo que encontraron otros</p>
             <div class="jcs-pausa__route">
               <p class="jcs-pausa__route-k">Estados Unidos · 2020</p>
               <h3>La materia oscura de la nutrición.</h3>
@@ -158,9 +160,9 @@
               <h3>Lo que todavía no se sabe.</h3>
               <p>Si juntas suman más que por separado. Algunos estudios no encontraron diferencia, y todos usan más proteína y fibra que un vaso de NUBE. Por eso lo investigamos.</p>
             </div>
-          </details>
+          
         </div>
-      </div>
+      </details>
       <p class="jcs-log-small jcs-lab-disclaimer">Si un profesional te indicó más proteína o más fibra por una condición, sigue su indicación. Lo que encontraron otros no son estudios de NUBE. NUBE es un alimento, no un tratamiento.</p>
       <p class="jcs-log-small jcs-lab-disclaimer">Investigamos la saciedad, la proteína y la fibra. Los estudios citados no demuestran por sí solos los efectos de NUBE. Distinguimos entre resultados publicados, hipótesis y pruebas del producto.</p>
     </div>
@@ -191,10 +193,10 @@
       </div>
       <div class="jcs-lab-next__grid jcs-lab-make__grid">
         <div class="jcs-lab-next__item" id="jc-nube">
-          <p class="jcs-eyebrow">NUBE · La bebida · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Primera tanda · {{ settings.jc_launch_short | default: '20 nov' }}{% else %}A la venta{% endif %}</span></p>
+          <p class="jcs-eyebrow">NUBE · La bebida · <span class="jcs-lab-status jcs-lab-status--ok">{% if settings.jc_sale_mode != 'a_la_venta' %}Lote 001 · {{ settings.jc_launch_label | default: 'diciembre' }}{% else %}A la venta{% endif %}</span></p>
           <h3>Barras congeladas de sacha inchi colombiano para preparar tu bebida vegetal. Una barra, agua y licuadora.</h3>
-          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode != 'a_la_venta' %}Pide tu bolsa{% else %}Pide tu bolsa{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
-          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ pg | money_without_trailing_zeros }} por vaso con 2 bolsas{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Primera tanda: {{ settings.jc_launch_label | default: '20 de noviembre' }} · Solo Bogotá{% endif %}</p>
+          <a class="jcs-btn" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <p class="jcs-lab-price">{% if v and v.price > 0 %}{%- assign pg = v.price | divided_by: 30 -%}{{ v.price | money_without_trailing_zeros }} · 30 vasos · desde {{ pg | money_without_trailing_zeros }} por vaso con 2 bolsas{% endif %}{% if settings.jc_sale_mode != 'a_la_venta' %}<br>Lote 001: {{ settings.jc_launch_label | default: 'diciembre' }} · Solo Bogotá{% endif %}</p>
           <div class="jcs-lab-links"><a href="{{ routes.root_url }}products/nube#jc-nutrition">Ver la tabla completa &rarr;</a></div>
         </div>
       </div>
@@ -207,20 +209,9 @@
     <div class="jcs-frame">
       <p class="jcs-chapter jcs-lab-follow__sign"><span>Cierre</span>Firmado: JUNGLCORE LAB</p>
       <h2 class="jcs-lab-follow__line" id="jc-follow-title">Sigue lo que vamos encontrando.</h2>
-      <p class="jcs-lab-follow__small">La próxima pregunta y la próxima planta. Primero aquí.</p>
+      <p class="jcs-lab-follow__small">La próxima pregunta, el próximo lote y la próxima planta. Primero en la lista.</p>
       <div class="jcs-lab-follow__actions">
-        {% form 'customer', id: 'jcs-lab-follow-form', class: 'jcs-lab-follow__form' %}
-          {% if form.posted_successfully? %}
-            <p class="jcs-lab-follow__ok">Listo. Te escribimos cuando haya algo que contar.</p>
-          {% else %}
-            <input type="hidden" name="contact[tags]" value="newsletter,lab">
-            <label class="visually-hidden" for="jcs-lab-follow-email">Tu correo</label>
-            <div class="jcs-wait__row jcs-lab-follow__row">
-              <input type="email" id="jcs-lab-follow-email" name="contact[email]" placeholder="tu@correo.com" autocomplete="email" required>
-              <button type="submit">Avísame</button>
-            </div>
-          {% endif %}
-        {% endform %}
+        <a class="jcs-btn jcs-btn--light" href="{{ routes.root_url }}products/nube#jc-buy"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
       <p class="jcs-lab-inst jcs-lab-follow__inst">¿ONG, universidad o institución? Escríbenos: <a href="mailto:hola@junglcore.com">hola@junglcore.com</a></p>
     </div>
