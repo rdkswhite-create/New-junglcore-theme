@@ -38,15 +38,20 @@
           </script>
         </div>
         <div>
-          <h1 class="jcs-product-title" id="jc-product-title">NUBE</h1>
-          <p class="jcs-pdp-sub">Bebida vegetal de origen.</p>
-          <p class="jcs-pdp-price">{{ per_glass | money_without_trailing_zeros }} el vaso <span>· {{ v.price | money_without_trailing_zeros }} la bolsa = hasta 6 cajas · 2 bolsas, envío incluido</span></p>
-          <ul class="jcs-pdp-nums" aria-label="NUBE en tres cifras">
-            <li><strong>6,2 g</strong><span>proteína por vaso</span></li>
-            <li><strong>3</strong><span>ingredientes</span></li>
-            {% if settings.jc_sale_mode != 'a_la_venta' %}<li><strong>Lote 001</strong><span>{{ settings.jc_launch_label | default: 'diciembre' }} · Bogotá</span></li>{% else %}<li><strong>Bogotá</strong><span data-jc-eta-short>llega hoy</span></li>{% endif %}
-          </ul>
-          <p class="jcs-lead jcs-pdp-lead">Sacha inchi de Santander, Norte de Santander y Valle del Cauca. Una barra congelada, agua y 30 segundos. Vive en tu congelador.</p>
+          <div class="jcs-nube jcs-nube--pdp">
+            <p class="jcs-eyebrow">Bebida vegetal de origen</p>
+            <h1 class="jcs-product-title" id="jc-product-title">NUBE</h1>
+            <p class="jcs-nube__what">Base congelada de sacha inchi para preparar tu bebida vegetal en casa.</p>
+            <ul class="jcs-facts">
+              <li><strong>6,2 g</strong><span>Proteína</span></li>
+              <li><strong>1,4 g</strong><span>Fibra</span></li>
+              <li><strong>3</strong><span>Ingredientes</span></li>
+            </ul>
+            <p class="jcs-nube__ingr"><strong>30 barras · 600 g.</strong> Una barra, agua y 30 segundos de licuadora: un vaso. Una bolsa reemplaza hasta 6 cajas de bebida vegetal.</p>
+            {%- if v and v.price > 0 -%}
+            <div class="jcs-nube__price"><p><strong>{{ per_glass | money_without_trailing_zeros }}</strong> <span>el vaso</span></p><span class="jcs-nube__when">{% if settings.jc_sale_mode == 'a_la_venta' %}2 bolsas, envío incluido{% else %}Lote 001 · {{ settings.jc_launch_label | default: 'diciembre' }}{% endif %}</span></div>
+            {%- endif -%}
+          </div>
           <div style="margin-top:28px">{% render 'jc-buy-box', product: product, form_id: 'jcs-product-buy', show_title: false, calm: true %}</div>
         </div>
       </div>
