@@ -9,12 +9,12 @@ Mobile buy bar. Appears once the main buy box has scrolled out of view.
 <div class="jcs-sticky{% if always %} jcs-sticky--always{% endif %}" id="jcs-sticky" aria-hidden="true">
   {% if pre %}
   <div class="jcs-sticky__pre">
-    <div class="jcs-sticky__info"><strong>NUBE{% if v and v.price > 0 %} · {{ v.price | money_without_trailing_zeros }}{% endif %}</strong><span>Lote 001 · {{ settings.jc_launch_label | default: 'diciembre' }} · Bogotá</span></div>
+    <div class="jcs-sticky__info"><strong>NUBE{% if v and v.price > 0 %}{% assign glass = v.price | divided_by: 30 %} · {{ glass | money_without_trailing_zeros }} el vaso{% endif %}</strong><span>Lote 001 · {{ settings.jc_launch_label | default: 'diciembre' }} · Bogotá</span></div>
     <a class="jcs-btn" href="#jc-buy" tabindex="-1"><span>Avísame</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
   {% else %}
   <div class="jcs-sticky__pre">
-    <div class="jcs-sticky__info"><strong>NUBE · {{ v.price | money_without_trailing_zeros }}</strong><span>30 vasos · Bogotá · <span data-jc-eta-short>llega hoy</span></span></div>
+    <div class="jcs-sticky__info">{% assign glass = v.price | divided_by: 30 %}<strong>NUBE · {{ glass | money_without_trailing_zeros }} el vaso</strong><span>2 bolsas, envío incluido · <span data-jc-eta-short>llega hoy</span></span></div>
     <a class="jcs-btn" href="#jc-buy" tabindex="-1"><span>Pídela</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
   {% endif %}
@@ -22,7 +22,7 @@ Mobile buy bar. Appears once the main buy box has scrolled out of view.
 <script>
 (function () {
   var bar = document.getElementById('jcs-sticky');
-  var box = document.querySelector('.jcs-buy');
+  var box = document.getElementById('jc-buy') || document.querySelector('.jcs-buy');
   var hero = document.querySelector('.jcs-hero');
   if (bar && bar.classList.contains('jcs-sticky--always')) { bar.classList.add('is-visible'); bar.setAttribute('aria-hidden','false'); var b0 = bar.querySelector('.jcs-btn'); if (b0) b0.tabIndex = 0; return; }
   if (!bar || !box || !('IntersectionObserver' in window)) return;
