@@ -38,7 +38,7 @@
   <div class="jcs-steps-band" id="jc-preparar">
   <div class="jcs-strip jcs-steps" aria-label="Del congelador al vaso">
     <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="0">0 s</span><img src="{{ 'jc-nube-congelador.jpg' | asset_url }}" width="941" height="1671" loading="eager" alt="Una mano saca una barra de la bolsa de NUBE en el congelador"><figcaption><strong>La barra</strong><span>Del congelador</span></figcaption></figure>
-    <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="10">10 s</span><video src="{{ 'jc-preparacion.mp4' | asset_url }}" poster="{{ 'jc-preparacion-poster.jpg' | asset_url }}" width="1280" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Una barra de NUBE cae en la licuadora, se le agrega agua, se licúa y se sirve en un vaso"></video><figcaption><strong>Licúa</strong><span>30 segundos, con agua</span></figcaption></figure>
+    <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="10">10 s</span><img src="{{ 'jc-paso-licuadora.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Una barra de NUBE cae en la licuadora con agua"><figcaption><strong>Licúa</strong><span>30 segundos, con agua</span></figcaption></figure>
     <figure class="jcs-strip__item"><span class="jcs-steps__t" data-count="40">40 s</span><img src="{{ 'jc-nube-vaso.jpg' | asset_url }}" width="941" height="1672" loading="eager" alt="Un vaso de NUBE en una mesa de cocina con luz de mañana"><figcaption><strong>Listo</strong><span>Tu bebida vegetal</span><em class="jcs-steps__joke">30 segundos. La haces tú.</em></figcaption></figure>
   </div>
   </div>
@@ -77,13 +77,35 @@
       <p class="jcs-chapter"><span>01</span>NUBE · Lote 001</p>
       <div class="jcs-shop__grid">
         <div>
-          <div class="jcs-shop__visual">
-            {% if section.settings.nube_image != blank %}
-              {{ section.settings.nube_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: 'Bolsa JUNGLCORE NUBE' }}
-            {% else %}
-              <img class="jcs-pack-photo" src="{{ 'jc-nube-bolsa.jpg' | asset_url }}" width="1254" height="1254" loading="lazy" alt="Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi">
-            {% endif %}
+          <div class="jcs-hgal" id="jcs-hgal">
+            <div class="jcs-shop__visual">
+              <div class="jcs-hgal__track" tabindex="0" aria-label="NUBE: la bolsa y cómo se prepara">
+                <figure class="jcs-hgal__slide">
+                  {% if section.settings.nube_image != blank %}
+                    {{ section.settings.nube_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: 'Bolsa JUNGLCORE NUBE' }}
+                  {% else %}
+                    <img class="jcs-pack-photo" src="{{ 'jc-nube-bolsa.jpg' | asset_url }}" width="1254" height="1254" loading="lazy" alt="Bolsa JUNGLCORE NUBE: 30 barras congeladas de sacha inchi">
+                  {% endif %}
+                </figure>
+                <figure class="jcs-hgal__slide jcs-hgal__slide--video">
+                  <video src="{{ 'jc-preparacion.mp4' | asset_url }}" poster="{{ 'jc-preparacion-poster.jpg' | asset_url }}" width="1280" height="720" muted loop playsinline preload="metadata" aria-label="Una barra de NUBE entra en la licuadora, se le agrega agua, se licúa y se sirve en un vaso"></video>
+                </figure>
+              </div>
+            </div>
+            <div class="jcs-hgal__thumbs" role="tablist" aria-label="Elegir">
+              <button type="button" class="jcs-hgal__thumb is-active" aria-label="La bolsa"><img src="{{ 'jc-nube-bolsa.jpg' | asset_url }}" width="1254" height="1254" loading="lazy" alt=""></button>
+              <button type="button" class="jcs-hgal__thumb jcs-hgal__thumb--video" aria-label="Ver cómo se prepara"><img src="{{ 'jc-preparacion-poster.jpg' | asset_url }}" width="1280" height="720" loading="lazy" alt=""><span aria-hidden="true">&#9654;</span></button>
+            </div>
           </div>
+          <script>
+            (function () {
+              var g = document.getElementById('jcs-hgal'); if (!g) return;
+              var t = g.querySelector('.jcs-hgal__track'), th = g.querySelectorAll('.jcs-hgal__thumb'), v = g.querySelector('video');
+              function show(i) { th.forEach(function (b, j) { b.classList.toggle('is-active', i === j); }); if (v) { if (i === 1) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); } } }
+              th.forEach(function (b, i) { b.addEventListener('click', function () { t.scrollTo({ left: i * t.clientWidth, behavior: 'smooth' }); }); });
+              var raf; t.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(function () { show(Math.round(t.scrollLeft / t.clientWidth)); }); }, { passive: true });
+            })();
+          </script>
         </div>
         <div>
           <h2 class="visually-hidden" id="jc-buy-title">Comprar NUBE</h2>
