@@ -1610,3 +1610,10 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-pains__result span { color: var(--muted); }
 /* Conoce NUBE: outlined, full width, same height as Avísame */
 .jcs-nube__go.jcs-btn { margin-top: 20px; }
+
+/* NUBE page: the bag in three lines */
+.jcs-pdp-spec { list-style: none; margin: 22px 0 0; padding: 0; }
+.jcs-pdp-spec li { display: grid; grid-template-columns: 72px 1fr; align-items: baseline; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.jcs-pdp-spec li:last-child { border-bottom: 0; }
+.jcs-pdp-spec strong { font-size: 26px; font-weight: 400; letter-spacing: -.03em; line-height: 1; }
+.jcs-pdp-spec span { font-size: 15px; line-height: 1.35; color: var(--muted); }
