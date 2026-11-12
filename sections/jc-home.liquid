@@ -22,6 +22,7 @@
     <div class="jcs-hero__body">
       <h1 class="jcs-hero__title" id="jc-hero-title">¿Quién dijo que una bebida vegetal tiene que venir en caja?</h1>
       <p class="jcs-hero__answer">Esta vive en tu congelador.</p>
+      <p class="jcs-hero__why">Congelada, porque no lleva nada que la haga durar.</p>
       <div class="jcs-hero__actions">
         <a class="jcs-btn jcs-btn--light" href="#jc-buy"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
         <a class="jcs-link" href="#jc-preparar">Cómo se prepara</a>
@@ -115,6 +116,7 @@
               {%- if nv and nv.price > 0 -%}{%- assign npg = nv.price | divided_by: 30 -%}
               <div class="jcs-nube__price"><p><strong>{{ npg | money_without_trailing_zeros }}</strong> <span>el vaso</span></p><span class="jcs-nube__when">Lote 001 llega en {{ settings.jc_launch_label | default: 'diciembre' }}</span></div>
               {%- endif -%}
+              <a class="jcs-btn jcs-nube__go" href="{{ routes.root_url }}products/nube"><span>Conoce NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
               <div class="jcs-nube__cuentas">
                 <p class="jcs-nube__cuentas-t">Hicimos las cuentas</p>
                 <p class="jcs-nube__cuentas-s">Por vaso de 200 ml</p>
