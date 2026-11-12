@@ -1536,7 +1536,6 @@
         "type": "text",
         "id": "jc_contact_label",
         "label": "Día en que escribimos a la lista",
-        "default": "",
         "info": "«Aparta tu bolsa y te escribimos el 19 de noviembre…»"
       },
       {
@@ -1549,8 +1548,7 @@
       {
         "type": "text",
         "id": "jc_waitlist_perk",
-        "label": "Lo que recibe la lista",
-        "default": ""
+        "label": "Lo que recibe la lista"
       },
       {
         "type": "number",
