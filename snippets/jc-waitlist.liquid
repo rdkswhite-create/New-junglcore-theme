@@ -15,8 +15,8 @@ Lote 001 · la lista. No buying until the batch opens: email + city, tagged list
     <p class="jcs-wait__date">{{ launch }}</p>
   </div>
   <p class="jcs-wait__lead"><strong>Lote 001 llega en {{ launch }}.</strong> No apartamos bolsas sin pago. Pero los que están en la lista se enteran primero y compran primero.</p>
-  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ per_glass | money_without_trailing_zeros }} el vaso</strong> · 2 bolsas · 60 vasos · envío incluido</p><p class="jcs-wait__price jcs-wait__single">¿Solo una? {{ v.price | money_without_trailing_zeros }} la bolsa = hasta 6 cajas, más envío.</p>{% endif %}
-  <p class="jcs-list__month"><strong>Una bolsa reemplaza hasta 6 cajas de bebida vegetal.</strong> 600 gramos en vez de 6 kilos. Un mes de mañanas.</p>
+  {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ per_glass | money_without_trailing_zeros }} el vaso</strong> · 2 bolsas · 60 vasos · envío incluido</p><p class="jcs-wait__price jcs-wait__single">¿Solo una? {{ v.price | money_without_trailing_zeros }} la bolsa · hasta 6 litros, más envío.</p>{% endif %}
+  <p class="jcs-list__month"><strong>Una bolsa rinde hasta 6 litros de bebida vegetal:</strong> lo de 6 cajas de 1 litro. Pesa 600 gramos.</p>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}

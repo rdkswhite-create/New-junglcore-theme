@@ -47,7 +47,7 @@
               <li><strong>1,4 g</strong><span>Fibra por vaso</span></li>
               <li><strong>3</strong><span>Ingredientes</span></li>
             </ul>
-            <p class="jcs-nube__ingr"><strong>30 barras · 600 g.</strong> Una barra, agua y 30 segundos de licuadora: un vaso. Una bolsa reemplaza hasta 6 cajas de bebida vegetal.</p>
+            <p class="jcs-nube__ingr"><strong>30 barras · 600 g.</strong> Una barra, agua y 30 segundos de licuadora: un vaso. Una bolsa rinde hasta 6 litros de bebida vegetal: lo de 6 cajas de 1 litro.</p>
             {%- if v and v.price > 0 -%}
             <div class="jcs-nube__price"><p><strong>{{ per_glass | money_without_trailing_zeros }}</strong> <span>el vaso</span></p><span class="jcs-nube__when">{% if settings.jc_sale_mode == 'a_la_venta' %}2 bolsas, envío incluido{% else %}Lote 001 llega en {{ settings.jc_launch_label | default: 'diciembre' }}{% endif %}</span></div>
             {%- endif -%}

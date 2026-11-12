@@ -1591,3 +1591,8 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-nube__price { flex-wrap: wrap; row-gap: 6px; }
 .jcs-nube__price p { white-space: nowrap; }
 .jcs-versus__num span { line-height: 1.3; }
+
+.jcs-nube__litros { margin: 10px 0 0; font-size: 15px; line-height: 1.45; color: var(--muted); }
+.jcs-nube__litros strong { color: var(--ink); font-weight: 600; }
+.jcs-nube__go.jcs-nube__more { margin-top: 18px; }
+.jcs-nube__when--line { display: block; margin: 10px 0 0; text-align: left; }
