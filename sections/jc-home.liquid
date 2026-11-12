@@ -103,7 +103,7 @@
           {% else %}
             {%- assign nv = nube.selected_or_first_available_variant -%}
             <div class="jcs-nube">
-              <h2 class="jcs-nube__title" id="jc-buy-title">Tu bebida vegetal.<br>El agua la pones tú.</h2>
+              <h2 class="jcs-nube__title" id="jc-buy-title"><span>Tu bebida vegetal.</span> <span>El agua la pones tú.</span></h2>
               <ul class="jcs-facts">
                 <li><strong>6,2 g</strong><span>Proteína</span></li>
                 <li><strong>1,4 g</strong><span>Fibra</span></li>
@@ -113,10 +113,10 @@
               {%- if nv and nv.price > 0 -%}{%- assign npg = nv.price | divided_by: 30 -%}
               <div class="jcs-nube__price"><p><strong>{{ npg | money_without_trailing_zeros }}</strong> <span>el vaso</span></p><span class="jcs-nube__when">{{ settings.jc_launch_label | default: 'diciembre' }}</span></div>
               {%- endif -%}
-              <details class="jcs-nube__cuentas">
-                <summary><span class="jcs-nube__plus" aria-hidden="true">+</span> Hicimos las cuentas</summary>
+              <div class="jcs-nube__cuentas">
+                <p class="jcs-nube__cuentas-t">Hicimos las cuentas</p>
                 {% render 'jc-versus', rows_only: true %}
-              </details>
+              </div>
             </div>
           {% endif %}
         </div>
