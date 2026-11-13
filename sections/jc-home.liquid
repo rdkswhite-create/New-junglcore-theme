@@ -28,7 +28,7 @@
         <a class="jcs-link" href="#jc-preparar">Cómo se prepara</a>
       </div>
       {%- if v and v.price > 0 -%}{%- assign hero_pg = v.price | divided_by: 30 -%}
-      <p class="jcs-hero__price">{{ hero_pg | money_without_trailing_zeros }} el vaso · 1 bolsa = hasta 6 cajas de 1 litro</p>
+      <p class="jcs-hero__price">{{ hero_pg | money_without_trailing_zeros }} el vaso · 1 bolsa de NUBE = hasta 6 cajas de 1 litro</p>
       {%- endif -%}
     </div>
     <div class="jcs-hero__bottom">
@@ -116,7 +116,7 @@
               {%- if nv and nv.price > 0 -%}{%- assign npg = nv.price | divided_by: 30 -%}
               <div class="jcs-nube__price"><p><strong>{{ npg | money_without_trailing_zeros }}</strong> <span>el vaso</span></p></div>
               {%- endif -%}
-              <p class="jcs-nube__litros"><strong>1 bolsa = hasta 6 cajas de 1 litro de bebida vegetal.</strong></p>
+              <p class="jcs-nube__litros"><strong>1 bolsa de NUBE = hasta 6 cajas de 1 litro de bebida vegetal.</strong></p>
               <p class="jcs-nube__when jcs-nube__when--line">Lote 001 llega en {{ settings.jc_launch_label | default: 'diciembre' }}</p>
               <a class="jcs-btn jcs-btn--line jcs-btn--full jcs-nube__go" href="{{ routes.root_url }}products/nube"><span>Conoce NUBE</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
               <div class="jcs-nube__cuentas">

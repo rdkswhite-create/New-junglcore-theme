@@ -16,7 +16,7 @@ Lote 001 · la lista. No buying until the batch opens: email + city, tagged list
   </div>
   <p class="jcs-wait__lead"><strong>Lote 001 llega en {{ launch }}.</strong> No apartamos bolsas sin pago. Pero los que están en la lista se enteran primero y compran primero.</p>
   {% if v and v.price > 0 %}<p class="jcs-wait__price"><strong>{{ per_glass | money_without_trailing_zeros }} el vaso</strong> · 2 bolsas · 60 vasos · envío incluido</p><p class="jcs-wait__price jcs-wait__single">¿Solo una? {{ v.price | money_without_trailing_zeros }} la bolsa, más envío.</p>{% endif %}
-  <p class="jcs-list__month"><strong>1 bolsa = hasta 6 cajas de 1 litro de bebida vegetal.</strong> Pesa 600 gramos.</p>
+  <p class="jcs-list__month"><strong>1 bolsa de NUBE = hasta 6 cajas de 1 litro de bebida vegetal.</strong> Pesa 600 gramos.</p>
 
   {% form 'customer', id: email_id, class: 'jcs-wait__form' %}
     {% if form.posted_successfully? %}

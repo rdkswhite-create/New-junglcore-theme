@@ -50,7 +50,7 @@
             <ul class="jcs-pdp-spec">
               <li><strong>30</strong><span>barras por bolsa · 600 g</span></li>
               <li><strong>30 s</strong><span>1 barra + agua en la licuadora = 1 vaso</span></li>
-              <li><strong>6 L</strong><span>1 bolsa = hasta 6 cajas de 1 litro de bebida vegetal</span></li>
+              <li><strong>6 L</strong><span>1 bolsa de NUBE = hasta 6 cajas de 1 litro de bebida vegetal</span></li>
             </ul>
             {%- if v and v.price > 0 -%}
             <div class="jcs-nube__price"><p><strong>{{ per_glass | money_without_trailing_zeros }}</strong> <span>el vaso</span></p><span class="jcs-nube__when">{% if settings.jc_sale_mode == 'a_la_venta' %}2 bolsas, envío incluido{% else %}Lote 001 llega en {{ settings.jc_launch_label | default: 'diciembre' }}{% endif %}</span></div>
