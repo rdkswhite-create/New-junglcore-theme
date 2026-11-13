@@ -1,0 +1,210 @@
+{% doc %}
+"¿Cuáles te pasan?": the front door of La lista.
+Five cards. Each tap shows a line written for that exact combination (31 combinations, three lines each).
+From two taps on: "Ver mi resultado" gives a profile (five singles, ten pairs, and El combo completo), the robot, a rule,
+tips, a sugar-free fortune cookie and the NUBE moment, with save / share / play again.
+The tapped cards go into the sign-up as dolor-* tags (see jc-waitlist).
+{% enddoc %}
+<div class="jcs-pains" id="jc-pains">
+  <h3 class="jcs-pains__title" id="juego">¿Cuáles te pasan?</h3>
+  <p class="jcs-pains__ask">Toca las tuyas. Cada combinación tiene su propia respuesta.</p>
+  <ul class="jcs-pains__list">
+    <li><button type="button" aria-pressed="false" data-tag="dolor-etiqueta">Lees la etiqueta y no entiendes la mitad.</button></li>
+    <li><button type="button" aria-pressed="false" data-tag="dolor-proteina">Buscas proteína y tu bebida vegetal casi no trae.</button></li>
+    <li><button type="button" aria-pressed="false" data-tag="dolor-dulce">Todo lo «saludable» sabe a postre.</button></li>
+    <li><button type="button" aria-pressed="false" data-tag="dolor-caja">Abres una caja y se te daña antes de terminarla.</button></li>
+    <li><button type="button" aria-pressed="false" data-tag="dolor-noche">A las 11 p.&nbsp;m. abres la nevera buscando algo.</button></li>
+  </ul>
+  <div class="jcs-pains__combo" hidden aria-live="polite" aria-atomic="true">
+    <p class="jcs-pains__combo-k"><b>0</b> de 5 · Bitácora de los humanos</p>
+    <p class="jcs-pains__combo-q"></p>
+    <button type="button" class="jcs-pains__combo-again">Otra respuesta <span aria-hidden="true">&#8635;</span></button>
+  </div>
+  <div class="jcs-pains__score">
+    <button type="button" class="jcs-btn jcs-pains__reveal" hidden><span>Ver mi resultado</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></button>
+  </div>
+      <div class="jcs-thinking" hidden aria-live="polite">
+        <img class="jcs-thinking__face" src="{{ 'jc-face-dato.jpg' | asset_url }}" width="80" height="80" alt="Dato">
+        <p class="jcs-thinking__t">Dato está revisando tu caso<span>.</span><span>.</span><span>.</span></p>
+      </div>
+      <div class="jcs-result" hidden aria-live="polite">
+        <div class="jcs-result__card">
+          <div class="jcs-result__head">
+            <img class="jcs-result__face" src="" width="80" height="80" alt="">
+            <div><p class="jcs-result__kicker">Te salió</p><p class="jcs-result__title"></p><p class="jcs-result__roast"></p></div>
+          </div>
+          <p class="jcs-result__bot"></p>
+          <p class="jcs-result__rule-k">Tu regla</p>
+          <p class="jcs-result__rule"></p>
+          <details class="jcs-result__fold" open>
+            <summary class="jcs-result__take-k">Para llevar</summary>
+            <ul class="jcs-result__take"></ul>
+          </details>
+          <p class="jcs-result__fortune-k">Tu galleta de la fortuna <span>(sin azúcar)</span></p>
+          <p class="jcs-result__fortune"></p>
+          <p class="jcs-result__moment"></p>
+          <p class="jcs-result__sig">junglcore.com · ¿Cuáles te pasan?</p>
+        </div>
+        <div class="jcs-result__actions">
+          <a class="jcs-btn jcs-result__buy" href="#jcs-home-list"><span>{% if settings.jc_sale_mode == 'a_la_venta' %}Pide tu bolsa{% else %}Avísame · Lote 001{% endif %}</span><span class="jcs-arrow" aria-hidden="true">&rarr;</span></a>
+          <button type="button" class="jcs-btn jcs-btn--line jcs-result__save"><span>Guardar mi tarjeta</span><span class="jcs-arrow" aria-hidden="true">&darr;</span></button>
+          <button type="button" class="jcs-link jcs-result__share">Mándaselo a alguien &rarr;</button>
+          <button type="button" class="jcs-link jcs-result__again">Juega por alguien más &rarr;</button>
+        </div>
+      </div>
+</div>
+<script>
+  (function () {
+    var root = document.getElementById('jc-pains'); if (!root) return;
+    var FACES = { dato: "{{ 'jc-face-dato.jpg' | asset_url }}", lupa: "{{ 'jc-face-lupa.jpg' | asset_url }}", chispa: "{{ 'jc-face-chispa.jpg' | asset_url }}" };
+    var NAMES = { dato: 'Dato', lupa: 'Lupa', chispa: 'Chispa' };
+    /* One line for every combination of taps. Key = sum of 1 (etiqueta), 2 (proteína), 4 (dulce), 8 (caja), 16 (noche). */
+    var BANK = {"1": ["Si necesitas un traductor para desayunar, algo se nos ha ido de las manos.", "Hubo un tiempo en que la lista de ingredientes era bastante más corta que las instrucciones del microondas.", "La etiqueta parece una novela rusa. Y tú solo querías desayunar."], "2": ["A veces hay más entusiasmo por la proteína en el envase que proteína en el vaso.", "Es extraordinario cuánto puede hablar un cartón de proteína sin comprometerse a llevar demasiada.", "Compras una bebida vegetal. Luego descubres que la proteína estaba, sobre todo, en la publicidad."], "3": ["Quieres proteína y una etiqueta comprensible. En algunas tiendas eso parece pedir dos productos distintos.", "Es fascinante: sabemos fabricar bebidas complicadísimas que apenas explican qué estamos bebiendo.", "Primero necesitas leer química. Después, buscar proteína. Y todavía no has desayunado."], "4": ["¿En qué momento desayunar empezó a parecerse a una fiesta de cumpleaños?", "La industria consiguió algo admirable: convertir hasta la palabra «natural» en un sabor.", "No todo lo que comes por la mañana necesita saber a torta con velitas."], "5": ["La etiqueta tiene veinte palabras que no reconoces, pero al menos promete saber a pastel. Qué alivio.", "Cuesta leer lo que lleva, pero sabe a cumpleaños. El triunfo del departamento creativo.", "Una bebida puede parecer un postre y tener una lista de ingredientes que parece una tesis doctoral."], "6": ["Querías proteína. Te dieron una tarta de cumpleaños que se bebe.", "Proteína y sabor a pastel: una combinación magnífica, suponiendo que quieras celebrar tu cumpleaños todos los días.", "Resulta que el sabor a postre puede ser más evidente que la proteína que saliste a buscar."], "7": ["Una lista larguísima, un sabor a postre y poca proteína. Desde luego, no les faltó imaginación.", "El producto ha conseguido ser complicado, dulce y nutricionalmente desconcertante. Tres departamentos celebrando a la vez.", "Para algo que se llama «bebida vegetal», a veces cuesta encontrar la planta, la sencillez y la proteína."], "8": ["Querías un vaso. Abriste un litro. Ahora tienes una fecha límite.", "Una sed de doscientos mililitros acaba de convertirse en una obligación de un litro.", "Lo curioso es que el cartón decide cuánto debes terminar, aunque tú solo hayas querido un vaso."], "9": ["Una etiqueta que no entiendes y un litro que no querías abrir. La experiencia completa.", "El cartón trae instrucciones complicadas y, de regalo, una pequeña carrera contra el calendario.", "Has comprado la bebida. Ahora debes descifrarla y terminarla antes del viernes."], "10": ["Poca proteína y demasiado líquido abierto. Es una peculiar definición de eficiencia.", "Te faltan proteínas, pero te sobran ochocientos mililitros en la nevera.", "El vaso trae poca proteína; el envase trae una obligación a largo plazo."], "11": ["Lees la etiqueta, buscas proteína y descubres que debes terminar el litro. Una compra con deberes.", "Hay una aventura entera escondida en un cartón: descifrarlo, compararlo y acabarlo a tiempo.", "El producto exige investigación previa y disciplina posterior. Todo para beber un vaso."], "12": ["Te vendieron un postre bebible en tamaño familiar. Tú solo querías acompañar el desayuno.", "Un litro de algo que sabe a tarta. Lo verdaderamente extraordinario es que lo llamemos una bebida cotidiana.", "Sabe a cumpleaños y tienes que terminarlo antes de que pierda la gracia. Qué celebración."], "13": ["Etiqueta de enciclopedia, sabor a tarta, un litro abierto. Alguien ha optimizado demasiadas cosas equivocadas.", "Entre leer la fórmula y terminar el envase, se te pasa el cumpleaños.", "La industria resolvió el problema del sabor y creó otros dos: entenderlo y acabarlo."], "14": ["Buscas proteína, recibes sabor a pastel y te comprometes a un litro. Menuda negociación.", "Querías alimentarte. El cartón propone una celebración diaria y una obligación semanal.", "Un producto que sabe a postre, trae menos proteína de la esperada y ocupa la nevera. Polivalente, desde luego."], "15": ["La bebida pide que la estudies, la termines y celebres tu cumpleaños. Lo de la proteína sigue pendiente.", "Cuatro molestias en un solo envase. Es casi admirable lo mucho que cabe en un litro.", "El cartón parece diseñado por cuatro departamentos que nunca se conocieron."], "16": ["La nevera no ha cambiado desde hace una hora. Pero vuelves a comprobarlo.", "A las once de la noche, la nevera se convierte en una página web que actualizas esperando noticias.", "Lo curioso no es abrir la nevera. Es la esperanza de que esta vez haya aparecido algo extraordinario."], "17": ["Ni siquiera entiendes del todo lo que desayunaste, pero a las once tu nevera vuelve a pedirte atención.", "Pasaste la mañana descifrando una etiqueta y terminas el día descifrando un antojo.", "Por la mañana, la pregunta es qué lleva. Por la noche, por qué sigues buscando algo."], "18": ["Buscabas proteína al desayunar. A las once buscas algo en la nevera. Quizá haya una pregunta interesante entre las dos cosas.", "Tu vaso prometía nutrición. Tu nevera recibe una visita nocturna. Esto merece investigarse, no adivinarse.", "Dos preguntas bastante humanas: ¿qué estoy tomando? y ¿por qué sigo mirando dentro de la nevera?"], "19": ["Etiqueta confusa, poca proteína, visita nocturna a la nevera. Tenemos preguntas para una investigación entera.", "Por la mañana te falta información; por la noche, alguna respuesta. No es precisamente un sistema sencillo.", "El día empieza con una etiqueta que no entiendes y acaba mirando una nevera que no tiene respuestas."], "20": ["Una bebida que sabe a postre por la mañana y una búsqueda de algo más por la noche. La vida es bastante curiosa.", "Desayunas algo con sabor a cumpleaños. A las once de la noche sigues preguntándole cosas a la nevera.", "El antojo nocturno no consulta cuántos aromas de pastel había en el desayuno."], "21": ["Etiqueta interminable, sabor a postre y nevera nocturna. Parece el argumento de una comedia nutricional.", "Qué curioso: el producto es complicadísimo, el sabor es sencillísimo y el apetito sigue haciendo preguntas.", "Por la mañana intentas leer el envase. Por la noche relees el contenido de la nevera."], "22": ["Querías proteína, no un pastel bebible. Y a las once el refrigerador vuelve a intervenir en la negociación.", "Proteína, aroma de cumpleaños y visita nocturna a la nevera. Hay una buena pregunta científica escondida ahí.", "Es curioso lo poco que sabemos de un día de comida cuando lo reducimos a gramos de proteína y sabores."], "23": ["El envase promete, la etiqueta desconcierta, el sabor celebra y la nevera recibe otra visita. Falta el detective.", "Cuatro señales de que necesitamos hablar de comida como experiencia, no solo como una lista de ingredientes.", "Todo parece calculado para impresionar a la etiqueta. Pero el estómago no lee etiquetas."], "24": ["Abres un litro durante el día y la nevera por la noche. Qué relación tan comprometida con una caja.", "El cartón sigue ahí, abierto. Tú vuelves a abrir la nevera. Ambos esperando algo.", "Primero el envase te impone un calendario. Después tu apetito decide no seguirlo."], "25": ["Un cartón que debes terminar, una etiqueta que debes descifrar y una nevera que te llama a las once. Vaya jornada.", "La etiqueta te confunde de día; el cartón te vigila desde la nevera por la noche.", "El litro viene con dos obligaciones: entender qué compraste y recordar por qué lo abriste."], "26": ["Te faltaba proteína, te sobraba cartón y acabaste mirando la nevera de noche. Una ecuación muy humana.", "Podemos optimizar gramos por litro. El comportamiento de las once de la noche es bastante menos obediente.", "El supermercado vende litros y gramos. Tu vida funciona en vasos, momentos y preguntas."], "27": ["Buscas proteína, lees una novela en la etiqueta, abres un litro y vuelves a la nevera. Parece un trabajo a tiempo parcial.", "Una bebida con deberes de química, matemáticas y gestión de nevera. ¿Dónde está la parte de beber?", "La industria contó los gramos, imprimió la etiqueta y envió el cartón. Nadie preguntó por las once de la noche."], "28": ["Un litro de sabor a postre abierto y tú mirando la nevera a las once. Es casi una relación sentimental.", "La bebida sabe a celebración; el cartón se queda abierto; la nevera recibe visitas. Extraña vida doméstica.", "El antojo nocturno y el cartón a medio terminar parecen mantener una conversación que nadie ha estudiado."], "29": ["Etiqueta complicada, sabor a pastel, cartón abierto y visita nocturna. No sé si es desayuno o una serie de suspense.", "Cuando hasta elegir una bebida tiene cuatro capítulos, quizás convenga cambiar la pregunta.", "El desayuno tenía demasiada explicación; la noche trae demasiadas preguntas."], "30": ["Proteína escasa, sabor a tarta, litro abierto y nevera nocturna. Alguien debería estudiar el proceso completo.", "De día te vendieron números y sabor a cumpleaños. De noche, tu nevera sigue siendo el escenario principal.", "Cuatro molestias y un solo cartón. Quizás no sea cuestión de añadir otro aroma de vainilla."], "31": ["Las cinco. Enhorabuena: acabas de convertir un vaso de bebida vegetal en una tesis sobre la vida moderna.", "Todo marcado. La industria se pasó décadas perfeccionando el cartón y quizás olvidó mirar a la persona.", "Cinco de cinco. Fantástico. La buena noticia es que no tenemos que aceptar que las cosas sean así."]};
+    /* Every card: its profile, the tip to take away, and one robot line. Edit freely. */
+    var CARDS = {
+      'dolor-etiqueta': { p: 'etiqueta', take: 'Mira el primer ingrediente de la lista: es del que más hay.', bot: 'dato', line: 'Hoy devolvieron 47 a la estantería. Los anoté.' },
+      'dolor-proteina': { p: 'proteina', take: 'Compara gramos por vaso de 200 ml. Lo grande en la caja no es lo que trae el vaso.', bot: 'chispa', line: 'Yo no tengo músculos. Igual leo la tabla.' },
+      'dolor-dulce':    { p: 'dulce', take: 'En la tabla busca «azúcares añadidos»: ese es el que le pusieron.', bot: 'lupa', line: 'Le pregunté a la fruta si necesitaba azúcar. No contestó.' },
+      'dolor-caja':     { p: 'caja', take: 'Una caja abierta dura de 7 a 10 días. Escríbele la fecha con marcador.', bot: 'lupa', line: 'Pagaron 10 vasos. Se tomaron 6.' },
+      'dolor-noche':    { p: 'noche', take: 'Pregúntate: ¿hambre o aburrimiento? Muchas veces el antojo de las 11 es lo segundo.', bot: 'dato', line: 'Probé lo del Tetris. Perdí. El antojo también.' }
+    };
+    var PROFILES = {
+      etiqueta: { title: 'El que no come cuento', roast: 'En el supermercado te demoras más leyendo que pagando.', rule: 'Si no cabe en una mano, no entra a tu casa.', moment: 'Tu momento NUBE: lee la nuestra. Sacha inchi, agua, goma gelana. Ya.' },
+      proteina: { title: 'El que busca proteína', roast: 'Lees «proteína» en grande y la buscas en la tabla como quien busca las llaves.', rule: 'Mira los gramos por vaso, no la palabra en grande.', moment: 'Tu momento NUBE: fría, en el desayuno. 6,2 g de proteína por vaso.' },
+      dulce:    { title: 'Cansado de lo dulce', roast: 'Pediste desayuno y te sirvieron cumpleaños.', rule: 'Lo de todos los días no tiene que saber a postre.', moment: 'Tu momento NUBE: sin azúcares añadidos. Si quieres dulce, le pones fruta tú.' },
+      caja:     { title: 'El que no da papaya', roast: 'Abres un litro por un vaso y el resto se queda esperando turno.', rule: 'Paga lo que te tomas, no lo que botas.', moment: 'Tu momento NUBE: una barra, un vaso. Las otras 29 esperan en el congelador.' },
+      noche:    { title: 'El visitante de la nevera', roast: 'A las 11 p. m. tu nevera tiene más visitas que tu Instagram.', rule: 'El antojo grita. Tú decides si contestas.', moment: 'Tu momento NUBE: caliente, a las 11 p. m., con el celular boca abajo.' }
+    };
+    var PAIRS = {
+      'etiqueta+proteina': ['El auditor de la tabla', 'Lees ingredientes y gramos. El supermercado te tiene miedo.'],
+      'etiqueta+dulce':    ['Ni cuento ni azúcar', 'Si no lo entiendes o sabe a torta, vuelve a la estantería.'],
+      'etiqueta+caja':     ['El auditor del supermercado', 'Revisas etiqueta y fecha. Y aun así algo se daña en la nevera.'],
+      'etiqueta+noche':    ['Lo leíste y te lo comiste', 'Viste el sello negro. Lo miraste a los ojos. Te lo comiste igual.'],
+      'proteina+dulce':    ['Proteína sin cumpleaños', 'Quieres proteína. Te ofrecen batido sabor a torta.'],
+      'proteina+caja':     ['El que hace cuentas', 'Cuentas gramos y cuentas pesos. La caja no pasa ninguna de las dos.'],
+      'proteina+noche':    ['Desayuno corto, noche larga', 'Por la mañana buscas proteína. A las 11, la nevera.'],
+      'dulce+caja':        ['Postre de un litro', 'Un litro sabor a postre, abierto el lunes. El jueves sigue ahí.'],
+      'dulce+noche':       ['El antojo de las 11', 'Todo el día esquivando lo dulce. A las 11 la nevera negocia.'],
+      'caja+noche':        ['El que abre de todo', 'De día abres cajas. De noche abres la nevera.']
+    };
+    var FORTUNES = ["No eres débil. El paquete lo diseñó un equipo de 200 personas. Tú estás solo.", "Si algo necesita 23 ingredientes para saber a algo, sospecha.", "El sistema no te quiere flaco ni gordo. Te quiere comprando.", "El paquete dice «porción: 3 galletas». El paquete sabe que mientes.", "Cuando la caja grita «saludable», lee la parte de atrás.", "Ninguna fruta ha necesitado un comercial.", "La comida de verdad se daña. Eso es buena señal.", "Si dura dos años en la alacena, pregúntate qué le hicieron.", "Menos paquetes. Más platos.", "Lo que no compras no te lo comes a las 11 p. m.", "Tu abuela no contaba macros. Tampoco tenía paquetes de 20.", "Nadie se ha arrepentido de una arepa con huevo.", "Caldo, arepa y café. Tu abuela ya sabía de saciedad.", "La abuela servía en plato hondo. El paquete no tiene fondo.", "Tu abuela no tenía antojo a las 11. Tenía sueño a las 9.", "Si viene de una mata, ya vas bien.", "Dato observa: compran agua en caja y tienen agua en la llave.", "Lupa anotó: «solo una» significa, en promedio, todas.", "Chispa no entiende por qué le hablan a la nevera a medianoche.", "Dato calculó que un antojo dura menos que una canción. Ponte una.", "Lupa vio a un humano leer la etiqueta y devolverlo. Lo aplaudió.", "En el planeta de los robots no hay paquetes familiares para una persona.", "Dato encontró miles de plantas en Colombia y cinco en el pasillo. Sigue buscando.", "Los robots vinieron buscando la jungla. Encontraron un pasillo. Tú encuentra la jungla.", "El hambre de verdad acepta cualquier cosa. El antojo solo acepta galletas.", "Un antojo dura minutos. Tú duras más.", "El aburrimiento se disfraza de hambre. Quítale el disfraz.", "Dormir poco da más hambre al día siguiente. Acostarte temprano también es comer bien.", "Lo que tienes a la vista es lo que te comes. Guarda el paquete.", "Un desayuno con proteína aguanta más que uno de puro azúcar.", "El antojo de la noche empieza en el almuerzo que no comiste.", "A buen hambre no hay pan duro. Al antojo, sí.", "Camarón que se duerme temprano no abre la nevera.", "Ojos que no ven el paquete, corazón que no lo abre.", "Más vale arepa en mano que paquete volando.", "Del dicho al hecho hay un paquete de galletas.", "El que come despacio, come una vez.", "La disciplina es aburrida. Por eso funciona.", "Primero la comida. Después la fuerza de voluntad.", "Comer bien no es castigo. Castigo es el pan dulce de las 11.", "El antojo es como un vendedor ambulante: si no le compras, se va.", "La nevera no se va a ir a ninguna parte. Espera cinco minutos.", "Las plantas llevan millones de años sin hacer dieta. Hazles caso.", "Un tinto no es desayuno. Es un adelanto.", "Las onces son sagradas. Las de las 11 p. m., no.", "El domicilio tarda más que el antojo. Espera y verás.", "En la ciudad de los domicilios, cocinar es un acto rebelde.", "Llueve en Bogotá. No es excusa para el paquete. Es excusa para algo caliente.", "La changua nunca pidió permiso para ser buen desayuno.", "Lo barato que se bota sale caro.", "Pagar por agua con sabor es la forma más cara de tomar agua.", "El 3x2 es buena oferta si te ibas a comer tres.", "El mercado con lista cuesta menos. El mercado con hambre, más.", "El empaque bonito también lo pagas tú.", "«Sin azúcar añadida» no es lo mismo que «sin azúcar».", "La foto del frente vende. La lista de atrás informa.", "«Sabor a fresa» y «fresa» no son la misma cosa.", "La porción de la etiqueta casi nunca es la que te comes.", "Una planta se cuida cuando se usa.", "La biodiversidad no es un museo. Es una despensa.", "El futuro de la comida puede estar en una mata que nadie ha mirado.", "La jungla no se perdió. Se dejó de mirar.", "Chispa descubrió el «ya que estoy aquí». Es el antojo más común del planeta.", "Dato anotó cuántas veces dicen «mañana empiezo». Se le acabó la libreta.", "Chispa aprendió que «solo un pedacito» es una unidad de medida humana.", "Dato vio a alguien comer frente a la nevera abierta. Lo anotó como deporte.", "No tienes que ganarle al antojo. Solo tienes que no comprarlo.", "El antojo pregunta. No tienes que contestar ya.", "No es la galleta. Es el paquete entero.", "El cuerpo avisa. El paquete grita. Escucha al que habla bajito.", "Lo más fuerte que puedes hacer a las 11 p. m. es irte a dormir."];
+    var ORDER = ['etiqueta', 'proteina', 'dulce', 'caja', 'noche'];
+    var buttons = [].slice.call(root.querySelectorAll('.jcs-pains__list button[data-tag]'));
+    var combo = root.querySelector('.jcs-pains__combo'), cq = combo.querySelector('.jcs-pains__combo-q'), ck = combo.querySelector('b');
+    var reveal = root.querySelector('.jcs-pains__reveal'), thinking = root.querySelector('.jcs-thinking'), res = root.querySelector('.jcs-result');
+    var shown = false, last = null, fortune = null, seen = {}, idx = 0, mask = 0;
+    function newFortune() { var f; do { f = FORTUNES[Math.floor(Math.random() * FORTUNES.length)]; } while (FORTUNES.length > 1 && f === fortune); fortune = f; }
+    function picked() { return buttons.filter(function (b) { return b.getAttribute('aria-pressed') === 'true'; }).map(function (b) { return b.dataset.tag; }); }
+    function maskOf() { return buttons.reduce(function (m, b, i) { return m | (b.getAttribute('aria-pressed') === 'true' ? (1 << i) : 0); }, 0); }
+    function quip(clicked, advance) {
+      mask = maskOf(); var k = picked().length; ck.textContent = k;
+      if (!mask) { combo.hidden = true; return; }
+      var c = BANK[String(mask)]; if (!c) return;
+      if (advance) idx = (idx + 1) % c.length; else { idx = (seen[mask] || 0) % c.length; seen[mask] = (seen[mask] || 0) + 1; }
+      cq.textContent = c[idx]; combo.hidden = false;
+      if (clicked) clicked.closest('li').appendChild(combo);
+    }
+    function compute(keys) {
+      var c = { etiqueta: 0, proteina: 0, dulce: 0, caja: 0, noche: 0 }, firstIdx = {};
+      keys.forEach(function (k, i) { var p = CARDS[k].p; c[p]++; if (firstIdx[p] === undefined) firstIdx[p] = i; });
+      var ranked = ORDER.slice().sort(function (a, b) { return c[b] - c[a] || (firstIdx[a] === undefined ? 99 : firstIdx[a]) - (firstIdx[b] === undefined ? 99 : firstIdx[b]); });
+      var top = ranked[0], second = ranked[1], prof = PROFILES[top];
+      var title = prof.title, roast = prof.roast, rule = prof.rule, moment = prof.moment;
+      if (keys.length >= 4) { title = 'El combo completo'; roast = 'No eres un desastre. Eras el cliente perfecto del sistema. Hasta hoy.'; rule = 'No te falta fuerza de voluntad. Te falta comida que no te pelee.'; moment = 'Tu momento NUBE: todos. Por eso son 30 barras.'; }
+      else if (keys.length >= 2) { var pr = PAIRS[top + '+' + second] || PAIRS[second + '+' + top]; if (pr) { title = pr[0]; roast = pr[1]; } }
+      var lead = keys.filter(function (k) { return CARDS[k].p === top; })[0] || keys[0];
+      var take = keys.filter(function (k) { return CARDS[k].p === top; }).concat(keys.filter(function (k) { return CARDS[k].p !== top; })).slice(0, 3).map(function (k) { return CARDS[k].take; });
+      return { title: title, roast: roast, rule: rule, moment: moment, bot: CARDS[lead].bot, line: CARDS[lead].line, take: take };
+    }
+    function render() {
+      var keys = picked(); if (keys.length < 2) { res.hidden = true; return; }
+      var r = compute(keys); last = { r: r, keys: keys };
+      var f = res.querySelector('.jcs-result__face'); f.src = FACES[r.bot]; f.alt = NAMES[r.bot];
+      res.querySelector('.jcs-result__title').textContent = r.title;
+      res.querySelector('.jcs-result__roast').textContent = r.roast;
+      res.querySelector('.jcs-result__bot').innerHTML = '<b>' + NAMES[r.bot] + ':</b> «' + r.line + '»';
+      res.querySelector('.jcs-result__rule').textContent = r.rule;
+      var ul = res.querySelector('.jcs-result__take'); ul.innerHTML = '';
+      r.take.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+      if (!fortune) newFortune();
+      res.querySelector('.jcs-result__fortune').textContent = fortune;
+      res.querySelector('.jcs-result__moment').textContent = r.moment;
+      var fold = res.querySelector('.jcs-result__fold'); if (fold && window.matchMedia('(max-width: 899px)').matches) fold.open = false;
+      res.hidden = false;
+    }
+    function update(clicked) {
+      quip(clicked, false);
+      reveal.hidden = picked().length < 2 || shown;
+      if (shown) render();
+    }
+    buttons.forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); update(b); }); });
+    combo.querySelector('.jcs-pains__combo-again').addEventListener('click', function () { quip(null, true); });
+    reveal.addEventListener('click', function () {
+      shown = true; window.jcJuego = true; newFortune(); reveal.hidden = true; res.hidden = true;
+      thinking.hidden = false; thinking.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function () { thinking.hidden = true; render(); res.classList.remove('is-in'); void res.offsetWidth; res.classList.add('is-in'); res.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 1600);
+    });
+          /* Guardar mi tarjeta: a 1080x1920 image for stories */
+          function wrap(ctx, text, x, y, maxW, lh) {
+            var words = String(text).split(' '), line = '', lines = [];
+            words.forEach(function (w) { var t = line ? line + ' ' + w : w; if (ctx.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t; });
+            if (line) lines.push(line);
+            lines.forEach(function (l, i) { ctx.fillText(l, x, y + i * lh); });
+            return y + lines.length * lh;
+          }
+          function drawCard(face) {
+            var r = last.r, W = 1080, H = 1920, c = document.createElement('canvas'); c.width = W; c.height = H;
+            var ctx = c.getContext('2d'), F = getComputedStyle(document.querySelector('.jcs')).fontFamily || 'sans-serif';
+            var x = 96, maxW = W - 192;
+            function body(y, draw) {
+              ctx.fillStyle = '#f4f3ef'; ctx.textBaseline = 'top';
+              var fill = draw ? function (t, a, b) { ctx.fillText(t, a, b); } : function () {};
+              var w = function (t, yy, lh) { if (draw) return wrap(ctx, t, x, yy, maxW, lh); var words = String(t).split(' '), line = '', n = 0; words.forEach(function (wd) { var tt = line ? line + ' ' + wd : wd; if (ctx.measureText(tt).width > maxW && line) { n++; line = wd; } else line = tt; }); if (line) n++; return yy + n * lh; };
+              if (face) { if (draw) { ctx.save(); ctx.beginPath(); ctx.arc(x + 90, y + 90, 90, 0, Math.PI * 2); ctx.closePath(); ctx.clip(); ctx.drawImage(face, x, y, 180, 180); ctx.restore(); ctx.lineWidth = 6; ctx.strokeStyle = '#f4f3ef'; ctx.beginPath(); ctx.arc(x + 90, y + 90, 90, 0, Math.PI * 2); ctx.stroke(); } y += 230; }
+              ctx.globalAlpha = .6; ctx.font = '700 30px ' + F; fill('TE SALIÓ', x, y); ctx.globalAlpha = 1; y += 56;
+              ctx.font = '500 104px ' + F; y = w(r.title.toUpperCase(), y, 106) + 22;
+              ctx.globalAlpha = .85; ctx.font = '400 40px ' + F; y = w(r.roast, y, 52) + 30; ctx.globalAlpha = .7;
+              ctx.font = '400 34px ' + F; y = w(NAMES[r.bot] + ': «' + r.line + '»', y, 46) + 70; ctx.globalAlpha = 1;
+              ctx.fillStyle = '#e8a598'; ctx.font = '700 28px ' + F; fill('TU REGLA', x, y); y += 52;
+              ctx.fillStyle = '#f4f3ef'; ctx.font = '500 58px ' + F; y = w(r.rule, y, 70) + 70;
+              ctx.fillStyle = '#e8a598'; ctx.font = '700 28px ' + F; fill('TU GALLETA DE LA FORTUNA (SIN AZÚCAR)', x, y); y += 52;
+              ctx.fillStyle = '#f4f3ef'; ctx.font = 'italic 400 46px ' + F; y = w(fortune, y, 60);
+              return y;
+            }
+            var h = body(0, false);
+            ctx.fillStyle = '#111'; ctx.fillRect(0, 0, W, H);
+            ctx.fillStyle = '#f4f3ef'; ctx.textBaseline = 'top'; ctx.font = '800 54px ' + F; ctx.fillText('junglcore', x, 110);
+            body(Math.max(240, (H - h) / 2), true);
+            ctx.globalAlpha = .5; ctx.font = '700 28px ' + F; ctx.fillText('¿CUÁLES TE PASAN? · JUNGLCORE.COM', x, H - 140); ctx.globalAlpha = 1;
+            return c;
+          }
+          function deliver(c) {
+            var name = 'junglcore-' + last.r.title.toLowerCase().replace(/\s+/g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, '') + '.png';
+            c.toBlob(function (blob) {
+              if (!blob) return;
+              var file = new File([blob], name, { type: 'image/png' });
+              if (navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file] }).catch(function () {}); return; }
+              var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+            }, 'image/png');
+          }
+          res.querySelector('.jcs-result__save').addEventListener('click', function () {
+            if (!last) return;
+            var img = new Image(); img.crossOrigin = 'anonymous';
+            img.onload = function () { var c = drawCard(img); try { c.toDataURL(); deliver(c); } catch (e) { deliver(drawCard(null)); } };
+            img.onerror = function () { deliver(drawCard(null)); };
+            img.src = FACES[last.r.bot];
+          });
+          res.querySelector('.jcs-result__share').addEventListener('click', function () {
+            if (!last) return;
+            var text = 'Me salió ' + last.r.title.toUpperCase() + ' en ¿Cuáles te pasan? ¿Y a ti?';
+            var url = location.origin + '/#juego';
+            if (navigator.share) { navigator.share({ text: text, url: url }).catch(function () {}); }
+            else window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
+          });
+          res.querySelector('.jcs-result__again').addEventListener('click', function () {
+            buttons.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+            shown = false; fortune = null; res.hidden = true; combo.hidden = true; update(null);
+            root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+  })();
+</script>

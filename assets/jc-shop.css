@@ -1618,3 +1618,14 @@ a.jcs-invest__box:hover { background: #e9e1d4; }
 .jcs-pdp-spec strong { font-size: 26px; font-weight: 400; letter-spacing: -.03em; line-height: 1; }
 .jcs-pdp-spec span { font-size: 15px; line-height: 1.35; color: var(--muted); }
 .jcs-label__grid { grid-template-columns: 1fr !important; }
+/* ¿Cuáles te pasan?: the line for each combination, and the result */
+.jcs-pains__combo { margin: 8px 0 4px; padding: 14px 16px; background: #fff; border: 1px solid var(--rule, #ddd); border-left: 3px solid var(--ink); }
+.jcs-pains__combo-k { margin: 0 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.jcs-pains__combo-q { margin: 0; font-size: 16px; line-height: 1.45; }
+.jcs-pains__combo-again { margin-top: 10px; padding: 0; border: 0; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.jcs-pains__score { margin-top: 16px; }
+.jcs-pains__reveal { width: 100%; }
+.jcs-pains .jcs-thinking, .jcs-pains .jcs-result { margin-top: 20px; }
+.jcs-pains__list .jcs-pains__combo-again { width: auto; padding: 0; border: 0; background: none; font-size: 13px; font-weight: 600; }
+.jcs-pains__list .jcs-pains__combo-again::after { content: none; }
+.jcs-pains__list li .jcs-pains__combo { margin-top: 8px; }

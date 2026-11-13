@@ -170,31 +170,7 @@
       <p class="jcs-chapter"><span>05</span>La lista</p>
       <h2 class="visually-hidden" id="jc-lista-title">Apúntate a la lista del Lote 001</h2>
       <div class="jcs-listsec__box">
-        <div class="jcs-pains" id="jc-pains">
-          <h3 class="jcs-pains__title">¿Cuáles te pasan?</h3>
-          <p class="jcs-pains__ask">Toca las tuyas.</p>
-          <ul class="jcs-pains__list">
-            <li><button type="button" aria-pressed="false" data-tag="dolor-etiqueta">Lees la etiqueta y no entiendes la mitad.</button></li>
-            <li><button type="button" aria-pressed="false" data-tag="dolor-proteina">Buscas proteína y tu bebida vegetal casi no trae.</button></li>
-            <li><button type="button" aria-pressed="false" data-tag="dolor-dulce">Todo lo «saludable» sabe a postre.</button></li>
-            <li><button type="button" aria-pressed="false" data-tag="dolor-caja">Abres una caja y se te daña antes de terminarla.</button></li>
-            <li><button type="button" aria-pressed="false" data-tag="dolor-noche">A las 11 p.&nbsp;m. abres la nevera buscando algo.</button></li>
-          </ul>
-          <p class="jcs-pains__result" aria-live="polite" hidden><strong><b>0</b> de 5. Para eso hicimos NUBE.</strong> <span>Y además, sabes de dónde viene.</span></p>
-        </div>
-        <script>
-          (function () {
-            var box = document.getElementById('jc-pains'); if (!box) return;
-            var res = box.querySelector('.jcs-pains__result'), n = res.querySelector('b');
-            box.querySelectorAll('button[data-tag]').forEach(function (b) {
-              b.addEventListener('click', function () {
-                b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
-                var k = box.querySelectorAll('button[aria-pressed="true"]').length;
-                n.textContent = k; res.hidden = k === 0;
-              });
-            });
-          })();
-        </script>
+        {% render 'jc-pains-game' %}
         {% render 'jc-waitlist', product: nube, form_id: 'jcs-home-list' %}
         {% render 'jc-delivery-check', id: 'jcs-home-list-check' %}
       </div>
